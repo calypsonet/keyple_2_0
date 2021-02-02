@@ -1,0 +1,106 @@
+@startuml
+title
+    Keyple 2.0 - Modules dependencies - 02/02/2021
+end title
+
+' == THEME ==
+
+'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define COLOR_YELLOW D4AC0D
+!define COLOR_RED E74C3C
+!define COLOR_PURPLE 8E44AD
+!define COLOR_BLUE 3498DB
+!define COLOR_GREEN 27AE60
+!define COLOR_GREY 2C3E50
+skinparam Shadowing false
+skinparam component {
+    BorderColor #D4AC0D
+    ' Red
+    BackgroundColor<<red>> #FDEDEC
+    BorderColor<<red>> #E74C3C
+    ' Purple
+    BackgroundColor<<purple>> #F4ECF7
+    BorderColor<<purple>> #8E44AD
+    ' blue
+    BackgroundColor<<blue>> #EBF5FB
+    BorderColor<<blue>> #3498DB
+    ' Green
+    BackgroundColor<<green>> #E9F7EF
+    BorderColor<<green>> #27AE60
+    ' Grey
+    BackgroundColor<<grey>> #EAECEE
+    BorderColor<<grey>> #2C3E50
+}
+skinparam interface {
+    BorderColor #D4AC0D
+    ' Red
+    BackgroundColor<<red>> #FDEDEC
+    BorderColor<<red>> #E74C3C
+    ' Purple
+    BackgroundColor<<purple>> #F4ECF7
+    BorderColor<<purple>> #8E44AD
+    ' blue
+    BackgroundColor<<blue>> #EBF5FB
+    BorderColor<<blue>> #3498DB
+    ' Green
+    BackgroundColor<<green>> #E9F7EF
+    BorderColor<<green>> #27AE60
+    ' Grey
+    BackgroundColor<<grey>> #EAECEE
+    BorderColor<<grey>> #2C3E50
+}
+hide <<red>> stereotype
+hide <<purple>> stereotype
+hide <<blue>> stereotype
+hide <<green>> stereotype
+hide <<grey>> stereotype
+
+' == COMPONENTS ==
+
+package "Components having adapters" as packMain {
+    [Specific Application] as application <<blue>>
+    [**keyple-service**\nService API\nuse <back:cyan>**keyple-commons-api**</back>] as service
+    [Specific Plugin\n(PCSC...)\nuse <back:cyan>**keyple-commons-api**</back>] as plugin <<red>>
+    [Specific Card Extension\n(Calypso...)\nuse <back:cyan>**keyple-commons-api**</back>] as extension <<green>>
+    together {
+        [**keyple-distributed-local**\nDistributed Local\nuse <back:cyan>**keyple-commons-api**</back>] as local <<purple>>
+        [**keyple-distributed-network**\nDistributed Network] as network <<purple>>
+        [**keyple-distributed-remote**\nDistributed Remote\nuse <back:cyan>**keyple-commons-api**</back>] as remote <<purple>>
+    }
+}
+package "Keyple Internal APIs/SPIs (hidden for the specific application)" {
+    [**keyple-plugin-api**\nPlugin API] as pluginApi
+    [**keyple-card-api**\nCard API\nuse <back:cyan>**keyple-commons-api**</back>] as cardApi
+    [**keyple-local-service-api**\nLocal Service API\nuse <back:cyan>**keyple-commons-api**</back>] as localServiceApi
+    [**keyple-remote-plugin-api**\nRemote Plugin API] as remotePluginApi
+}
+[**keyple-utils**] as utils
+
+' == ASSOCIATIONS ==
+
+application --> plugin #COLOR_BLUE
+application --> service #COLOR_BLUE
+application --> extension #COLOR_BLUE
+application --> local #COLOR_BLUE
+application --> network #COLOR_BLUE
+application --> remote #COLOR_BLUE
+
+extension --> cardApi #COLOR_GREEN
+extension -right-> service #COLOR_GREEN
+
+plugin --> pluginApi #COLOR_RED
+
+service --> pluginApi #COLOR_YELLOW
+service --> cardApi #COLOR_YELLOW
+service --> remotePluginApi #COLOR_YELLOW
+service --> localServiceApi #COLOR_YELLOW
+
+local -left-> network #COLOR_PURPLE
+local --> localServiceApi #COLOR_PURPLE
+
+remote -right-> network #COLOR_PURPLE
+remote --> remotePluginApi #COLOR_PURPLE
+
+packMain -up-> utils
+
+@enduml

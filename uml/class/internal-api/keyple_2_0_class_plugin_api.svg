@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="4872.5px" preserveAspectRatio="none" style="width:3947px;height:4872px;" version="1.1" viewBox="0 0 3947 4872" width="3947.5px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="962.5" x="1476.25" y="46.7139">Keyple 2.0 - keyple-plugin-api - 2.0 (18/01/2021)</text><!--MD5=[7442f3b126ee602ae02566c1a49e158a]
+cluster api--><polygon fill="#F8F9F9" points="40,71.6016,497.5,71.6016,515,130.625,3905,130.625,3905,4856.6016,40,4856.6016,40,71.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="40" x2="515" y1="130.625" y2="130.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="442.5" x="50" y="112.9346">org.eclipse.keyple.plugin</text><!--MD5=[f7e0e2453c87923036c1ac2adfb9cbf0]
+cluster spi--><polygon fill="#F2F3F4" points="790,181.6016,857.5,181.6016,875,240.625,3845,240.625,3845,4796.6016,790,4796.6016,790,181.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="790" x2="875" y1="240.625" y2="240.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="52.5" x="800" y="222.9346">spi</text><!--MD5=[9d4f2f8fc0ef5fca8dbaabf8542dfdf0]
+cluster reader--><polygon fill="#E5E7E9" points="870,1869.1016,1002.5,1869.1016,1020,1928.125,3765,1928.125,3765,4716.6016,870,4716.6016,870,1869.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="870" x2="1020" y1="1928.125" y2="1928.125"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="117.5" x="880" y="1910.4346">reader</text><!--MD5=[7803640e65316a1aaa8dd9cfa5757036]
+cluster observable--><polygon fill="#D7DBDD" points="970,2661.6016,1185,2661.6016,1202.5,2720.625,3685,2720.625,3685,4636.6016,970,4636.6016,970,2661.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="970" x2="1202.5" y1="2720.625" y2="2720.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="200" x="980" y="2702.9346">observable</text><!--MD5=[61ef0e7cedb036059990bfe942fe9360]
+cluster states--><polygon fill="#CACFD2" points="1050,3476.6016,1172.5,3476.6016,1190,3535.625,3605,3535.625,3605,4556.6016,1050,4556.6016,1050,3476.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="1050" x2="1190" y1="3535.625" y2="3535.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="107.5" x="1060" y="3517.9346">states</text><!--MD5=[56cc7744dce0ba3f4b240a81bbd86b4d]
+cluster processing--><polygon fill="#BDC3C7" points="2685,3641.6016,2897.5,3641.6016,2915,3700.625,3525,3700.625,3525,4199.1016,2685,4199.1016,2685,3641.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="2685" x2="2915" y1="3700.625" y2="3700.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="197.5" x="2695" y="3682.9346">processing</text><!--MD5=[96840f9661dc00f069d7c1c99596e4e4]
+cluster insertion--><polygon fill="#BDC3C7" points="1920,3606.6016,2092.5,3606.6016,2110,3665.625,2625,3665.625,2625,4476.6016,1920,4476.6016,1920,3606.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="1920" x2="2110" y1="3665.625" y2="3665.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="157.5" x="1930" y="3647.9346">insertion</text><!--MD5=[424729035692cb2b85233c643738d291]
+cluster removal--><polygon fill="#BDC3C7" points="1150,3606.6016,1307.5,3606.6016,1325,3665.625,1860,3665.625,1860,4476.6016,1150,4476.6016,1150,3606.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="1150" x2="1325" y1="3665.625" y2="3665.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="142.5" x="1160" y="3647.9346">removal</text><!--MD5=[65186f066ccf5da9ce5e33cb8fc4ab69]
+class AutonomousObservableReaderManager--><rect codeLine="48" fill="#FEFECE" height="189.1797" id="AutonomousObservableReaderManager" style="stroke:#D4AC0D;stroke-width:3.75;" width="667.5" x="81.25" y="3149.1016"/><ellipse cx="118.75" cy="3189.1016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M121.25,3181.6016 L121.25,3196.6016 L126.25,3196.6016 L127.4609,3196.6016 L128.75,3198.1641 L128.75,3199.1016 L128.75,3200.0391 L127.4609,3201.6016 L126.25,3201.6016 L111.25,3201.6016 L110.0391,3201.6016 L108.75,3200.0391 L108.75,3199.1016 L108.75,3198.1641 L110.0391,3196.6016 L111.25,3196.6016 L116.25,3196.6016 L116.25,3181.6016 L111.25,3181.6016 L110.0391,3181.6016 L108.75,3180.0391 L108.75,3179.1016 L108.75,3178.1641 L110.0391,3176.6016 L111.25,3176.6016 L126.25,3176.6016 L127.4609,3176.6016 L128.75,3178.1641 L128.75,3179.1016 L128.75,3180.0391 L127.4609,3181.6016 L126.25,3181.6016 L121.25,3181.6016 Z " fill="#000000"/><ellipse cx="166.25" cy="3187.8516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="560" x="181.25" y="3201.377">AutonomousObservableReaderManager</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="83.75" x2="746.25" y1="3229.1016" y2="3229.1016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="83.75" x2="746.25" y1="3249.1016" y2="3249.1016"/><ellipse cx="108.75" cy="3276.6016" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="270" x="131.25" y="3287.6489">void onCardInserted ()</text><ellipse cx="108.75" cy="3311.1914" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="285" x="131.25" y="3322.2388">void onCardRemoved ()</text><!--MD5=[bd9a553afa694fd26885f47f3b366762]
+class ObservablePluginSpi--><rect codeLine="73" fill="#FEFECE" height="120" id="ObservablePluginSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="402.5" x="2033.75" y="1119.1016"/><ellipse cx="2071.25" cy="1159.1016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2073.75,1151.6016 L2073.75,1166.6016 L2078.75,1166.6016 L2079.9609,1166.6016 L2081.25,1168.1641 L2081.25,1169.1016 L2081.25,1170.0391 L2079.9609,1171.6016 L2078.75,1171.6016 L2063.75,1171.6016 L2062.5391,1171.6016 L2061.25,1170.0391 L2061.25,1169.1016 L2061.25,1168.1641 L2062.5391,1166.6016 L2063.75,1166.6016 L2068.75,1166.6016 L2068.75,1151.6016 L2063.75,1151.6016 L2062.5391,1151.6016 L2061.25,1150.0391 L2061.25,1149.1016 L2061.25,1148.1641 L2062.5391,1146.6016 L2063.75,1146.6016 L2078.75,1146.6016 L2079.9609,1146.6016 L2081.25,1148.1641 L2081.25,1149.1016 L2081.25,1150.0391 L2079.9609,1151.6016 L2078.75,1151.6016 L2073.75,1151.6016 Z " fill="#000000"/><ellipse cx="2118.75" cy="1157.8516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="295" x="2133.75" y="1171.377">ObservablePluginSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2036.25" x2="2433.75" y1="1199.1016" y2="1199.1016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2036.25" x2="2433.75" y1="1219.1016" y2="1219.1016"/><!--MD5=[0162d9745a08a0070841265523140335]
+class ThreadedObservablePluginSpi--><rect codeLine="75" fill="#FEFECE" height="298.3594" id="ThreadedObservablePluginSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="960" x="1725" y="1434.1016"/><ellipse cx="1966.875" cy="1474.1016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1969.375,1466.6016 L1969.375,1481.6016 L1974.375,1481.6016 L1975.5859,1481.6016 L1976.875,1483.1641 L1976.875,1484.1016 L1976.875,1485.0391 L1975.5859,1486.6016 L1974.375,1486.6016 L1959.375,1486.6016 L1958.1641,1486.6016 L1956.875,1485.0391 L1956.875,1484.1016 L1956.875,1483.1641 L1958.1641,1481.6016 L1959.375,1481.6016 L1964.375,1481.6016 L1964.375,1466.6016 L1959.375,1466.6016 L1958.1641,1466.6016 L1956.875,1465.0391 L1956.875,1464.1016 L1956.875,1463.1641 L1958.1641,1461.6016 L1959.375,1461.6016 L1974.375,1461.6016 L1975.5859,1461.6016 L1976.875,1463.1641 L1976.875,1464.1016 L1976.875,1465.0391 L1975.5859,1466.6016 L1974.375,1466.6016 L1969.375,1466.6016 Z " fill="#000000"/><ellipse cx="2030.625" cy="1472.8516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="427.5" x="2045.625" y="1486.377">ThreadedObservablePluginSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1727.5" x2="2682.5" y1="1514.1016" y2="1514.1016"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="1727.5" x2="2682.5" y1="1534.1016" y2="1534.1016"/><ellipse cx="1752.5" cy="1561.6016" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="390" x="1775" y="1572.6489">int getMonitoringCycleDuration ()</text><line style="stroke:#D4AC0D;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="1727.5" x2="2682.5" y1="1588.6914" y2="1588.6914"/><ellipse cx="1752.5" cy="1616.1914" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="577.5" x="1775" y="1627.2388">SortedSet&lt;String&gt; fetchNativeReadersNames ()</text><ellipse cx="1752.5" cy="1650.7813" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="527.5" x="1775" y="1661.8286">ReaderSpi fetchNativeReader (String name)</text><line style="stroke:#D4AC0D;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="1727.5" x2="2682.5" y1="1677.8711" y2="1677.8711"/><ellipse cx="1752.5" cy="1705.3711" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="895" x="1775" y="1716.4185">PluginObservationExceptionHandlerSpi getObservationExceptionHandler ()</text><!--MD5=[f9fcd30113853d8738bc1c3769de9355]
+class PluginObservationExceptionHandlerSpi--><rect codeLine="84" fill="#FEFECE" height="189.1797" id="PluginObservationExceptionHandlerSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="670" x="830" y="1487.8516"/><ellipse cx="875.375" cy="1527.8516" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M877.875,1520.3516 L877.875,1535.3516 L882.875,1535.3516 L884.0859,1535.3516 L885.375,1536.9141 L885.375,1537.8516 L885.375,1538.7891 L884.0859,1540.3516 L882.875,1540.3516 L867.875,1540.3516 L866.6641,1540.3516 L865.375,1538.7891 L865.375,1537.8516 L865.375,1536.9141 L866.6641,1535.3516 L867.875,1535.3516 L872.875,1535.3516 L872.875,1520.3516 L867.875,1520.3516 L866.6641,1520.3516 L865.375,1518.7891 L865.375,1517.8516 L865.375,1516.9141 L866.6641,1515.3516 L867.875,1515.3516 L882.875,1515.3516 L884.0859,1515.3516 L885.375,1516.9141 L885.375,1517.8516 L885.375,1518.7891 L884.0859,1520.3516 L882.875,1520.3516 L877.875,1520.3516 Z " fill="#000000"/><ellipse cx="924.625" cy="1526.6016" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="545" x="939.625" y="1540.127">PluginObservationExceptionHandlerSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="832.5" x2="1497.5" y1="1567.8516" y2="1567.8516"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="832.5" x2="1497.5" y1="1587.8516" y2="1587.8516"/><ellipse cx="857.5" cy="1615.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="605" x="880" y="1626.3989">void onPluginObservationError (String pluginName,</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="162.5" x="940" y="1660.9888">Throwable e)</text><!--MD5=[b7f0fd29174c4bdbe9801878c5229577]
+class PluginSpi--><rect codeLine="54" fill="#FEFECE" height="154.5898" id="PluginSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="600" x="1985" y="761.6016"/><ellipse cx="2194.375" cy="801.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2196.875,794.1016 L2196.875,809.1016 L2201.875,809.1016 L2203.0859,809.1016 L2204.375,810.6641 L2204.375,811.6016 L2204.375,812.5391 L2203.0859,814.1016 L2201.875,814.1016 L2186.875,814.1016 L2185.6641,814.1016 L2184.375,812.5391 L2184.375,811.6016 L2184.375,810.6641 L2185.6641,809.1016 L2186.875,809.1016 L2191.875,809.1016 L2191.875,794.1016 L2186.875,794.1016 L2185.6641,794.1016 L2184.375,792.5391 L2184.375,791.6016 L2184.375,790.6641 L2185.6641,789.1016 L2186.875,789.1016 L2201.875,789.1016 L2203.0859,789.1016 L2204.375,790.6641 L2204.375,791.6016 L2204.375,792.5391 L2203.0859,794.1016 L2201.875,794.1016 L2196.875,794.1016 Z " fill="#000000"/><ellipse cx="2258.125" cy="800.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="132.5" x="2273.125" y="813.877">PluginSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1987.5" x2="2582.5" y1="841.6016" y2="841.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1987.5" x2="2582.5" y1="861.6016" y2="861.6016"/><ellipse cx="2012.5" cy="889.1016" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="535" x="2035" y="900.1489">Map&lt;String, ReaderSpi&gt; initNativeReaders ()</text><!--MD5=[ac576d0a3e09e240a29dfeecfcc8498d]
+class PoolPluginSpi--><rect codeLine="57" fill="#FEFECE" height="243.7695" id="PoolPluginSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="680" x="2672.5" y="716.6016"/><ellipse cx="2890.625" cy="756.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2893.125,749.1016 L2893.125,764.1016 L2898.125,764.1016 L2899.3359,764.1016 L2900.625,765.6641 L2900.625,766.6016 L2900.625,767.5391 L2899.3359,769.1016 L2898.125,769.1016 L2883.125,769.1016 L2881.9141,769.1016 L2880.625,767.5391 L2880.625,766.6016 L2880.625,765.6641 L2881.9141,764.1016 L2883.125,764.1016 L2888.125,764.1016 L2888.125,749.1016 L2883.125,749.1016 L2881.9141,749.1016 L2880.625,747.5391 L2880.625,746.6016 L2880.625,745.6641 L2881.9141,744.1016 L2883.125,744.1016 L2898.125,744.1016 L2899.3359,744.1016 L2900.625,745.6641 L2900.625,746.6016 L2900.625,747.5391 L2899.3359,749.1016 L2898.125,749.1016 L2893.125,749.1016 Z " fill="#000000"/><ellipse cx="2954.375" cy="755.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="195" x="2969.375" y="768.877">PoolPluginSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2675" x2="3350" y1="796.6016" y2="796.6016"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="2675" x2="3350" y1="816.6016" y2="816.6016"/><ellipse cx="2700" cy="844.1016" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="597.5" x="2722.5" y="855.1489">SortedSet&lt;String&gt; getReaderGroupReferences ()</text><line style="stroke:#D4AC0D;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="2675" x2="3350" y1="871.1914" y2="871.1914"/><ellipse cx="2700" cy="898.6914" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="615" x="2722.5" y="909.7388">ReaderSpi allocateReader (String groupReference)</text><ellipse cx="2700" cy="933.2813" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="475" x="2722.5" y="944.3286">void releaseReader (ReaderSpi reader)</text><!--MD5=[1dbdc6fbf367d908234c3412457bed60]
+class PluginFactorySpi--><rect codeLine="64" fill="#FEFECE" height="189.1797" id="PluginFactorySpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="345" x="2112.5" y="331.6016"/><ellipse cx="2152.25" cy="371.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2154.75,364.1016 L2154.75,379.1016 L2159.75,379.1016 L2160.9609,379.1016 L2162.25,380.6641 L2162.25,381.6016 L2162.25,382.5391 L2160.9609,384.1016 L2159.75,384.1016 L2144.75,384.1016 L2143.5391,384.1016 L2142.25,382.5391 L2142.25,381.6016 L2142.25,380.6641 L2143.5391,379.1016 L2144.75,379.1016 L2149.75,379.1016 L2149.75,364.1016 L2144.75,364.1016 L2143.5391,364.1016 L2142.25,362.5391 L2142.25,361.6016 L2142.25,360.6641 L2143.5391,359.1016 L2144.75,359.1016 L2159.75,359.1016 L2160.9609,359.1016 L2162.25,360.6641 L2162.25,361.6016 L2162.25,362.5391 L2160.9609,364.1016 L2159.75,364.1016 L2154.75,364.1016 Z " fill="#000000"/><ellipse cx="2200.25" cy="370.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="232.5" x="2215.25" y="383.877">PluginFactorySpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2115" x2="2455" y1="411.6016" y2="411.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2115" x2="2455" y1="431.6016" y2="431.6016"/><ellipse cx="2140" cy="459.1016" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="280" x="2162.5" y="470.1489">String getPluginName ()</text><ellipse cx="2140" cy="493.6914" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="250" x="2162.5" y="504.7388">PluginSpi getPlugin ()</text><!--MD5=[00da79cea98b9959a7e0d6a1c3adb609]
+class PoolPluginFactorySpi--><rect codeLine="68" fill="#FEFECE" height="189.1797" id="PoolPluginFactorySpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="402.5" x="2811.25" y="331.6016"/><ellipse cx="2848.75" cy="371.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2851.25,364.1016 L2851.25,379.1016 L2856.25,379.1016 L2857.4609,379.1016 L2858.75,380.6641 L2858.75,381.6016 L2858.75,382.5391 L2857.4609,384.1016 L2856.25,384.1016 L2841.25,384.1016 L2840.0391,384.1016 L2838.75,382.5391 L2838.75,381.6016 L2838.75,380.6641 L2840.0391,379.1016 L2841.25,379.1016 L2846.25,379.1016 L2846.25,364.1016 L2841.25,364.1016 L2840.0391,364.1016 L2838.75,362.5391 L2838.75,361.6016 L2838.75,360.6641 L2840.0391,359.1016 L2841.25,359.1016 L2856.25,359.1016 L2857.4609,359.1016 L2858.75,360.6641 L2858.75,361.6016 L2858.75,362.5391 L2857.4609,364.1016 L2856.25,364.1016 L2851.25,364.1016 Z " fill="#000000"/><ellipse cx="2896.25" cy="370.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="295" x="2911.25" y="383.877">PoolPluginFactorySpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2813.75" x2="3211.25" y1="411.6016" y2="411.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2813.75" x2="3211.25" y1="431.6016" y2="431.6016"/><ellipse cx="2838.75" cy="459.1016" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="280" x="2861.25" y="470.1489">String getPluginName ()</text><ellipse cx="2838.75" cy="493.6914" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="300" x="2861.25" y="504.7388">PoolPluginSpi getPlugin ()</text><!--MD5=[b139ab9773e4f9d5f3343a17f6c03cd6]
+class ReaderSpi--><rect codeLine="89" fill="#FEFECE" height="565.8984" id="ReaderSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="782.5" x="2383.75" y="1979.1016"/><ellipse cx="2676.875" cy="2019.1016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2679.375,2011.6016 L2679.375,2026.6016 L2684.375,2026.6016 L2685.5859,2026.6016 L2686.875,2028.1641 L2686.875,2029.1016 L2686.875,2030.0391 L2685.5859,2031.6016 L2684.375,2031.6016 L2669.375,2031.6016 L2668.1641,2031.6016 L2666.875,2030.0391 L2666.875,2029.1016 L2666.875,2028.1641 L2668.1641,2026.6016 L2669.375,2026.6016 L2674.375,2026.6016 L2674.375,2011.6016 L2669.375,2011.6016 L2668.1641,2011.6016 L2666.875,2010.0391 L2666.875,2009.1016 L2666.875,2008.1641 L2668.1641,2006.6016 L2669.375,2006.6016 L2684.375,2006.6016 L2685.5859,2006.6016 L2686.875,2008.1641 L2686.875,2009.1016 L2686.875,2010.0391 L2685.5859,2011.6016 L2684.375,2011.6016 L2679.375,2011.6016 Z " fill="#000000"/><ellipse cx="2740.625" cy="2017.8516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="147.5" x="2755.625" y="2031.377">ReaderSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2386.25" x2="3163.75" y1="2059.1016" y2="2059.1016"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="2386.25" x2="3163.75" y1="2079.1016" y2="2079.1016"/><ellipse cx="2411.25" cy="2106.6016" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="687.5" x="2433.75" y="2117.6489">void activateReaderProtocol (String readerProtocolName)</text><ellipse cx="2411.25" cy="2141.1914" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="717.5" x="2433.75" y="2152.2388">void deactivateReaderProtocol (String readerProtocolName)</text><ellipse cx="2411.25" cy="2175.7813" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="660" x="2433.75" y="2186.8286">boolean isCurrentProtocol (String readerProtocolName)</text><line style="stroke:#D4AC0D;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="2386.25" x2="3163.75" y1="2202.8711" y2="2202.8711"/><ellipse cx="2411.25" cy="2230.3711" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="342.5" x="2433.75" y="2241.4185">void openPhysicalChannel ()</text><ellipse cx="2411.25" cy="2264.9609" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="347.5" x="2433.75" y="2276.0083">void closePhysicalChannel ()</text><ellipse cx="2411.25" cy="2299.5508" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="412.5" x="2433.75" y="2310.5981">boolean isPhysicalChannelOpen ()</text><line style="stroke:#D4AC0D;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="2386.25" x2="3163.75" y1="2326.6406" y2="2326.6406"/><ellipse cx="2411.25" cy="2354.1406" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="375" x="2433.75" y="2365.188">boolean checkCardPresence ()</text><line style="stroke:#D4AC0D;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="2386.25" x2="3163.75" y1="2381.2305" y2="2381.2305"/><ellipse cx="2411.25" cy="2408.7305" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="192.5" x="2433.75" y="2419.7778">byte[] getATR ()</text><line style="stroke:#D4AC0D;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="2386.25" x2="3163.75" y1="2435.8203" y2="2435.8203"/><ellipse cx="2411.25" cy="2463.3203" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="417.5" x="2433.75" y="2474.3677">byte[] transmitApdu (byte[] apduIn)</text><line style="stroke:#D4AC0D;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="2386.25" x2="3163.75" y1="2490.4102" y2="2490.4102"/><ellipse cx="2411.25" cy="2517.9102" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="292.5" x="2433.75" y="2528.9575">boolean isContactless ()</text><!--MD5=[bb745676c424d53520d23c7a4b8e4104]
+class AutonomousSelectionReaderSpi--><rect codeLine="107" fill="#FEFECE" height="223.7695" id="AutonomousSelectionReaderSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="570" x="1352.5" y="2149.1016"/><ellipse cx="1395.625" cy="2189.1016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1398.125,2181.6016 L1398.125,2196.6016 L1403.125,2196.6016 L1404.3359,2196.6016 L1405.625,2198.1641 L1405.625,2199.1016 L1405.625,2200.0391 L1404.3359,2201.6016 L1403.125,2201.6016 L1388.125,2201.6016 L1386.9141,2201.6016 L1385.625,2200.0391 L1385.625,2199.1016 L1385.625,2198.1641 L1386.9141,2196.6016 L1388.125,2196.6016 L1393.125,2196.6016 L1393.125,2181.6016 L1388.125,2181.6016 L1386.9141,2181.6016 L1385.625,2180.0391 L1385.625,2179.1016 L1385.625,2178.1641 L1386.9141,2176.6016 L1388.125,2176.6016 L1403.125,2176.6016 L1404.3359,2176.6016 L1405.625,2178.1641 L1405.625,2179.1016 L1405.625,2180.0391 L1404.3359,2181.6016 L1403.125,2181.6016 L1398.125,2181.6016 Z " fill="#000000"/><ellipse cx="1444.375" cy="2187.8516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="450" x="1459.375" y="2201.377">AutonomousSelectionReaderSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1355" x2="1920" y1="2229.1016" y2="2229.1016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1355" x2="1920" y1="2249.1016" y2="2249.1016"/><ellipse cx="1380" cy="2276.6016" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="505" x="1402.5" y="2287.6489">byte[] openChannelForAid (byte[] dfName,</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="252.5" x="1462.5" y="2322.2388">byte isoControlMask)</text><ellipse cx="1380" cy="2345.7813" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="332.5" x="1402.5" y="2356.8286">void closeLogicalChannel ()</text><!--MD5=[26e5f254f3906881073b2da3b5da69c3]
+class ObservableReaderSpi--><rect codeLine="113" fill="#FEFECE" height="243.7695" id="ObservableReaderSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="977.5" x="1381.25" y="2751.6016"/><ellipse cx="1690.625" cy="2791.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1693.125,2784.1016 L1693.125,2799.1016 L1698.125,2799.1016 L1699.3359,2799.1016 L1700.625,2800.6641 L1700.625,2801.6016 L1700.625,2802.5391 L1699.3359,2804.1016 L1698.125,2804.1016 L1683.125,2804.1016 L1681.9141,2804.1016 L1680.625,2802.5391 L1680.625,2801.6016 L1680.625,2800.6641 L1681.9141,2799.1016 L1683.125,2799.1016 L1688.125,2799.1016 L1688.125,2784.1016 L1683.125,2784.1016 L1681.9141,2784.1016 L1680.625,2782.5391 L1680.625,2781.6016 L1680.625,2780.6641 L1681.9141,2779.1016 L1683.125,2779.1016 L1698.125,2779.1016 L1699.3359,2779.1016 L1700.625,2780.6641 L1700.625,2781.6016 L1700.625,2782.5391 L1699.3359,2784.1016 L1698.125,2784.1016 L1693.125,2784.1016 Z " fill="#000000"/><ellipse cx="1754.375" cy="2790.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="310" x="1769.375" y="2803.877">ObservableReaderSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1383.75" x2="2356.25" y1="2831.6016" y2="2831.6016"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="1383.75" x2="2356.25" y1="2851.6016" y2="2851.6016"/><ellipse cx="1408.75" cy="2879.1016" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="285" x="1431.25" y="2890.1489">void onStartDetection ()</text><ellipse cx="1408.75" cy="2913.6914" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="282.5" x="1431.25" y="2924.7388">void onStopDetection ()</text><line style="stroke:#D4AC0D;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="1383.75" x2="2356.25" y1="2940.7813" y2="2940.7813"/><ellipse cx="1408.75" cy="2968.2813" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="912.5" x="1431.25" y="2979.3286">ReaderObservationExceptionHandlerSpi getObservationExceptionHandler ()</text><!--MD5=[ab71e6027ffb9e744680b4ca803acbba]
+class AutonomousObservableReaderSpi--><rect codeLine="120" fill="#FEFECE" height="154.5898" id="AutonomousObservableReaderSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="890" x="1010" y="3166.6016"/><ellipse cx="1188.125" cy="3206.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1190.625,3199.1016 L1190.625,3214.1016 L1195.625,3214.1016 L1196.8359,3214.1016 L1198.125,3215.6641 L1198.125,3216.6016 L1198.125,3217.5391 L1196.8359,3219.1016 L1195.625,3219.1016 L1180.625,3219.1016 L1179.4141,3219.1016 L1178.125,3217.5391 L1178.125,3216.6016 L1178.125,3215.6641 L1179.4141,3214.1016 L1180.625,3214.1016 L1185.625,3214.1016 L1185.625,3199.1016 L1180.625,3199.1016 L1179.4141,3199.1016 L1178.125,3197.5391 L1178.125,3196.6016 L1178.125,3195.6641 L1179.4141,3194.1016 L1180.625,3194.1016 L1195.625,3194.1016 L1196.8359,3194.1016 L1198.125,3195.6641 L1198.125,3196.6016 L1198.125,3197.5391 L1196.8359,3199.1016 L1195.625,3199.1016 L1190.625,3199.1016 Z " fill="#000000"/><ellipse cx="1251.875" cy="3205.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="485" x="1266.875" y="3218.877">AutonomousObservableReaderSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1012.5" x2="1897.5" y1="3246.6016" y2="3246.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1012.5" x2="1897.5" y1="3266.6016" y2="3266.6016"/><ellipse cx="1037.5" cy="3294.1016" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="825" x="1060" y="3305.1489">void setManager (AutonomousObservableReaderManager manager)</text><!--MD5=[f459a825ccfa34ff87f3f3eeff21a525]
+class ReaderObservationExceptionHandlerSpi--><rect codeLine="123" fill="#FEFECE" height="189.1797" id="ReaderObservationExceptionHandlerSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="687.5" x="2583.75" y="2779.1016"/><ellipse cx="2630.25" cy="2819.1016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2632.75,2811.6016 L2632.75,2826.6016 L2637.75,2826.6016 L2638.9609,2826.6016 L2640.25,2828.1641 L2640.25,2829.1016 L2640.25,2830.0391 L2638.9609,2831.6016 L2637.75,2831.6016 L2622.75,2831.6016 L2621.5391,2831.6016 L2620.25,2830.0391 L2620.25,2829.1016 L2620.25,2828.1641 L2621.5391,2826.6016 L2622.75,2826.6016 L2627.75,2826.6016 L2627.75,2811.6016 L2622.75,2811.6016 L2621.5391,2811.6016 L2620.25,2810.0391 L2620.25,2809.1016 L2620.25,2808.1641 L2621.5391,2806.6016 L2622.75,2806.6016 L2637.75,2806.6016 L2638.9609,2806.6016 L2640.25,2808.1641 L2640.25,2809.1016 L2640.25,2810.0391 L2638.9609,2811.6016 L2637.75,2811.6016 L2632.75,2811.6016 Z " fill="#000000"/><ellipse cx="2679.75" cy="2817.8516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="560" x="2694.75" y="2831.377">ReaderObservationExceptionHandlerSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2586.25" x2="3268.75" y1="2859.1016" y2="2859.1016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2586.25" x2="3268.75" y1="2879.1016" y2="2879.1016"/><ellipse cx="2611.25" cy="2906.6016" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="622.5" x="2633.75" y="2917.6489">void onReaderObservationError (String pluginName,</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="402.5" x="2693.75" y="2952.2388">String readerName, Throwable e)</text><!--MD5=[182404dcff7acd3214e7eefe854f988f]
+class WaitForCardRemovalDuringProcessingSpi--><rect codeLine="129" fill="#FEFECE" height="120" id="WaitForCardRemovalDuringProcessingSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="695" x="2757.5" y="3731.6016"/><ellipse cx="2795" cy="3771.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2797.5,3764.1016 L2797.5,3779.1016 L2802.5,3779.1016 L2803.7109,3779.1016 L2805,3780.6641 L2805,3781.6016 L2805,3782.5391 L2803.7109,3784.1016 L2802.5,3784.1016 L2787.5,3784.1016 L2786.2891,3784.1016 L2785,3782.5391 L2785,3781.6016 L2785,3780.6641 L2786.2891,3779.1016 L2787.5,3779.1016 L2792.5,3779.1016 L2792.5,3764.1016 L2787.5,3764.1016 L2786.2891,3764.1016 L2785,3762.5391 L2785,3761.6016 L2785,3760.6641 L2786.2891,3759.1016 L2787.5,3759.1016 L2802.5,3759.1016 L2803.7109,3759.1016 L2805,3760.6641 L2805,3761.6016 L2805,3762.5391 L2803.7109,3764.1016 L2802.5,3764.1016 L2797.5,3764.1016 Z " fill="#000000"/><ellipse cx="2842.5" cy="3770.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="587.5" x="2857.5" y="3783.877">WaitForCardRemovalDuringProcessingSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2760" x2="3450" y1="3811.6016" y2="3811.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2760" x2="3450" y1="3831.6016" y2="3831.6016"/><!--MD5=[1e38f089b4ff35772f6286b73130d5d0]
+class DontWaitForCardRemovalDuringProcessingSpi--><rect codeLine="131" fill="#FEFECE" height="120" id="DontWaitForCardRemovalDuringProcessingSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="760" x="2725" y="4039.1016"/><ellipse cx="2762.5" cy="4079.1016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2765,4071.6016 L2765,4086.6016 L2770,4086.6016 L2771.2109,4086.6016 L2772.5,4088.1641 L2772.5,4089.1016 L2772.5,4090.0391 L2771.2109,4091.6016 L2770,4091.6016 L2755,4091.6016 L2753.7891,4091.6016 L2752.5,4090.0391 L2752.5,4089.1016 L2752.5,4088.1641 L2753.7891,4086.6016 L2755,4086.6016 L2760,4086.6016 L2760,4071.6016 L2755,4071.6016 L2753.7891,4071.6016 L2752.5,4070.0391 L2752.5,4069.1016 L2752.5,4068.1641 L2753.7891,4066.6016 L2755,4066.6016 L2770,4066.6016 L2771.2109,4066.6016 L2772.5,4068.1641 L2772.5,4069.1016 L2772.5,4070.0391 L2771.2109,4071.6016 L2770,4071.6016 L2765,4071.6016 Z " fill="#000000"/><ellipse cx="2810" cy="4077.8516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="652.5" x="2825" y="4091.377">DontWaitForCardRemovalDuringProcessingSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2727.5" x2="3482.5" y1="4119.1016" y2="4119.1016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2727.5" x2="3482.5" y1="4139.1016" y2="4139.1016"/><!--MD5=[fa3f8b03811abc5fc6878fc82277af67]
+class WaitForCardInsertionAutonomousSpi--><rect codeLine="135" fill="#FEFECE" height="120" id="WaitForCardInsertionAutonomousSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="620" x="1962.5" y="4316.6016"/><ellipse cx="2000" cy="4356.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2002.5,4349.1016 L2002.5,4364.1016 L2007.5,4364.1016 L2008.7109,4364.1016 L2010,4365.6641 L2010,4366.6016 L2010,4367.5391 L2008.7109,4369.1016 L2007.5,4369.1016 L1992.5,4369.1016 L1991.2891,4369.1016 L1990,4367.5391 L1990,4366.6016 L1990,4365.6641 L1991.2891,4364.1016 L1992.5,4364.1016 L1997.5,4364.1016 L1997.5,4349.1016 L1992.5,4349.1016 L1991.2891,4349.1016 L1990,4347.5391 L1990,4346.6016 L1990,4345.6641 L1991.2891,4344.1016 L1992.5,4344.1016 L2007.5,4344.1016 L2008.7109,4344.1016 L2010,4345.6641 L2010,4346.6016 L2010,4347.5391 L2008.7109,4349.1016 L2007.5,4349.1016 L2002.5,4349.1016 Z " fill="#000000"/><ellipse cx="2047.5" cy="4355.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="512.5" x="2062.5" y="4368.877">WaitForCardInsertionAutonomousSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1965" x2="2580" y1="4396.6016" y2="4396.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1965" x2="2580" y1="4416.6016" y2="4416.6016"/><!--MD5=[5afc8826de642fb9feb50cc2342fadda]
+class WaitForCardInsertionBlockingSpi--><rect codeLine="137" fill="#FEFECE" height="189.1797" id="WaitForCardInsertionBlockingSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="565" x="1990" y="3696.6016"/><ellipse cx="2027.5" cy="3736.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2030,3729.1016 L2030,3744.1016 L2035,3744.1016 L2036.2109,3744.1016 L2037.5,3745.6641 L2037.5,3746.6016 L2037.5,3747.5391 L2036.2109,3749.1016 L2035,3749.1016 L2020,3749.1016 L2018.7891,3749.1016 L2017.5,3747.5391 L2017.5,3746.6016 L2017.5,3745.6641 L2018.7891,3744.1016 L2020,3744.1016 L2025,3744.1016 L2025,3729.1016 L2020,3729.1016 L2018.7891,3729.1016 L2017.5,3727.5391 L2017.5,3726.6016 L2017.5,3725.6641 L2018.7891,3724.1016 L2020,3724.1016 L2035,3724.1016 L2036.2109,3724.1016 L2037.5,3725.6641 L2037.5,3726.6016 L2037.5,3727.5391 L2036.2109,3729.1016 L2035,3729.1016 L2030,3729.1016 Z " fill="#000000"/><ellipse cx="2075" cy="3735.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="457.5" x="2090" y="3748.877">WaitForCardInsertionBlockingSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1992.5" x2="2552.5" y1="3776.6016" y2="3776.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1992.5" x2="2552.5" y1="3796.6016" y2="3796.6016"/><ellipse cx="2017.5" cy="3824.1016" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="372.5" x="2040" y="3835.1489">boolean waitForCardPresent ()</text><ellipse cx="2017.5" cy="3858.6914" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="287.5" x="2040" y="3869.7388">void stopWaitForCard ()</text><!--MD5=[9bf5067aeda4183f30a4f04a9078a562]
+class WaitForCardInsertionNonBlockingSpi--><rect codeLine="141" fill="#FEFECE" height="120" id="WaitForCardInsertionNonBlockingSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="622.5" x="1961.25" y="4039.1016"/><ellipse cx="1998.75" cy="4079.1016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2001.25,4071.6016 L2001.25,4086.6016 L2006.25,4086.6016 L2007.4609,4086.6016 L2008.75,4088.1641 L2008.75,4089.1016 L2008.75,4090.0391 L2007.4609,4091.6016 L2006.25,4091.6016 L1991.25,4091.6016 L1990.0391,4091.6016 L1988.75,4090.0391 L1988.75,4089.1016 L1988.75,4088.1641 L1990.0391,4086.6016 L1991.25,4086.6016 L1996.25,4086.6016 L1996.25,4071.6016 L1991.25,4071.6016 L1990.0391,4071.6016 L1988.75,4070.0391 L1988.75,4069.1016 L1988.75,4068.1641 L1990.0391,4066.6016 L1991.25,4066.6016 L2006.25,4066.6016 L2007.4609,4066.6016 L2008.75,4068.1641 L2008.75,4069.1016 L2008.75,4070.0391 L2007.4609,4071.6016 L2006.25,4071.6016 L2001.25,4071.6016 Z " fill="#000000"/><ellipse cx="2046.25" cy="4077.8516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="515" x="2061.25" y="4091.377">WaitForCardInsertionNonBlockingSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1963.75" x2="2581.25" y1="4119.1016" y2="4119.1016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1963.75" x2="2581.25" y1="4139.1016" y2="4139.1016"/><!--MD5=[b9e1271c9c0b7d8af72b37cd37af3a2c]
+class WaitForCardRemovalAutonomousSpi--><rect codeLine="145" fill="#FEFECE" height="120" id="WaitForCardRemovalAutonomousSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="625" x="1192.5" y="4316.6016"/><ellipse cx="1230" cy="4356.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1232.5,4349.1016 L1232.5,4364.1016 L1237.5,4364.1016 L1238.7109,4364.1016 L1240,4365.6641 L1240,4366.6016 L1240,4367.5391 L1238.7109,4369.1016 L1237.5,4369.1016 L1222.5,4369.1016 L1221.2891,4369.1016 L1220,4367.5391 L1220,4366.6016 L1220,4365.6641 L1221.2891,4364.1016 L1222.5,4364.1016 L1227.5,4364.1016 L1227.5,4349.1016 L1222.5,4349.1016 L1221.2891,4349.1016 L1220,4347.5391 L1220,4346.6016 L1220,4345.6641 L1221.2891,4344.1016 L1222.5,4344.1016 L1237.5,4344.1016 L1238.7109,4344.1016 L1240,4345.6641 L1240,4346.6016 L1240,4347.5391 L1238.7109,4349.1016 L1237.5,4349.1016 L1232.5,4349.1016 Z " fill="#000000"/><ellipse cx="1277.5" cy="4355.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="517.5" x="1292.5" y="4368.877">WaitForCardRemovalAutonomousSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1195" x2="1815" y1="4396.6016" y2="4396.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1195" x2="1815" y1="4416.6016" y2="4416.6016"/><!--MD5=[19bbd544e27b8f757f761e90764040a4]
+class WaitForCardRemovalBlockingSpi--><rect codeLine="147" fill="#FEFECE" height="189.1797" id="WaitForCardRemovalBlockingSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="570" x="1220" y="3696.6016"/><ellipse cx="1257.5" cy="3736.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1260,3729.1016 L1260,3744.1016 L1265,3744.1016 L1266.2109,3744.1016 L1267.5,3745.6641 L1267.5,3746.6016 L1267.5,3747.5391 L1266.2109,3749.1016 L1265,3749.1016 L1250,3749.1016 L1248.7891,3749.1016 L1247.5,3747.5391 L1247.5,3746.6016 L1247.5,3745.6641 L1248.7891,3744.1016 L1250,3744.1016 L1255,3744.1016 L1255,3729.1016 L1250,3729.1016 L1248.7891,3729.1016 L1247.5,3727.5391 L1247.5,3726.6016 L1247.5,3725.6641 L1248.7891,3724.1016 L1250,3724.1016 L1265,3724.1016 L1266.2109,3724.1016 L1267.5,3725.6641 L1267.5,3726.6016 L1267.5,3727.5391 L1266.2109,3729.1016 L1265,3729.1016 L1260,3729.1016 Z " fill="#000000"/><ellipse cx="1305" cy="3735.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="462.5" x="1320" y="3748.877">WaitForCardRemovalBlockingSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1222.5" x2="1787.5" y1="3776.6016" y2="3776.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1222.5" x2="1787.5" y1="3796.6016" y2="3796.6016"/><ellipse cx="1247.5" cy="3824.1016" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="442.5" x="1270" y="3835.1489">boolean waitForCardAbsentNative ()</text><ellipse cx="1247.5" cy="3858.6914" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="390" x="1270" y="3869.7388">void stopWaitForCardRemoval ()</text><!--MD5=[c2b6780df66240b1350e08590404ed26]
+class WaitForCardRemovalNonBlockingSpi--><rect codeLine="151" fill="#FEFECE" height="120" id="WaitForCardRemovalNonBlockingSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="627.5" x="1191.25" y="4039.1016"/><ellipse cx="1228.75" cy="4079.1016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1231.25,4071.6016 L1231.25,4086.6016 L1236.25,4086.6016 L1237.4609,4086.6016 L1238.75,4088.1641 L1238.75,4089.1016 L1238.75,4090.0391 L1237.4609,4091.6016 L1236.25,4091.6016 L1221.25,4091.6016 L1220.0391,4091.6016 L1218.75,4090.0391 L1218.75,4089.1016 L1218.75,4088.1641 L1220.0391,4086.6016 L1221.25,4086.6016 L1226.25,4086.6016 L1226.25,4071.6016 L1221.25,4071.6016 L1220.0391,4071.6016 L1218.75,4070.0391 L1218.75,4069.1016 L1218.75,4068.1641 L1220.0391,4066.6016 L1221.25,4066.6016 L1236.25,4066.6016 L1237.4609,4066.6016 L1238.75,4068.1641 L1238.75,4069.1016 L1238.75,4070.0391 L1237.4609,4071.6016 L1236.25,4071.6016 L1231.25,4071.6016 Z " fill="#000000"/><ellipse cx="1276.25" cy="4077.8516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="520" x="1291.25" y="4091.377">WaitForCardRemovalNonBlockingSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1193.75" x2="1816.25" y1="4119.1016" y2="4119.1016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1193.75" x2="1816.25" y1="4139.1016" y2="4139.1016"/><!--MD5=[905af441aad59a5b38e50a246eaa736b]
+reverse link PluginSpi to ObservablePluginSpi--><path d="M2266.2925,966.9516 C2258.54,1018.8766 2249.9225,1076.6266 2243.6975,1118.3266 " fill="none" id="PluginSpi-backto-ObservablePluginSpi" style="stroke:#A80036;stroke-width:2.5;"/><polygon fill="none" points="2249.09,963.6516,2273.78,916.7766,2283.705,968.8266,2249.09,963.6516" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[28f660b7131a03ae1e8fe004829e3fc9]
+reverse link ObservablePluginSpi to ThreadedObservablePluginSpi--><path d="M2226.8575,1289.8266 C2223.5275,1334.1016 2219.62,1386.0266 2216.04,1433.6266 " fill="none" id="ObservablePluginSpi-backto-ThreadedObservablePluginSpi" style="stroke:#A80036;stroke-width:2.5;"/><polygon fill="none" points="2209.435,1288.1266,2230.6375,1239.5766,2244.3375,1290.7516,2209.435,1288.1266" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[bcf3bc2fa54df3e5f30fcab64823c73d]
+reverse link ReaderSpi to ObservableReaderSpi--><path d="M2341.475,2555.1141 C2238.0475,2624.5416 2133.295,2694.8591 2048.8825,2751.5216 " fill="none" id="ReaderSpi-backto-ObservableReaderSpi" style="stroke:#A80036;stroke-width:2.5;"/><polygon fill="none" points="2332.05,2540.3641,2383.3175,2527.0266,2351.5575,2569.4241,2332.05,2540.3641" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[3f7927d8e73d52bd58871b2fd803ed37]
+reverse link ObservableReaderSpi to AutonomousObservableReaderSpi--><path d="M1694.96,3030.5516 C1641.7775,3077.3266 1585.68,3126.6666 1541.1075,3165.8691 " fill="none" id="ObservableReaderSpi-backto-AutonomousObservableReaderSpi" style="stroke:#A80036;stroke-width:2.5;"/><polygon fill="none" points="1683.86,3017.0091,1732.9625,2997.1266,1706.975,3043.2891,1683.86,3017.0091" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[b6aa2b531f3c977db0eca7d71fa2f5d9]
+link PluginFactorySpi to PluginSpi--><path codeLine="162" d="M2285,522.6016 C2285,590.4516 2285,681.6266 2285,748.2516 " fill="none" id="PluginFactorySpi-to-PluginSpi" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="2285,761.2516,2295,738.7516,2285,748.7516,2275,738.7516,2285,761.2516" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="2297.5,632.041,2304.8473,609.4283,2290.1527,609.4283,2297.5,632.041" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="2320" y="632.8394">provide</text><!--MD5=[7430065ad71d6ed12a0106068d1c2880]
+link PluginSpi to ReaderSpi--><path codeLine="163" d="M2404.245,917.0266 C2468.155,954.1016 2549.6,996.1766 2627.5,1021.6016 C2656.325,1031.0016 2742.575,1018.7516 2762.5,1041.6016 C2764.4,1043.7766 2769.5,1606.6266 2772.575,1966.2016 " fill="none" id="PluginSpi-to-ReaderSpi" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="2772.675,1978.9016,2782.4818,1956.3167,2772.5679,1966.402,2762.4825,1956.4881,2772.675,1978.9016" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="2781.6406,1348.8353,2781.0827,1325.0655,2767.2177,1329.933,2781.6406,1348.8353" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="2800" y="1350.3394">provide</text><!--MD5=[8e855f79198c2c4873ffddb678aea8b9]
+link PoolPluginFactorySpi to PoolPluginSpi--><path codeLine="165" d="M3012.5,522.6016 C3012.5,576.1016 3012.5,644.1516 3012.5,703.2266 " fill="none" id="PoolPluginFactorySpi-to-PoolPluginSpi" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="3012.5,716.4516,3022.5,693.9516,3012.5,703.9516,3002.5,693.9516,3012.5,716.4516" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="3025,632.041,3032.3473,609.4283,3017.6527,609.4283,3025,632.041" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="3047.5" y="632.8394">provide</text><!--MD5=[3d17f49468150963b7a99b63a1e00566]
+link PoolPluginSpi to ReaderSpi--><path codeLine="166" d="M2992.25,962.4516 C2955.3,1183.0266 2875.95,1656.5516 2824.075,1966.2266 " fill="none" id="PoolPluginSpi-to-ReaderSpi" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="2821.925,1979.0016,2835.5169,1958.4708,2823.9974,1966.6745,2815.7937,1955.155,2821.925,1979.0016" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="2942.9345,1349.3692,2953.9173,1328.2814,2939.4247,1325.8533,2942.9345,1349.3692" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="2967.5" y="1350.3394">provide</text><!--MD5=[d1864dc2ab6e66bc3c5d48bd1d5bd5e1]
+reverse link PluginObservationExceptionHandlerSpi to ThreadedObservablePluginSpi--><path codeLine="168" d="M1513.1325,1582.8516 C1581.0425,1582.8516 1653.36,1582.8516 1724.675,1582.8516 " fill="none" id="PluginObservationExceptionHandlerSpi-backto-ThreadedObservablePluginSpi" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="1500.505,1582.8516,1523.005,1592.8516,1513.005,1582.8516,1523.005,1572.8516,1500.505,1582.8516" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="1543.75,1553.291,1566.3627,1560.6383,1566.3627,1545.9437,1543.75,1553.291" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="1578.75" y="1566.5894">provide</text><!--MD5=[c68f7e273e85691dbc512893f2b6673e]
+link ObservableReaderSpi to ReaderObservationExceptionHandlerSpi--><path codeLine="170" d="M2359.2825,2874.1016 C2430.5475,2874.1016 2502.775,2874.1016 2570.75,2874.1016 " fill="none" id="ObservableReaderSpi-to-ReaderObservationExceptionHandlerSpi" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="2583.4,2874.1016,2560.9,2864.1016,2570.9,2874.1016,2560.9,2884.1016,2583.4,2874.1016" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="2427.5,2844.541,2404.8873,2837.1937,2404.8873,2851.8883,2427.5,2844.541" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="2437.5" y="2857.8394">provide</text><!--MD5=[1b104bc1832c3bca421f45cad5e1c020]
+link AutonomousObservableReaderSpi to AutonomousObservableReaderManager--><path codeLine="172" d="M1009.3025,3244.1016 C926.4725,3244.1016 841.0725,3244.1016 761.7475,3244.1016 " fill="none" id="AutonomousObservableReaderSpi-to-AutonomousObservableReaderManager" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="749.07,3244.1016,771.57,3254.1016,761.57,3244.1016,771.57,3234.1016,749.07,3244.1016" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="834.375,3214.541,856.9877,3221.8883,856.9877,3207.1937,834.375,3214.541" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="869.375" y="3227.8394">use</text><!--MD5=[48ae6be74899e3e7c509dcd11d6cd556]
+link ThreadedObservablePluginSpi to reader--><!--MD5=[3c3f0bb0ceba46809bc2c72d8de8fde4]
+link AutonomousObservableReaderSpi to states--><!--MD5=[9708c1504dc2e00ae561c1f42cc693ee]
+link WaitForCardInsertionBlockingSpi to WaitForCardInsertionNonBlockingSpi--><!--MD5=[296a449b346b67cde85323d5e5a9e81d]
+link WaitForCardInsertionNonBlockingSpi to WaitForCardInsertionAutonomousSpi--><!--MD5=[e1cd734c8981d40c117ba60f0d8f0049]
+link WaitForCardRemovalDuringProcessingSpi to DontWaitForCardRemovalDuringProcessingSpi--><!--MD5=[d9550cd497cd9f12d24600cb95cf328a]
+link WaitForCardRemovalBlockingSpi to WaitForCardRemovalNonBlockingSpi--><!--MD5=[86f9eb76e6c0aa5f6b6d2642e77f67e6]
+link WaitForCardRemovalNonBlockingSpi to WaitForCardRemovalAutonomousSpi--><!--MD5=[0f0d4afe4dc9c9892748e7ed4691525d]
+@startuml
+title
+    Keyple 2.0 - keyple-plugin-api - 2.0 (18/01/2021)
+end title
+
+' == THEME ==
+
+'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define C_GREY1 F8F9F9
+!define C_GREY2 F2F3F4
+!define C_GREY3 E5E7E9
+!define C_GREY4 D7DBDD
+!define C_GREY5 CACFD2
+!define C_GREY6 BDC3C7
+!define C_LINK 3498DB
+!define C_USE 27AE60
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+' Red
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+' Purple
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+' blue
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+' Green
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+' Grey
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+' == CONTENT ==
+
+package "org.eclipse.keyple.plugin" as api {
+    +interface AutonomousObservableReaderManager {
+        +void onCardInserted ()
+        +void onCardRemoved ()
+    }
+    package spi {
+        together {
+            +interface PluginSpi {
+                +Map<String, ReaderSpi> initNativeReaders ()
+            }
+            +interface PoolPluginSpi {
+                - -
+                +SortedSet<String> getReaderGroupReferences ()
+                ..
+                +ReaderSpi allocateReader (String groupReference)
+                +void releaseReader (ReaderSpi reader)
+            }
+            +interface PluginFactorySpi {
+                +String getPluginName ()
+                +PluginSpi getPlugin ()
+            }
+            +interface PoolPluginFactorySpi {
+                +String getPluginName ()
+                +PoolPluginSpi getPlugin ()
+            }
+        }
+        +interface ObservablePluginSpi extends PluginSpi {
+        }
+        +interface ThreadedObservablePluginSpi extends ObservablePluginSpi {
+            - -
+            +int getMonitoringCycleDuration ()
+            ..
+            +SortedSet<String> fetchNativeReadersNames ()
+            +ReaderSpi fetchNativeReader (String name)
+            ..
+            +PluginObservationExceptionHandlerSpi getObservationExceptionHandler ()
+        }
+        +interface PluginObservationExceptionHandlerSpi {
+            +void onPluginObservationError (String pluginName,
+                \tThrowable e)
+        }
+        package reader {
+            +interface ReaderSpi {
+                - -
+                +void activateReaderProtocol (String readerProtocolName)
+                +void deactivateReaderProtocol (String readerProtocolName)
+                +boolean isCurrentProtocol (String readerProtocolName)
+                ..
+                +void openPhysicalChannel ()
+                +void closePhysicalChannel ()
+                +boolean isPhysicalChannelOpen ()
+                ..
+                +boolean checkCardPresence ()
+                ..
+                +byte[] getATR ()
+                ..
+                +byte[] transmitApdu (byte[] apduIn)
+                ..
+                +boolean isContactless ()
+            }
+            +interface AutonomousSelectionReaderSpi {
+                +byte[] openChannelForAid (byte[] dfName,
+                    \tbyte isoControlMask)
+                +void closeLogicalChannel ()
+            }
+            package observable {
+                +interface ObservableReaderSpi extends ReaderSpi {
+                    - -
+                    +void onStartDetection ()
+                    +void onStopDetection ()
+                    ..
+                    +ReaderObservationExceptionHandlerSpi getObservationExceptionHandler ()
+                }
+                +interface AutonomousObservableReaderSpi extends ObservableReaderSpi {
+                    +void setManager (AutonomousObservableReaderManager manager)
+                }
+                +interface ReaderObservationExceptionHandlerSpi {
+                    +void onReaderObservationError (String pluginName,
+                        \tString readerName, Throwable e)
+                }
+                package states {
+                    package processing {
+                        +interface WaitForCardRemovalDuringProcessingSpi {
+                        }
+                        +interface DontWaitForCardRemovalDuringProcessingSpi {
+                        }
+                    }
+                    package insertion {
+                        +interface WaitForCardInsertionAutonomousSpi {
+                        }
+                        +interface WaitForCardInsertionBlockingSpi {
+                            +boolean waitForCardPresent ()
+                            +void stopWaitForCard ()
+                        }
+                        +interface WaitForCardInsertionNonBlockingSpi {
+                        }
+                    }
+                    package removal {
+                        +interface WaitForCardRemovalAutonomousSpi {
+                        }
+                        +interface WaitForCardRemovalBlockingSpi {
+                            +boolean waitForCardAbsentNative ()
+                            +void stopWaitForCardRemoval ()
+                        }
+                        +interface WaitForCardRemovalNonBlockingSpi {
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+' Associations
+
+PluginFactorySpi ..> PluginSpi #C_USE : provide >
+PluginSpi ..> ReaderSpi #C_USE : provide >
+
+PoolPluginFactorySpi ..> PoolPluginSpi #C_USE : provide >
+PoolPluginSpi ..> ReaderSpi #C_USE : provide >
+
+ThreadedObservablePluginSpi .left.> PluginObservationExceptionHandlerSpi #C_USE : provide >
+
+ObservableReaderSpi .> ReaderObservationExceptionHandlerSpi #C_USE : provide >
+
+AutonomousObservableReaderSpi .> AutonomousObservableReaderManager #C_USE : use >
+
+' == LAYOUT ==
+
+
+ThreadedObservablePluginSpi -[hidden]- reader
+
+AutonomousObservableReaderSpi -[hidden]- states
+
+WaitForCardInsertionBlockingSpi -[hidden]- WaitForCardInsertionNonBlockingSpi
+WaitForCardInsertionNonBlockingSpi -[hidden]- WaitForCardInsertionAutonomousSpi
+
+WaitForCardRemovalDuringProcessingSpi -[hidden]- DontWaitForCardRemovalDuringProcessingSpi
+
+WaitForCardRemovalBlockingSpi -[hidden]- WaitForCardRemovalNonBlockingSpi
+WaitForCardRemovalNonBlockingSpi -[hidden]- WaitForCardRemovalAutonomousSpi
+
+' == STYLE ==
+
+package api #C_GREY1 {}
+package spi #C_GREY2 {}
+package reader #C_GREY3 {}
+package observable #C_GREY4 {}
+package states #C_GREY5 {}
+package insertion #C_GREY6 {}
+package processing #C_GREY6 {}
+package removal #C_GREY6 {}
+
+@enduml
+
+@startuml
+title
+    Keyple 2.0 - keyple-plugin-api - 2.0 (18/01/2021)
+end title
+
+
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+
+package "org.eclipse.keyple.plugin" as api {
+    +interface AutonomousObservableReaderManager {
+        +void onCardInserted ()
+        +void onCardRemoved ()
+    }
+    package spi {
+        together {
+            +interface PluginSpi {
+                +Map<String, ReaderSpi> initNativeReaders ()
+            }
+            +interface PoolPluginSpi {
+                - -
+                +SortedSet<String> getReaderGroupReferences ()
+                ..
+                +ReaderSpi allocateReader (String groupReference)
+                +void releaseReader (ReaderSpi reader)
+            }
+            +interface PluginFactorySpi {
+                +String getPluginName ()
+                +PluginSpi getPlugin ()
+            }
+            +interface PoolPluginFactorySpi {
+                +String getPluginName ()
+                +PoolPluginSpi getPlugin ()
+            }
+        }
+        +interface ObservablePluginSpi extends PluginSpi {
+        }
+        +interface ThreadedObservablePluginSpi extends ObservablePluginSpi {
+            - -
+            +int getMonitoringCycleDuration ()
+            ..
+            +SortedSet<String> fetchNativeReadersNames ()
+            +ReaderSpi fetchNativeReader (String name)
+            ..
+            +PluginObservationExceptionHandlerSpi getObservationExceptionHandler ()
+        }
+        +interface PluginObservationExceptionHandlerSpi {
+            +void onPluginObservationError (String pluginName,
+                \tThrowable e)
+        }
+        package reader {
+            +interface ReaderSpi {
+                - -
+                +void activateReaderProtocol (String readerProtocolName)
+                +void deactivateReaderProtocol (String readerProtocolName)
+                +boolean isCurrentProtocol (String readerProtocolName)
+                ..
+                +void openPhysicalChannel ()
+                +void closePhysicalChannel ()
+                +boolean isPhysicalChannelOpen ()
+                ..
+                +boolean checkCardPresence ()
+                ..
+                +byte[] getATR ()
+                ..
+                +byte[] transmitApdu (byte[] apduIn)
+                ..
+                +boolean isContactless ()
+            }
+            +interface AutonomousSelectionReaderSpi {
+                +byte[] openChannelForAid (byte[] dfName,
+                    \tbyte isoControlMask)
+                +void closeLogicalChannel ()
+            }
+            package observable {
+                +interface ObservableReaderSpi extends ReaderSpi {
+                    - -
+                    +void onStartDetection ()
+                    +void onStopDetection ()
+                    ..
+                    +ReaderObservationExceptionHandlerSpi getObservationExceptionHandler ()
+                }
+                +interface AutonomousObservableReaderSpi extends ObservableReaderSpi {
+                    +void setManager (AutonomousObservableReaderManager manager)
+                }
+                +interface ReaderObservationExceptionHandlerSpi {
+                    +void onReaderObservationError (String pluginName,
+                        \tString readerName, Throwable e)
+                }
+                package states {
+                    package processing {
+                        +interface WaitForCardRemovalDuringProcessingSpi {
+                        }
+                        +interface DontWaitForCardRemovalDuringProcessingSpi {
+                        }
+                    }
+                    package insertion {
+                        +interface WaitForCardInsertionAutonomousSpi {
+                        }
+                        +interface WaitForCardInsertionBlockingSpi {
+                            +boolean waitForCardPresent ()
+                            +void stopWaitForCard ()
+                        }
+                        +interface WaitForCardInsertionNonBlockingSpi {
+                        }
+                    }
+                    package removal {
+                        +interface WaitForCardRemovalAutonomousSpi {
+                        }
+                        +interface WaitForCardRemovalBlockingSpi {
+                            +boolean waitForCardAbsentNative ()
+                            +void stopWaitForCardRemoval ()
+                        }
+                        +interface WaitForCardRemovalNonBlockingSpi {
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+PluginFactorySpi ..> PluginSpi #27AE60 : provide >
+PluginSpi ..> ReaderSpi #27AE60 : provide >
+
+PoolPluginFactorySpi ..> PoolPluginSpi #27AE60 : provide >
+PoolPluginSpi ..> ReaderSpi #27AE60 : provide >
+
+ThreadedObservablePluginSpi .left.> PluginObservationExceptionHandlerSpi #27AE60 : provide >
+
+ObservableReaderSpi .> ReaderObservationExceptionHandlerSpi #27AE60 : provide >
+
+AutonomousObservableReaderSpi .> AutonomousObservableReaderManager #27AE60 : use >
+
+
+
+ThreadedObservablePluginSpi -[hidden]- reader
+
+AutonomousObservableReaderSpi -[hidden]- states
+
+WaitForCardInsertionBlockingSpi -[hidden]- WaitForCardInsertionNonBlockingSpi
+WaitForCardInsertionNonBlockingSpi -[hidden]- WaitForCardInsertionAutonomousSpi
+
+WaitForCardRemovalDuringProcessingSpi -[hidden]- DontWaitForCardRemovalDuringProcessingSpi
+
+WaitForCardRemovalBlockingSpi -[hidden]- WaitForCardRemovalNonBlockingSpi
+WaitForCardRemovalNonBlockingSpi -[hidden]- WaitForCardRemovalAutonomousSpi
+
+
+package api #F8F9F9 {}
+package spi #F2F3F4 {}
+package reader #E5E7E9 {}
+package observable #D7DBDD {}
+package states #CACFD2 {}
+package insertion #BDC3C7 {}
+package processing #BDC3C7 {}
+package removal #BDC3C7 {}
+
+@enduml
+
+PlantUML version 1.2021.00(Sun Jan 10 11:25:05 CET 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: fr
+Country: FR
+--></g></svg>

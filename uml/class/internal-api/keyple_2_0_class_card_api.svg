@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="3130px" preserveAspectRatio="none" style="width:5477px;height:3130px;" version="1.1" viewBox="0 0 5477 3130" width="5477.5px" zoomAndPan="magnify"><defs><filter height="1" id="bagtuf7tbp7490" width="1" x="0" y="0"><feFlood flood-color="#00FFFF" result="flood"/><feComposite in="SourceGraphic" in2="flood" operator="over"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="930" x="2257.5" y="46.7139">Keyple 2.0 - keyple-card-api - 2.0 (18/01/2021)</text><rect fill="#DDDDDD" height="69.0234" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:2.5;" width="497.5" x="2472.5" y="76.6016"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="140" x="2487.5" y="125.4346">Legend :</text><text fill="#000000" filter="url(#bagtuf7tbp7490)" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="70" x="2637.5" y="125.4346">from</text><text fill="#000000" filter="url(#bagtuf7tbp7490)" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="237.5" x="2717.5" y="125.4346">Commons API</text><!--MD5=[7442f3b126ee602ae02566c1a49e158a]
+cluster api--><polygon fill="#F8F9F9" points="40,183.125,465,183.125,482.5,242.1484,5060,242.1484,5060,3113.125,40,3113.125,40,183.125" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="40" x2="482.5" y1="242.1484" y2="242.1484"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="410" x="50" y="224.458">org.eclipse.keyple.card</text><!--MD5=[f7e0e2453c87923036c1ac2adfb9cbf0]
+cluster spi--><polygon fill="#F2F3F4" points="2065,313.125,2132.5,313.125,2150,372.1484,3545,372.1484,3545,673.125,2065,673.125,2065,313.125" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="2065" x2="2150" y1="372.1484" y2="372.1484"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="52.5" x="2075" y="354.458">spi</text><!--MD5=[96a4004012a1c08588eb87adf87ec875]
+class ProxyReader--><rect codeLine="54" fill="#FEFECE" height="436.7188" id="ProxyReader" style="stroke:#D4AC0D;stroke-width:3.75;" width="830" x="1935" y="1878.125"/><ellipse cx="2235.625" cy="1918.125" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2238.125,1910.625 L2238.125,1925.625 L2243.125,1925.625 L2244.3359,1925.625 L2245.625,1927.1875 L2245.625,1928.125 L2245.625,1929.0625 L2244.3359,1930.625 L2243.125,1930.625 L2228.125,1930.625 L2226.9141,1930.625 L2225.625,1929.0625 L2225.625,1928.125 L2225.625,1927.1875 L2226.9141,1925.625 L2228.125,1925.625 L2233.125,1925.625 L2233.125,1910.625 L2228.125,1910.625 L2226.9141,1910.625 L2225.625,1909.0625 L2225.625,1908.125 L2225.625,1907.1875 L2226.9141,1905.625 L2228.125,1905.625 L2243.125,1905.625 L2244.3359,1905.625 L2245.625,1907.1875 L2245.625,1908.125 L2245.625,1909.0625 L2244.3359,1910.625 L2243.125,1910.625 L2238.125,1910.625 Z " fill="#000000"/><ellipse cx="2299.375" cy="1916.875" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="180" x="2314.375" y="1930.4004">ProxyReader</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1937.5" x2="2762.5" y1="1958.125" y2="1958.125"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="1937.5" x2="2762.5" y1="1978.125" y2="1978.125"/><ellipse cx="1962.5" cy="2005.625" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="765" x="1985" y="2016.6724">List&lt;CardSelectionResponse&gt; transmitCardSelectionRequests (</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="635" x="2045" y="2051.2622">List&lt;CardSelectionRequest&gt; cardSelectionRequests,</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="610" x="2045" y="2085.8521">MultiSelectionProcessing multiSelectionProcessing,</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="380" x="2045" y="2120.4419">ChannelControl channelControl)</text><line style="stroke:#D4AC0D;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="1937.5" x2="2762.5" y1="2136.4844" y2="2136.4844"/><ellipse cx="1962.5" cy="2163.9844" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="457.5" x="1985" y="2175.0317">CardResponse transmitCardRequest (</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="327.5" x="2045" y="2209.6216">CardRequest cardRequest,</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="380" x="2045" y="2244.2114">ChannelControl channelControl)</text><line style="stroke:#D4AC0D;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="1937.5" x2="2762.5" y1="2260.2539" y2="2260.2539"/><ellipse cx="1962.5" cy="2287.7539" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="272.5" x="1985" y="2298.8013">void releaseChannel ()</text><!--MD5=[32fc7b65f340d78e9416d68a58b55b2e]
+class CardCommunicationException--><rect codeLine="255" fill="#F4ECF7" height="402.1289" id="CardCommunicationException" style="stroke:#8E44AD;stroke-width:3.75;" width="862.5" x="4156.25" y="815.625"/><ellipse cx="4351.875" cy="855.625" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M4356.875,846.875 Q4357.3828,845.625 4357.9688,845 Q4358.5547,844.375 4359.2188,844.375 Q4360.3906,844.375 4361.1328,845.0781 Q4361.875,845.7813 4361.875,847.4219 L4361.875,851.3281 Q4361.875,852.9688 4361.1719,853.6719 Q4360.4688,854.375 4359.375,854.375 Q4358.3984,854.375 4357.7734,853.9453 Q4357.1484,853.5156 4356.875,852.3828 Q4356.7578,851.6016 4356.3281,851.1719 Q4355.5469,850.3516 4354.1406,849.8828 Q4352.7344,849.375 4351.3281,849.375 Q4349.5703,849.375 4348.0859,850.0781 Q4346.6406,850.7813 4345.5078,852.3438 Q4344.375,853.9063 4344.375,856.0547 L4344.375,858.3594 Q4344.375,860.9375 4346.4844,862.6563 Q4348.5938,864.375 4352.3438,864.375 Q4354.5703,864.375 4356.1328,863.8672 Q4357.0313,863.5938 4358.0469,862.6953 Q4358.7109,862.1875 4359.0625,862.0313 Q4359.4141,861.875 4359.8438,861.875 Q4360.6641,861.875 4361.25,862.5391 Q4361.875,863.1641 4361.875,864.0625 Q4361.875,864.9219 4361.0156,865.9375 Q4359.7656,867.4219 4357.7734,868.2422 Q4355.1563,869.375 4351.9531,869.375 Q4348.2031,869.375 4345.1953,867.8906 Q4342.7734,866.7188 4341.0547,864.1797 Q4339.375,861.6406 4339.375,858.6328 L4339.375,855.8984 Q4339.375,852.7734 4340.8594,850.0391 Q4342.3828,847.3047 4345,845.8594 Q4347.6563,844.375 4350.625,844.375 Q4352.4219,844.375 4353.9844,845 Q4355.5469,845.625 4356.875,846.875 Z " fill="#000000"/><ellipse cx="4415.625" cy="854.375" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="422.5" x="4430.625" y="867.9004">CardCommunicationException</text><line style="stroke:#8E44AD;stroke-width:3.75;" x1="4158.75" x2="5016.25" y1="895.625" y2="895.625"/><line style="stroke:#8E44AD;stroke-width:2.5;" x1="4158.75" x2="5016.25" y1="915.625" y2="915.625"/><ellipse cx="4183.75" cy="943.125" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="570" x="4206.25" y="954.1724">CardCommunicationException (String message)</text><ellipse cx="4183.75" cy="977.7148" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="797.5" x="4206.25" y="988.7622">CardCommunicationException (String message, Throwable cause)</text><line style="stroke:#8E44AD;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="4158.75" x2="5016.25" y1="1004.8047" y2="1004.8047"/><ellipse cx="4183.75" cy="1032.3047" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="417.5" x="4206.25" y="1043.3521">void setCardSelectionResponses (</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="682.5" x="4266.25" y="1077.9419">List&lt;CardSelectionResponse&gt; cardSelectionResponses)</text><ellipse cx="4183.75" cy="1101.4844" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="740" x="4206.25" y="1112.5317">List&lt;CardSelectionResponse&gt; getCardSelectionResponses ()</text><line style="stroke:#8E44AD;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="4158.75" x2="5016.25" y1="1128.5742" y2="1128.5742"/><ellipse cx="4183.75" cy="1156.0742" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="667.5" x="4206.25" y="1167.1216">void setCardResponse (CardResponse cardResponse)</text><ellipse cx="4183.75" cy="1190.6641" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="432.5" x="4206.25" y="1201.7114">CardResponse getCardResponse ()</text><!--MD5=[96703f6554e1741f1cdd647299667117]
+class MultiSelectionProcessing--><rect codeLine="244" fill="#E9F7EF" height="189.1797" id="MultiSelectionProcessing" style="stroke:#27AE60;stroke-width:3.75;" width="450" x="1405" y="1431.875"/><ellipse cx="1442.5" cy="1471.875" fill="#EB937F" rx="27.5" ry="27.5" style="stroke:#EB93DF;stroke-width:2.5;"/><path d="M1438.75,1474.375 L1438.75,1479.375 L1448.75,1479.375 L1448.75,1476.875 L1448.75,1475.6641 L1450.3125,1474.375 L1451.25,1474.375 L1452.1875,1474.375 L1453.75,1475.6641 L1453.75,1476.875 L1453.75,1484.375 L1433.75,1484.375 L1432.5391,1484.375 L1431.25,1482.8125 L1431.25,1481.875 L1431.25,1480.9375 L1432.5391,1479.375 L1433.75,1479.375 L1433.75,1479.375 L1433.75,1464.375 L1433.75,1464.375 L1432.5391,1464.375 L1431.25,1462.8125 L1431.25,1461.875 L1431.25,1460.9375 L1432.5391,1459.375 L1433.75,1459.375 L1453.75,1459.375 L1453.75,1466.875 L1453.75,1468.0859 L1452.1875,1469.375 L1451.25,1469.375 L1450.3125,1469.375 L1448.75,1468.0859 L1448.75,1466.875 L1448.75,1464.375 L1438.75,1464.375 L1438.75,1469.375 L1441.25,1469.375 L1441.25,1468.1641 L1441.25,1468.1641 L1442.8125,1466.875 L1443.75,1466.875 L1444.6875,1466.875 L1446.25,1468.1641 L1446.25,1469.375 L1446.25,1474.375 L1446.25,1475.5859 L1444.6875,1476.875 L1444.6875,1476.875 L1443.75,1476.875 L1442.8125,1476.875 L1441.25,1475.5859 L1441.25,1475.5859 L1441.25,1474.375 L1438.75,1474.375 Z " fill="#000000"/><ellipse cx="1490" cy="1470.625" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="342.5" x="1505" y="1484.1504">MultiSelectionProcessing</text><line style="stroke:#27AE60;stroke-width:3.75;" x1="1407.5" x2="1852.5" y1="1511.875" y2="1511.875"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="175" x="1420" y="1550.4224">FIRST_MATCH</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="185" x="1420" y="1585.0122">PROCESS_ALL</text><line style="stroke:#27AE60;stroke-width:3.75;" x1="1407.5" x2="1852.5" y1="1601.0547" y2="1601.0547"/><!--MD5=[ee0d3336d8d2c9dd88a5ad188defe636]
+class ChannelControl--><rect codeLine="245" fill="#E9F7EF" height="189.1797" id="ChannelControl" style="stroke:#27AE60;stroke-width:3.75;" width="325" x="992.5" y="1431.875"/><ellipse cx="1030" cy="1471.875" fill="#EB937F" rx="27.5" ry="27.5" style="stroke:#EB93DF;stroke-width:2.5;"/><path d="M1026.25,1474.375 L1026.25,1479.375 L1036.25,1479.375 L1036.25,1476.875 L1036.25,1475.6641 L1037.8125,1474.375 L1038.75,1474.375 L1039.6875,1474.375 L1041.25,1475.6641 L1041.25,1476.875 L1041.25,1484.375 L1021.25,1484.375 L1020.0391,1484.375 L1018.75,1482.8125 L1018.75,1481.875 L1018.75,1480.9375 L1020.0391,1479.375 L1021.25,1479.375 L1021.25,1479.375 L1021.25,1464.375 L1021.25,1464.375 L1020.0391,1464.375 L1018.75,1462.8125 L1018.75,1461.875 L1018.75,1460.9375 L1020.0391,1459.375 L1021.25,1459.375 L1041.25,1459.375 L1041.25,1466.875 L1041.25,1468.0859 L1039.6875,1469.375 L1038.75,1469.375 L1037.8125,1469.375 L1036.25,1468.0859 L1036.25,1466.875 L1036.25,1464.375 L1026.25,1464.375 L1026.25,1469.375 L1028.75,1469.375 L1028.75,1468.1641 L1028.75,1468.1641 L1030.3125,1466.875 L1031.25,1466.875 L1032.1875,1466.875 L1033.75,1468.1641 L1033.75,1469.375 L1033.75,1474.375 L1033.75,1475.5859 L1032.1875,1476.875 L1032.1875,1476.875 L1031.25,1476.875 L1030.3125,1476.875 L1028.75,1475.5859 L1028.75,1475.5859 L1028.75,1474.375 L1026.25,1474.375 Z " fill="#000000"/><ellipse cx="1077.5" cy="1470.625" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="217.5" x="1092.5" y="1484.1504">ChannelControl</text><line style="stroke:#27AE60;stroke-width:3.75;" x1="995" x2="1315" y1="1511.875" y2="1511.875"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="145" x="1007.5" y="1550.4224">KEEP_OPEN</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="182.5" x="1007.5" y="1585.0122">CLOSE_AFTER</text><line style="stroke:#27AE60;stroke-width:3.75;" x1="995" x2="1315" y1="1601.0547" y2="1601.0547"/><!--MD5=[d7ab57eb2840e7832714f3f9db0d2391]
+class CardSelectionRequest--><rect codeLine="243" fill="#E9F7EF" height="312.9492" id="CardSelectionRequest" style="stroke:#27AE60;stroke-width:3.75;" width="762.5" x="141.25" y="1370.625"/><ellipse cx="309.375" cy="1410.625" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M314.375,1401.875 Q314.8828,1400.625 315.4688,1400 Q316.0547,1399.375 316.7188,1399.375 Q317.8906,1399.375 318.6328,1400.0781 Q319.375,1400.7813 319.375,1402.4219 L319.375,1406.3281 Q319.375,1407.9688 318.6719,1408.6719 Q317.9688,1409.375 316.875,1409.375 Q315.8984,1409.375 315.2734,1408.9453 Q314.6484,1408.5156 314.375,1407.3828 Q314.2578,1406.6016 313.8281,1406.1719 Q313.0469,1405.3516 311.6406,1404.8828 Q310.2344,1404.375 308.8281,1404.375 Q307.0703,1404.375 305.5859,1405.0781 Q304.1406,1405.7813 303.0078,1407.3438 Q301.875,1408.9063 301.875,1411.0547 L301.875,1413.3594 Q301.875,1415.9375 303.9844,1417.6563 Q306.0938,1419.375 309.8438,1419.375 Q312.0703,1419.375 313.6328,1418.8672 Q314.5313,1418.5938 315.5469,1417.6953 Q316.2109,1417.1875 316.5625,1417.0313 Q316.9141,1416.875 317.3438,1416.875 Q318.1641,1416.875 318.75,1417.5391 Q319.375,1418.1641 319.375,1419.0625 Q319.375,1419.9219 318.5156,1420.9375 Q317.2656,1422.4219 315.2734,1423.2422 Q312.6563,1424.375 309.4531,1424.375 Q305.7031,1424.375 302.6953,1422.8906 Q300.2734,1421.7188 298.5547,1419.1797 Q296.875,1416.6406 296.875,1413.6328 L296.875,1410.8984 Q296.875,1407.7734 298.3594,1405.0391 Q299.8828,1402.3047 302.5,1400.8594 Q305.1563,1399.375 308.125,1399.375 Q309.9219,1399.375 311.4844,1400 Q313.0469,1400.625 314.375,1401.875 Z " fill="#000000"/><ellipse cx="373.125" cy="1409.375" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="388.125" y="1422.9004">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="310" x="455.625" y="1422.9004">CardSelectionRequest</text><line style="stroke:#27AE60;stroke-width:3.75;" x1="143.75" x2="901.25" y1="1450.625" y2="1450.625"/><line style="stroke:#27AE60;stroke-width:2.5;" x1="143.75" x2="901.25" y1="1470.625" y2="1470.625"/><ellipse cx="168.75" cy="1498.125" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="285" x="191.25" y="1509.1724">CardSelectionRequest (</text><text fill="#000000" filter="url(#bagtuf7tbp7490)" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="240" x="476.25" y="1509.1724">KeypleCardSelector</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="165" x="723.75" y="1509.1724">cardSelector)</text><ellipse cx="168.75" cy="1532.7148" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="285" x="191.25" y="1543.7622">CardSelectionRequest (</text><text fill="#000000" filter="url(#bagtuf7tbp7490)" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="240" x="476.25" y="1543.7622">KeypleCardSelector</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="162.5" x="723.75" y="1543.7622">cardSelector,</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="330" x="251.25" y="1578.3521">CardRequest cardRequest)</text><line style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="143.75" x2="901.25" y1="1594.3945" y2="1594.3945"/><ellipse cx="168.75" cy="1621.8945" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" filter="url(#bagtuf7tbp7490)" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="240" x="191.25" y="1632.9419">KeypleCardSelector</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="222.5" x="438.75" y="1632.9419">getCardSelector ()</text><ellipse cx="168.75" cy="1656.4844" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="387.5" x="191.25" y="1667.5317">CardRequest getCardRequest ()</text><!--MD5=[d4546fa1b310652d2e612bec588497f1]
+class CardRequest--><rect codeLine="246" fill="#E9F7EF" height="209.1797" id="CardRequest" style="stroke:#27AE60;stroke-width:3.75;" width="670" x="862.5" y="1991.875"/><ellipse cx="1048.125" cy="2031.875" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M1053.125,2023.125 Q1053.6328,2021.875 1054.2188,2021.25 Q1054.8047,2020.625 1055.4688,2020.625 Q1056.6406,2020.625 1057.3828,2021.3281 Q1058.125,2022.0313 1058.125,2023.6719 L1058.125,2027.5781 Q1058.125,2029.2188 1057.4219,2029.9219 Q1056.7188,2030.625 1055.625,2030.625 Q1054.6484,2030.625 1054.0234,2030.1953 Q1053.3984,2029.7656 1053.125,2028.6328 Q1053.0078,2027.8516 1052.5781,2027.4219 Q1051.7969,2026.6016 1050.3906,2026.1328 Q1048.9844,2025.625 1047.5781,2025.625 Q1045.8203,2025.625 1044.3359,2026.3281 Q1042.8906,2027.0313 1041.7578,2028.5938 Q1040.625,2030.1563 1040.625,2032.3047 L1040.625,2034.6094 Q1040.625,2037.1875 1042.7344,2038.9063 Q1044.8438,2040.625 1048.5938,2040.625 Q1050.8203,2040.625 1052.3828,2040.1172 Q1053.2813,2039.8438 1054.2969,2038.9453 Q1054.9609,2038.4375 1055.3125,2038.2813 Q1055.6641,2038.125 1056.0938,2038.125 Q1056.9141,2038.125 1057.5,2038.7891 Q1058.125,2039.4141 1058.125,2040.3125 Q1058.125,2041.1719 1057.2656,2042.1875 Q1056.0156,2043.6719 1054.0234,2044.4922 Q1051.4063,2045.625 1048.2031,2045.625 Q1044.4531,2045.625 1041.4453,2044.1406 Q1039.0234,2042.9688 1037.3047,2040.4297 Q1035.625,2037.8906 1035.625,2034.8828 L1035.625,2032.1484 Q1035.625,2029.0234 1037.1094,2026.2891 Q1038.6328,2023.5547 1041.25,2022.1094 Q1043.9063,2020.625 1046.875,2020.625 Q1048.6719,2020.625 1050.2344,2021.25 Q1051.7969,2021.875 1053.125,2023.125 Z " fill="#000000"/><ellipse cx="1111.875" cy="2030.625" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="1126.875" y="2044.1504">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="182.5" x="1194.375" y="2044.1504">CardRequest</text><line style="stroke:#27AE60;stroke-width:3.75;" x1="865" x2="1530" y1="2071.875" y2="2071.875"/><line style="stroke:#27AE60;stroke-width:2.5;" x1="865" x2="1530" y1="2091.875" y2="2091.875"/><ellipse cx="890" cy="2119.375" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="605" x="912.5" y="2130.4224">CardRequest (List&lt;ApduRequest&gt; apduRequests)</text><line style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="865" x2="1530" y1="2146.4648" y2="2146.4648"/><ellipse cx="890" cy="2173.9648" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="490" x="912.5" y="2185.0122">List&lt;ApduRequest&gt; getApduRequests ()</text><!--MD5=[8d2debdbb32bf9c83697f345c4529e73]
+class ApduRequest--><rect codeLine="247" fill="#E9F7EF" height="545.8984" id="ApduRequest" style="stroke:#27AE60;stroke-width:3.75;" width="592.5" x="901.25" y="2468.125"/><ellipse cx="1045.625" cy="2508.125" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M1050.625,2499.375 Q1051.1328,2498.125 1051.7188,2497.5 Q1052.3047,2496.875 1052.9688,2496.875 Q1054.1406,2496.875 1054.8828,2497.5781 Q1055.625,2498.2813 1055.625,2499.9219 L1055.625,2503.8281 Q1055.625,2505.4688 1054.9219,2506.1719 Q1054.2188,2506.875 1053.125,2506.875 Q1052.1484,2506.875 1051.5234,2506.4453 Q1050.8984,2506.0156 1050.625,2504.8828 Q1050.5078,2504.1016 1050.0781,2503.6719 Q1049.2969,2502.8516 1047.8906,2502.3828 Q1046.4844,2501.875 1045.0781,2501.875 Q1043.3203,2501.875 1041.8359,2502.5781 Q1040.3906,2503.2813 1039.2578,2504.8438 Q1038.125,2506.4063 1038.125,2508.5547 L1038.125,2510.8594 Q1038.125,2513.4375 1040.2344,2515.1563 Q1042.3438,2516.875 1046.0938,2516.875 Q1048.3203,2516.875 1049.8828,2516.3672 Q1050.7813,2516.0938 1051.7969,2515.1953 Q1052.4609,2514.6875 1052.8125,2514.5313 Q1053.1641,2514.375 1053.5938,2514.375 Q1054.4141,2514.375 1055,2515.0391 Q1055.625,2515.6641 1055.625,2516.5625 Q1055.625,2517.4219 1054.7656,2518.4375 Q1053.5156,2519.9219 1051.5234,2520.7422 Q1048.9063,2521.875 1045.7031,2521.875 Q1041.9531,2521.875 1038.9453,2520.3906 Q1036.5234,2519.2188 1034.8047,2516.6797 Q1033.125,2514.1406 1033.125,2511.1328 L1033.125,2508.3984 Q1033.125,2505.2734 1034.6094,2502.5391 Q1036.1328,2499.8047 1038.75,2498.3594 Q1041.4063,2496.875 1044.375,2496.875 Q1046.1719,2496.875 1047.7344,2497.5 Q1049.2969,2498.125 1050.625,2499.375 Z " fill="#000000"/><ellipse cx="1109.375" cy="2506.875" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="1124.375" y="2520.4004">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="187.5" x="1191.875" y="2520.4004">ApduRequest</text><line style="stroke:#27AE60;stroke-width:3.75;" x1="903.75" x2="1491.25" y1="2548.125" y2="2548.125"/><line style="stroke:#27AE60;stroke-width:2.5;" x1="903.75" x2="1491.25" y1="2568.125" y2="2568.125"/><ellipse cx="928.75" cy="2595.625" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="527.5" x="951.25" y="2606.6724">ApduRequest (byte[] bytes, boolean case4)</text><ellipse cx="928.75" cy="2630.2148" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="485" x="951.25" y="2641.2622">ApduRequest (byte cla, byte instruction,</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="465" x="1011.25" y="2675.8521">byte p1, byte p2, byte[] dataIn, Byte le)</text><line style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="903.75" x2="1491.25" y1="2691.8945" y2="2691.8945"/><ellipse cx="928.75" cy="2719.3945" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="520" x="951.25" y="2730.4419">ApduRequest setSuccessfulStatusCodes (</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="460" x="1011.25" y="2765.0317">Set&lt;Integer&gt; successfulStatusCodes)</text><ellipse cx="928.75" cy="2788.5742" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="517.5" x="951.25" y="2799.6216">Set&lt;Integer&gt; getSuccessfulStatusCodes ()</text><line style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="903.75" x2="1491.25" y1="2815.6641" y2="2815.6641"/><ellipse cx="928.75" cy="2843.1641" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="447.5" x="951.25" y="2854.2114">ApduRequest setName (String name)</text><ellipse cx="928.75" cy="2877.7539" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="210" x="951.25" y="2888.8013">String getName ()</text><line style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="903.75" x2="1491.25" y1="2904.8438" y2="2904.8438"/><ellipse cx="928.75" cy="2932.3438" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="210" x="951.25" y="2943.3911">byte[] getBytes ()</text><line style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="903.75" x2="1491.25" y1="2959.4336" y2="2959.4336"/><ellipse cx="928.75" cy="2986.9336" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="227.5" x="951.25" y="2997.981">boolean isCase4 ()</text><!--MD5=[81bdd127dee3d48e66ef7f85d7892fe8]
+class DefaultSelectionsRequest--><rect codeLine="242" fill="#E9F7EF" height="402.5977" id="DefaultSelectionsRequest" style="stroke:#27AE60;stroke-width:3.75;" width="760" x="945" y="815.625"/><ellipse cx="1042.125" cy="865.8594" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M1047.125,857.1094 Q1047.6328,855.8594 1048.2188,855.2344 Q1048.8047,854.6094 1049.4688,854.6094 Q1050.6406,854.6094 1051.3828,855.3125 Q1052.125,856.0156 1052.125,857.6563 L1052.125,861.5625 Q1052.125,863.2031 1051.4219,863.9063 Q1050.7188,864.6094 1049.625,864.6094 Q1048.6484,864.6094 1048.0234,864.1797 Q1047.3984,863.75 1047.125,862.6172 Q1047.0078,861.8359 1046.5781,861.4063 Q1045.7969,860.5859 1044.3906,860.1172 Q1042.9844,859.6094 1041.5781,859.6094 Q1039.8203,859.6094 1038.3359,860.3125 Q1036.8906,861.0156 1035.7578,862.5781 Q1034.625,864.1406 1034.625,866.2891 L1034.625,868.5938 Q1034.625,871.1719 1036.7344,872.8906 Q1038.8438,874.6094 1042.5938,874.6094 Q1044.8203,874.6094 1046.3828,874.1016 Q1047.2813,873.8281 1048.2969,872.9297 Q1048.9609,872.4219 1049.3125,872.2656 Q1049.6641,872.1094 1050.0938,872.1094 Q1050.9141,872.1094 1051.5,872.7734 Q1052.125,873.3984 1052.125,874.2969 Q1052.125,875.1563 1051.2656,876.1719 Q1050.0156,877.6563 1048.0234,878.4766 Q1045.4063,879.6094 1042.2031,879.6094 Q1038.4531,879.6094 1035.4453,878.125 Q1033.0234,876.9531 1031.3047,874.4141 Q1029.625,871.875 1029.625,868.8672 L1029.625,866.1328 Q1029.625,863.0078 1031.1094,860.2734 Q1032.6328,857.5391 1035.25,856.0938 Q1037.9063,854.6094 1040.875,854.6094 Q1042.6719,854.6094 1044.2344,855.2344 Q1045.7969,855.8594 1047.125,857.1094 Z " fill="#000000"/><ellipse cx="1102.875" cy="864.6094" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="35" x="1117.875" y="859.2676">&lt;&lt;</text><text fill="#000000" filter="url(#bagtuf7tbp7490)" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="450" x="1152.875" y="859.2676">KeypleDefaultSelectionsRequest</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="35" x="1602.875" y="859.2676">&gt;&gt;</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="1166.625" y="897.002">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="355" x="1234.125" y="897.002">DefaultSelectionsRequest</text><line style="stroke:#27AE60;stroke-width:3.75;" x1="947.5" x2="1702.5" y1="916.0938" y2="916.0938"/><line style="stroke:#27AE60;stroke-width:2.5;" x1="947.5" x2="1702.5" y1="936.0938" y2="936.0938"/><ellipse cx="972.5" cy="963.5938" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="327.5" x="995" y="974.6411">DefaultSelectionsRequest (</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="635" x="1055" y="1009.231">List&lt;CardSelectionRequest&gt; cardSelectionRequests,</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="610" x="1055" y="1043.8208">MultiSelectionProcessing multiSelectionProcessing,</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="380" x="1055" y="1078.4106">ChannelControl channelControl)</text><line style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="947.5" x2="1702.5" y1="1094.4531" y2="1094.4531"/><ellipse cx="972.5" cy="1121.9531" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="667.5" x="995" y="1133.0005">MultiSelectionProcessing getMultiSelectionProcessing ()</text><ellipse cx="972.5" cy="1156.543" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="437.5" x="995" y="1167.5903">ChannelControl getChannelControl ()</text><ellipse cx="972.5" cy="1191.1328" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="695" x="995" y="1202.1802">List&lt;CardSelectionRequest&gt; getCardSelectionRequests ()</text><!--MD5=[ad88d8106adc0f21766a2a077a674dda]
+class CardSelectionResponse--><rect codeLine="250" fill="#F4ECF7" height="312.9492" id="CardSelectionResponse" style="stroke:#8E44AD;stroke-width:3.75;" width="512.5" x="3446.25" y="1370.625"/><ellipse cx="3484.875" cy="1410.625" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M3489.875,1401.875 Q3490.3828,1400.625 3490.9688,1400 Q3491.5547,1399.375 3492.2188,1399.375 Q3493.3906,1399.375 3494.1328,1400.0781 Q3494.875,1400.7813 3494.875,1402.4219 L3494.875,1406.3281 Q3494.875,1407.9688 3494.1719,1408.6719 Q3493.4688,1409.375 3492.375,1409.375 Q3491.3984,1409.375 3490.7734,1408.9453 Q3490.1484,1408.5156 3489.875,1407.3828 Q3489.7578,1406.6016 3489.3281,1406.1719 Q3488.5469,1405.3516 3487.1406,1404.8828 Q3485.7344,1404.375 3484.3281,1404.375 Q3482.5703,1404.375 3481.0859,1405.0781 Q3479.6406,1405.7813 3478.5078,1407.3438 Q3477.375,1408.9063 3477.375,1411.0547 L3477.375,1413.3594 Q3477.375,1415.9375 3479.4844,1417.6563 Q3481.5938,1419.375 3485.3438,1419.375 Q3487.5703,1419.375 3489.1328,1418.8672 Q3490.0313,1418.5938 3491.0469,1417.6953 Q3491.7109,1417.1875 3492.0625,1417.0313 Q3492.4141,1416.875 3492.8438,1416.875 Q3493.6641,1416.875 3494.25,1417.5391 Q3494.875,1418.1641 3494.875,1419.0625 Q3494.875,1419.9219 3494.0156,1420.9375 Q3492.7656,1422.4219 3490.7734,1423.2422 Q3488.1563,1424.375 3484.9531,1424.375 Q3481.2031,1424.375 3478.1953,1422.8906 Q3475.7734,1421.7188 3474.0547,1419.1797 Q3472.375,1416.6406 3472.375,1413.6328 L3472.375,1410.8984 Q3472.375,1407.7734 3473.8594,1405.0391 Q3475.3828,1402.3047 3478,1400.8594 Q3480.6563,1399.375 3483.625,1399.375 Q3485.4219,1399.375 3486.9844,1400 Q3488.5469,1400.625 3489.875,1401.875 Z " fill="#000000"/><ellipse cx="3532.625" cy="1409.375" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="3547.625" y="1422.9004">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="335" x="3615.125" y="1422.9004">CardSelectionResponse</text><line style="stroke:#8E44AD;stroke-width:3.75;" x1="3448.75" x2="3956.25" y1="1450.625" y2="1450.625"/><line style="stroke:#8E44AD;stroke-width:2.5;" x1="3448.75" x2="3956.25" y1="1470.625" y2="1470.625"/><ellipse cx="3473.75" cy="1498.125" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="307.5" x="3496.25" y="1509.1724">CardSelectionResponse (</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="387.5" x="3556.25" y="1543.7622">SelectionStatus selectionStatus,</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="375" x="3556.25" y="1578.3521">CardResponse cardResponse)</text><line style="stroke:#8E44AD;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="3448.75" x2="3956.25" y1="1594.3945" y2="1594.3945"/><ellipse cx="3473.75" cy="1621.8945" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="447.5" x="3496.25" y="1632.9419">SelectionStatus getSelectionStatus ()</text><ellipse cx="3473.75" cy="1656.4844" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="432.5" x="3496.25" y="1667.5317">CardResponse getCardResponse ()</text><!--MD5=[62519695b550f8cbf5b64cbd0e08e475]
+class CardResponse--><rect codeLine="251" fill="#F4ECF7" height="298.3594" id="CardResponse" style="stroke:#8E44AD;stroke-width:3.75;" width="622.5" x="2988.75" y="1948.125"/><ellipse cx="3138.125" cy="1988.125" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M3143.125,1979.375 Q3143.6328,1978.125 3144.2188,1977.5 Q3144.8047,1976.875 3145.4688,1976.875 Q3146.6406,1976.875 3147.3828,1977.5781 Q3148.125,1978.2813 3148.125,1979.9219 L3148.125,1983.8281 Q3148.125,1985.4688 3147.4219,1986.1719 Q3146.7188,1986.875 3145.625,1986.875 Q3144.6484,1986.875 3144.0234,1986.4453 Q3143.3984,1986.0156 3143.125,1984.8828 Q3143.0078,1984.1016 3142.5781,1983.6719 Q3141.7969,1982.8516 3140.3906,1982.3828 Q3138.9844,1981.875 3137.5781,1981.875 Q3135.8203,1981.875 3134.3359,1982.5781 Q3132.8906,1983.2813 3131.7578,1984.8438 Q3130.625,1986.4063 3130.625,1988.5547 L3130.625,1990.8594 Q3130.625,1993.4375 3132.7344,1995.1563 Q3134.8438,1996.875 3138.5938,1996.875 Q3140.8203,1996.875 3142.3828,1996.3672 Q3143.2813,1996.0938 3144.2969,1995.1953 Q3144.9609,1994.6875 3145.3125,1994.5313 Q3145.6641,1994.375 3146.0938,1994.375 Q3146.9141,1994.375 3147.5,1995.0391 Q3148.125,1995.6641 3148.125,1996.5625 Q3148.125,1997.4219 3147.2656,1998.4375 Q3146.0156,1999.9219 3144.0234,2000.7422 Q3141.4063,2001.875 3138.2031,2001.875 Q3134.4531,2001.875 3131.4453,2000.3906 Q3129.0234,1999.2188 3127.3047,1996.6797 Q3125.625,1994.1406 3125.625,1991.1328 L3125.625,1988.3984 Q3125.625,1985.2734 3127.1094,1982.5391 Q3128.6328,1979.8047 3131.25,1978.3594 Q3133.9063,1976.875 3136.875,1976.875 Q3138.6719,1976.875 3140.2344,1977.5 Q3141.7969,1978.125 3143.125,1979.375 Z " fill="#000000"/><ellipse cx="3201.875" cy="1986.875" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="3216.875" y="2000.4004">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="207.5" x="3284.375" y="2000.4004">CardResponse</text><line style="stroke:#8E44AD;stroke-width:3.75;" x1="2991.25" x2="3608.75" y1="2028.125" y2="2028.125"/><line style="stroke:#8E44AD;stroke-width:2.5;" x1="2991.25" x2="3608.75" y1="2048.125" y2="2048.125"/><ellipse cx="3016.25" cy="2075.625" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="557.5" x="3038.75" y="2086.6724">CardResponse (boolean logicalChannelStatus,</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="475" x="3098.75" y="2121.2622">List&lt;ApduResponse&gt; apduResponses)</text><line style="stroke:#8E44AD;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="2991.25" x2="3608.75" y1="2137.3047" y2="2137.3047"/><ellipse cx="3016.25" cy="2164.8047" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="535" x="3038.75" y="2175.8521">List&lt;ApduResponse&gt; getApduResponses ()</text><line style="stroke:#8E44AD;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="2991.25" x2="3608.75" y1="2191.8945" y2="2191.8945"/><ellipse cx="3016.25" cy="2219.3945" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="397.5" x="3038.75" y="2230.4419">boolean isLogicalChannelOpen ()</text><!--MD5=[020bc233d237158d8be37d9dae17a65e]
+class ApduResponse--><rect codeLine="252" fill="#F4ECF7" height="367.5391" id="ApduResponse" style="stroke:#8E44AD;stroke-width:3.75;" width="585" x="2932.5" y="2556.875"/><ellipse cx="3060.625" cy="2596.875" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M3065.625,2588.125 Q3066.1328,2586.875 3066.7188,2586.25 Q3067.3047,2585.625 3067.9688,2585.625 Q3069.1406,2585.625 3069.8828,2586.3281 Q3070.625,2587.0313 3070.625,2588.6719 L3070.625,2592.5781 Q3070.625,2594.2188 3069.9219,2594.9219 Q3069.2188,2595.625 3068.125,2595.625 Q3067.1484,2595.625 3066.5234,2595.1953 Q3065.8984,2594.7656 3065.625,2593.6328 Q3065.5078,2592.8516 3065.0781,2592.4219 Q3064.2969,2591.6016 3062.8906,2591.1328 Q3061.4844,2590.625 3060.0781,2590.625 Q3058.3203,2590.625 3056.8359,2591.3281 Q3055.3906,2592.0313 3054.2578,2593.5938 Q3053.125,2595.1563 3053.125,2597.3047 L3053.125,2599.6094 Q3053.125,2602.1875 3055.2344,2603.9063 Q3057.3438,2605.625 3061.0938,2605.625 Q3063.3203,2605.625 3064.8828,2605.1172 Q3065.7813,2604.8438 3066.7969,2603.9453 Q3067.4609,2603.4375 3067.8125,2603.2813 Q3068.1641,2603.125 3068.5938,2603.125 Q3069.4141,2603.125 3070,2603.7891 Q3070.625,2604.4141 3070.625,2605.3125 Q3070.625,2606.1719 3069.7656,2607.1875 Q3068.5156,2608.6719 3066.5234,2609.4922 Q3063.9063,2610.625 3060.7031,2610.625 Q3056.9531,2610.625 3053.9453,2609.1406 Q3051.5234,2607.9688 3049.8047,2605.4297 Q3048.125,2602.8906 3048.125,2599.8828 L3048.125,2597.1484 Q3048.125,2594.0234 3049.6094,2591.2891 Q3051.1328,2588.5547 3053.75,2587.1094 Q3056.4063,2585.625 3059.375,2585.625 Q3061.1719,2585.625 3062.7344,2586.25 Q3064.2969,2586.875 3065.625,2588.125 Z " fill="#000000"/><ellipse cx="3124.375" cy="2595.625" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="3139.375" y="2609.1504">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="212.5" x="3206.875" y="2609.1504">ApduResponse</text><line style="stroke:#8E44AD;stroke-width:3.75;" x1="2935" x2="3515" y1="2636.875" y2="2636.875"/><line style="stroke:#8E44AD;stroke-width:2.5;" x1="2935" x2="3515" y1="2656.875" y2="2656.875"/><ellipse cx="2960" cy="2684.375" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="362.5" x="2982.5" y="2695.4224">ApduResponse (byte[] buffer,</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="460" x="3042.5" y="2730.0122">Set&lt;Integer&gt; successfulStatusCodes)</text><line style="stroke:#8E44AD;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="2935" x2="3515" y1="2746.0547" y2="2746.0547"/><ellipse cx="2960" cy="2773.5547" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="287.5" x="2982.5" y="2784.6021">boolean isSuccessful ()</text><ellipse cx="2960" cy="2808.1445" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="240" x="2982.5" y="2819.1919">int getStatusCode ()</text><line style="stroke:#8E44AD;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="2935" x2="3515" y1="2835.2344" y2="2835.2344"/><ellipse cx="2960" cy="2862.7344" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="210" x="2982.5" y="2873.7817">byte[] getBytes ()</text><ellipse cx="2960" cy="2897.3242" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="237.5" x="2982.5" y="2908.3716">byte[] getDataOut ()</text><!--MD5=[17146a741b3becbcb08fff440a5eba97]
+class SelectionStatus--><rect codeLine="253" fill="#F4ECF7" height="382.1289" id="SelectionStatus" style="stroke:#8E44AD;stroke-width:3.75;" width="375" x="3700" y="1905.625"/><ellipse cx="3762.25" cy="1945.625" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M3767.25,1936.875 Q3767.7578,1935.625 3768.3438,1935 Q3768.9297,1934.375 3769.5938,1934.375 Q3770.7656,1934.375 3771.5078,1935.0781 Q3772.25,1935.7813 3772.25,1937.4219 L3772.25,1941.3281 Q3772.25,1942.9688 3771.5469,1943.6719 Q3770.8438,1944.375 3769.75,1944.375 Q3768.7734,1944.375 3768.1484,1943.9453 Q3767.5234,1943.5156 3767.25,1942.3828 Q3767.1328,1941.6016 3766.7031,1941.1719 Q3765.9219,1940.3516 3764.5156,1939.8828 Q3763.1094,1939.375 3761.7031,1939.375 Q3759.9453,1939.375 3758.4609,1940.0781 Q3757.0156,1940.7813 3755.8828,1942.3438 Q3754.75,1943.9063 3754.75,1946.0547 L3754.75,1948.3594 Q3754.75,1950.9375 3756.8594,1952.6563 Q3758.9688,1954.375 3762.7188,1954.375 Q3764.9453,1954.375 3766.5078,1953.8672 Q3767.4063,1953.5938 3768.4219,1952.6953 Q3769.0859,1952.1875 3769.4375,1952.0313 Q3769.7891,1951.875 3770.2188,1951.875 Q3771.0391,1951.875 3771.625,1952.5391 Q3772.25,1953.1641 3772.25,1954.0625 Q3772.25,1954.9219 3771.3906,1955.9375 Q3770.1406,1957.4219 3768.1484,1958.2422 Q3765.5313,1959.375 3762.3281,1959.375 Q3758.5781,1959.375 3755.5703,1957.8906 Q3753.1484,1956.7188 3751.4297,1954.1797 Q3749.75,1951.6406 3749.75,1948.6328 L3749.75,1945.8984 Q3749.75,1942.7734 3751.2344,1940.0391 Q3752.7578,1937.3047 3755.375,1935.8594 Q3758.0313,1934.375 3761,1934.375 Q3762.7969,1934.375 3764.3594,1935 Q3765.9219,1935.625 3767.25,1936.875 Z " fill="#000000"/><ellipse cx="3815.25" cy="1944.375" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="212.5" x="3830.25" y="1957.9004">SelectionStatus</text><line style="stroke:#8E44AD;stroke-width:3.75;" x1="3702.5" x2="4072.5" y1="1985.625" y2="1985.625"/><line style="stroke:#8E44AD;stroke-width:2.5;" x1="3702.5" x2="4072.5" y1="2005.625" y2="2005.625"/><ellipse cx="3727.5" cy="2033.125" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="205" x="3750" y="2044.1724">SelectionStatus (</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="247.5" x="3810" y="2078.7622">AnswerToReset atr,</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="232.5" x="3810" y="2113.3521">ApduResponse fci,</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="240" x="3810" y="2147.9419">boolean isMatching)</text><line style="stroke:#8E44AD;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="3702.5" x2="4072.5" y1="2163.9844" y2="2163.9844"/><ellipse cx="3727.5" cy="2191.4844" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="310" x="3750" y="2202.5317">AnswerToReset getAtr ()</text><ellipse cx="3727.5" cy="2226.0742" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="295" x="3750" y="2237.1216">ApduResponse getFci ()</text><ellipse cx="3727.5" cy="2260.6641" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="277.5" x="3750" y="2271.7114">boolean hasMatched ()</text><!--MD5=[08697d5c41fb59880dad310582db5b30]
+class AnswerToReset--><rect codeLine="254" fill="#F4ECF7" height="209.1797" id="AnswerToReset" style="stroke:#8E44AD;stroke-width:3.75;" width="470" x="3605" y="2635.625"/><ellipse cx="3708.875" cy="2675.625" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M3713.875,2666.875 Q3714.3828,2665.625 3714.9688,2665 Q3715.5547,2664.375 3716.2188,2664.375 Q3717.3906,2664.375 3718.1328,2665.0781 Q3718.875,2665.7813 3718.875,2667.4219 L3718.875,2671.3281 Q3718.875,2672.9688 3718.1719,2673.6719 Q3717.4688,2674.375 3716.375,2674.375 Q3715.3984,2674.375 3714.7734,2673.9453 Q3714.1484,2673.5156 3713.875,2672.3828 Q3713.7578,2671.6016 3713.3281,2671.1719 Q3712.5469,2670.3516 3711.1406,2669.8828 Q3709.7344,2669.375 3708.3281,2669.375 Q3706.5703,2669.375 3705.0859,2670.0781 Q3703.6406,2670.7813 3702.5078,2672.3438 Q3701.375,2673.9063 3701.375,2676.0547 L3701.375,2678.3594 Q3701.375,2680.9375 3703.4844,2682.6563 Q3705.5938,2684.375 3709.3438,2684.375 Q3711.5703,2684.375 3713.1328,2683.8672 Q3714.0313,2683.5938 3715.0469,2682.6953 Q3715.7109,2682.1875 3716.0625,2682.0313 Q3716.4141,2681.875 3716.8438,2681.875 Q3717.6641,2681.875 3718.25,2682.5391 Q3718.875,2683.1641 3718.875,2684.0625 Q3718.875,2684.9219 3718.0156,2685.9375 Q3716.7656,2687.4219 3714.7734,2688.2422 Q3712.1563,2689.375 3708.9531,2689.375 Q3705.2031,2689.375 3702.1953,2687.8906 Q3699.7734,2686.7188 3698.0547,2684.1797 Q3696.375,2681.6406 3696.375,2678.6328 L3696.375,2675.8984 Q3696.375,2672.7734 3697.8594,2670.0391 Q3699.3828,2667.3047 3702,2665.8594 Q3704.6563,2664.375 3707.625,2664.375 Q3709.4219,2664.375 3710.9844,2665 Q3712.5469,2665.625 3713.875,2666.875 Z " fill="#000000"/><ellipse cx="3771.125" cy="2674.375" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="215" x="3786.125" y="2687.9004">AnswerToReset</text><line style="stroke:#8E44AD;stroke-width:3.75;" x1="3607.5" x2="4072.5" y1="2715.625" y2="2715.625"/><line style="stroke:#8E44AD;stroke-width:2.5;" x1="3607.5" x2="4072.5" y1="2735.625" y2="2735.625"/><ellipse cx="3632.5" cy="2763.125" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="405" x="3655" y="2774.1724">AnswerToReset (byte[] atrBytes)</text><line style="stroke:#8E44AD;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="3607.5" x2="4072.5" y1="2790.2148" y2="2790.2148"/><ellipse cx="3632.5" cy="2817.7148" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="210" x="3655" y="2828.7622">byte[] getBytes ()</text><!--MD5=[98ba62cb7f23ffced5bd52e8cedb0b75]
+class DefaultSelectionsResponse--><rect codeLine="249" fill="#F4ECF7" height="264.2383" id="DefaultSelectionsResponse" style="stroke:#8E44AD;stroke-width:3.75;" width="807.5" x="2933.75" y="884.375"/><ellipse cx="3041" cy="934.6094" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M3046,925.8594 Q3046.5078,924.6094 3047.0938,923.9844 Q3047.6797,923.3594 3048.3438,923.3594 Q3049.5156,923.3594 3050.2578,924.0625 Q3051,924.7656 3051,926.4063 L3051,930.3125 Q3051,931.9531 3050.2969,932.6563 Q3049.5938,933.3594 3048.5,933.3594 Q3047.5234,933.3594 3046.8984,932.9297 Q3046.2734,932.5 3046,931.3672 Q3045.8828,930.5859 3045.4531,930.1563 Q3044.6719,929.3359 3043.2656,928.8672 Q3041.8594,928.3594 3040.4531,928.3594 Q3038.6953,928.3594 3037.2109,929.0625 Q3035.7656,929.7656 3034.6328,931.3281 Q3033.5,932.8906 3033.5,935.0391 L3033.5,937.3438 Q3033.5,939.9219 3035.6094,941.6406 Q3037.7188,943.3594 3041.4688,943.3594 Q3043.6953,943.3594 3045.2578,942.8516 Q3046.1563,942.5781 3047.1719,941.6797 Q3047.8359,941.1719 3048.1875,941.0156 Q3048.5391,940.8594 3048.9688,940.8594 Q3049.7891,940.8594 3050.375,941.5234 Q3051,942.1484 3051,943.0469 Q3051,943.9063 3050.1406,944.9219 Q3048.8906,946.4063 3046.8984,947.2266 Q3044.2813,948.3594 3041.0781,948.3594 Q3037.3281,948.3594 3034.3203,946.875 Q3031.8984,945.7031 3030.1797,943.1641 Q3028.5,940.625 3028.5,937.6172 L3028.5,934.8828 Q3028.5,931.7578 3029.9844,929.0234 Q3031.5078,926.2891 3034.125,924.8438 Q3036.7813,923.3594 3039.75,923.3594 Q3041.5469,923.3594 3043.1094,923.9844 Q3044.6719,924.6094 3046,925.8594 Z " fill="#000000"/><ellipse cx="3104" cy="933.3594" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="35" x="3119" y="928.0176">&lt;&lt;</text><text fill="#000000" filter="url(#bagtuf7tbp7490)" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="475" x="3154" y="928.0176">KeypleDefaultSelectionsResponse</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="35" x="3629" y="928.0176">&gt;&gt;</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="3167.75" y="965.752">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="380" x="3235.25" y="965.752">DefaultSelectionsResponse</text><line style="stroke:#8E44AD;stroke-width:3.75;" x1="2936.25" x2="3738.75" y1="984.8438" y2="984.8438"/><line style="stroke:#8E44AD;stroke-width:2.5;" x1="2936.25" x2="3738.75" y1="1004.8438" y2="1004.8438"/><ellipse cx="2961.25" cy="1032.3438" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="350" x="2983.75" y="1043.3911">DefaultSelectionsResponse (</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="682.5" x="3043.75" y="1077.981">List&lt;CardSelectionResponse&gt; cardSelectionResponses)</text><line style="stroke:#8E44AD;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="2936.25" x2="3738.75" y1="1094.0234" y2="1094.0234"/><ellipse cx="2961.25" cy="1121.5234" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="740" x="2983.75" y="1132.5708">List&lt;CardSelectionResponse&gt; getCardSelectionResponses ()</text><!--MD5=[e210ee7b55cb4fcef849a017d68619f7]
+class CardSelectionSpi--><rect codeLine="179" fill="#FEFECE" height="189.1797" id="CardSelectionSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="920" x="2565" y="423.125"/><ellipse cx="2880.625" cy="463.125" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2883.125,455.625 L2883.125,470.625 L2888.125,470.625 L2889.3359,470.625 L2890.625,472.1875 L2890.625,473.125 L2890.625,474.0625 L2889.3359,475.625 L2888.125,475.625 L2873.125,475.625 L2871.9141,475.625 L2870.625,474.0625 L2870.625,473.125 L2870.625,472.1875 L2871.9141,470.625 L2873.125,470.625 L2878.125,470.625 L2878.125,455.625 L2873.125,455.625 L2871.9141,455.625 L2870.625,454.0625 L2870.625,453.125 L2870.625,452.1875 L2871.9141,450.625 L2873.125,450.625 L2888.125,450.625 L2889.3359,450.625 L2890.625,452.1875 L2890.625,453.125 L2890.625,454.0625 L2889.3359,455.625 L2888.125,455.625 L2883.125,455.625 Z " fill="#000000"/><ellipse cx="2944.375" cy="461.875" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="240" x="2959.375" y="475.4004">CardSelectionSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2567.5" x2="3482.5" y1="503.125" y2="503.125"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2567.5" x2="3482.5" y1="523.125" y2="523.125"/><ellipse cx="2592.5" cy="550.625" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="607.5" x="2615" y="561.6724">CardSelectionRequest getCardSelectionRequest ()</text><ellipse cx="2592.5" cy="585.2148" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="855" x="2615" y="596.2622">SmartCardSpi parse (CardSelectionResponse cardSelectionResponse)</text><!--MD5=[c089e258773b765d812cd5d8bc232f90]
+class SmartCardSpi--><rect codeLine="183" fill="#FEFECE" height="120" id="SmartCardSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="302.5" x="2173.75" y="458.125"/><ellipse cx="2211.25" cy="498.125" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2213.75,490.625 L2213.75,505.625 L2218.75,505.625 L2219.9609,505.625 L2221.25,507.1875 L2221.25,508.125 L2221.25,509.0625 L2219.9609,510.625 L2218.75,510.625 L2203.75,510.625 L2202.5391,510.625 L2201.25,509.0625 L2201.25,508.125 L2201.25,507.1875 L2202.5391,505.625 L2203.75,505.625 L2208.75,505.625 L2208.75,490.625 L2203.75,490.625 L2202.5391,490.625 L2201.25,489.0625 L2201.25,488.125 L2201.25,487.1875 L2202.5391,485.625 L2203.75,485.625 L2218.75,485.625 L2219.9609,485.625 L2221.25,487.1875 L2221.25,488.125 L2221.25,489.0625 L2219.9609,490.625 L2218.75,490.625 L2213.75,490.625 Z " fill="#000000"/><ellipse cx="2258.75" cy="496.875" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="195" x="2273.75" y="510.4004">SmartCardSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2176.25" x2="2473.75" y1="538.125" y2="538.125"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2176.25" x2="2473.75" y1="558.125" y2="558.125"/><!--MD5=[5c6c7d52e42032554528404b62c1d271]
+class RuntimeException--><rect codeLine="51" fill="#FEFECE" height="120" id="RuntimeException" style="stroke:#D4AC0D;stroke-width:3.75;" width="360" x="5100" y="458.125"/><ellipse cx="5137.5" cy="498.125" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M5142.5,489.375 Q5143.0078,488.125 5143.5938,487.5 Q5144.1797,486.875 5144.8438,486.875 Q5146.0156,486.875 5146.7578,487.5781 Q5147.5,488.2813 5147.5,489.9219 L5147.5,493.8281 Q5147.5,495.4688 5146.7969,496.1719 Q5146.0938,496.875 5145,496.875 Q5144.0234,496.875 5143.3984,496.4453 Q5142.7734,496.0156 5142.5,494.8828 Q5142.3828,494.1016 5141.9531,493.6719 Q5141.1719,492.8516 5139.7656,492.3828 Q5138.3594,491.875 5136.9531,491.875 Q5135.1953,491.875 5133.7109,492.5781 Q5132.2656,493.2813 5131.1328,494.8438 Q5130,496.4063 5130,498.5547 L5130,500.8594 Q5130,503.4375 5132.1094,505.1563 Q5134.2188,506.875 5137.9688,506.875 Q5140.1953,506.875 5141.7578,506.3672 Q5142.6563,506.0938 5143.6719,505.1953 Q5144.3359,504.6875 5144.6875,504.5313 Q5145.0391,504.375 5145.4688,504.375 Q5146.2891,504.375 5146.875,505.0391 Q5147.5,505.6641 5147.5,506.5625 Q5147.5,507.4219 5146.6406,508.4375 Q5145.3906,509.9219 5143.3984,510.7422 Q5140.7813,511.875 5137.5781,511.875 Q5133.8281,511.875 5130.8203,510.3906 Q5128.3984,509.2188 5126.6797,506.6797 Q5125,504.1406 5125,501.1328 L5125,498.3984 Q5125,495.2734 5126.4844,492.5391 Q5128.0078,489.8047 5130.625,488.3594 Q5133.2813,486.875 5136.25,486.875 Q5138.0469,486.875 5139.6094,487.5 Q5141.1719,488.125 5142.5,489.375 Z " fill="#000000"/><ellipse cx="5185" cy="496.875" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="252.5" x="5200" y="510.4004">RuntimeException</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="5102.5" x2="5457.5" y1="538.125" y2="538.125"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="5102.5" x2="5457.5" y1="558.125" y2="558.125"/><!--MD5=[cdf69fa7f1cfead213d001e3d8dc600a]
+reverse link RuntimeException to CardCommunicationException--><path d="M5157.525,607.95 C5076.85,665.4775 4967.8,743.23 4866.675,815.325 " fill="none" id="RuntimeException-backto-CardCommunicationException" style="stroke:#A80036;stroke-width:2.5;"/><polygon fill="none" points="5148.325,593,5199.2,578.225,5168.65,621.5,5148.325,593" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[1031604b91889377fe6bb61a55310e0d]
+reverse link DefaultSelectionsRequest to CardSelectionRequest--><path codeLine="202" d="M980.59,1236.1075 C908.9075,1281.215 834.7575,1327.8775 767.5375,1370.1775 " fill="none" id="DefaultSelectionsRequest-backto-CardSelectionRequest" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#3498DB" points="1008.9825,1218.24,990.961,1217.7658,983.5919,1234.2187,1001.6135,1234.6929,1008.9825,1218.24" style="stroke:#3498DB;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="60" x="732.4012" y="1343.5095">1..N</text><!--MD5=[342c8eb25f8a1dd96cfbcd7f698a68c7]
+reverse link DefaultSelectionsRequest to MultiSelectionProcessing--><path codeLine="203" d="M1461.9475,1246.1225 C1501.515,1311.6375 1542.495,1379.4925 1574.0825,1431.79 " fill="none" id="DefaultSelectionsRequest-backto-MultiSelectionProcessing" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#3498DB" points="1445.1075,1218.24,1444.3036,1236.2498,1460.6189,1243.9187,1461.4228,1225.9089,1445.1075,1218.24" style="stroke:#3498DB;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="17.5" x="1544.6594" y="1404.4656">1</text><!--MD5=[e98879906059635ebfdbd0a3108430b7]
+reverse link DefaultSelectionsRequest to ChannelControl--><path codeLine="204" d="M1247.4875,1249.635 C1225.8,1314.0575 1203.4575,1380.425 1186.1675,1431.79 " fill="none" id="DefaultSelectionsRequest-backto-ChannelControl" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#3498DB" points="1258.055,1218.24,1243.7925,1229.2664,1248.4851,1246.6727,1262.7476,1235.6463,1258.055,1218.24" style="stroke:#3498DB;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="17.5" x="1172.8007" y="1404.4656">1</text><!--MD5=[9835af9204c9210f827ba24cc91945f0]
+reverse link CardSelectionRequest to CardRequest--><path codeLine="206" d="M665.465,1708.3675 C695.2025,1741.4 727.445,1774.47 760,1803.125 C839.795,1873.36 937.5675,1939.9875 1020.4325,1991.745 " fill="none" id="CardSelectionRequest-backto-CardRequest" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#3498DB" points="643.2475,1683.19,645.6745,1701.0536,663.0975,1705.684,660.6705,1687.8203,643.2475,1683.19" style="stroke:#3498DB;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="55" x="931.551" y="1964.8989">0..1</text><!--MD5=[d401507d432a199d6c8d10fa177dfeb2]
+reverse link CardRequest to ApduRequest--><path codeLine="208" d="M1197.5,2234.835 C1197.5,2302.65 1197.5,2387.245 1197.5,2467.6125 " fill="none" id="CardRequest-backto-ApduRequest" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#3498DB" points="1197.5,2202,1187.5,2217,1197.5,2232,1207.5,2217,1197.5,2202" style="stroke:#3498DB;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="60" x="1135.3906" y="2440.7472">1..N</text><!--MD5=[3774cd7428d282f293487fb5ad02157e]
+reverse link DefaultSelectionsResponse to CardSelectionResponse--><path codeLine="210" d="M3320,1183.665 C3322.45,1222.39 3330.8,1262.115 3350,1295.625 C3373.575,1336.7725 3407.9,1371.7725 3446,1401.0925 " fill="none" id="DefaultSelectionsResponse-backto-CardSelectionResponse" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#3498DB" points="3319.25,1150.07,3309.5887,1165.2904,3319.9224,1180.0625,3329.5837,1164.8421,3319.25,1150.07" style="stroke:#3498DB;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="60" x="3365.8555" y="1384.5951">1..N</text><!--MD5=[77f859707804abe419614d0e91d95dfe]
+reverse link CardSelectionResponse to CardResponse--><path codeLine="212" d="M3696.2,1716.52 C3689.825,1746.78 3679.975,1776.785 3665,1803.125 C3633.75,1858.1025 3587.675,1906.6175 3538.675,1947.5025 " fill="none" id="CardSelectionResponse-backto-CardResponse" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#3498DB" points="3701.825,1683.75,3689.4368,1696.847,3696.7616,1713.3196,3709.1498,1700.2226,3701.825,1683.75" style="stroke:#3498DB;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="17.5" x="3549.1971" y="1920.5992">1</text><!--MD5=[4905b2efbeb6b377be21c40fb1d79f57]
+reverse link CardSelectionResponse to SelectionStatus--><path codeLine="213" d="M3763.25,1714.94 C3783.225,1775.885 3805.425,1843.68 3825.475,1904.9125 " fill="none" id="CardSelectionResponse-backto-SelectionStatus" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#3498DB" points="3753.05,1683.7625,3748.2136,1701.1294,3762.3844,1712.2734,3767.2208,1694.9065,3753.05,1683.7625" style="stroke:#3498DB;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="17.5" x="3801.2293" y="1878.5072">1</text><!--MD5=[9424ef5399bf3a67a4952b2f5019cc6d]
+reverse link CardResponse to ApduResponse--><path codeLine="215" d="M3278.875,2279.34 C3268.725,2365.715 3256.6,2469.015 3246.425,2555.705 " fill="none" id="CardResponse-backto-ApduResponse" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#3498DB" points="3282.8,2245.9175,3271.1197,2259.6496,3279.303,2275.713,3290.9833,2261.9809,3282.8,2245.9175" style="stroke:#3498DB;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="60" x="3185.6077" y="2529.9514">1..N</text><!--MD5=[1cd47721a07c040e565e1a09c1eba3b5]
+reverse link SelectionStatus to ApduResponse--><path codeLine="217" d="M3675.975,2303.305 C3591.675,2384.5875 3495.425,2477.3975 3413.55,2556.34 " fill="none" id="SelectionStatus-backto-ApduResponse" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#3498DB" points="3699.425,2280.7075,3681.6867,2283.9252,3677.8346,2301.5366,3695.5728,2298.3189,3699.425,2280.7075" style="stroke:#3498DB;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="55" x="3374.4034" y="2530.0098">0..1</text><!--MD5=[24cbd97995d68a7170e91f5c730befab]
+reverse link SelectionStatus to AnswerToReset--><path codeLine="218" d="M3871.025,2320.9325 C3863.1,2427.525 3853.975,2550.205 3847.675,2634.805 " fill="none" id="SelectionStatus-backto-AnswerToReset" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#3498DB" points="3873.45,2288.4275,3862.3655,2302.6449,3871.226,2318.3449,3882.3105,2304.1276,3873.45,2288.4275" style="stroke:#3498DB;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="55" x="3789.5154" y="2608.6256">0..1</text><!--MD5=[97bd1603d76c8045fe45bc32a47575e7]
+reverse link CardCommunicationException to CardSelectionResponse--><path codeLine="220" d="M4205.8,1234.8075 C4126.925,1279.5525 4044.45,1326.5075 3967.5,1370.625 C3964.725,1372.2125 3961.95,1373.81 3959.15,1375.415 " fill="none" id="CardCommunicationException-backto-CardSelectionResponse" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#3498DB" points="4234.675,1218.4325,4216.694,1217.1348,4208.5804,1233.2335,4226.5614,1234.5312,4234.675,1218.4325" style="stroke:#3498DB;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="60" x="3978.4093" y="1357.6473">0..N</text><!--MD5=[ba52be1ac34b0ecf3f60b166d9e6ca29]
+reverse link CardCommunicationException to CardResponse--><path codeLine="221" d="M4125.225,1214.8775 C4121.8,1215.975 4118.4,1217.0575 4115,1218.125 C3806.05,1315.22 3623.325,1133.745 3402.5,1370.625 C3258.425,1525.1825 3258.4,1784.8475 3276,1947.5175 " fill="none" id="CardCommunicationException-backto-CardResponse" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#3498DB" points="4156.125,1204.6375,4138.7421,1199.859,4127.6454,1214.0669,4145.0284,1218.8454,4156.125,1204.6375" style="stroke:#3498DB;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="55" x="3214.7234" y="1920.616">0..1</text><!--MD5=[c545f7e69e1fd10e93a83a4930be8cac]
+reverse link CardSelectionRequest to ProxyReader--><path codeLine="223" d="M916.4625,1673.4025 C926.8975,1676.7325 937.2575,1679.98 947.5,1683.125 C1154.6225,1746.7225 1207.7675,1759.515 1420,1803.125 C1629.3525,1846.1425 1690.8275,1814.9375 1895,1878.125 C1908.16,1882.1975 1921.4225,1886.5875 1934.725,1891.24 " fill="none" id="CardSelectionRequest-backto-ProxyReader" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#27AE60" points="904.18,1669.4575,922.542,1685.8614,916.0807,1673.2816,928.6605,1666.8203,904.18,1669.4575" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="1420.2766,1778.4495,1440.8519,1790.3647,1443.926,1775.9953,1420.2766,1778.4495" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1455" y="1794.3628">use</text><!--MD5=[2442a7d7f46532290415533a60537508]
+link ProxyReader to CardRequest--><path codeLine="224" d="M1934.865,2096.875 C1807.32,2096.875 1668.325,2096.875 1545.745,2096.875 " fill="none" id="ProxyReader-to-CardRequest" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#27AE60" points="1533.1725,2096.875,1555.6725,2106.875,1545.6725,2096.875,1555.6725,2086.875,1533.1725,2096.875" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="1688.75,2067.3145,1711.3627,2074.6618,1711.3627,2059.9671,1688.75,2067.3145" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1723.75" y="2080.6128">use</text><!--MD5=[cea258861a101b37c0092aa2c73adb0e]
+reverse link MultiSelectionProcessing to ProxyReader--><path codeLine="225" d="M1758.605,1630.295 C1846.1675,1699.0075 1965.425,1792.5925 2073.9175,1877.725 " fill="none" id="MultiSelectionProcessing-backto-ProxyReader" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#27AE60" points="1748.0875,1622.04,1759.6154,1643.7968,1757.9214,1629.7565,1771.9617,1628.0625,1748.0875,1622.04" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="1972.6662,1773.3478,1985.9199,1793.0875,1994.9914,1781.5272,1972.6662,1773.3478" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="2005" y="1794.3628">use</text><!--MD5=[86fbc7b023257ef37098cf7570a66f83]
+reverse link ChannelControl to ProxyReader--><path codeLine="226" d="M1277.37,1630.2275 C1303.69,1649.2875 1332.03,1667.97 1360,1683.125 C1582.52,1803.6825 1661.565,1780.365 1895,1878.125 C1907.9075,1883.53 1920.98,1889.105 1934.1425,1894.8075 " fill="none" id="ChannelControl-backto-ProxyReader" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#27AE60" points="1267,1622.6225,1279.2328,1643.9909,1277.0809,1630.0135,1291.0583,1627.8615,1267,1622.6225" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="1670.9055,1776.3936,1689.1347,1791.6583,1694.6256,1778.0281,1670.9055,1776.3936" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1705" y="1794.3628">use</text><!--MD5=[ef2297562df3bdaf27e19b497e1f04bc]
+reverse link CardSelectionResponse to ProxyReader--><path codeLine="228" d="M3433.25,1641.855 C3242.375,1721.59 2982.625,1830.1 2765.325,1920.875 " fill="none" id="CardSelectionResponse-backto-ProxyReader" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#27AE60" points="3445.725,1636.645,3421.109,1636.0951,3434.1918,1641.4654,3428.8216,1654.5482,3445.725,1636.645" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="3171.5341,1776.2462,3147.8367,1778.183,3153.5009,1791.742,3171.5341,1776.2462" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="3182.5" y="1794.3628">provide</text><!--MD5=[07ed8df3c1c3d85fbf148d2489e3f22f]
+link ProxyReader to CardResponse--><path codeLine="229" d="M2765.3,2096.875 C2835.8,2096.875 2908.1,2096.875 2975.825,2096.875 " fill="none" id="ProxyReader-to-CardResponse" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#27AE60" points="2988.4,2096.875,2965.9,2086.875,2975.9,2096.875,2965.9,2106.875,2988.4,2096.875" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="2833.125,2067.3145,2810.5123,2059.9671,2810.5123,2074.6618,2833.125,2067.3145" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="2843.125" y="2080.6128">provide</text><!--MD5=[5a936db90128bf7dfe46c9090d74a51f]
+reverse link CardCommunicationException to ProxyReader--><path codeLine="230" d="M4522.725,1230.9225 C4453.75,1416.4325 4325.075,1675.8275 4115,1803.125 C3882.225,1944.1725 3158.1,1818.65 2892.5,1878.125 C2850.7,1887.485 2807.925,1899.6475 2765.625,1913.43 " fill="none" id="CardCommunicationException-backto-ProxyReader" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#27AE60" points="4527.175,1218.81,4510.0105,1236.463,4522.8519,1230.5386,4528.7762,1243.38,4527.175,1218.81" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="4486.6519,1522.7885,4462.9132,1524.1272,4468.2337,1537.8248,4486.6519,1522.7885" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="77.5" x="4497.5" y="1540.6128">throw</text><!--MD5=[c0a24d630d4de8bc0d10e52ccdce37c4]
+link spi to DefaultSelectionsRequest--><!--MD5=[996fede72f6aa84a0ef13c93c212b0a9]
+link spi to DefaultSelectionsResponse--><!--MD5=[efd792b69ef3aad079516042f1955e25]
+@startuml
+title
+    Keyple 2.0 - keyple-card-api - 2.0 (18/01/2021)
+end title
+
+' == THEME ==
+
+'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define C_GREY1 F8F9F9
+!define C_GREY2 F2F3F4
+!define C_GREY3 E5E7E9
+!define C_GREY4 D7DBDD
+!define C_GREY5 CACFD2
+!define C_GREY6 BDC3C7
+!define C_LINK 3498DB
+!define C_USE 27AE60
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+' Red
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+' Purple
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+' blue
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+' Green
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+' Grey
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+' == CONTENT ==
+
+legend top
+    Legend : <back:cyan>from **Commons API**</back>
+end legend
+
++class RuntimeException {
+}
+package "org.eclipse.keyple.card" as api {
+    +interface ProxyReader {
+        - -
+        +List<CardSelectionResponse> transmitCardSelectionRequests (
+            \tList<CardSelectionRequest> cardSelectionRequests,
+            \tMultiSelectionProcessing multiSelectionProcessing,
+            \tChannelControl channelControl)
+        ..
+        +CardResponse transmitCardRequest (
+            \tCardRequest cardRequest,
+            \tChannelControl channelControl)
+        ..
+        +void releaseChannel ()
+    }
+    ' REQUEST
+    together {
+        +enum MultiSelectionProcessing {
+            FIRST_MATCH
+            PROCESS_ALL
+        }
+        +enum ChannelControl {
+            KEEP_OPEN
+            CLOSE_AFTER
+        }
+        +class "**final** CardSelectionRequest" as CardSelectionRequest {
+            - -
+            +CardSelectionRequest (<back:cyan>KeypleCardSelector</back> cardSelector)
+            +CardSelectionRequest (<back:cyan>KeypleCardSelector</back> cardSelector,
+                \tCardRequest cardRequest)
+            ..
+            +<back:cyan>KeypleCardSelector</back> getCardSelector ()
+            +CardRequest getCardRequest ()
+        }
+        +class "**final** CardRequest" as CardRequest {
+            - -
+            +CardRequest (List<ApduRequest> apduRequests)
+            ..
+            +List<ApduRequest> getApduRequests ()
+        }
+        +class "**final** ApduRequest" as ApduRequest {
+            - -
+            +ApduRequest (byte[] bytes, boolean case4)
+            +ApduRequest (byte cla, byte instruction,
+                \tbyte p1, byte p2, byte[] dataIn, Byte le)
+            ..
+            +ApduRequest setSuccessfulStatusCodes (
+                \tSet<Integer> successfulStatusCodes)
+            +Set<Integer> getSuccessfulStatusCodes ()
+            ..
+            +ApduRequest setName (String name)
+            +String getName ()
+            ..
+            +byte[] getBytes ()
+            ..
+            +boolean isCase4 ()
+        }
+        +class "<<<back:cyan>KeypleDefaultSelectionsRequest</back>>>\n**final** DefaultSelectionsRequest" as DefaultSelectionsRequest {
+            - -
+            +DefaultSelectionsRequest (
+                \tList<CardSelectionRequest> cardSelectionRequests,
+                \tMultiSelectionProcessing multiSelectionProcessing,
+                \tChannelControl channelControl)
+            ..
+            +MultiSelectionProcessing getMultiSelectionProcessing ()
+            +ChannelControl getChannelControl ()
+            +List<CardSelectionRequest> getCardSelectionRequests ()
+        }
+    }
+    ' RESPONSE
+    together {
+        +class "**final** CardSelectionResponse" as CardSelectionResponse {
+            - -
+            +CardSelectionResponse (
+                \tSelectionStatus selectionStatus,
+                \tCardResponse cardResponse)
+            ..
+            +SelectionStatus getSelectionStatus ()
+            +CardResponse getCardResponse ()
+        }
+        +class "**final** CardResponse" as CardResponse {
+            - -
+            +CardResponse (boolean logicalChannelStatus,
+                \tList<ApduResponse> apduResponses)
+            ..
+            +List<ApduResponse> getApduResponses ()
+            ..
+            +boolean isLogicalChannelOpen ()
+        }
+        +class "**final** ApduResponse" as ApduResponse {
+            - -
+            +ApduResponse (byte[] buffer,
+                \tSet<Integer> successfulStatusCodes)
+            ..
+            +boolean isSuccessful ()
+            +int getStatusCode ()
+            ..
+            +byte[] getBytes ()
+            +byte[] getDataOut ()
+        }
+        +class SelectionStatus {
+            - -
+            +SelectionStatus (
+                \tAnswerToReset atr,
+                \tApduResponse fci,
+                \tboolean isMatching)
+            ..
+            +AnswerToReset getAtr ()
+            +ApduResponse getFci ()
+            +boolean hasMatched ()
+        }
+        +class AnswerToReset {
+            - -
+            +AnswerToReset (byte[] atrBytes)
+            ..
+            +byte[] getBytes ()
+        }
+        +class "<<<back:cyan>KeypleDefaultSelectionsResponse</back>>>\n**final** DefaultSelectionsResponse" as DefaultSelectionsResponse {
+            - -
+            +DefaultSelectionsResponse (
+                \tList<CardSelectionResponse> cardSelectionResponses)
+            ..
+            +List<CardSelectionResponse> getCardSelectionResponses ()
+        }
+    }
+    ' SPI
+    package spi {
+        +interface CardSelectionSpi {
+            +CardSelectionRequest getCardSelectionRequest ()
+            +SmartCardSpi parse (CardSelectionResponse cardSelectionResponse)
+        }
+        +interface SmartCardSpi {
+        }
+    }
+    +class CardCommunicationException extends RuntimeException {
+        - -
+        +CardCommunicationException (String message)
+        +CardCommunicationException (String message, Throwable cause)
+        ..
+        +void setCardSelectionResponses (
+            \tList<CardSelectionResponse> cardSelectionResponses)
+        +List<CardSelectionResponse> getCardSelectionResponses ()
+        ..
+        +void setCardResponse (CardResponse cardResponse)
+        +CardResponse getCardResponse ()
+    }
+}
+
+' Associations
+
+DefaultSelectionsRequest *- - "1..N" CardSelectionRequest #C_LINK
+DefaultSelectionsRequest *- - "1" MultiSelectionProcessing #C_LINK
+DefaultSelectionsRequest *- - "1" ChannelControl #C_LINK
+
+CardSelectionRequest *- - "0..1" CardRequest #C_LINK
+
+CardRequest *- - "1..N" ApduRequest #C_LINK
+
+DefaultSelectionsResponse *- - "1..N" CardSelectionResponse #C_LINK
+
+CardSelectionResponse *- - "1" CardResponse #C_LINK
+CardSelectionResponse *- - "1" SelectionStatus #C_LINK
+
+CardResponse *- - "1..N" ApduResponse #C_LINK
+
+SelectionStatus *- - "0..1" ApduResponse  #C_LINK
+SelectionStatus *- - "0..1" AnswerToReset  #C_LINK
+
+CardCommunicationException *- - "0..N" CardSelectionResponse #C_LINK
+CardCommunicationException *- - "0..1" CardResponse #C_LINK
+
+ProxyReader -left-> CardSelectionRequest #C_USE : use >
+ProxyReader - -> CardRequest #C_USE : use >
+ProxyReader -up-> MultiSelectionProcessing #C_USE : use >
+ProxyReader -up-> ChannelControl #C_USE : use >
+
+ProxyReader -up-> CardSelectionResponse #C_USE : provide >
+ProxyReader -> CardResponse #C_USE : provide >
+ProxyReader -up-> CardCommunicationException #C_USE : throw >
+
+' == LAYOUT ==
+
+spi -[hidden]- DefaultSelectionsRequest
+spi -[hidden]- DefaultSelectionsResponse
+
+' == STYLE ==
+
+package api #C_GREY1 {}
+package spi #C_GREY2 {}
+
+class DefaultSelectionsRequest <<green>>
+class CardSelectionRequest <<green>>
+enum MultiSelectionProcessing <<green>>
+enum ChannelControl <<green>>
+class CardRequest <<green>>
+class ApduRequest <<green>>
+
+class DefaultSelectionsResponse <<purple>>
+class CardSelectionResponse <<purple>>
+class CardResponse <<purple>>
+class ApduResponse <<purple>>
+class SelectionStatus <<purple>>
+class AnswerToReset <<purple>>
+class CardCommunicationException <<purple>>
+
+@enduml
+
+@startuml
+title
+    Keyple 2.0 - keyple-card-api - 2.0 (18/01/2021)
+end title
+
+
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+
+legend top
+    Legend : <back:cyan>from **Commons API**</back>
+end legend
+
++class RuntimeException {
+}
+package "org.eclipse.keyple.card" as api {
+    +interface ProxyReader {
+        - -
+        +List<CardSelectionResponse> transmitCardSelectionRequests (
+            \tList<CardSelectionRequest> cardSelectionRequests,
+            \tMultiSelectionProcessing multiSelectionProcessing,
+            \tChannelControl channelControl)
+        ..
+        +CardResponse transmitCardRequest (
+            \tCardRequest cardRequest,
+            \tChannelControl channelControl)
+        ..
+        +void releaseChannel ()
+    }
+    together {
+        +enum MultiSelectionProcessing {
+            FIRST_MATCH
+            PROCESS_ALL
+        }
+        +enum ChannelControl {
+            KEEP_OPEN
+            CLOSE_AFTER
+        }
+        +class "**final** CardSelectionRequest" as CardSelectionRequest {
+            - -
+            +CardSelectionRequest (<back:cyan>KeypleCardSelector</back> cardSelector)
+            +CardSelectionRequest (<back:cyan>KeypleCardSelector</back> cardSelector,
+                \tCardRequest cardRequest)
+            ..
+            +<back:cyan>KeypleCardSelector</back> getCardSelector ()
+            +CardRequest getCardRequest ()
+        }
+        +class "**final** CardRequest" as CardRequest {
+            - -
+            +CardRequest (List<ApduRequest> apduRequests)
+            ..
+            +List<ApduRequest> getApduRequests ()
+        }
+        +class "**final** ApduRequest" as ApduRequest {
+            - -
+            +ApduRequest (byte[] bytes, boolean case4)
+            +ApduRequest (byte cla, byte instruction,
+                \tbyte p1, byte p2, byte[] dataIn, Byte le)
+            ..
+            +ApduRequest setSuccessfulStatusCodes (
+                \tSet<Integer> successfulStatusCodes)
+            +Set<Integer> getSuccessfulStatusCodes ()
+            ..
+            +ApduRequest setName (String name)
+            +String getName ()
+            ..
+            +byte[] getBytes ()
+            ..
+            +boolean isCase4 ()
+        }
+        +class "<<<back:cyan>KeypleDefaultSelectionsRequest</back>>>\n**final** DefaultSelectionsRequest" as DefaultSelectionsRequest {
+            - -
+            +DefaultSelectionsRequest (
+                \tList<CardSelectionRequest> cardSelectionRequests,
+                \tMultiSelectionProcessing multiSelectionProcessing,
+                \tChannelControl channelControl)
+            ..
+            +MultiSelectionProcessing getMultiSelectionProcessing ()
+            +ChannelControl getChannelControl ()
+            +List<CardSelectionRequest> getCardSelectionRequests ()
+        }
+    }
+    together {
+        +class "**final** CardSelectionResponse" as CardSelectionResponse {
+            - -
+            +CardSelectionResponse (
+                \tSelectionStatus selectionStatus,
+                \tCardResponse cardResponse)
+            ..
+            +SelectionStatus getSelectionStatus ()
+            +CardResponse getCardResponse ()
+        }
+        +class "**final** CardResponse" as CardResponse {
+            - -
+            +CardResponse (boolean logicalChannelStatus,
+                \tList<ApduResponse> apduResponses)
+            ..
+            +List<ApduResponse> getApduResponses ()
+            ..
+            +boolean isLogicalChannelOpen ()
+        }
+        +class "**final** ApduResponse" as ApduResponse {
+            - -
+            +ApduResponse (byte[] buffer,
+                \tSet<Integer> successfulStatusCodes)
+            ..
+            +boolean isSuccessful ()
+            +int getStatusCode ()
+            ..
+            +byte[] getBytes ()
+            +byte[] getDataOut ()
+        }
+        +class SelectionStatus {
+            - -
+            +SelectionStatus (
+                \tAnswerToReset atr,
+                \tApduResponse fci,
+                \tboolean isMatching)
+            ..
+            +AnswerToReset getAtr ()
+            +ApduResponse getFci ()
+            +boolean hasMatched ()
+        }
+        +class AnswerToReset {
+            - -
+            +AnswerToReset (byte[] atrBytes)
+            ..
+            +byte[] getBytes ()
+        }
+        +class "<<<back:cyan>KeypleDefaultSelectionsResponse</back>>>\n**final** DefaultSelectionsResponse" as DefaultSelectionsResponse {
+            - -
+            +DefaultSelectionsResponse (
+                \tList<CardSelectionResponse> cardSelectionResponses)
+            ..
+            +List<CardSelectionResponse> getCardSelectionResponses ()
+        }
+    }
+    package spi {
+        +interface CardSelectionSpi {
+            +CardSelectionRequest getCardSelectionRequest ()
+            +SmartCardSpi parse (CardSelectionResponse cardSelectionResponse)
+        }
+        +interface SmartCardSpi {
+        }
+    }
+    +class CardCommunicationException extends RuntimeException {
+        - -
+        +CardCommunicationException (String message)
+        +CardCommunicationException (String message, Throwable cause)
+        ..
+        +void setCardSelectionResponses (
+            \tList<CardSelectionResponse> cardSelectionResponses)
+        +List<CardSelectionResponse> getCardSelectionResponses ()
+        ..
+        +void setCardResponse (CardResponse cardResponse)
+        +CardResponse getCardResponse ()
+    }
+}
+
+
+DefaultSelectionsRequest *- - "1..N" CardSelectionRequest #3498DB
+DefaultSelectionsRequest *- - "1" MultiSelectionProcessing #3498DB
+DefaultSelectionsRequest *- - "1" ChannelControl #3498DB
+
+CardSelectionRequest *- - "0..1" CardRequest #3498DB
+
+CardRequest *- - "1..N" ApduRequest #3498DB
+
+DefaultSelectionsResponse *- - "1..N" CardSelectionResponse #3498DB
+
+CardSelectionResponse *- - "1" CardResponse #3498DB
+CardSelectionResponse *- - "1" SelectionStatus #3498DB
+
+CardResponse *- - "1..N" ApduResponse #3498DB
+
+SelectionStatus *- - "0..1" ApduResponse  #3498DB
+SelectionStatus *- - "0..1" AnswerToReset  #3498DB
+
+CardCommunicationException *- - "0..N" CardSelectionResponse #3498DB
+CardCommunicationException *- - "0..1" CardResponse #3498DB
+
+ProxyReader -left-> CardSelectionRequest #27AE60 : use >
+ProxyReader - -> CardRequest #27AE60 : use >
+ProxyReader -up-> MultiSelectionProcessing #27AE60 : use >
+ProxyReader -up-> ChannelControl #27AE60 : use >
+
+ProxyReader -up-> CardSelectionResponse #27AE60 : provide >
+ProxyReader -> CardResponse #27AE60 : provide >
+ProxyReader -up-> CardCommunicationException #27AE60 : throw >
+
+
+spi -[hidden]- DefaultSelectionsRequest
+spi -[hidden]- DefaultSelectionsResponse
+
+
+package api #F8F9F9 {}
+package spi #F2F3F4 {}
+
+class DefaultSelectionsRequest <<green>>
+class CardSelectionRequest <<green>>
+enum MultiSelectionProcessing <<green>>
+enum ChannelControl <<green>>
+class CardRequest <<green>>
+class ApduRequest <<green>>
+
+class DefaultSelectionsResponse <<purple>>
+class CardSelectionResponse <<purple>>
+class CardResponse <<purple>>
+class ApduResponse <<purple>>
+class SelectionStatus <<purple>>
+class AnswerToReset <<purple>>
+class CardCommunicationException <<purple>>
+
+@enduml
+
+PlantUML version 1.2021.00(Sun Jan 10 11:25:05 CET 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: fr
+Country: FR
+--></g></svg>

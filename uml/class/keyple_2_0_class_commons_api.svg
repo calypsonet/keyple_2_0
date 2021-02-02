@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="877.5px" preserveAspectRatio="none" style="width:2480px;height:877px;" version="1.1" viewBox="0 0 2480 877" width="2480px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="1032.5" x="707.5" y="46.7139">Keyple 2.0 - keyple-commons-api - 2.0 (02/02/2021)</text><!--MD5=[7442f3b126ee602ae02566c1a49e158a]
+cluster api--><polygon fill="#F8F9F9" points="40,71.6016,555,71.6016,572.5,130.625,2437.5,130.625,2437.5,861.6016,40,861.6016,40,71.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="40" x2="572.5" y1="130.625" y2="130.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="500" x="50" y="112.9346">org.eclipse.keyple.commons</text><!--MD5=[8322abeb999888483b6b56e890df9c6a]
+class KeyplePluginFactory--><rect codeLine="49" fill="#FEFECE" height="120" id="KeyplePluginFactory" style="stroke:#D4AC0D;stroke-width:3.75;" width="390" x="150" y="161.6016"/><ellipse cx="187.5" cy="201.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M190,194.1016 L190,209.1016 L195,209.1016 L196.2109,209.1016 L197.5,210.6641 L197.5,211.6016 L197.5,212.5391 L196.2109,214.1016 L195,214.1016 L180,214.1016 L178.7891,214.1016 L177.5,212.5391 L177.5,211.6016 L177.5,210.6641 L178.7891,209.1016 L180,209.1016 L185,209.1016 L185,194.1016 L180,194.1016 L178.7891,194.1016 L177.5,192.5391 L177.5,191.6016 L177.5,190.6641 L178.7891,189.1016 L180,189.1016 L195,189.1016 L196.2109,189.1016 L197.5,190.6641 L197.5,191.6016 L197.5,192.5391 L196.2109,194.1016 L195,194.1016 L190,194.1016 Z " fill="#000000"/><ellipse cx="235" cy="200.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="282.5" x="250" y="213.877">KeyplePluginFactory</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="152.5" x2="537.5" y1="241.6016" y2="241.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="152.5" x2="537.5" y1="261.6016" y2="261.6016"/><!--MD5=[e767d71dd6c644ebbe02fe42896e6818]
+class KeyplePlugin--><rect codeLine="51" fill="#FEFECE" height="120" id="KeyplePlugin" style="stroke:#D4AC0D;stroke-width:3.75;" width="290" x="627.5" y="161.6016"/><ellipse cx="665" cy="201.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M667.5,194.1016 L667.5,209.1016 L672.5,209.1016 L673.7109,209.1016 L675,210.6641 L675,211.6016 L675,212.5391 L673.7109,214.1016 L672.5,214.1016 L657.5,214.1016 L656.2891,214.1016 L655,212.5391 L655,211.6016 L655,210.6641 L656.2891,209.1016 L657.5,209.1016 L662.5,209.1016 L662.5,194.1016 L657.5,194.1016 L656.2891,194.1016 L655,192.5391 L655,191.6016 L655,190.6641 L656.2891,189.1016 L657.5,189.1016 L672.5,189.1016 L673.7109,189.1016 L675,190.6641 L675,191.6016 L675,192.5391 L673.7109,194.1016 L672.5,194.1016 L667.5,194.1016 Z " fill="#000000"/><ellipse cx="712.5" cy="200.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="182.5" x="727.5" y="213.877">KeyplePlugin</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="630" x2="915" y1="241.6016" y2="241.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="630" x2="915" y1="261.6016" y2="261.6016"/><!--MD5=[d43c4cfc380800cd4ea82de477c52aec]
+class KeypleReader--><rect codeLine="53" fill="#FEFECE" height="120" id="KeypleReader" style="stroke:#D4AC0D;stroke-width:3.75;" width="305" x="1005" y="161.6016"/><ellipse cx="1042.5" cy="201.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1045,194.1016 L1045,209.1016 L1050,209.1016 L1051.2109,209.1016 L1052.5,210.6641 L1052.5,211.6016 L1052.5,212.5391 L1051.2109,214.1016 L1050,214.1016 L1035,214.1016 L1033.7891,214.1016 L1032.5,212.5391 L1032.5,211.6016 L1032.5,210.6641 L1033.7891,209.1016 L1035,209.1016 L1040,209.1016 L1040,194.1016 L1035,194.1016 L1033.7891,194.1016 L1032.5,192.5391 L1032.5,191.6016 L1032.5,190.6641 L1033.7891,189.1016 L1035,189.1016 L1050,189.1016 L1051.2109,189.1016 L1052.5,190.6641 L1052.5,191.6016 L1052.5,192.5391 L1051.2109,194.1016 L1050,194.1016 L1045,194.1016 Z " fill="#000000"/><ellipse cx="1090" cy="200.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="197.5" x="1105" y="213.877">KeypleReader</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1007.5" x2="1307.5" y1="241.6016" y2="241.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1007.5" x2="1307.5" y1="261.6016" y2="261.6016"/><!--MD5=[475418646885104c408c8d9729cc983e]
+class KeypleDistributedLocalServiceFactory--><rect codeLine="55" fill="#FEFECE" height="120" id="KeypleDistributedLocalServiceFactory" style="stroke:#D4AC0D;stroke-width:3.75;" width="630" x="1397.5" y="161.6016"/><ellipse cx="1435" cy="201.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1437.5,194.1016 L1437.5,209.1016 L1442.5,209.1016 L1443.7109,209.1016 L1445,210.6641 L1445,211.6016 L1445,212.5391 L1443.7109,214.1016 L1442.5,214.1016 L1427.5,214.1016 L1426.2891,214.1016 L1425,212.5391 L1425,211.6016 L1425,210.6641 L1426.2891,209.1016 L1427.5,209.1016 L1432.5,209.1016 L1432.5,194.1016 L1427.5,194.1016 L1426.2891,194.1016 L1425,192.5391 L1425,191.6016 L1425,190.6641 L1426.2891,189.1016 L1427.5,189.1016 L1442.5,189.1016 L1443.7109,189.1016 L1445,190.6641 L1445,191.6016 L1445,192.5391 L1443.7109,194.1016 L1442.5,194.1016 L1437.5,194.1016 Z " fill="#000000"/><ellipse cx="1482.5" cy="200.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="522.5" x="1497.5" y="213.877">KeypleDistributedLocalServiceFactory</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1400" x2="2025" y1="241.6016" y2="241.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1400" x2="2025" y1="261.6016" y2="261.6016"/><!--MD5=[de8083dfdee6b5889ad326ea3c53d521]
+class KeypleDistributedLocalService--><rect codeLine="57" fill="#FEFECE" height="120" id="KeypleDistributedLocalService" style="stroke:#D4AC0D;stroke-width:3.75;" width="530" x="80" y="431.6016"/><ellipse cx="117.5" cy="471.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M120,464.1016 L120,479.1016 L125,479.1016 L126.2109,479.1016 L127.5,480.6641 L127.5,481.6016 L127.5,482.5391 L126.2109,484.1016 L125,484.1016 L110,484.1016 L108.7891,484.1016 L107.5,482.5391 L107.5,481.6016 L107.5,480.6641 L108.7891,479.1016 L110,479.1016 L115,479.1016 L115,464.1016 L110,464.1016 L108.7891,464.1016 L107.5,462.5391 L107.5,461.6016 L107.5,460.6641 L108.7891,459.1016 L110,459.1016 L125,459.1016 L126.2109,459.1016 L127.5,460.6641 L127.5,461.6016 L127.5,462.5391 L126.2109,464.1016 L125,464.1016 L120,464.1016 Z " fill="#000000"/><ellipse cx="165" cy="470.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="422.5" x="180" y="483.877">KeypleDistributedLocalService</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="82.5" x2="607.5" y1="511.6016" y2="511.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="82.5" x2="607.5" y1="531.6016" y2="531.6016"/><!--MD5=[437c51bbf6e2bf6156e4fbcc869abdb6]
+class KeypleDefaultSelectionsRequest--><rect codeLine="59" fill="#FEFECE" height="120" id="KeypleDefaultSelectionsRequest" style="stroke:#D4AC0D;stroke-width:3.75;" width="557.5" x="698.75" y="431.6016"/><ellipse cx="736.25" cy="471.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M738.75,464.1016 L738.75,479.1016 L743.75,479.1016 L744.9609,479.1016 L746.25,480.6641 L746.25,481.6016 L746.25,482.5391 L744.9609,484.1016 L743.75,484.1016 L728.75,484.1016 L727.5391,484.1016 L726.25,482.5391 L726.25,481.6016 L726.25,480.6641 L727.5391,479.1016 L728.75,479.1016 L733.75,479.1016 L733.75,464.1016 L728.75,464.1016 L727.5391,464.1016 L726.25,462.5391 L726.25,461.6016 L726.25,460.6641 L727.5391,459.1016 L728.75,459.1016 L743.75,459.1016 L744.9609,459.1016 L746.25,460.6641 L746.25,461.6016 L746.25,462.5391 L744.9609,464.1016 L743.75,464.1016 L738.75,464.1016 Z " fill="#000000"/><ellipse cx="783.75" cy="470.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="450" x="798.75" y="483.877">KeypleDefaultSelectionsRequest</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="701.25" x2="1253.75" y1="511.6016" y2="511.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="701.25" x2="1253.75" y1="531.6016" y2="531.6016"/><!--MD5=[e13364fcb1ead131fce1b6af697186e5]
+class KeypleDefaultSelectionsResponse--><rect codeLine="61" fill="#FEFECE" height="120" id="KeypleDefaultSelectionsResponse" style="stroke:#D4AC0D;stroke-width:3.75;" width="582.5" x="1343.75" y="431.6016"/><ellipse cx="1381.25" cy="471.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1383.75,464.1016 L1383.75,479.1016 L1388.75,479.1016 L1389.9609,479.1016 L1391.25,480.6641 L1391.25,481.6016 L1391.25,482.5391 L1389.9609,484.1016 L1388.75,484.1016 L1373.75,484.1016 L1372.5391,484.1016 L1371.25,482.5391 L1371.25,481.6016 L1371.25,480.6641 L1372.5391,479.1016 L1373.75,479.1016 L1378.75,479.1016 L1378.75,464.1016 L1373.75,464.1016 L1372.5391,464.1016 L1371.25,462.5391 L1371.25,461.6016 L1371.25,460.6641 L1372.5391,459.1016 L1373.75,459.1016 L1388.75,459.1016 L1389.9609,459.1016 L1391.25,460.6641 L1391.25,461.6016 L1391.25,462.5391 L1389.9609,464.1016 L1388.75,464.1016 L1383.75,464.1016 Z " fill="#000000"/><ellipse cx="1428.75" cy="470.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="475" x="1443.75" y="483.877">KeypleDefaultSelectionsResponse</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1346.25" x2="1923.75" y1="511.6016" y2="511.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1346.25" x2="1923.75" y1="531.6016" y2="531.6016"/><!--MD5=[992e355e37ebedcd3769e1f8c146b434]
+class KeypleCardSelector--><rect codeLine="63" fill="#FEFECE" height="120" id="KeypleCardSelector" style="stroke:#D4AC0D;stroke-width:3.75;" width="382.5" x="2013.75" y="431.6016"/><ellipse cx="2051.25" cy="471.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2053.75,464.1016 L2053.75,479.1016 L2058.75,479.1016 L2059.9609,479.1016 L2061.25,480.6641 L2061.25,481.6016 L2061.25,482.5391 L2059.9609,484.1016 L2058.75,484.1016 L2043.75,484.1016 L2042.5391,484.1016 L2041.25,482.5391 L2041.25,481.6016 L2041.25,480.6641 L2042.5391,479.1016 L2043.75,479.1016 L2048.75,479.1016 L2048.75,464.1016 L2043.75,464.1016 L2042.5391,464.1016 L2041.25,462.5391 L2041.25,461.6016 L2041.25,460.6641 L2042.5391,459.1016 L2043.75,459.1016 L2058.75,459.1016 L2059.9609,459.1016 L2061.25,460.6641 L2061.25,461.6016 L2061.25,462.5391 L2059.9609,464.1016 L2058.75,464.1016 L2053.75,464.1016 Z " fill="#000000"/><ellipse cx="2098.75" cy="470.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="275" x="2113.75" y="483.877">KeypleCardSelector</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2016.25" x2="2393.75" y1="511.6016" y2="511.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2016.25" x2="2393.75" y1="531.6016" y2="531.6016"/><!--MD5=[8999ac455343ccac23030d8ddecdd1e9]
+class KeyplePluginEvent--><rect codeLine="65" fill="#FEFECE" height="120" id="KeyplePluginEvent" style="stroke:#D4AC0D;stroke-width:3.75;" width="367.5" x="161.25" y="701.6016"/><ellipse cx="198.75" cy="741.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M201.25,734.1016 L201.25,749.1016 L206.25,749.1016 L207.4609,749.1016 L208.75,750.6641 L208.75,751.6016 L208.75,752.5391 L207.4609,754.1016 L206.25,754.1016 L191.25,754.1016 L190.0391,754.1016 L188.75,752.5391 L188.75,751.6016 L188.75,750.6641 L190.0391,749.1016 L191.25,749.1016 L196.25,749.1016 L196.25,734.1016 L191.25,734.1016 L190.0391,734.1016 L188.75,732.5391 L188.75,731.6016 L188.75,730.6641 L190.0391,729.1016 L191.25,729.1016 L206.25,729.1016 L207.4609,729.1016 L208.75,730.6641 L208.75,731.6016 L208.75,732.5391 L207.4609,734.1016 L206.25,734.1016 L201.25,734.1016 Z " fill="#000000"/><ellipse cx="246.25" cy="740.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="260" x="261.25" y="753.877">KeyplePluginEvent</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="163.75" x2="526.25" y1="781.6016" y2="781.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="163.75" x2="526.25" y1="801.6016" y2="801.6016"/><!--MD5=[31820e042815c36821ed3bf317261d9c]
+class KeypleReaderEvent--><rect codeLine="67" fill="#FEFECE" height="120" id="KeypleReaderEvent" style="stroke:#D4AC0D;stroke-width:3.75;" width="382.5" x="616.25" y="701.6016"/><ellipse cx="653.75" cy="741.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M656.25,734.1016 L656.25,749.1016 L661.25,749.1016 L662.4609,749.1016 L663.75,750.6641 L663.75,751.6016 L663.75,752.5391 L662.4609,754.1016 L661.25,754.1016 L646.25,754.1016 L645.0391,754.1016 L643.75,752.5391 L643.75,751.6016 L643.75,750.6641 L645.0391,749.1016 L646.25,749.1016 L651.25,749.1016 L651.25,734.1016 L646.25,734.1016 L645.0391,734.1016 L643.75,732.5391 L643.75,731.6016 L643.75,730.6641 L645.0391,729.1016 L646.25,729.1016 L661.25,729.1016 L662.4609,729.1016 L663.75,730.6641 L663.75,731.6016 L663.75,732.5391 L662.4609,734.1016 L661.25,734.1016 L656.25,734.1016 Z " fill="#000000"/><ellipse cx="701.25" cy="740.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="275" x="716.25" y="753.877">KeypleReaderEvent</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="618.75" x2="996.25" y1="781.6016" y2="781.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="618.75" x2="996.25" y1="801.6016" y2="801.6016"/><!--MD5=[655640dc488a50c08e603fdbab1e598e]
+link KeyplePluginFactory to KeyplePlugin--><!--MD5=[e509a75a9e50b5264f2d1c6681a0a2e0]
+link KeyplePlugin to KeypleReader--><!--MD5=[df24cd365170df5d9aa31298deb7afe1]
+link KeypleReader to KeypleDistributedLocalServiceFactory--><!--MD5=[5c8bfc902cb3018bfc6e16f9fd58d3c2]
+link KeyplePluginFactory to KeypleDistributedLocalService--><!--MD5=[e589fd1f90fd79c996ec6f04bb7808d0]
+link KeypleDistributedLocalService to KeypleDefaultSelectionsRequest--><!--MD5=[b525603461f02ac374674ee09c5fe219]
+link KeypleDefaultSelectionsRequest to KeypleDefaultSelectionsResponse--><!--MD5=[0ce06fbaa27741def1fb106c718a3684]
+link KeypleDefaultSelectionsResponse to KeypleCardSelector--><!--MD5=[9376fe8673032e710522e30e4a982d4d]
+link KeypleDistributedLocalService to KeyplePluginEvent--><!--MD5=[9f3aacdec3cfe6be3f601eccda26207c]
+link KeyplePluginEvent to KeypleReaderEvent--><!--MD5=[dacd4ef202fe9d307ccfd7a4e0cc5637]
+@startuml
+title
+    Keyple 2.0 - keyple-commons-api - 2.0 (02/02/2021)
+end title
+
+' == THEME ==
+
+'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define C_GREY1 F8F9F9
+!define C_GREY2 F2F3F4
+!define C_GREY3 E5E7E9
+!define C_GREY4 D7DBDD
+!define C_GREY5 CACFD2
+!define C_GREY6 BDC3C7
+!define C_LINK 3498DB
+!define C_USE 27AE60
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+' Red
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+' Purple
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+' blue
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+' Green
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+' Grey
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+' == CONTENT ==
+
+
+package "org.eclipse.keyple.commons" as api {
+    +interface KeyplePluginFactory {
+    }
+    +interface KeyplePlugin {
+    }
+    +interface KeypleReader {
+    }
+    +interface KeypleDistributedLocalServiceFactory {
+    }
+    +interface KeypleDistributedLocalService {
+    }
+    +interface KeypleDefaultSelectionsRequest {
+    }
+    +interface KeypleDefaultSelectionsResponse {
+    }
+    +interface KeypleCardSelector {
+    }
+    +interface KeyplePluginEvent {
+    }
+    +interface KeypleReaderEvent {
+    }
+}
+
+' Associations
+
+
+' == LAYOUT ==
+
+
+' == STYLE ==
+
+package api #C_GREY1 {}
+
+@enduml
+
+@startuml
+title
+    Keyple 2.0 - keyple-commons-api - 2.0 (02/02/2021)
+end title
+
+
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+
+
+package "org.eclipse.keyple.commons" as api {
+    +interface KeyplePluginFactory {
+    }
+    +interface KeyplePlugin {
+    }
+    +interface KeypleReader {
+    }
+    +interface KeypleDistributedLocalServiceFactory {
+    }
+    +interface KeypleDistributedLocalService {
+    }
+    +interface KeypleDefaultSelectionsRequest {
+    }
+    +interface KeypleDefaultSelectionsResponse {
+    }
+    +interface KeypleCardSelector {
+    }
+    +interface KeyplePluginEvent {
+    }
+    +interface KeypleReaderEvent {
+    }
+}
+
+
+
+
+
+
+package api #F8F9F9 {}
+
+@enduml
+
+PlantUML version 1.2021.00(Sun Jan 10 11:25:05 CET 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: fr
+Country: FR
+--></g></svg>

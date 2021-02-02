@@ -1,0 +1,258 @@
+@startuml
+title
+    Keyple 2.0 - keyple-card-api - 2.0 (18/01/2021)
+end title
+
+' == THEME ==
+
+'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define C_GREY1 F8F9F9
+!define C_GREY2 F2F3F4
+!define C_GREY3 E5E7E9
+!define C_GREY4 D7DBDD
+!define C_GREY5 CACFD2
+!define C_GREY6 BDC3C7
+!define C_LINK 3498DB
+!define C_USE 27AE60
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+' Red
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+' Purple
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+' blue
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+' Green
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+' Grey
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+' == CONTENT ==
+
+legend top
+    Legend : <back:cyan>from **Commons API**</back>
+end legend
+
++class RuntimeException {
+}
+package "org.eclipse.keyple.card" as api {
+    +interface ProxyReader {
+        --
+        +List<CardSelectionResponse> transmitCardSelectionRequests (
+            \tList<CardSelectionRequest> cardSelectionRequests,
+            \tMultiSelectionProcessing multiSelectionProcessing,
+            \tChannelControl channelControl)
+        ..
+        +CardResponse transmitCardRequest (
+            \tCardRequest cardRequest,
+            \tChannelControl channelControl)
+        ..
+        +void releaseChannel ()
+    }
+    ' REQUEST
+    together {
+        +enum MultiSelectionProcessing {
+            FIRST_MATCH
+            PROCESS_ALL
+        }
+        +enum ChannelControl {
+            KEEP_OPEN
+            CLOSE_AFTER
+        }
+        +class "**final** CardSelectionRequest" as CardSelectionRequest {
+            --
+            +CardSelectionRequest (<back:cyan>KeypleCardSelector</back> cardSelector)
+            +CardSelectionRequest (<back:cyan>KeypleCardSelector</back> cardSelector,
+                \tCardRequest cardRequest)
+            ..
+            +<back:cyan>KeypleCardSelector</back> getCardSelector ()
+            +CardRequest getCardRequest ()
+        }
+        +class "**final** CardRequest" as CardRequest {
+            --
+            +CardRequest (List<ApduRequest> apduRequests)
+            ..
+            +List<ApduRequest> getApduRequests ()
+        }
+        +class "**final** ApduRequest" as ApduRequest {
+            --
+            +ApduRequest (byte[] bytes, boolean case4)
+            +ApduRequest (byte cla, byte instruction,
+                \tbyte p1, byte p2, byte[] dataIn, Byte le)
+            ..
+            +ApduRequest setSuccessfulStatusCodes (
+                \tSet<Integer> successfulStatusCodes)
+            +Set<Integer> getSuccessfulStatusCodes ()
+            ..
+            +ApduRequest setName (String name)
+            +String getName ()
+            ..
+            +byte[] getBytes ()
+            ..
+            +boolean isCase4 ()
+        }
+        +class "<<<back:cyan>KeypleDefaultSelectionsRequest</back>>>\n**final** DefaultSelectionsRequest" as DefaultSelectionsRequest {
+            --
+            +DefaultSelectionsRequest (
+                \tList<CardSelectionRequest> cardSelectionRequests,
+                \tMultiSelectionProcessing multiSelectionProcessing,
+                \tChannelControl channelControl)
+            ..
+            +MultiSelectionProcessing getMultiSelectionProcessing ()
+            +ChannelControl getChannelControl ()
+            +List<CardSelectionRequest> getCardSelectionRequests ()
+        }
+    }
+    ' RESPONSE
+    together {
+        +class "**final** CardSelectionResponse" as CardSelectionResponse {
+            --
+            +CardSelectionResponse (
+                \tSelectionStatus selectionStatus,
+                \tCardResponse cardResponse)
+            ..
+            +SelectionStatus getSelectionStatus ()
+            +CardResponse getCardResponse ()
+        }
+        +class "**final** CardResponse" as CardResponse {
+            --
+            +CardResponse (boolean logicalChannelStatus,
+                \tList<ApduResponse> apduResponses)
+            ..
+            +List<ApduResponse> getApduResponses ()
+            ..
+            +boolean isLogicalChannelOpen ()
+        }
+        +class "**final** ApduResponse" as ApduResponse {
+            --
+            +ApduResponse (byte[] buffer,
+                \tSet<Integer> successfulStatusCodes)
+            ..
+            +boolean isSuccessful ()
+            +int getStatusCode ()
+            ..
+            +byte[] getBytes ()
+            +byte[] getDataOut ()
+        }
+        +class SelectionStatus {
+            --
+            +SelectionStatus (
+                \tAnswerToReset atr,
+                \tApduResponse fci,
+                \tboolean isMatching)
+            ..
+            +AnswerToReset getAtr ()
+            +ApduResponse getFci ()
+            +boolean hasMatched ()
+        }
+        +class AnswerToReset {
+            --
+            +AnswerToReset (byte[] atrBytes)
+            ..
+            +byte[] getBytes ()
+        }
+        +class "<<<back:cyan>KeypleDefaultSelectionsResponse</back>>>\n**final** DefaultSelectionsResponse" as DefaultSelectionsResponse {
+            --
+            +DefaultSelectionsResponse (
+                \tList<CardSelectionResponse> cardSelectionResponses)
+            ..
+            +List<CardSelectionResponse> getCardSelectionResponses ()
+        }
+    }
+    ' SPI
+    package spi {
+        +interface CardSelectionSpi {
+            +CardSelectionRequest getCardSelectionRequest ()
+            +SmartCardSpi parse (CardSelectionResponse cardSelectionResponse)
+        }
+        +interface SmartCardSpi {
+        }
+    }
+    +class CardCommunicationException extends RuntimeException {
+        --
+        +CardCommunicationException (String message)
+        +CardCommunicationException (String message, Throwable cause)
+        ..
+        +void setCardSelectionResponses (
+            \tList<CardSelectionResponse> cardSelectionResponses)
+        +List<CardSelectionResponse> getCardSelectionResponses ()
+        ..
+        +void setCardResponse (CardResponse cardResponse)
+        +CardResponse getCardResponse ()
+    }
+}
+
+' Associations
+
+DefaultSelectionsRequest *-- "1..N" CardSelectionRequest #C_LINK
+DefaultSelectionsRequest *-- "1" MultiSelectionProcessing #C_LINK
+DefaultSelectionsRequest *-- "1" ChannelControl #C_LINK
+
+CardSelectionRequest *-- "0..1" CardRequest #C_LINK
+
+CardRequest *-- "1..N" ApduRequest #C_LINK
+
+DefaultSelectionsResponse *-- "1..N" CardSelectionResponse #C_LINK
+
+CardSelectionResponse *-- "1" CardResponse #C_LINK
+CardSelectionResponse *-- "1" SelectionStatus #C_LINK
+
+CardResponse *-- "1..N" ApduResponse #C_LINK
+
+SelectionStatus *-- "0..1" ApduResponse  #C_LINK
+SelectionStatus *-- "0..1" AnswerToReset  #C_LINK
+
+CardCommunicationException *-- "0..N" CardSelectionResponse #C_LINK
+CardCommunicationException *-- "0..1" CardResponse #C_LINK
+
+ProxyReader -left-> CardSelectionRequest #C_USE : use >
+ProxyReader --> CardRequest #C_USE : use >
+ProxyReader -up-> MultiSelectionProcessing #C_USE : use >
+ProxyReader -up-> ChannelControl #C_USE : use >
+
+ProxyReader -up-> CardSelectionResponse #C_USE : provide >
+ProxyReader -> CardResponse #C_USE : provide >
+ProxyReader -up-> CardCommunicationException #C_USE : throw >
+
+' == LAYOUT ==
+
+spi -[hidden]- DefaultSelectionsRequest
+spi -[hidden]- DefaultSelectionsResponse
+
+' == STYLE ==
+
+package api #C_GREY1 {}
+package spi #C_GREY2 {}
+
+class DefaultSelectionsRequest <<green>>
+class CardSelectionRequest <<green>>
+enum MultiSelectionProcessing <<green>>
+enum ChannelControl <<green>>
+class CardRequest <<green>>
+class ApduRequest <<green>>
+
+class DefaultSelectionsResponse <<purple>>
+class CardSelectionResponse <<purple>>
+class CardResponse <<purple>>
+class ApduResponse <<purple>>
+class SelectionStatus <<purple>>
+class AnswerToReset <<purple>>
+class CardCommunicationException <<purple>>
+
+@enduml

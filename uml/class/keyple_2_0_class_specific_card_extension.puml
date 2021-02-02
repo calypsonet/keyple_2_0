@@ -1,0 +1,118 @@
+@startuml
+title
+    Keyple 2.0 - Specific Extension - 2.0.0 (26/01/2021)
+end title
+
+' == THEME ==
+
+'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define C_GREY1 F8F9F9
+!define C_GREY2 F2F3F4
+!define C_GREY3 E5E7E9
+!define C_GREY4 D7DBDD
+!define C_GREY5 CACFD2
+!define C_GREY6 BDC3C7
+!define C_LINK 3498DB
+!define C_USE 27AE60
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+' Red
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+' Purple
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+' blue
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+' Green
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+' Grey
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+' == CONTENT ==
+
+
+package "org.eclipse.keyple.commons" as commonsApi {
+    +interface KeypleCardSelector {
+    }
+}
+package "org.eclipse.keyple.service.selection.spi" as serviceSelectionSpi {
+    +interface CardSelection {
+        ...
+    }
+    +interface SmartCard {
+        ...
+    }
+    +class CardSelector implements KeypleCardSelector {
+        ...
+    }
+}
+
+package "org.eclipse.keyple.card.spi" as cardSpi {
+    +interface CardSelectionSpi {
+        ...
+    }
+    +interface SmartCardSpi {
+    }
+}
+
+
+package "specific.extension" as specificExtension {
+    +interface xxxSmartCard extends SmartCard {
+        ...
+    }
+    +class "**final** xxxCardSelectionFactory" as xxxCardSelectionFactory {
+        +{static} xxxCardSelection getCardSelection ()
+    }
+    +interface xxxCardSelection extends CardSelection {
+        ...
+    }
+    +class "**final** xxxCardSelector" as xxxCardSelector extends CardSelector {
+        ...
+    }
+    ' Adapters
+    ~class "**final** xxxSmartCardAdapter" as xxxSmartCardAdapter implements xxxSmartCard, SmartCardSpi {
+        ...
+    }
+    ~class "**final** xxxCardSelectionAdapter" as xxxCardSelectionAdapter implements xxxCardSelection, CardSelectionSpi {
+        ...
+    }
+}
+
+' Associations
+
+xxxCardSelectionFactory .> xxxCardSelection #C_USE : provide >
+
+' == LAYOUT ==
+
+xxxCardSelection -[hidden]- xxxSmartCardAdapter
+xxxSmartCardAdapter -[hidden]- SmartCardSpi
+xxxCardSelectionAdapter -[hidden]- CardSelectionSpi
+
+' == STYLE ==
+
+package commonsApi #C_GREY1 {}
+package specificExtension #C_GREY1 {}
+package cardSpi #C_GREY1 {}
+package serviceSelectionSpi #C_GREY2 {}
+
+class xxxCardSelectionAdapter <<blue>>
+class xxxSmartCardAdapter <<blue>>
+interface CardSelectionSpi <<blue>>
+interface SmartCardSpi <<blue>>
+
+@enduml

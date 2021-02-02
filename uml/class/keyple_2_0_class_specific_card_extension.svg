@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1747.5px" preserveAspectRatio="none" style="width:2132px;height:1747px;" version="1.1" viewBox="0 0 2132 1747" width="2132.5px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="1025" x="537.5" y="46.7139">Keyple 2.0 - Specific Extension - 2.0.0 (26/01/2021)</text><!--MD5=[621c849533070c5aba8aa732369aa9f8]
+cluster commonsApi--><polygon fill="#F8F9F9" points="1500,71.6016,2015,71.6016,2032.5,130.625,2040,130.625,2040,321.6016,1500,321.6016,1500,71.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="1500" x2="2032.5" y1="130.625" y2="130.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="500" x="1510" y="112.9346">org.eclipse.keyple.commons</text><!--MD5=[1713dcaf7bcd1f6045401bf8106829bd]
+cluster serviceSelectionSpi--><polygon fill="#F2F3F4" points="850,404.1016,1565,404.1016,1582.5,463.125,1955,463.125,1955,689.1016,850,689.1016,850,404.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="850" x2="1582.5" y1="463.125" y2="463.125"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="700" x="860" y="445.4346">org.eclipse.keyple.service.selection.spi</text><!--MD5=[a17c93d7e125af4ebdd10ac0c519bd24]
+cluster cardSpi--><polygon fill="#F8F9F9" points="687.5,1446.6016,1175,1446.6016,1192.5,1505.625,1507.5,1505.625,1507.5,1731.6016,687.5,1731.6016,687.5,1446.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="687.5" x2="1192.5" y1="1505.625" y2="1505.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="472.5" x="697.5" y="1487.9346">org.eclipse.keyple.card.spi</text><!--MD5=[d3c8ee72d6c013b9a0ff8b73b18ac396]
+cluster specificExtension--><polygon fill="#F8F9F9" points="40,771.6016,377.5,771.6016,395,830.625,2090,830.625,2090,1364.1016,40,1364.1016,40,771.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="40" x2="395" y1="830.625" y2="830.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="322.5" x="50" y="812.9346">specific.extension</text><!--MD5=[992e355e37ebedcd3769e1f8c146b434]
+class KeypleCardSelector--><rect codeLine="49" fill="#FEFECE" height="120" id="KeypleCardSelector" style="stroke:#D4AC0D;stroke-width:3.75;" width="382.5" x="1578.75" y="161.6016"/><ellipse cx="1616.25" cy="201.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1618.75,194.1016 L1618.75,209.1016 L1623.75,209.1016 L1624.9609,209.1016 L1626.25,210.6641 L1626.25,211.6016 L1626.25,212.5391 L1624.9609,214.1016 L1623.75,214.1016 L1608.75,214.1016 L1607.5391,214.1016 L1606.25,212.5391 L1606.25,211.6016 L1606.25,210.6641 L1607.5391,209.1016 L1608.75,209.1016 L1613.75,209.1016 L1613.75,194.1016 L1608.75,194.1016 L1607.5391,194.1016 L1606.25,192.5391 L1606.25,191.6016 L1606.25,190.6641 L1607.5391,189.1016 L1608.75,189.1016 L1623.75,189.1016 L1624.9609,189.1016 L1626.25,190.6641 L1626.25,191.6016 L1626.25,192.5391 L1624.9609,194.1016 L1623.75,194.1016 L1618.75,194.1016 Z " fill="#000000"/><ellipse cx="1663.75" cy="200.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="275" x="1678.75" y="213.877">KeypleCardSelector</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1581.25" x2="1958.75" y1="241.6016" y2="241.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1581.25" x2="1958.75" y1="261.6016" y2="261.6016"/><!--MD5=[47f0011813555fb489a606ff84d44b55]
+class CardSelection--><rect codeLine="53" fill="#FEFECE" height="154.5898" id="CardSelection" style="stroke:#D4AC0D;stroke-width:3.75;" width="302.5" x="891.25" y="494.1016"/><ellipse cx="928.75" cy="534.1016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M931.25,526.6016 L931.25,541.6016 L936.25,541.6016 L937.4609,541.6016 L938.75,543.1641 L938.75,544.1016 L938.75,545.0391 L937.4609,546.6016 L936.25,546.6016 L921.25,546.6016 L920.0391,546.6016 L918.75,545.0391 L918.75,544.1016 L918.75,543.1641 L920.0391,541.6016 L921.25,541.6016 L926.25,541.6016 L926.25,526.6016 L921.25,526.6016 L920.0391,526.6016 L918.75,525.0391 L918.75,524.1016 L918.75,523.1641 L920.0391,521.6016 L921.25,521.6016 L936.25,521.6016 L937.4609,521.6016 L938.75,523.1641 L938.75,524.1016 L938.75,525.0391 L937.4609,526.6016 L936.25,526.6016 L931.25,526.6016 Z " fill="#000000"/><ellipse cx="976.25" cy="532.8516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="195" x="991.25" y="546.377">CardSelection</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="893.75" x2="1191.25" y1="574.1016" y2="574.1016"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="906.25" y="612.6489">...</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="893.75" x2="1191.25" y1="628.6914" y2="628.6914"/><!--MD5=[4d4351d1dd1d596b03b4778d9849998b]
+class SmartCard--><rect codeLine="56" fill="#FEFECE" height="154.5898" id="SmartCard" style="stroke:#D4AC0D;stroke-width:3.75;" width="257.5" x="1281.25" y="494.1016"/><ellipse cx="1318.75" cy="534.1016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1321.25,526.6016 L1321.25,541.6016 L1326.25,541.6016 L1327.4609,541.6016 L1328.75,543.1641 L1328.75,544.1016 L1328.75,545.0391 L1327.4609,546.6016 L1326.25,546.6016 L1311.25,546.6016 L1310.0391,546.6016 L1308.75,545.0391 L1308.75,544.1016 L1308.75,543.1641 L1310.0391,541.6016 L1311.25,541.6016 L1316.25,541.6016 L1316.25,526.6016 L1311.25,526.6016 L1310.0391,526.6016 L1308.75,525.0391 L1308.75,524.1016 L1308.75,523.1641 L1310.0391,521.6016 L1311.25,521.6016 L1326.25,521.6016 L1327.4609,521.6016 L1328.75,523.1641 L1328.75,524.1016 L1328.75,525.0391 L1327.4609,526.6016 L1326.25,526.6016 L1321.25,526.6016 Z " fill="#000000"/><ellipse cx="1366.25" cy="532.8516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="150" x="1381.25" y="546.377">SmartCard</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1283.75" x2="1536.25" y1="574.1016" y2="574.1016"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="1296.25" y="612.6489">...</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1283.75" x2="1536.25" y1="628.6914" y2="628.6914"/><!--MD5=[d172dfe3fef1c01713438c88abcc6a2c]
+class CardSelector--><rect codeLine="59" fill="#FEFECE" height="154.5898" id="CardSelector" style="stroke:#D4AC0D;stroke-width:3.75;" width="287.5" x="1626.25" y="494.1016"/><ellipse cx="1663.75" cy="534.1016" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M1668.75,525.3516 Q1669.2578,524.1016 1669.8438,523.4766 Q1670.4297,522.8516 1671.0938,522.8516 Q1672.2656,522.8516 1673.0078,523.5547 Q1673.75,524.2578 1673.75,525.8984 L1673.75,529.8047 Q1673.75,531.4453 1673.0469,532.1484 Q1672.3438,532.8516 1671.25,532.8516 Q1670.2734,532.8516 1669.6484,532.4219 Q1669.0234,531.9922 1668.75,530.8594 Q1668.6328,530.0781 1668.2031,529.6484 Q1667.4219,528.8281 1666.0156,528.3594 Q1664.6094,527.8516 1663.2031,527.8516 Q1661.4453,527.8516 1659.9609,528.5547 Q1658.5156,529.2578 1657.3828,530.8203 Q1656.25,532.3828 1656.25,534.5313 L1656.25,536.8359 Q1656.25,539.4141 1658.3594,541.1328 Q1660.4688,542.8516 1664.2188,542.8516 Q1666.4453,542.8516 1668.0078,542.3438 Q1668.9063,542.0703 1669.9219,541.1719 Q1670.5859,540.6641 1670.9375,540.5078 Q1671.2891,540.3516 1671.7188,540.3516 Q1672.5391,540.3516 1673.125,541.0156 Q1673.75,541.6406 1673.75,542.5391 Q1673.75,543.3984 1672.8906,544.4141 Q1671.6406,545.8984 1669.6484,546.7188 Q1667.0313,547.8516 1663.8281,547.8516 Q1660.0781,547.8516 1657.0703,546.3672 Q1654.6484,545.1953 1652.9297,542.6563 Q1651.25,540.1172 1651.25,537.1094 L1651.25,534.375 Q1651.25,531.25 1652.7344,528.5156 Q1654.2578,525.7813 1656.875,524.3359 Q1659.5313,522.8516 1662.5,522.8516 Q1664.2969,522.8516 1665.8594,523.4766 Q1667.4219,524.1016 1668.75,525.3516 Z " fill="#000000"/><ellipse cx="1711.25" cy="532.8516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="180" x="1726.25" y="546.377">CardSelector</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1628.75" x2="1911.25" y1="574.1016" y2="574.1016"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="1641.25" y="612.6489">...</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1628.75" x2="1911.25" y1="628.6914" y2="628.6914"/><!--MD5=[e210ee7b55cb4fcef849a017d68619f7]
+class CardSelectionSpi--><rect codeLine="114" fill="#EBF5FB" height="154.5898" id="CardSelectionSpi" style="stroke:#3498DB;stroke-width:3.75;" width="347.5" x="728.75" y="1536.6016"/><ellipse cx="766.25" cy="1576.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M768.75,1569.1016 L768.75,1584.1016 L773.75,1584.1016 L774.9609,1584.1016 L776.25,1585.6641 L776.25,1586.6016 L776.25,1587.5391 L774.9609,1589.1016 L773.75,1589.1016 L758.75,1589.1016 L757.5391,1589.1016 L756.25,1587.5391 L756.25,1586.6016 L756.25,1585.6641 L757.5391,1584.1016 L758.75,1584.1016 L763.75,1584.1016 L763.75,1569.1016 L758.75,1569.1016 L757.5391,1569.1016 L756.25,1567.5391 L756.25,1566.6016 L756.25,1565.6641 L757.5391,1564.1016 L758.75,1564.1016 L773.75,1564.1016 L774.9609,1564.1016 L776.25,1565.6641 L776.25,1566.6016 L776.25,1567.5391 L774.9609,1569.1016 L773.75,1569.1016 L768.75,1569.1016 Z " fill="#000000"/><ellipse cx="813.75" cy="1575.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="240" x="828.75" y="1588.877">CardSelectionSpi</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="731.25" x2="1073.75" y1="1616.6016" y2="1616.6016"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="743.75" y="1655.1489">...</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="731.25" x2="1073.75" y1="1671.1914" y2="1671.1914"/><!--MD5=[c089e258773b765d812cd5d8bc232f90]
+class SmartCardSpi--><rect codeLine="115" fill="#EBF5FB" height="120" id="SmartCardSpi" style="stroke:#3498DB;stroke-width:3.75;" width="302.5" x="1163.75" y="1554.1016"/><ellipse cx="1201.25" cy="1594.1016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1203.75,1586.6016 L1203.75,1601.6016 L1208.75,1601.6016 L1209.9609,1601.6016 L1211.25,1603.1641 L1211.25,1604.1016 L1211.25,1605.0391 L1209.9609,1606.6016 L1208.75,1606.6016 L1193.75,1606.6016 L1192.5391,1606.6016 L1191.25,1605.0391 L1191.25,1604.1016 L1191.25,1603.1641 L1192.5391,1601.6016 L1193.75,1601.6016 L1198.75,1601.6016 L1198.75,1586.6016 L1193.75,1586.6016 L1192.5391,1586.6016 L1191.25,1585.0391 L1191.25,1584.1016 L1191.25,1583.1641 L1192.5391,1581.6016 L1193.75,1581.6016 L1208.75,1581.6016 L1209.9609,1581.6016 L1211.25,1583.1641 L1211.25,1584.1016 L1211.25,1585.0391 L1209.9609,1586.6016 L1208.75,1586.6016 L1203.75,1586.6016 Z " fill="#000000"/><ellipse cx="1248.75" cy="1592.8516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="195" x="1263.75" y="1606.377">SmartCardSpi</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="1166.25" x2="1463.75" y1="1634.1016" y2="1634.1016"/><line style="stroke:#3498DB;stroke-width:3.75;" x1="1166.25" x2="1463.75" y1="1654.1016" y2="1654.1016"/><!--MD5=[840dca342d2e2f3185b16a9f6795b3c6]
+class xxxSmartCard--><rect codeLine="74" fill="#FEFECE" height="154.5898" id="xxxSmartCard" style="stroke:#D4AC0D;stroke-width:3.75;" width="302.5" x="1258.75" y="861.6016"/><ellipse cx="1296.25" cy="901.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1298.75,894.1016 L1298.75,909.1016 L1303.75,909.1016 L1304.9609,909.1016 L1306.25,910.6641 L1306.25,911.6016 L1306.25,912.5391 L1304.9609,914.1016 L1303.75,914.1016 L1288.75,914.1016 L1287.5391,914.1016 L1286.25,912.5391 L1286.25,911.6016 L1286.25,910.6641 L1287.5391,909.1016 L1288.75,909.1016 L1293.75,909.1016 L1293.75,894.1016 L1288.75,894.1016 L1287.5391,894.1016 L1286.25,892.5391 L1286.25,891.6016 L1286.25,890.6641 L1287.5391,889.1016 L1288.75,889.1016 L1303.75,889.1016 L1304.9609,889.1016 L1306.25,890.6641 L1306.25,891.6016 L1306.25,892.5391 L1304.9609,894.1016 L1303.75,894.1016 L1298.75,894.1016 Z " fill="#000000"/><ellipse cx="1343.75" cy="900.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="195" x="1358.75" y="913.877">xxxSmartCard</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1261.25" x2="1558.75" y1="941.6016" y2="941.6016"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="1273.75" y="980.1489">...</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1261.25" x2="1558.75" y1="996.1914" y2="996.1914"/><!--MD5=[257d6e86f7df7e1c6d8f7525c106ca52]
+class xxxCardSelectionFactory--><rect codeLine="77" fill="#FEFECE" height="154.5898" id="xxxCardSelectionFactory" style="stroke:#D4AC0D;stroke-width:3.75;" width="517.5" x="81.25" y="861.6016"/><ellipse cx="119.875" cy="901.6016" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M124.875,892.8516 Q125.3828,891.6016 125.9688,890.9766 Q126.5547,890.3516 127.2188,890.3516 Q128.3906,890.3516 129.1328,891.0547 Q129.875,891.7578 129.875,893.3984 L129.875,897.3047 Q129.875,898.9453 129.1719,899.6484 Q128.4688,900.3516 127.375,900.3516 Q126.3984,900.3516 125.7734,899.9219 Q125.1484,899.4922 124.875,898.3594 Q124.7578,897.5781 124.3281,897.1484 Q123.5469,896.3281 122.1406,895.8594 Q120.7344,895.3516 119.3281,895.3516 Q117.5703,895.3516 116.0859,896.0547 Q114.6406,896.7578 113.5078,898.3203 Q112.375,899.8828 112.375,902.0313 L112.375,904.3359 Q112.375,906.9141 114.4844,908.6328 Q116.5938,910.3516 120.3438,910.3516 Q122.5703,910.3516 124.1328,909.8438 Q125.0313,909.5703 126.0469,908.6719 Q126.7109,908.1641 127.0625,908.0078 Q127.4141,907.8516 127.8438,907.8516 Q128.6641,907.8516 129.25,908.5156 Q129.875,909.1406 129.875,910.0391 Q129.875,910.8984 129.0156,911.9141 Q127.7656,913.3984 125.7734,914.2188 Q123.1563,915.3516 119.9531,915.3516 Q116.2031,915.3516 113.1953,913.8672 Q110.7734,912.6953 109.0547,910.1563 Q107.375,907.6172 107.375,904.6094 L107.375,901.875 Q107.375,898.75 108.8594,896.0156 Q110.3828,893.2813 113,891.8359 Q115.6563,890.3516 118.625,890.3516 Q120.4219,890.3516 121.9844,890.9766 Q123.5469,891.6016 124.875,892.8516 Z " fill="#000000"/><ellipse cx="167.625" cy="900.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="182.625" y="913.877">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="340" x="250.125" y="913.877">xxxCardSelectionFactory</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="83.75" x2="596.25" y1="941.6016" y2="941.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="83.75" x2="596.25" y1="961.6016" y2="961.6016"/><ellipse cx="108.75" cy="989.1016" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" text-decoration="underline" textLength="452.5" x="131.25" y="1000.1489">xxxCardSelection getCardSelection ()</text><!--MD5=[96c12fe999c27355c48f5d6d4eb4d00c]
+class xxxCardSelection--><rect codeLine="80" fill="#FEFECE" height="154.5898" id="xxxCardSelection" style="stroke:#D4AC0D;stroke-width:3.75;" width="347.5" x="823.75" y="861.6016"/><ellipse cx="861.25" cy="901.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M863.75,894.1016 L863.75,909.1016 L868.75,909.1016 L869.9609,909.1016 L871.25,910.6641 L871.25,911.6016 L871.25,912.5391 L869.9609,914.1016 L868.75,914.1016 L853.75,914.1016 L852.5391,914.1016 L851.25,912.5391 L851.25,911.6016 L851.25,910.6641 L852.5391,909.1016 L853.75,909.1016 L858.75,909.1016 L858.75,894.1016 L853.75,894.1016 L852.5391,894.1016 L851.25,892.5391 L851.25,891.6016 L851.25,890.6641 L852.5391,889.1016 L853.75,889.1016 L868.75,889.1016 L869.9609,889.1016 L871.25,890.6641 L871.25,891.6016 L871.25,892.5391 L869.9609,894.1016 L868.75,894.1016 L863.75,894.1016 Z " fill="#000000"/><ellipse cx="908.75" cy="900.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="240" x="923.75" y="913.877">xxxCardSelection</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="826.25" x2="1168.75" y1="941.6016" y2="941.6016"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="838.75" y="980.1489">...</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="826.25" x2="1168.75" y1="996.1914" y2="996.1914"/><!--MD5=[ae929fe69c881de7fe1da2c6010f3e4d]
+class xxxCardSelector--><rect codeLine="83" fill="#FEFECE" height="154.5898" id="xxxCardSelector" style="stroke:#D4AC0D;stroke-width:3.75;" width="400" x="1650" y="861.6016"/><ellipse cx="1687.5" cy="901.6016" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M1692.5,892.8516 Q1693.0078,891.6016 1693.5938,890.9766 Q1694.1797,890.3516 1694.8438,890.3516 Q1696.0156,890.3516 1696.7578,891.0547 Q1697.5,891.7578 1697.5,893.3984 L1697.5,897.3047 Q1697.5,898.9453 1696.7969,899.6484 Q1696.0938,900.3516 1695,900.3516 Q1694.0234,900.3516 1693.3984,899.9219 Q1692.7734,899.4922 1692.5,898.3594 Q1692.3828,897.5781 1691.9531,897.1484 Q1691.1719,896.3281 1689.7656,895.8594 Q1688.3594,895.3516 1686.9531,895.3516 Q1685.1953,895.3516 1683.7109,896.0547 Q1682.2656,896.7578 1681.1328,898.3203 Q1680,899.8828 1680,902.0313 L1680,904.3359 Q1680,906.9141 1682.1094,908.6328 Q1684.2188,910.3516 1687.9688,910.3516 Q1690.1953,910.3516 1691.7578,909.8438 Q1692.6563,909.5703 1693.6719,908.6719 Q1694.3359,908.1641 1694.6875,908.0078 Q1695.0391,907.8516 1695.4688,907.8516 Q1696.2891,907.8516 1696.875,908.5156 Q1697.5,909.1406 1697.5,910.0391 Q1697.5,910.8984 1696.6406,911.9141 Q1695.3906,913.3984 1693.3984,914.2188 Q1690.7813,915.3516 1687.5781,915.3516 Q1683.8281,915.3516 1680.8203,913.8672 Q1678.3984,912.6953 1676.6797,910.1563 Q1675,907.6172 1675,904.6094 L1675,901.875 Q1675,898.75 1676.4844,896.0156 Q1678.0078,893.2813 1680.625,891.8359 Q1683.2813,890.3516 1686.25,890.3516 Q1688.0469,890.3516 1689.6094,890.9766 Q1691.1719,891.6016 1692.5,892.8516 Z " fill="#000000"/><ellipse cx="1735" cy="900.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="1750" y="913.877">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="225" x="1817.5" y="913.877">xxxCardSelector</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1652.5" x2="2047.5" y1="941.6016" y2="941.6016"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="1665" y="980.1489">...</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1652.5" x2="2047.5" y1="996.1914" y2="996.1914"/><!--MD5=[cce03acc605d094508f66994b4b4a5f2]
+class xxxSmartCardAdapter--><rect codeLine="113" fill="#EBF5FB" height="154.5898" id="xxxSmartCardAdapter" style="stroke:#3498DB;stroke-width:3.75;" width="477.5" x="1171.25" y="1169.1016"/><ellipse cx="1208.75" cy="1209.1016" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M1213.75,1200.3516 Q1214.2578,1199.1016 1214.8438,1198.4766 Q1215.4297,1197.8516 1216.0938,1197.8516 Q1217.2656,1197.8516 1218.0078,1198.5547 Q1218.75,1199.2578 1218.75,1200.8984 L1218.75,1204.8047 Q1218.75,1206.4453 1218.0469,1207.1484 Q1217.3438,1207.8516 1216.25,1207.8516 Q1215.2734,1207.8516 1214.6484,1207.4219 Q1214.0234,1206.9922 1213.75,1205.8594 Q1213.6328,1205.0781 1213.2031,1204.6484 Q1212.4219,1203.8281 1211.0156,1203.3594 Q1209.6094,1202.8516 1208.2031,1202.8516 Q1206.4453,1202.8516 1204.9609,1203.5547 Q1203.5156,1204.2578 1202.3828,1205.8203 Q1201.25,1207.3828 1201.25,1209.5313 L1201.25,1211.8359 Q1201.25,1214.4141 1203.3594,1216.1328 Q1205.4688,1217.8516 1209.2188,1217.8516 Q1211.4453,1217.8516 1213.0078,1217.3438 Q1213.9063,1217.0703 1214.9219,1216.1719 Q1215.5859,1215.6641 1215.9375,1215.5078 Q1216.2891,1215.3516 1216.7188,1215.3516 Q1217.5391,1215.3516 1218.125,1216.0156 Q1218.75,1216.6406 1218.75,1217.5391 Q1218.75,1218.3984 1217.8906,1219.4141 Q1216.6406,1220.8984 1214.6484,1221.7188 Q1212.0313,1222.8516 1208.8281,1222.8516 Q1205.0781,1222.8516 1202.0703,1221.3672 Q1199.6484,1220.1953 1197.9297,1217.6563 Q1196.25,1215.1172 1196.25,1212.1094 L1196.25,1209.375 Q1196.25,1206.25 1197.7344,1203.5156 Q1199.2578,1200.7813 1201.875,1199.3359 Q1204.5313,1197.8516 1207.5,1197.8516 Q1209.2969,1197.8516 1210.8594,1198.4766 Q1212.4219,1199.1016 1213.75,1200.3516 Z " fill="#000000"/><polygon fill="#4177AF" points="1256.25,1197.8516,1246.25,1212.8516,1266.25,1212.8516" style="stroke:#1963A0;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="1271.25" y="1221.377">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="302.5" x="1338.75" y="1221.377">xxxSmartCardAdapter</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="1173.75" x2="1646.25" y1="1249.1016" y2="1249.1016"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="1186.25" y="1287.6489">...</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="1173.75" x2="1646.25" y1="1303.6914" y2="1303.6914"/><!--MD5=[b7f723709f4c95e341f6eb59b203b4a1]
+class xxxCardSelectionAdapter--><rect codeLine="112" fill="#EBF5FB" height="154.5898" id="xxxCardSelectionAdapter" style="stroke:#3498DB;stroke-width:3.75;" width="522.5" x="561.25" y="1169.1016"/><ellipse cx="598.75" cy="1209.1016" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M603.75,1200.3516 Q604.2578,1199.1016 604.8438,1198.4766 Q605.4297,1197.8516 606.0938,1197.8516 Q607.2656,1197.8516 608.0078,1198.5547 Q608.75,1199.2578 608.75,1200.8984 L608.75,1204.8047 Q608.75,1206.4453 608.0469,1207.1484 Q607.3438,1207.8516 606.25,1207.8516 Q605.2734,1207.8516 604.6484,1207.4219 Q604.0234,1206.9922 603.75,1205.8594 Q603.6328,1205.0781 603.2031,1204.6484 Q602.4219,1203.8281 601.0156,1203.3594 Q599.6094,1202.8516 598.2031,1202.8516 Q596.4453,1202.8516 594.9609,1203.5547 Q593.5156,1204.2578 592.3828,1205.8203 Q591.25,1207.3828 591.25,1209.5313 L591.25,1211.8359 Q591.25,1214.4141 593.3594,1216.1328 Q595.4688,1217.8516 599.2188,1217.8516 Q601.4453,1217.8516 603.0078,1217.3438 Q603.9063,1217.0703 604.9219,1216.1719 Q605.5859,1215.6641 605.9375,1215.5078 Q606.2891,1215.3516 606.7188,1215.3516 Q607.5391,1215.3516 608.125,1216.0156 Q608.75,1216.6406 608.75,1217.5391 Q608.75,1218.3984 607.8906,1219.4141 Q606.6406,1220.8984 604.6484,1221.7188 Q602.0313,1222.8516 598.8281,1222.8516 Q595.0781,1222.8516 592.0703,1221.3672 Q589.6484,1220.1953 587.9297,1217.6563 Q586.25,1215.1172 586.25,1212.1094 L586.25,1209.375 Q586.25,1206.25 587.7344,1203.5156 Q589.2578,1200.7813 591.875,1199.3359 Q594.5313,1197.8516 597.5,1197.8516 Q599.2969,1197.8516 600.8594,1198.4766 Q602.4219,1199.1016 603.75,1200.3516 Z " fill="#000000"/><polygon fill="#4177AF" points="646.25,1197.8516,636.25,1212.8516,656.25,1212.8516" style="stroke:#1963A0;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="661.25" y="1221.377">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="347.5" x="728.75" y="1221.377">xxxCardSelectionAdapter</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="563.75" x2="1081.25" y1="1249.1016" y2="1249.1016"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="576.25" y="1287.6489">...</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="563.75" x2="1081.25" y1="1303.6914" y2="1303.6914"/><!--MD5=[b0efbbd8a54987d152ca46ad8578f578]
+reverse link KeypleCardSelector to CardSelector--><path d="M1770,332.1491 C1770,384.5991 1770,446.3341 1770,493.6391 " fill="none" id="KeypleCardSelector-backto-CardSelector" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1752.5,331.8466,1770,281.8466,1787.5,331.8466,1752.5,331.8466" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[7b98aeab9a3d660b23153640da6ec114]
+reverse link SmartCard to xxxSmartCard--><path d="M1410,699.8966 C1410,753.8016 1410,814.9466 1410,861.5866 " fill="none" id="SmartCard-backto-xxxSmartCard" style="stroke:#A80036;stroke-width:2.5;"/><polygon fill="none" points="1392.5,699.2116,1410,649.2116,1427.5,699.2116,1392.5,699.2116" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[4abb779e65060c5bfc44d688ec29c257]
+reverse link CardSelection to xxxCardSelection--><path d="M1026.9875,699.0541 C1020.2725,753.1641 1012.6325,814.7041 1006.8125,861.5866 " fill="none" id="CardSelection-backto-xxxCardSelection" style="stroke:#A80036;stroke-width:2.5;"/><polygon fill="none" points="1009.65,696.6741,1033.175,649.2116,1044.3825,700.9866,1009.65,696.6741" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[03332bb9a6b06bb71554ad483aefcb1f]
+reverse link CardSelector to xxxCardSelector--><path d="M1797.39,698.2141 C1809.3775,752.5266 1823.045,814.4616 1833.445,861.5866 " fill="none" id="CardSelector-backto-xxxCardSelector" style="stroke:#A80036;stroke-width:2.5;"/><polygon fill="none" points="1780.2625,701.8091,1786.575,649.2116,1814.44,694.2666,1780.2625,701.8091" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[9002e706f396d6876295fc7061d0da0c]
+reverse link xxxSmartCard to xxxSmartCardAdapter--><path d="M1410,1068.2666 C1410,1102.3466 1410,1138.1341 1410,1168.4641 " fill="none" id="xxxSmartCard-backto-xxxSmartCardAdapter" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1392.5,1067.1541,1410,1017.1541,1427.5,1067.1541,1392.5,1067.1541" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[c3a026247cd8f9cca2ae38e56abcd097]
+reverse link SmartCardSpi to xxxSmartCardAdapter--><path d="M1339.81,1504.5016 C1347.57,1472.1616 1356.3675,1436.6141 1365,1404.1016 C1371.9025,1378.1016 1379.9575,1349.8066 1387.3275,1324.5916 " fill="none" id="SmartCardSpi-backto-xxxSmartCardAdapter" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1356.815,1508.6416,1328.295,1553.2836,1322.75,1500.6016,1356.815,1508.6416" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[bd6c05ee87062384bb574fb05535b09e]
+link xxxSmartCardAdapter to SmartCardSpi--><!--MD5=[df9451b318d6606b19f7d4b575c2effa]
+reverse link xxxCardSelection to xxxCardSelectionAdapter--><path d="M928.43,1060.9941 C907.4825,1097.2041 885.0575,1135.9691 866.2575,1168.4641 " fill="none" id="xxxCardSelection-backto-xxxCardSelectionAdapter" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="913.605,1051.6716,953.7925,1017.1541,943.9025,1069.1966,913.605,1051.6716" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[c894073829ba8baf12c92f112cb8555f]
+reverse link CardSelectionSpi to xxxCardSelectionAdapter--><path d="M875.135,1487.5991 C863.15,1433.2991 849.48,1371.3591 839.075,1324.2116 " fill="none" id="CardSelectionSpi-backto-xxxCardSelectionAdapter" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="892.2575,1483.9916,885.945,1536.5876,858.08,1491.5341,892.2575,1483.9916" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[077a447c7901b23dcf03acc3d8a70774]
+link xxxCardSelectionAdapter to CardSelectionSpi--><!--MD5=[bbd507e3cb9246f123de761fd1b76dd8]
+link xxxCardSelectionFactory to xxxCardSelection--><path codeLine="97" d="M598.9175,939.1016 C669.33,939.1016 744.2225,939.1016 809.855,939.1016 " fill="none" id="xxxCardSelectionFactory-to-xxxCardSelection" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="822.855,939.1016,800.355,929.1016,810.355,939.1016,800.355,949.1016,822.855,939.1016" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="667.5,909.541,644.8873,902.1937,644.8873,916.8883,667.5,909.541" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="677.5" y="922.8394">provide</text><!--MD5=[6aef92196412bbfccb06d3ea1a2cdc76]
+link xxxCardSelection to xxxSmartCardAdapter--><!--MD5=[d9d951bf54bb5c11382f13cd78d08f32]
+@startuml
+title
+    Keyple 2.0 - Specific Extension - 2.0.0 (26/01/2021)
+end title
+
+' == THEME ==
+
+'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define C_GREY1 F8F9F9
+!define C_GREY2 F2F3F4
+!define C_GREY3 E5E7E9
+!define C_GREY4 D7DBDD
+!define C_GREY5 CACFD2
+!define C_GREY6 BDC3C7
+!define C_LINK 3498DB
+!define C_USE 27AE60
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+' Red
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+' Purple
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+' blue
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+' Green
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+' Grey
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+' == CONTENT ==
+
+
+package "org.eclipse.keyple.commons" as commonsApi {
+    +interface KeypleCardSelector {
+    }
+}
+package "org.eclipse.keyple.service.selection.spi" as serviceSelectionSpi {
+    +interface CardSelection {
+        ...
+    }
+    +interface SmartCard {
+        ...
+    }
+    +class CardSelector implements KeypleCardSelector {
+        ...
+    }
+}
+
+package "org.eclipse.keyple.card.spi" as cardSpi {
+    +interface CardSelectionSpi {
+        ...
+    }
+    +interface SmartCardSpi {
+    }
+}
+
+
+package "specific.extension" as specificExtension {
+    +interface xxxSmartCard extends SmartCard {
+        ...
+    }
+    +class "**final** xxxCardSelectionFactory" as xxxCardSelectionFactory {
+        +{static} xxxCardSelection getCardSelection ()
+    }
+    +interface xxxCardSelection extends CardSelection {
+        ...
+    }
+    +class "**final** xxxCardSelector" as xxxCardSelector extends CardSelector {
+        ...
+    }
+    ' Adapters
+    ~class "**final** xxxSmartCardAdapter" as xxxSmartCardAdapter implements xxxSmartCard, SmartCardSpi {
+        ...
+    }
+    ~class "**final** xxxCardSelectionAdapter" as xxxCardSelectionAdapter implements xxxCardSelection, CardSelectionSpi {
+        ...
+    }
+}
+
+' Associations
+
+xxxCardSelectionFactory .> xxxCardSelection #C_USE : provide >
+
+' == LAYOUT ==
+
+xxxCardSelection -[hidden]- xxxSmartCardAdapter
+xxxSmartCardAdapter -[hidden]- SmartCardSpi
+xxxCardSelectionAdapter -[hidden]- CardSelectionSpi
+
+' == STYLE ==
+
+package commonsApi #C_GREY1 {}
+package specificExtension #C_GREY1 {}
+package cardSpi #C_GREY1 {}
+package serviceSelectionSpi #C_GREY2 {}
+
+class xxxCardSelectionAdapter <<blue>>
+class xxxSmartCardAdapter <<blue>>
+interface CardSelectionSpi <<blue>>
+interface SmartCardSpi <<blue>>
+
+@enduml
+
+@startuml
+title
+    Keyple 2.0 - Specific Extension - 2.0.0 (26/01/2021)
+end title
+
+
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+
+
+package "org.eclipse.keyple.commons" as commonsApi {
+    +interface KeypleCardSelector {
+    }
+}
+package "org.eclipse.keyple.service.selection.spi" as serviceSelectionSpi {
+    +interface CardSelection {
+        ...
+    }
+    +interface SmartCard {
+        ...
+    }
+    +class CardSelector implements KeypleCardSelector {
+        ...
+    }
+}
+
+package "org.eclipse.keyple.card.spi" as cardSpi {
+    +interface CardSelectionSpi {
+        ...
+    }
+    +interface SmartCardSpi {
+    }
+}
+
+
+package "specific.extension" as specificExtension {
+    +interface xxxSmartCard extends SmartCard {
+        ...
+    }
+    +class "**final** xxxCardSelectionFactory" as xxxCardSelectionFactory {
+        +{static} xxxCardSelection getCardSelection ()
+    }
+    +interface xxxCardSelection extends CardSelection {
+        ...
+    }
+    +class "**final** xxxCardSelector" as xxxCardSelector extends CardSelector {
+        ...
+    }
+    ~class "**final** xxxSmartCardAdapter" as xxxSmartCardAdapter implements xxxSmartCard, SmartCardSpi {
+        ...
+    }
+    ~class "**final** xxxCardSelectionAdapter" as xxxCardSelectionAdapter implements xxxCardSelection, CardSelectionSpi {
+        ...
+    }
+}
+
+
+xxxCardSelectionFactory .> xxxCardSelection #27AE60 : provide >
+
+
+xxxCardSelection -[hidden]- xxxSmartCardAdapter
+xxxSmartCardAdapter -[hidden]- SmartCardSpi
+xxxCardSelectionAdapter -[hidden]- CardSelectionSpi
+
+
+package commonsApi #F8F9F9 {}
+package specificExtension #F8F9F9 {}
+package cardSpi #F8F9F9 {}
+package serviceSelectionSpi #F2F3F4 {}
+
+class xxxCardSelectionAdapter <<blue>>
+class xxxSmartCardAdapter <<blue>>
+interface CardSelectionSpi <<blue>>
+interface SmartCardSpi <<blue>>
+
+@enduml
+
+PlantUML version 1.2021.00(Sun Jan 10 11:25:05 CET 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: fr
+Country: FR
+--></g></svg>

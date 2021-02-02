@@ -1,0 +1,185 @@
+@startuml
+title
+    Keyple 2.0 - keyple-utils - 2.0.0 (22/01/2021)
+end title
+
+' == THEME ==
+
+'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define C_GREY1 F8F9F9
+!define C_GREY2 F2F3F4
+!define C_GREY3 E5E7E9
+!define C_GREY4 D7DBDD
+!define C_GREY5 CACFD2
+!define C_GREY6 BDC3C7
+!define C_LINK 3498DB
+!define C_USE 27AE60
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+' Red
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+' Purple
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+' blue
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+' Green
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+' Grey
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+' == CONTENT ==
+
++class RuntimeException {
+}
++interface JsonSerializer {
+    --
+    +JsonElement serialize (
+        \tbyte[] data, Type typeOfSrc,
+        \tJsonSerializationContext context)
+}
++interface JsonDeserializer<T> {
+    --
+    +T deserialize (
+        \tJsonElement jsonElement, Type type,
+        \tJsonDeserializationContext jsonDeserializationContext)
+}
++class "**final** Gson" as Gson {
+    ...
+}
+package "org.eclipse.keyple.utils" as utils {
+    +class "**final** Assert" as Assert {
+        --
+        +{static} Assert getInstance ()
+        ..
+        +Assert notNull (Object obj, String name)
+        +Assert notEmpty (String obj, String name)
+        +Assert notEmpty (List<? extends Object> obj, String name)
+        +Assert notEmpty (byte[] obj, String name)
+        +Assert isTrue (Boolean condition, String name)
+        +Assert greaterOrEqual (Integer number, int minValue, String name)
+        +Assert isEqual (Integer number, int value, String name)
+        +Assert isInRange (Integer number, int minValue, int maxValue, String name)
+    }
+    +class "**final** ByteArrayUtil" as ByteArrayUtil {
+        +{static} byte[] fromHex (String hex)
+        +{static} String toHex (byte[] byteArray)
+        +{static} int twoBytesToInt (byte[] bytes, int offset)
+        +{static} int twoBytesSignedToInt (byte[] bytes, int offset)
+        +{static} int threeBytesToInt (byte[] bytes, int offset)
+        +{static} int threeBytesSignedToInt (byte[] bytes, int offset)
+        +{static} int fourBytesToInt (byte[] bytes, int offset)
+    }
+    package bertlv {
+        +class TLV {
+            --
+            +TLV (byte[] binary)
+            ..
+            +boolean parse (Tag tag, int offset)
+            +int getPosition ()
+            +byte[] getValue ()
+        }
+        +class Tag {
+            +{static} **final** byte UNIVERSAL
+            +{static} **final** byte APPLICATION
+            +{static} **final** byte CONTEXT
+            +{static} **final** byte PRIVATE
+            --
+            +Tag (int tagNumber, byte tagClass, TagType tagType, int tagSize)
+            +Tag (byte[] binary, int offset)
+            ..
+            +int getTagNumber ()
+            +byte getTagClass ()
+            +TagType getTagType ()
+            +int getTagSize ()
+        }
+        +enum TagType {
+            PRIMITIVE
+            CONSTRUCTED
+        }
+    }
+    package json {
+        +class BodyError {
+            --
+            +BodyError (RuntimeException exception)
+            ..
+            +String getCode ()
+            +RuntimeException getException ()
+        }
+        +class BodyErrorJsonDeserializer implements JsonDeserializer {
+            +BodyErrorJsonDeserializer ()
+        }
+        +class ByteArrayJsonAdapter implements JsonSerializer, JsonDeserializer {
+            +ByteArrayJsonAdapter ()
+        }
+        +class ThrowableJsonSerializer implements JsonSerializer {
+            +ThrowableJsonSerializer ()
+        }
+        +class "**final** KeypleGsonParser" as KeypleGsonParser {
+            --
+            +{static} Gson getParser ()
+            +{static} Gson registerTypeAdapter (
+                \tClass<?> matchingClass,
+                \tObject adapter,
+                \tboolean withSubclasses)
+        }
+    }
+    package protocols {
+        +enum ContactCardCommonProtocols {
+            ISO_7816_3
+            ISO_7816_3_TO
+            ISO_7816_3_T1
+            INNOVATRON_HIGH_SPEED_PROTOCOL_SAM
+        }
+        +enum ContactlessCardCommonProtocols {
+            ISO_14443_4
+            NFC_A_ISO_14443_3A
+            NFC_B_ISO_14443_3B
+            NFC_F_JIS_6319_4
+            NFC_V_ISO_15693
+            INNOVATRON_B_PRIME_CARD
+        }
+    }
+}
+
+' Associations
+
+Tag +-- TagType
+Tag *-- "1" TagType #C_LINK
+
+BodyError *-up- "1" RuntimeException #C_LINK
+
+KeypleGsonParser *-up- "1" Gson #C_LINK
+
+' == LAYOUT ==
+
+json -[hidden]- protocols
+json -[hidden]- ByteArrayUtil
+ByteArrayUtil -[hidden]- Assert
+
+protocols -[hidden]- bertlv
+
+' == STYLE ==
+
+package utils #C_GREY1 {}
+package bertlv #C_GREY2 {}
+package json #C_GREY2 {}
+package protocols #C_GREY2 {}
+'class PoolLocalServiceServerUtils <<blue>>
+
+@enduml

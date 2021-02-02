@@ -1,0 +1,201 @@
+@startuml
+title
+    Keyple 2.0 - keyple-plugin-api - 2.0 (18/01/2021)
+end title
+
+' == THEME ==
+
+'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define C_GREY1 F8F9F9
+!define C_GREY2 F2F3F4
+!define C_GREY3 E5E7E9
+!define C_GREY4 D7DBDD
+!define C_GREY5 CACFD2
+!define C_GREY6 BDC3C7
+!define C_LINK 3498DB
+!define C_USE 27AE60
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+' Red
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+' Purple
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+' blue
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+' Green
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+' Grey
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+' == CONTENT ==
+
+package "org.eclipse.keyple.plugin" as api {
+    +interface AutonomousObservableReaderManager {
+        +void onCardInserted ()
+        +void onCardRemoved ()
+    }
+    package spi {
+        together {
+            +interface PluginSpi {
+                +Map<String, ReaderSpi> initNativeReaders ()
+            }
+            +interface PoolPluginSpi {
+                --
+                +SortedSet<String> getReaderGroupReferences ()
+                ..
+                +ReaderSpi allocateReader (String groupReference)
+                +void releaseReader (ReaderSpi reader)
+            }
+            +interface PluginFactorySpi {
+                +String getPluginName ()
+                +PluginSpi getPlugin ()
+            }
+            +interface PoolPluginFactorySpi {
+                +String getPluginName ()
+                +PoolPluginSpi getPlugin ()
+            }
+        }
+        +interface ObservablePluginSpi extends PluginSpi {
+        }
+        +interface ThreadedObservablePluginSpi extends ObservablePluginSpi {
+            --
+            +int getMonitoringCycleDuration ()
+            ..
+            +SortedSet<String> fetchNativeReadersNames ()
+            +ReaderSpi fetchNativeReader (String name)
+            ..
+            +PluginObservationExceptionHandlerSpi getObservationExceptionHandler ()
+        }
+        +interface PluginObservationExceptionHandlerSpi {
+            +void onPluginObservationError (String pluginName,
+                \tThrowable e)
+        }
+        package reader {
+            +interface ReaderSpi {
+                --
+                +void activateReaderProtocol (String readerProtocolName)
+                +void deactivateReaderProtocol (String readerProtocolName)
+                +boolean isCurrentProtocol (String readerProtocolName)
+                ..
+                +void openPhysicalChannel ()
+                +void closePhysicalChannel ()
+                +boolean isPhysicalChannelOpen ()
+                ..
+                +boolean checkCardPresence ()
+                ..
+                +byte[] getATR ()
+                ..
+                +byte[] transmitApdu (byte[] apduIn)
+                ..
+                +boolean isContactless ()
+            }
+            +interface AutonomousSelectionReaderSpi {
+                +byte[] openChannelForAid (byte[] dfName,
+                    \tbyte isoControlMask)
+                +void closeLogicalChannel ()
+            }
+            package observable {
+                +interface ObservableReaderSpi extends ReaderSpi {
+                    --
+                    +void onStartDetection ()
+                    +void onStopDetection ()
+                    ..
+                    +ReaderObservationExceptionHandlerSpi getObservationExceptionHandler ()
+                }
+                +interface AutonomousObservableReaderSpi extends ObservableReaderSpi {
+                    +void setManager (AutonomousObservableReaderManager manager)
+                }
+                +interface ReaderObservationExceptionHandlerSpi {
+                    +void onReaderObservationError (String pluginName,
+                        \tString readerName, Throwable e)
+                }
+                package states {
+                    package processing {
+                        +interface WaitForCardRemovalDuringProcessingSpi {
+                        }
+                        +interface DontWaitForCardRemovalDuringProcessingSpi {
+                        }
+                    }
+                    package insertion {
+                        +interface WaitForCardInsertionAutonomousSpi {
+                        }
+                        +interface WaitForCardInsertionBlockingSpi {
+                            +boolean waitForCardPresent ()
+                            +void stopWaitForCard ()
+                        }
+                        +interface WaitForCardInsertionNonBlockingSpi {
+                        }
+                    }
+                    package removal {
+                        +interface WaitForCardRemovalAutonomousSpi {
+                        }
+                        +interface WaitForCardRemovalBlockingSpi {
+                            +boolean waitForCardAbsentNative ()
+                            +void stopWaitForCardRemoval ()
+                        }
+                        +interface WaitForCardRemovalNonBlockingSpi {
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+' Associations
+
+PluginFactorySpi ..> PluginSpi #C_USE : provide >
+PluginSpi ..> ReaderSpi #C_USE : provide >
+
+PoolPluginFactorySpi ..> PoolPluginSpi #C_USE : provide >
+PoolPluginSpi ..> ReaderSpi #C_USE : provide >
+
+ThreadedObservablePluginSpi .left.> PluginObservationExceptionHandlerSpi #C_USE : provide >
+
+ObservableReaderSpi .> ReaderObservationExceptionHandlerSpi #C_USE : provide >
+
+AutonomousObservableReaderSpi .> AutonomousObservableReaderManager #C_USE : use >
+
+' == LAYOUT ==
+
+
+ThreadedObservablePluginSpi -[hidden]- reader
+
+AutonomousObservableReaderSpi -[hidden]- states
+
+WaitForCardInsertionBlockingSpi -[hidden]- WaitForCardInsertionNonBlockingSpi
+WaitForCardInsertionNonBlockingSpi -[hidden]- WaitForCardInsertionAutonomousSpi
+
+WaitForCardRemovalDuringProcessingSpi -[hidden]- DontWaitForCardRemovalDuringProcessingSpi
+
+WaitForCardRemovalBlockingSpi -[hidden]- WaitForCardRemovalNonBlockingSpi
+WaitForCardRemovalNonBlockingSpi -[hidden]- WaitForCardRemovalAutonomousSpi
+
+' == STYLE ==
+
+package api #C_GREY1 {}
+package spi #C_GREY2 {}
+package reader #C_GREY3 {}
+package observable #C_GREY4 {}
+package states #C_GREY5 {}
+package insertion #C_GREY6 {}
+package processing #C_GREY6 {}
+package removal #C_GREY6 {}
+
+@enduml

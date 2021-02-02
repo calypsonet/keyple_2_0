@@ -1,0 +1,136 @@
+@startuml
+title
+    Keyple 2.0 - keyple-remote-plugin-api - 2.0 (26/01/2021)
+end title
+
+' == THEME ==
+
+'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define C_GREY1 F8F9F9
+!define C_GREY2 F2F3F4
+!define C_GREY3 E5E7E9
+!define C_GREY4 D7DBDD
+!define C_GREY5 CACFD2
+!define C_GREY6 BDC3C7
+!define C_LINK 3498DB
+!define C_USE 27AE60
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+' Red
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+' Purple
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+' blue
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+' Green
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+' Grey
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+' == CONTENT ==
+
+package "org.eclipse.keyple.plugin.remote" as api {
+    +interface ObservableRemotePluginManager {
+        --
+        +RemoteReaderManager createReader (String readerName,
+            \tRemoteReaderSpi remoteReaderSpi)
+        +RemoteReaderManager getReader (String readerName)
+        +void onPluginEvent (String jsonData)
+    }
+    +interface RemoteReaderManager {
+    }
+    +interface ObservableRemoteReaderManager extends RemoteReaderManager {
+        --
+        +void onReaderEvent (String jsonData)
+    }
+    package spi {
+        +interface RemoteReaderSpi {
+            --
+            +void setManager (RemoteReaderManger manager)
+            ..
+            +boolean isContactless ()
+            +boolean isCardPresent ()
+            ..
+            +void releaseChannel ()
+            ..
+            +String processCardSelectionRequests (String jsonData)
+            +String processCardRequest (String jsonData)
+        }
+        +interface ObservableRemoteReaderSpi extends RemoteReaderSpi {
+            --
+            +void startCardDetection (String jsonData)
+            +void stopCardDetection ()
+            +void setDefaultSelectionRequest (String jsonData)
+            +void finalizeCardProcessing ()
+        }
+        +interface RemotePluginSpi {
+            +Map<String, RemoteReaderSpi> initNativeReaders ()
+        }
+        +interface ObservableRemotePluginSpi extends RemotePluginSpi {
+            --
+            +void setManager (ObservableRemotePluginManager manager)
+        }
+        +interface PoolRemotePluginSpi {
+            --
+            +SortedSet<String> getReaderGroupReferences ()
+            ..
+            +RemoteReaderSpi allocateReader (String groupReference)
+            +void releaseReader (RemoteReaderSpi reader)
+        }
+        +interface RemotePluginFactorySpi {
+            +String getPluginName ()
+            +RemotePluginSpi getPlugin ()
+        }
+        +interface PoolRemotePluginFactorySpi {
+            +String getPluginName ()
+            +PoolRemotePluginSpi getPlugin ()
+        }
+    }
+}
+
+' Associations
+
+ObservableRemotePluginManager ..> RemoteReaderManager #C_USE : provide >
+
+RemotePluginFactorySpi ..> RemotePluginSpi #C_USE : provide >
+
+PoolRemotePluginFactorySpi ..> PoolRemotePluginSpi #C_USE : provide >
+
+RemotePluginSpi ..> RemoteReaderSpi #C_USE : provide >
+
+ObservableRemotePluginSpi .left.> ObservableRemotePluginManager #C_USE : use >
+
+PoolRemotePluginSpi ..> RemoteReaderSpi #C_USE : provide >
+
+RemoteReaderSpi .left.> RemoteReaderManager #C_USE : use >
+
+ObservableRemoteReaderSpi .left.> ObservableRemoteReaderManager #C_USE : use >
+
+' == LAYOUT ==
+
+PoolRemotePluginSpi -[hidden]- ObservableRemotePluginSpi
+
+ObservableRemotePluginSpi -[hidden]- RemoteReaderSpi
+
+' == STYLE ==
+
+package api #C_GREY1 {}
+package spi #C_GREY2 {}
+
+@enduml

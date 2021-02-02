@@ -1,0 +1,429 @@
+@startuml
+title
+    Keyple 2.0 - keyple-service - 2.0.0 (20/01/2021)
+end title
+
+' == THEME ==
+
+'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define C_GREY1 F8F9F9
+!define C_GREY2 F2F3F4
+!define C_GREY3 E5E7E9
+!define C_GREY4 D7DBDD
+!define C_GREY5 CACFD2
+!define C_GREY6 BDC3C7
+!define C_LINK 3498DB
+!define C_USE 27AE60
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+' Red
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+' Purple
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+' blue
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+' Green
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+' Grey
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+' == CONTENT ==
+
+legend top
+    Legend : <back:cyan>from **Commons API**</back>
+end legend
+
+package "org.eclipse.keyple.service" as service {
+    ' SPI
+    package spi {
+        +interface PluginObserver {
+            +void update (PluginEvent event)
+        }
+        +interface ReaderObserver {
+            +void update (ReaderEvent event)
+        }
+    }
+    ' SERVICE
+    together {
+    +class "**final** SmartCardService" as SmartCardService {
+        --
+        +{static} SmartCardService getInstance ()
+        ..
+        +Plugin registerPlugin (<back:cyan>KeyplePluginFactory</back> pluginFactory)
+        +void unregisterPlugin (String pluginName)
+        +boolean isPluginRegistered (String pluginName)
+        ..
+        +Map<String, Plugin> getPlugins ()
+        +Plugin getPlugin (String pluginName)
+        ..
+        +DistributedLocalService registerDistributedLocalService (
+            \t<back:cyan>KeypleDistributedLocalServiceFactory</back> distributedLocalServiceFactory)
+        +void unregisterDistributedLocalService (
+            \tString distributedLocalServiceName)
+        ..
+        +void getDistributedLocalService (
+            \tString distributedLocalServiceName)
+        ..
+        +String getVersion ()
+    }
+    +interface Plugin {
+        --
+        +String getName ()
+        +<T extends <back:cyan>KeyplePlugin</back>> T getExtension (Class<T> pluginType)
+        ..
+        +Set<String> getReaderNames ()
+        +Map<String, Reader> getReaders ()
+        +Reader getReader (String readerName)
+    }
+    +interface DistributedLocalService {
+        --
+        +String getName ()
+        +<T extends <back:cyan>KeypleDistributedLocalService</back>> T getExtension (
+            \tClass<T> distributedLocalServiceType)
+    }
+    +interface ObservablePlugin extends Plugin {
+        +void addObserver (PluginObserver observer)
+        +void removeObserver (PluginObserver observer)
+        +void clearObservers ()
+        +int countObservers ()
+    }
+    +interface PoolPlugin extends Plugin {
+        --
+        +SortedSet<String> getReaderGroupReferences ()
+        ..
+        +Reader allocateReader (String groupReference)
+        +void releaseReader (Reader reader)
+    }
+    +interface Reader {
+        --
+        +String getName ()
+        +<T extends <back:cyan>KeypleReader</back>> T getExtension (Class<T> readerType)
+        ..
+        +boolean isContactless ()
+        +boolean isCardPresent ()
+        ..
+        +void activateProtocol (String readerProtocolName,
+            \tString applicationProtocolName)
+        +void deactivateProtocol (String readerProtocolName)
+    }
+    +interface ObservableReader extends Reader {
+        --
+        +void addObserver (ReaderObserver observer)
+        +void removeObserver (ReaderObserver observer)
+        +void clearObservers ()
+        +int countObservers ()
+        ..
+        +void startCardDetection (PollingMode pollingMode)
+        +void stopCardDetection ()
+        ..
+        +void setDefaultSelectionRequest (
+            \t<back:cyan>KeypleDefaultSelectionsRequest</back> defaultSelectionsRequest,
+            \tNotificationMode notificationMode)
+        +void setDefaultSelectionRequest (
+            \t<back:cyan>KeypleDefaultSelectionsRequest</back> defaultSelectionsRequest,
+            \tNotificationMode notificationMode,
+            \tPollingMode pollingMode)
+        ..
+        +void finalizeCardProcessing ()
+    }
+    }
+    +enum NotificationMode {
+        ALWAYS
+        MATCHED_ONLY
+    }
+    +enum PollingMode {
+        REPEATING
+        SINGLESHOT
+    }
+    +class "<<<back:cyan>KeyplePluginEvent</back>>>\n**final** PluginEvent" as PluginEvent {
+        --
+        +PluginEvent (String pluginName,
+            \tString readerName,
+            \tEventType eventType)
+        +PluginEvent (String pluginName,
+            \tSet<String> readerNames,
+            \tEventType eventType)
+        ..
+        +String getPluginName ()
+        +SortedSet<String> getReaderNames ()
+        +EventType getEventType ()
+    }
+    +enum "EventType" as PluginEventType {
+        READER_CONNECTED
+        READER_DISCONNECTED
+        UNREGISTERED
+    }
+    +class "<<<back:cyan>KeypleReaderEvent</back>>>\n**final** ReaderEvent" as ReaderEvent {
+        --
+        +ReaderEvent (String pluginName,
+            \tString readerName,
+            \tEventType eventType,
+            \t<back:cyan>KeypleDefaultSelectionsResponse</back> defaultSelectionsResponse)
+        ..
+        +String getPluginName ()
+        +String getReaderName ()
+        +EventType getEventType ()
+        +<back:cyan>KeypleDefaultSelectionsResponse</back> getDefaultSelectionsResponse ()
+        +Plugin getPlugin ()
+        +Reader getReader ()
+    }
+    +enum "EventType" as ReaderEventType {
+        CARD_INSERTED
+        CARD_MATCHED
+        CARD_REMOVED
+        UNREGISTERED
+    }
+    ' SELECTION
+    package selection {
+        +class "**final** CardSelectionsService" as CardSelectionsService {
+            --
+            +CardSelectionsService ()
+            +CardSelectionsService (MultiSelectionProcessing multiSelectionProcessing)
+            ..
+            +int prepareSelection (CardSelection cardSelectionRequest)
+            +void prepareReleaseChannel ()
+            ..
+            +<back:cyan>KeypleDefaultSelectionsRequest</back> getDefaultSelectionsRequest ()
+            ..
+            +CardSelectionsResult processExplicitSelections (Reader reader)
+            +CardSelectionsResult processDefaultSelectionsResponse (
+                \t<back:cyan>KeypleDefaultSelectionsResponse</back> defaultSelectionsResponse)
+        }
+        +enum MultiSelectionProcessing {
+            FIRST_MATCH
+            PROCESS_ALL
+        }
+        package "spi" as selectionSpi {
+            +interface CardSelection {
+                +CardSelector getCardSelector ()
+            }
+            +interface SmartCard {
+                --
+                +boolean hasFci ()
+                +byte[] getFciBytes ()
+                ..
+                +boolean hasAtr ()
+                +byte[] getAtrBytes ()
+            }
+            +class "<<<back:cyan>KeypleCardSelector</back>>>\nCardSelector" as CardSelector {
+                --
+                #CardSelector (CardSelectorBuilder builder)
+                ..
+                +{static} CardSelectorBuilder builder ()
+                +String getCardProtocol ()
+                +AtrFilter getAtrFilter ()
+                +AidSelector getAidSelector ()
+            }
+            +class CardSelectorBuilder <<static>> {
+                --
+                #CardSelectorBuilder ()
+                ..
+                +CardSelectorBuilder cardProtocol (String cardProtocol)
+                +CardSelectorBuilder atrFilter (AtrFilter atrFilter)
+                +CardSelectorBuilder aidSelector (AidSelector aidSelector)
+                +CardSelector build ()
+            }
+            +class "**final** AidSelector" as AidSelector <<static>> {
+                +{static} **final** int AID_MIN_LENGTH
+                +{static} **final** int AID_MAX_LENGTH
+                +{static} AidSelectorBuilder builder ()
+                +byte[] getAidToSelect ()
+                +FileOccurrence getFileOccurrence ()
+                +FileControlInformation getFileControlInformation ()
+                +Set<Integer> getSuccessfulSelectionStatusCodes ()
+                +void addSuccessfulStatusCode (int statusCode)
+            }
+            +class "**final** AidSelectorBuilder" as AidSelectorBuilder <<static>> {
+                +AidSelectorBuilder aidToSelect (byte[] aid)
+                +AidSelectorBuilder aidToSelect (String aid)
+                +AidSelectorBuilder fileOccurrence (FileOccurrence fileOccurrence)
+                +AidSelectorBuilder fileControlInformation (FileControlInformation fileControlInformation)
+                +AidSelector build ()
+            }
+            +enum FileOccurrence {
+                FIRST
+                LAST
+                NEXT
+                PREVIOUS
+                +byte getIsoBitMask ()
+            }
+            +enum FileControlInformation {
+                FCI
+                FCP
+                FMD
+                NO_RESPONSE
+                +byte getIsoBitMask ()
+            }
+            +class "**final** AtrFilter" as AtrFilter <<static>> {
+                --
+                +AtrFilter (String atrRegex)
+                ..
+                +void setAtrRegex (String atrRegex)
+                +String getAtrRegex ()
+                +boolean atrMatches (byte[] atr)
+            }
+        }
+        +class "**final** CardSelectionsResult" as CardSelectionsResult {
+            --
+            ~CardSelectionsResult ()
+            ..
+            +boolean hasActiveSelection ()
+            +int getActiveSelectionIndex ()
+            +boolean hasSelectionMatched (int selectionIndex)
+            ..
+            +Map<Integer, SmartCard> getSmartCards ()
+            +SmartCard getSmartCard (int selectionIndex)
+            +SmartCard getActiveSmartCard ()
+            ..
+            ~void addSmartCard (int selectionIndex,
+                \tSmartCard smartCard, boolean isSelected)
+        }
+        +class "**final** CardResource" as CardResource<T extends SmartCard> {
+            --
+            +CardResource (Reader reader, T smartCard)
+            ..
+            +Reader getReader ()
+            +T getSmartCard ()
+        }
+    }
+    ' EXCEPTIONS
+    +abstract class "<<RuntimeException>>\nKeypleException" as KeypleException {
+        #KeypleException (String message)
+        #KeypleException (String message, Throwable cause)
+    }
+    +class KeypleAllocationNoReaderException extends KeypleException {
+        +KeypleAllocationNoReaderException (
+            \tString message)
+        +KeypleAllocationNoReaderException (
+            \tString message, Throwable cause)
+    }
+    +class KeypleAllocationReaderException extends KeypleException {
+        +KeypleAllocationReaderException (
+            \tString message)
+        +KeypleAllocationReaderException (
+            \tString message, Throwable cause)
+    }
+    +abstract class KeyplePluginException extends KeypleException {
+        #KeyplePluginException (
+            \tString message)
+        #KeyplePluginException (
+            \tString message, Throwable cause)
+    }
+    +class KeyplePluginInstantiationException extends KeyplePluginException {
+        +KeyplePluginInstantiationException (
+            \tString message)
+        +KeyplePluginInstantiationException (
+            \tString message, Throwable cause)
+    }
+    +class KeyplePluginNotFoundException extends KeyplePluginException {
+        +KeyplePluginNotFoundException (
+            \tString message)
+    }
+    +abstract class KeypleReaderException extends KeypleException {
+        #KeypleReaderException (
+            \tString message)
+        #KeypleReaderException (
+            \tString message, Throwable cause)
+    }
+    +class KeypleReaderIOException extends KeypleReaderException {
+        +KeypleReaderIOException (
+            \tString message)
+        +KeypleReaderIOException (
+            \tString message, Throwable cause)
+    }
+    +class KeypleReaderNotFoundException extends KeypleReaderException {
+        +KeypleReaderNotFoundException (
+            \tString message)
+    }
+    +class KeypleReaderProtocolNotFoundException extends KeypleReaderException {
+        +KeypleReaderProtocolNotFoundException (
+            \tString identificationData)
+    }
+    +class KeypleReaderProtocolNotSupportedException extends KeypleReaderException {
+        +KeypleReaderProtocolNotSupportedException (
+            \tString cardProtocol)
+    }
+}
+
+' Associations
+'LocalServiceClient ..> RemoteServiceParameters #C_USE : use >
+
+SmartCardService *-- "0..N" Plugin #C_LINK
+SmartCardService *-- "0..N" DistributedLocalService #C_LINK
+
+PluginEvent +-- PluginEventType
+PluginEvent *-- "1" PluginEventType #C_LINK
+
+ObservableReader +-- NotificationMode
+ObservableReader ..> NotificationMode #C_USE : use >
+ObservableReader +-- PollingMode
+ObservableReader ..> PollingMode #C_USE : use >
+
+ReaderEvent +-- ReaderEventType
+ReaderEvent *-- "1" ReaderEventType #C_LINK
+
+CardSelectionsService *-- "1" MultiSelectionProcessing #C_LINK
+CardSelectionsService *-- "1..N" CardSelection #C_LINK
+
+CardSelectionsResult *-- "1..N" SmartCard #C_LINK
+
+CardResource *-- "1" SmartCard #C_LINK
+CardResource *-- "1" Reader #C_LINK
+
+CardSelector +-- CardSelectorBuilder
+CardSelector +-- AtrFilter
+CardSelector *-- "0..1" AtrFilter #C_LINK
+CardSelector +-- AidSelector
+CardSelector *-- "0..1" AidSelector #C_LINK
+
+AidSelector +-- AidSelectorBuilder
+AidSelector +-- FileOccurrence
+AidSelector *-- "0..1" FileOccurrence  #C_LINK
+AidSelector +-- FileControlInformation
+AidSelector *-- "0..1" FileControlInformation  #C_LINK
+
+
+Plugin ..> Reader #C_USE : provide >
+
+CardSelectionsService ..> Reader #C_USE : use >
+CardSelectionsService ..> CardSelectionsResult #C_USE : provide >
+
+
+ObservablePlugin ..> PluginObserver #C_USE : use >
+
+PluginObserver ..> PluginEvent #C_USE : use >
+
+ObservableReader ..> ReaderObserver #C_USE : use >
+
+ReaderObserver ..> ReaderEvent #C_USE : use >
+
+CardSelection .left.> CardSelector #C_USE : provide >
+
+' == LAYOUT ==
+
+FileControlInformation -[hidden]- KeypleException
+
+' == STYLE ==
+
+package service #C_GREY1 {}
+package spi #C_GREY2 {}
+package selection #C_GREY2 {}
+package selectionSpi #C_GREY3 {}
+
+@enduml
