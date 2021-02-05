@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-service - 2.0.0 (22/01/2021)
+    Keyple 2.0 - Adapter of keyple-service - 2.0.0 (05/02/2021)
 end title
 
 ' == THEME ==
@@ -52,14 +52,17 @@ end legend
 package "org.eclipse.keyple.service" as service {
     ' SPI
     package spi {
-        +interface PluginObserver {
+        +interface PluginObserverSpi {
             ...
         }
-        +interface ReaderObserver {
+        +interface ReaderObserverSpi {
             ...
         }
     }
     ' SERVICE
+    +class "**final** ServiceApiProperties" as ApiProperties {
+        +{static} **final** String VERSION
+    }
     +class "**final** SmartCardService" as SmartCardService {
         ...
     }
@@ -133,8 +136,8 @@ package "org.eclipse.keyple.service" as service {
         +**final** boolean isContactless ()
         +boolean isCardPresent ()
         +**final** void activateProtocol (
-            \tString readerProtocolName, String applicationProtocolName)
-        +**final** void deactivateProtocol (String readerProtocolName)
+            \tString readerProtocol, String cardProtocol)
+        +**final** void deactivateProtocol (String readerProtocol)
         ..
         +**final** void releaseChannel ()
         ..
@@ -158,8 +161,8 @@ package "org.eclipse.keyple.service" as service {
         +**final** boolean isContactless ()
         +**final** boolean isCardPresent ()
         +**final** void activateProtocol (
-            \tString readerProtocolName, String applicationProtocolName)
-        +**final** void deactivateProtocol (String readerProtocolName)
+            \tString readerProtocol, String cardProtocol)
+        +**final** void deactivateProtocol (String readerProtocol)
         ..
         +**final** void releaseChannel ()
         ..
@@ -182,8 +185,8 @@ package "org.eclipse.keyple.service" as service {
         ..
         +**final** boolean isCardPresent ()
         ..
-        +**final** void addObserver (ReaderObserver observer)
-        +**final** void removeObserver (ReaderObserver observer)
+        +**final** void addObserver (ReaderObserverSpi observer)
+        +**final** void removeObserver (ReaderObserverSpi observer)
         +**final** int countObservers ()
         +**final** void clearObservers ()
         +**final** void finalizeCardProcessing ()
@@ -231,8 +234,8 @@ package "org.eclipse.keyple.service" as service {
         ~ObservableRemoteReaderAdapter (String pluginName, String readerName
             \t<back:plum>ObservableRemoteReaderSpi</back> observableRemoteReaderSpi)
         ..
-        +void addObserver (ReaderObserver observer)
-        +void removeObserver (ReaderObserver observer)
+        +void addObserver (ReaderObserverSpi observer)
+        +void removeObserver (ReaderObserverSpi observer)
         +int countObservers ()
         +void clearObservers ()
         +void finalizeCardProcessing ()
@@ -353,12 +356,12 @@ package "org.eclipse.keyple.service" as service {
     ~class "**final** SmartInsertionMonitoringJob" as SmartInsertionMonitoringJob extends AbstractMonitoringJob {
         --
         ~SmartInsertionMonitoringJob (
-            \t<back:pink>WaitForCardInsertionBlocking</back> reader)
+            \t<back:pink>WaitForCardInsertionBlockingSpi</back> reader)
     }
     ~class "**final** SmartRemovalMonitoringJob" as SmartRemovalMonitoringJob extends AbstractMonitoringJob {
         --
         ~SmartRemovalMonitoringJob (
-            \t<back:pink>WaitForCardRemovalBlocking</back> reader)
+            \t<back:pink>WaitForCardRemovalBlockingSpi</back> reader)
     }
     ' PLUGIN
     ~class "PluginAdapter\n\n<back:pink>PluginSpi</back>\nor <back:plum>RemotePluginSpi</back>" as PluginAdapter<PluginSpiT> implements Plugin {
@@ -417,8 +420,8 @@ package "org.eclipse.keyple.service" as service {
         ~AbstractObservablePluginAdapter (String name,
             \tObservablePluginSpiT observablePluginSpi)
         ..
-        +void addObserver (PluginObserver observer)
-        +void removeObserver (PluginObserver observer)
+        +void addObserver (PluginObserverSpi observer)
+        +void removeObserver (PluginObserverSpi observer)
         +void clearObservers ()
         +**final** int countObservers ()
         ..
@@ -445,8 +448,8 @@ package "org.eclipse.keyple.service" as service {
         ~ThreadedObservableLocalPluginAdapter (String name,
             \t<back:pink>ThreadedObservablePluginSpi</back> threadedObservablePluginSpi)
         ..
-        +void addObserver (PluginObserver observer)
-        +void removeObserver (PluginObserver observer)
+        +void addObserver (PluginObserverSpi observer)
+        +void removeObserver (PluginObserverSpi observer)
         +void clearObservers ()
         ..
         ~Boolean isMonitoring ()
@@ -474,9 +477,9 @@ AbstractObservableState *-- "0..1" AbstractMonitoringJob #C_LINK
 
 PluginAdapter *-- "0..N" Reader #C_LINK
 
-ObservablePluginAdapter *-- "0..N" PluginObserver #C_LINK
+ObservablePluginAdapter *-- "0..N" PluginObserverSpi #C_LINK
 
-ObservableLocalReaderAdapter *-- "0..N" ReaderObserver #C_LINK
+ObservableLocalReaderAdapter *-- "0..N" ReaderObserverSpi #C_LINK
 
 ' == LAYOUT ==
 

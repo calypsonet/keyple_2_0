@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-card-api - 2.0 (18/01/2021)
+    Keyple 2.0 - keyple-card-api - 2.0 (05/02/2021)
 end title
 
 ' == THEME ==
@@ -49,9 +49,10 @@ legend top
     Legend : <back:cyan>from **Commons API**</back>
 end legend
 
-+class RuntimeException {
-}
 package "org.eclipse.keyple.card" as api {
+    +class "**final** CardApiProperties" as ApiProperties {
+        +{static} **final** String VERSION
+    }
     +interface ProxyReader {
         --
         +List<CardSelectionResponse> transmitCardSelectionRequests (
@@ -172,6 +173,11 @@ package "org.eclipse.keyple.card" as api {
     }
     ' SPI
     package spi {
+        +interface CardExtensionSpi {
+            +String getCardApiVersion ()
+            +String getServiceApiVersion ()
+            +String getCommonsApiVersion ()
+        }
         +interface CardSelectionSpi {
             +CardSelectionRequest getCardSelectionRequest ()
             +SmartCardSpi parse (CardSelectionResponse cardSelectionResponse)
@@ -249,22 +255,31 @@ package "org.eclipse.keyple.card" as api {
         +KeypleCardCommandUnknownStatusException (
             \tString message, CardCommand command, Integer statusCode)
     }
-    +class CardCommunicationException extends RuntimeException {
+    +abstract class "<<Exception>>\nAbstractCommunicationException" as AbstractCommunicationException {
         --
-        +CardCommunicationException (
-            \tString message)
-        +CardCommunicationException (
-            \tString message, Throwable cause)
+        #AbstractCommunicationException (String message)
+        #AbstractCommunicationException (String message, Throwable cause)
         ..
-        +void setCardSelectionResponses (List<CardSelectionResponse> cardSelectionResponses)
+        +void setCardSelectionResponses (
+            \tList<CardSelectionResponse> cardSelectionResponses)
         +List<CardSelectionResponse> getCardSelectionResponses ()
         ..
         +void setCardResponse (CardResponse cardResponse)
         +CardResponse getCardResponse ()
     }
+    +class "**final** ReaderCommunicationException" as ReaderCommunicationException extends AbstractCommunicationException {
+        +ReaderCommunicationException (String message)
+        +ReaderCommunicationException (String message, Throwable cause)
+    }
+    +class "**final** CardCommunicationException" as CardCommunicationException extends AbstractCommunicationException {
+        +CardCommunicationException (String message)
+        +CardCommunicationException (String message, Throwable cause)
+    }
 }
 
 ' Associations
+
+CardExtensionSpi .up.> ApiProperties #C_USE : provide\nAPI version <
 
 DefaultSelectionsRequest *-- "1..N" CardSelectionRequest #C_LINK
 DefaultSelectionsRequest *-- "1" MultiSelectionProcessing #C_LINK
@@ -294,8 +309,8 @@ AbstractApduResponseParserSpi *-- "1" ApduResponse #C_LINK
 
 KeypleCardCommandExceptionSpi *-- "1" CardCommandSpi #C_LINK
 
-CardCommunicationException *-- "0..N" CardSelectionResponse #C_LINK
-CardCommunicationException *-- "0..1" CardResponse #C_LINK
+AbstractCommunicationException *-- "0..N" CardSelectionResponse #C_LINK
+AbstractCommunicationException *-- "0..1" CardResponse #C_LINK
 
 
 ' == LAYOUT ==

@@ -1,58 +1,58 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1470px" preserveAspectRatio="none" style="width:2855px;height:1470px;" version="1.1" viewBox="0 0 2855 1470" width="2855px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="1127.5" x="847.5" y="46.7139">Keyple 2.0 - Distributed APIs dependencies - 29/01/2021</text><!--MD5=[c9b12d7b2c4b1fc61915ee9f9b21580e]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1470px" preserveAspectRatio="none" style="width:2855px;height:1470px;" version="1.1" viewBox="0 0 2855 1470" width="2855px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="1127.5" x="847.5" y="46.7139">Keyple 2.0 - Distributed APIs dependencies - 05/02/2021</text><!--MD5=[c9b12d7b2c4b1fc61915ee9f9b21580e]
 cluster packService--><polygon fill="#F8F9F9" points="40,354.1016,315,354.1016,332.5,413.125,980,413.125,980,999.1016,40,999.1016,40,354.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="40" x2="332.5" y1="413.125" y2="413.125"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="260" x="50" y="395.4346">keyple-service</text><!--MD5=[e11ead451c4f8f6bb381a45cbfbf26fd]
 cluster packDistributedLocal--><polygon fill="#F8F9F9" points="2275,354.1016,2705,354.1016,2722.5,413.125,2812.5,413.125,2812.5,999.1016,2275,999.1016,2275,354.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="2275" x2="2722.5" y1="413.125" y2="413.125"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="415" x="2285" y="395.4346">keyple-distributed-local</text><!--MD5=[c0fa4341621ffea9ae8df9edac8e702d]
 cluster packDistributedNetwork--><polygon fill="#F8F9F9" points="1597.5,354.1016,2087.5,354.1016,2105,413.125,2215,413.125,2215,999.1016,1597.5,999.1016,1597.5,354.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="1597.5" x2="2105" y1="413.125" y2="413.125"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="475" x="1607.5" y="395.4346">keyple-distributed-network</text><!--MD5=[bd3d19d236ce6e05c2a4284441f1332a]
-cluster packDistributedRemote--><polygon fill="#F8F9F9" points="1040,354.1016,1512.5,354.1016,1530,413.125,1537.5,413.125,1537.5,999.1016,1040,999.1016,1040,354.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="1040" x2="1530" y1="413.125" y2="413.125"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="457.5" x="1050" y="395.4346">keyple-distributed-remote</text><!--MD5=[c116f8dd8b9d385c0c51085d8d8d1cb2]
-cluster packRemotePluginApi--><polygon fill="#F8F9F9" points="675,1124.1016,1130,1124.1016,1147.5,1183.125,1502.5,1183.125,1502.5,1454.1016,675,1454.1016,675,1124.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="675" x2="1147.5" y1="1183.125" y2="1183.125"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="440" x="685" y="1165.4346">keyple-remote-plugin-api</text><!--MD5=[6f55f68870fef8ed12f565f41e253dca]
-cluster packLocalServiceApi--><polygon fill="#F8F9F9" points="1627.5,1124.1016,2062.5,1124.1016,2080,1183.125,2425,1183.125,2425,1454.1016,1627.5,1454.1016,1627.5,1124.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="1627.5" x2="2080" y1="1183.125" y2="1183.125"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="420" x="1637.5" y="1165.4346">keyple-local-service-api</text><!--MD5=[7dffe31cf74252a1bd377ad28c4a004f]
+cluster packDistributedRemote--><polygon fill="#F8F9F9" points="1040,354.1016,1512.5,354.1016,1530,413.125,1537.5,413.125,1537.5,999.1016,1040,999.1016,1040,354.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="1040" x2="1530" y1="413.125" y2="413.125"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="457.5" x="1050" y="395.4346">keyple-distributed-remote</text><!--MD5=[dcc2ea1d5baee3979e609791eb72d65f]
+cluster packDistributedRemoteApi--><polygon fill="#F8F9F9" points="675,1124.1016,1212.5,1124.1016,1230,1183.125,1502.5,1183.125,1502.5,1454.1016,675,1454.1016,675,1124.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="675" x2="1230" y1="1183.125" y2="1183.125"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="522.5" x="685" y="1165.4346">keyple-distributed-remote-api</text><!--MD5=[c06e644c6f59c9416ae1324b364e1140]
+cluster packDistributedLocalApi--><polygon fill="#F8F9F9" points="1627.5,1124.1016,2122.5,1124.1016,2140,1183.125,2425,1183.125,2425,1454.1016,1627.5,1454.1016,1627.5,1124.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="1627.5" x2="2140" y1="1183.125" y2="1183.125"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="480" x="1637.5" y="1165.4346">keyple-distributed-local-api</text><!--MD5=[7dffe31cf74252a1bd377ad28c4a004f]
 entity serviceApi--><ellipse cx="190" cy="569.1016" fill="#FEFECE" rx="20" ry="20" style="stroke:#D4AC0D;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="180" x="100" y="647.9346">Service API</text><!--MD5=[bb0bcd5ee468e266c25459ed647254d7]
 entity serviceSpi--><ellipse cx="830" cy="569.1016" fill="#EBF5FB" rx="20" ry="20" style="stroke:#3498DB;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="180" x="740" y="647.9346">Service SPI</text><!--MD5=[1b875c2263d3bc01d1d54d814852db4c]
 entity selectionSpi--><ellipse cx="510" cy="569.1016" fill="#E9F7EF" rx="20" ry="20" style="stroke:#27AE60;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="207.5" x="406.25" y="647.9346">Selection SPI</text><!--MD5=[38bfa9dc6018363cafe15f923a4b8db9]
-entity service--><rect fill="#FEFECE" height="119.0234" style="stroke:#D4AC0D;stroke-width:3.75;" width="225" x="715" y="839.1016"/><rect fill="#FEFECE" height="25" style="stroke:#D4AC0D;stroke-width:3.75;" width="37.5" x="890" y="851.6016"/><rect fill="#FEFECE" height="5" style="stroke:#D4AC0D;stroke-width:3.75;" width="10" x="885" y="856.6016"/><rect fill="#FEFECE" height="5" style="stroke:#D4AC0D;stroke-width:3.75;" width="10" x="885" y="866.6016"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="125" x="752.5" y="925.4346">Adapter</text><!--MD5=[7befd9ad872e32f647489e758c0991a9]
-entity distributedLocalApi--><ellipse cx="2680" cy="569.1016" fill="#F4ECF7" rx="20" ry="20" style="stroke:#8E44AD;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="147.5" x="2606.25" y="647.9346">Local API</text><!--MD5=[4cfa981daac9c99c983abca54c1a67fc]
-entity distributedLocalSpi--><ellipse cx="2407.5" cy="569.1016" fill="#EBF5FB" rx="20" ry="20" style="stroke:#3498DB;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="147.5" x="2333.75" y="647.9346">Local SPI</text><!--MD5=[65f38b36d9efc6f3d3232857fff27e54]
-entity distributedLocal--><rect fill="#F4ECF7" height="119.0234" style="stroke:#8E44AD;stroke-width:3.75;" width="225" x="2315" y="839.1016"/><rect fill="#F4ECF7" height="25" style="stroke:#8E44AD;stroke-width:3.75;" width="37.5" x="2490" y="851.6016"/><rect fill="#F4ECF7" height="5" style="stroke:#8E44AD;stroke-width:3.75;" width="10" x="2485" y="856.6016"/><rect fill="#F4ECF7" height="5" style="stroke:#8E44AD;stroke-width:3.75;" width="10" x="2485" y="866.6016"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="125" x="2352.5" y="925.4346">Adapter</text><!--MD5=[b3e7677538a9230744b0a4c812f02041]
-entity distributedNetworkApi--><ellipse cx="1750" cy="569.1016" fill="#F4ECF7" rx="20" ry="20" style="stroke:#8E44AD;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="187.5" x="1656.25" y="647.9346">Network API</text><!--MD5=[6b14e782facdfa2a44fce0f763a55388]
-entity distributedNetworkSpi--><ellipse cx="2062.5" cy="569.1016" fill="#EBF5FB" rx="20" ry="20" style="stroke:#3498DB;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="187.5" x="1968.75" y="647.9346">Network SPI</text><!--MD5=[83c0fcd28db3bbe30236b7f5a34ec432]
-entity distributedNetwork--><rect fill="#F4ECF7" height="119.0234" style="stroke:#8E44AD;stroke-width:3.75;" width="225" x="1740" y="839.1016"/><rect fill="#F4ECF7" height="25" style="stroke:#8E44AD;stroke-width:3.75;" width="37.5" x="1915" y="851.6016"/><rect fill="#F4ECF7" height="5" style="stroke:#8E44AD;stroke-width:3.75;" width="10" x="1910" y="856.6016"/><rect fill="#F4ECF7" height="5" style="stroke:#8E44AD;stroke-width:3.75;" width="10" x="1910" y="866.6016"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="125" x="1777.5" y="925.4346">Adapter</text><!--MD5=[04ffbea9664a4d8b3a5d5b2bcefdf330]
-entity distributedRemoteApi--><ellipse cx="1350" cy="569.1016" fill="#F4ECF7" rx="20" ry="20" style="stroke:#8E44AD;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="185" x="1257.5" y="647.9346">Remote API</text><!--MD5=[c19ffef42d1386262ec996be455633b4]
-entity distributedRemote--><rect fill="#F4ECF7" height="119.0234" style="stroke:#8E44AD;stroke-width:3.75;" width="225" x="1237.5" y="839.1016"/><rect fill="#F4ECF7" height="25" style="stroke:#8E44AD;stroke-width:3.75;" width="37.5" x="1412.5" y="851.6016"/><rect fill="#F4ECF7" height="5" style="stroke:#8E44AD;stroke-width:3.75;" width="10" x="1407.5" y="856.6016"/><rect fill="#F4ECF7" height="5" style="stroke:#8E44AD;stroke-width:3.75;" width="10" x="1407.5" y="866.6016"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="125" x="1275" y="925.4346">Adapter</text><!--MD5=[6b9e65e67da2b732ddbb6804a5466bd0]
-entity remotePluginSpi--><ellipse cx="1297.5" cy="1339.1016" fill="#F4ECF7" rx="20" ry="20" style="stroke:#8E44AD;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="292.5" x="1151.25" y="1417.9346">Remote Plugin SPI</text><!--MD5=[fac916c9b0445ff0eb0cb01939afd64e]
-entity remotePluginApi--><ellipse cx="880" cy="1339.1016" fill="#FEFECE" rx="20" ry="20" style="stroke:#D4AC0D;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="292.5" x="733.75" y="1417.9346">Remote Plugin API</text><!--MD5=[bc1bcb34f3f779d203ed875c5fa9ba27]
-entity localServiceSpi--><ellipse cx="2227.5" cy="1339.1016" fill="#F4ECF7" rx="20" ry="20" style="stroke:#8E44AD;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="275" x="2090" y="1417.9346">Local Service SPI</text><!--MD5=[8bfb21d906e2755d8ddd0d1f0358b8e6]
-entity localServiceApi--><ellipse cx="1825" cy="1339.1016" fill="#FEFECE" rx="20" ry="20" style="stroke:#D4AC0D;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="275" x="1687.5" y="1417.9346">Local Service API</text><!--MD5=[37c33c71ce9550fe283f62c54b59719b]
+entity service--><rect fill="#FEFECE" height="119.0234" style="stroke:#D4AC0D;stroke-width:3.75;" width="225" x="715" y="839.1016"/><rect fill="#FEFECE" height="25" style="stroke:#D4AC0D;stroke-width:3.75;" width="37.5" x="890" y="851.6016"/><rect fill="#FEFECE" height="5" style="stroke:#D4AC0D;stroke-width:3.75;" width="10" x="885" y="856.6016"/><rect fill="#FEFECE" height="5" style="stroke:#D4AC0D;stroke-width:3.75;" width="10" x="885" y="866.6016"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="125" x="752.5" y="925.4346">Adapter</text><!--MD5=[34aeba5ced3bd70a1ef4170015508898]
+entity localApi--><ellipse cx="2680" cy="569.1016" fill="#F4ECF7" rx="20" ry="20" style="stroke:#8E44AD;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="147.5" x="2606.25" y="647.9346">Local API</text><!--MD5=[54cc4288eb523cb44edd8d9071e3f622]
+entity localSpi--><ellipse cx="2407.5" cy="569.1016" fill="#EBF5FB" rx="20" ry="20" style="stroke:#3498DB;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="147.5" x="2333.75" y="647.9346">Local SPI</text><!--MD5=[65f38b36d9efc6f3d3232857fff27e54]
+entity distributedLocal--><rect fill="#F4ECF7" height="119.0234" style="stroke:#8E44AD;stroke-width:3.75;" width="225" x="2315" y="839.1016"/><rect fill="#F4ECF7" height="25" style="stroke:#8E44AD;stroke-width:3.75;" width="37.5" x="2490" y="851.6016"/><rect fill="#F4ECF7" height="5" style="stroke:#8E44AD;stroke-width:3.75;" width="10" x="2485" y="856.6016"/><rect fill="#F4ECF7" height="5" style="stroke:#8E44AD;stroke-width:3.75;" width="10" x="2485" y="866.6016"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="125" x="2352.5" y="925.4346">Adapter</text><!--MD5=[75d13d568b0c1a5d817526149239701c]
+entity networkApi--><ellipse cx="1750" cy="569.1016" fill="#F4ECF7" rx="20" ry="20" style="stroke:#8E44AD;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="187.5" x="1656.25" y="647.9346">Network API</text><!--MD5=[a7f258334e76070c58436d5fccb4ba6b]
+entity networkSpi--><ellipse cx="2062.5" cy="569.1016" fill="#EBF5FB" rx="20" ry="20" style="stroke:#3498DB;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="187.5" x="1968.75" y="647.9346">Network SPI</text><!--MD5=[83c0fcd28db3bbe30236b7f5a34ec432]
+entity distributedNetwork--><rect fill="#F4ECF7" height="119.0234" style="stroke:#8E44AD;stroke-width:3.75;" width="225" x="1740" y="839.1016"/><rect fill="#F4ECF7" height="25" style="stroke:#8E44AD;stroke-width:3.75;" width="37.5" x="1915" y="851.6016"/><rect fill="#F4ECF7" height="5" style="stroke:#8E44AD;stroke-width:3.75;" width="10" x="1910" y="856.6016"/><rect fill="#F4ECF7" height="5" style="stroke:#8E44AD;stroke-width:3.75;" width="10" x="1910" y="866.6016"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="125" x="1777.5" y="925.4346">Adapter</text><!--MD5=[7c858dbcdec41f9025361371eeb88a7a]
+entity remoteApi--><ellipse cx="1350" cy="569.1016" fill="#F4ECF7" rx="20" ry="20" style="stroke:#8E44AD;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="185" x="1257.5" y="647.9346">Remote API</text><!--MD5=[c19ffef42d1386262ec996be455633b4]
+entity distributedRemote--><rect fill="#F4ECF7" height="119.0234" style="stroke:#8E44AD;stroke-width:3.75;" width="225" x="1237.5" y="839.1016"/><rect fill="#F4ECF7" height="25" style="stroke:#8E44AD;stroke-width:3.75;" width="37.5" x="1412.5" y="851.6016"/><rect fill="#F4ECF7" height="5" style="stroke:#8E44AD;stroke-width:3.75;" width="10" x="1407.5" y="856.6016"/><rect fill="#F4ECF7" height="5" style="stroke:#8E44AD;stroke-width:3.75;" width="10" x="1407.5" y="866.6016"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="125" x="1275" y="925.4346">Adapter</text><!--MD5=[9c4fe4654bc4f31924c5229210786b98]
+entity distributedRemoteSpi--><ellipse cx="1297.5" cy="1339.1016" fill="#F4ECF7" rx="20" ry="20" style="stroke:#8E44AD;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="292.5" x="1151.25" y="1417.9346">Remote Plugin SPI</text><!--MD5=[04ffbea9664a4d8b3a5d5b2bcefdf330]
+entity distributedRemoteApi--><ellipse cx="880" cy="1339.1016" fill="#FEFECE" rx="20" ry="20" style="stroke:#D4AC0D;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="292.5" x="733.75" y="1417.9346">Remote Plugin API</text><!--MD5=[4cfa981daac9c99c983abca54c1a67fc]
+entity distributedLocalSpi--><ellipse cx="2227.5" cy="1339.1016" fill="#F4ECF7" rx="20" ry="20" style="stroke:#8E44AD;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="275" x="2090" y="1417.9346">Local Service SPI</text><!--MD5=[7befd9ad872e32f647489e758c0991a9]
+entity distributedLocalApi--><ellipse cx="1825" cy="1339.1016" fill="#FEFECE" rx="20" ry="20" style="stroke:#D4AC0D;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="275" x="1687.5" y="1417.9346">Local Service API</text><!--MD5=[37c33c71ce9550fe283f62c54b59719b]
 entity application--><rect fill="#EBF5FB" height="119.0234" style="stroke:#3498DB;stroke-width:3.75;" width="405" x="1345" y="74.1016"/><rect fill="#EBF5FB" height="25" style="stroke:#3498DB;stroke-width:3.75;" width="37.5" x="1700" y="86.6016"/><rect fill="#EBF5FB" height="5" style="stroke:#3498DB;stroke-width:3.75;" width="10" x="1695" y="91.6016"/><rect fill="#EBF5FB" height="5" style="stroke:#3498DB;stroke-width:3.75;" width="10" x="1695" y="101.6016"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="305" x="1382.5" y="160.4346">Specific Application</text><!--MD5=[dd975a42fa90ddc569c4dfcb8e62438a]
 link application to serviceSpi--><path d="M1441.795,194.4341 C1371.94,233.0966 1278.64,285.5841 1197.5,334.1016 C1065.3125,413.1441 910.4325,513.8516 852.9675,551.5041 " fill="none" id="application-serviceSpi" style="stroke:#3498DB;stroke-width:2.5;"/><!--MD5=[e1915561728177c50fc7ab13a7caef2d]
-link application to selectionSpi--><path d="M1344.385,141.9366 C1156.4725,155.7516 876.575,199.6866 675,334.1016 C592.64,389.0216 538.26,500.0366 518.41,545.9766 " fill="none" id="application-selectionSpi" style="stroke:#3498DB;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><!--MD5=[ea496d94635f2f893608e82c33e2810d]
-link application to distributedLocalSpi--><path d="M1750.5825,141.2341 C1884.615,152.8166 2058.9975,184.8666 2190,269.1016 C2301.3975,340.7316 2374.85,491.0341 2398.89,545.9491 " fill="none" id="application-distributedLocalSpi" style="stroke:#3498DB;stroke-width:2.5;"/><!--MD5=[eb454b1bc9385ca3d874972e07216062]
-link application to distributedNetworkSpi--><path d="M1686.3025,194.3416 C1756.9325,228.1791 1841.12,275.7666 1905,334.1016 C1976.2825,399.1966 2031.5175,502.6816 2052.8875,546.2316 " fill="none" id="application-distributedNetworkSpi" style="stroke:#3498DB;stroke-width:2.5;"/><!--MD5=[d28946eb54196e7507811bcb95f3b5ce]
-link serviceApi to service--><path d="M212.689,583.1691 C291.985,623.5941 560.29,760.3766 714.9975,839.2466 " fill="none" id="serviceApi-service" style="stroke:#D4AC0D;stroke-width:2.5;"/><!--MD5=[f138bb517403ea09353b2f2a71104985]
-link service to localServiceApi--><path d="M940.5325,938.6491 C1013.6325,962.3241 1110.95,993.3066 1197.5,1019.1016 C1332.36,1059.2941 1375.68,1043.1191 1502.5,1104.1016 C1626.2875,1163.6266 1752.5,1271.0996 1802.565,1316.0081 " fill="none" id="service-localServiceApi" style="stroke:#D4AC0D;stroke-width:2.5;"/><!--MD5=[c9d6d34772ffa273f7ad95dda05cf1c8]
-link service to remotePluginApi--><path d="M834.4725,959.3666 C846.355,1057.8191 869.9825,1253.5913 877.5825,1316.5808 " fill="none" id="service-remotePluginApi" style="stroke:#D4AC0D;stroke-width:2.5;"/><!--MD5=[5cd3de06c8bd5e2f2d3a1dca959b6f46]
-link distributedLocalApi to distributedLocal--><path d="M2664.2,591.9316 C2626.425,640.5691 2529.675,765.0841 2472.2475,839.0066 " fill="none" id="distributedLocalApi-distributedLocal" style="stroke:#8E44AD;stroke-width:2.5;"/><!--MD5=[24d3fe7f8db29f542d5c76c80df9e11d]
-link distributedLocal to localServiceSpi--><path d="M2400.9425,959.3666 C2355.675,1057.8191 2265.665,1253.5913 2236.705,1316.5808 " fill="none" id="distributedLocal-localServiceSpi" style="stroke:#8E44AD;stroke-width:2.5;"/><!--MD5=[8589a9d39226c97f428d8d807f704adf]
-link distributedNetworkApi to distributedNetwork--><path d="M1756.4125,591.9316 C1771.7525,640.5691 1811.02,765.0841 1834.335,839.0066 " fill="none" id="distributedNetworkApi-distributedNetwork" style="stroke:#8E44AD;stroke-width:2.5;"/><!--MD5=[e230ae7286692ea50e99d72fd06bdcb4]
-link distributedRemoteApi to distributedRemote--><path d="M1350,591.9316 C1350,640.5691 1350,765.0841 1350,839.0066 " fill="none" id="distributedRemoteApi-distributedRemote" style="stroke:#8E44AD;stroke-width:2.5;"/><!--MD5=[2d90cae307b7e6df78a87dbefc8978f5]
-link distributedRemote to remotePluginSpi--><path d="M1343.0275,959.3666 C1331.145,1057.8191 1307.5175,1253.5913 1299.9175,1316.5808 " fill="none" id="distributedRemote-remotePluginSpi" style="stroke:#8E44AD;stroke-width:2.5;"/><!--MD5=[879ca4a963ad0fc65afcfcf02bc7792f]
-link application to serviceApi--><path d="M1344.7225,149.0666 C1044.9125,170.9116 501.6425,224.5966 342.5,334.1016 C269.1775,384.5541 222.368,482.9341 201.9142,534.0341 " fill="none" id="application-to-serviceApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="197.2818,545.9491,214.7539,528.6005,201.8104,534.2982,196.1126,521.3547,197.2818,545.9491" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="480" y="305.3394">use</text><!--MD5=[6d86248cbeddc542344429c9c2c23479]
-link application to distributedLocalApi--><path d="M1750.0575,155.9166 C2004.2825,183.6416 2421.975,241.7866 2545,334.1016 C2613.55,385.5341 2653.2,482.7766 2670.15,533.6691 " fill="none" id="application-to-distributedLocalApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="2674.175,546.1366,2676.8058,521.6554,2670.3478,534.2369,2657.7663,527.7789,2674.175,546.1366" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="2507.5" y="305.3394">use</text><!--MD5=[06444270ccc908c051a1a68a4d66282c]
-link application to distributedNetworkApi--><path d="M1574.81,194.5941 C1618.08,286.4766 1700.965,462.4791 1734.925,534.5891 " fill="none" id="application-to-distributedNetworkApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1740.31,546.0241,1739.7736,521.4078,1734.9856,534.7147,1721.6787,529.9267,1740.31,546.0241" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1635" y="305.3394">use</text><!--MD5=[979c63e7e09715a3eb53de25101e424c]
-link application to distributedRemoteApi--><path d="M1520.865,194.5941 C1478.6625,286.4766 1397.8225,462.4791 1364.7025,534.5891 " fill="none" id="application-to-distributedRemoteApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1359.45,546.0241,1377.9282,529.7512,1364.6672,534.6649,1359.7535,521.4038,1359.45,546.0241" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1487.5" y="305.3394">use</text><!--MD5=[fcea5848e7739e307edf83637a530580]
+link application to selectionSpi--><path d="M1344.385,141.9366 C1156.4725,155.7516 876.575,199.6866 675,334.1016 C592.64,389.0216 538.26,500.0366 518.41,545.9766 " fill="none" id="application-selectionSpi" style="stroke:#3498DB;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><!--MD5=[ab03ec35dece4f7aa4925b2ec45bd311]
+link application to localSpi--><path d="M1750.5825,141.2341 C1884.615,152.8166 2058.9975,184.8666 2190,269.1016 C2301.3975,340.7316 2374.85,491.0341 2398.89,545.9491 " fill="none" id="application-localSpi" style="stroke:#3498DB;stroke-width:2.5;"/><!--MD5=[4d7b853e44b67048d742552a1a693673]
+link application to networkSpi--><path d="M1686.3025,194.3416 C1756.9325,228.1791 1841.12,275.7666 1905,334.1016 C1976.2825,399.1966 2031.5175,502.6816 2052.8875,546.2316 " fill="none" id="application-networkSpi" style="stroke:#3498DB;stroke-width:2.5;"/><!--MD5=[d28946eb54196e7507811bcb95f3b5ce]
+link serviceApi to service--><path d="M212.689,583.1691 C291.985,623.5941 560.29,760.3766 714.9975,839.2466 " fill="none" id="serviceApi-service" style="stroke:#D4AC0D;stroke-width:2.5;"/><!--MD5=[35229a0a0734c85a6b51f1905fa13c02]
+link service to distributedLocalApi--><path d="M940.5325,938.6491 C1013.6325,962.3241 1110.95,993.3066 1197.5,1019.1016 C1332.36,1059.2941 1375.68,1043.1191 1502.5,1104.1016 C1626.2875,1163.6266 1752.5,1271.0996 1802.565,1316.0081 " fill="none" id="service-distributedLocalApi" style="stroke:#D4AC0D;stroke-width:2.5;"/><!--MD5=[911ff9493972b9d616a6a191b3acdad0]
+link service to distributedRemoteApi--><path d="M834.4725,959.3666 C846.355,1057.8191 869.9825,1253.5913 877.5825,1316.5808 " fill="none" id="service-distributedRemoteApi" style="stroke:#D4AC0D;stroke-width:2.5;"/><!--MD5=[ee5402455e4a2436300a406e19d291de]
+link localApi to distributedLocal--><path d="M2664.2,591.9316 C2626.425,640.5691 2529.675,765.0841 2472.2475,839.0066 " fill="none" id="localApi-distributedLocal" style="stroke:#8E44AD;stroke-width:2.5;"/><!--MD5=[7669291ee3d746c0fdddb595602aab98]
+link distributedLocal to distributedLocalSpi--><path d="M2400.9425,959.3666 C2355.675,1057.8191 2265.665,1253.5913 2236.705,1316.5808 " fill="none" id="distributedLocal-distributedLocalSpi" style="stroke:#8E44AD;stroke-width:2.5;"/><!--MD5=[6f99e7ddf74062dad352ed2625bfcd1e]
+link networkApi to distributedNetwork--><path d="M1756.4125,591.9316 C1771.7525,640.5691 1811.02,765.0841 1834.335,839.0066 " fill="none" id="networkApi-distributedNetwork" style="stroke:#8E44AD;stroke-width:2.5;"/><!--MD5=[aab6b7fc438499713740346f76fb2acf]
+link remoteApi to distributedRemote--><path d="M1350,591.9316 C1350,640.5691 1350,765.0841 1350,839.0066 " fill="none" id="remoteApi-distributedRemote" style="stroke:#8E44AD;stroke-width:2.5;"/><!--MD5=[39699920893f865e9b6620802c2c9934]
+link distributedRemote to distributedRemoteSpi--><path d="M1343.0275,959.3666 C1331.145,1057.8191 1307.5175,1253.5913 1299.9175,1316.5808 " fill="none" id="distributedRemote-distributedRemoteSpi" style="stroke:#8E44AD;stroke-width:2.5;"/><!--MD5=[879ca4a963ad0fc65afcfcf02bc7792f]
+link application to serviceApi--><path d="M1344.7225,149.0666 C1044.9125,170.9116 501.6425,224.5966 342.5,334.1016 C269.1775,384.5541 222.368,482.9341 201.9142,534.0341 " fill="none" id="application-to-serviceApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="197.2818,545.9491,214.7539,528.6005,201.8104,534.2982,196.1126,521.3547,197.2818,545.9491" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="480" y="305.3394">use</text><!--MD5=[2811864f9d2b0d603b7f1f6eaf155326]
+link application to localApi--><path d="M1750.0575,155.9166 C2004.2825,183.6416 2421.975,241.7866 2545,334.1016 C2613.55,385.5341 2653.2,482.7766 2670.15,533.6691 " fill="none" id="application-to-localApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="2674.175,546.1366,2676.8058,521.6554,2670.3478,534.2369,2657.7663,527.7789,2674.175,546.1366" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="2507.5" y="305.3394">use</text><!--MD5=[b0be2c5f29b1ec18814ad37dbadbab08]
+link application to networkApi--><path d="M1574.81,194.5941 C1618.08,286.4766 1700.965,462.4791 1734.925,534.5891 " fill="none" id="application-to-networkApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1740.31,546.0241,1739.7736,521.4078,1734.9856,534.7147,1721.6787,529.9267,1740.31,546.0241" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1635" y="305.3394">use</text><!--MD5=[08d28db0ca7b9da11c80ceb1c0b8d276]
+link application to remoteApi--><path d="M1520.865,194.5941 C1478.6625,286.4766 1397.8225,462.4791 1364.7025,534.5891 " fill="none" id="application-to-remoteApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1359.45,546.0241,1377.9282,529.7512,1364.6672,534.6649,1359.7535,521.4038,1359.45,546.0241" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1487.5" y="305.3394">use</text><!--MD5=[fcea5848e7739e307edf83637a530580]
 reverse link serviceSpi to service--><path d="M829.745,604.6591 C829.3225,659.7166 828.4675,770.8591 827.9425,839.0066 " fill="none" id="serviceSpi-backto-service" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="829.8425,591.9316,819.6692,614.3538,829.7461,604.4312,839.6686,614.508,829.8425,591.9316" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="832.5" y="755.3394">use</text><!--MD5=[d0f8ba07fd6d43c7abb2d473cf28eaef]
-reverse link selectionSpi to service--><path d="M538.9525,601.2366 C591.4625,654.9866 703.2475,769.4141 771.235,839.0066 " fill="none" id="selectionSpi-backto-service" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="529.86,591.9316,538.4336,615.0128,538.5965,600.8716,552.7377,601.0345,529.86,591.9316" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="700" y="755.3394">use</text><!--MD5=[6d0656a1a73098eb59e6e1bcabe5aa25]
-link service to localServiceSpi--><path d="M940.7775,944.8091 C1013.1475,970.5941 1109.58,1001.6266 1197.5,1019.1016 C1378.81,1055.1391 1861.185,1018.4491 2025,1104.1016 C2113.27,1150.2541 2180.2075,1252.1546 2210.1875,1304.3741 " fill="none" id="service-to-localServiceSpi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="2216.6775,1315.9208,2214.3702,1291.407,2210.5527,1305.0242,2196.9356,1301.2066,2216.6775,1315.9208" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1970" y="1075.3394">use</text><!--MD5=[40462b0c1a8a2fa53044df202abd90f3]
-link service to remotePluginSpi--><path d="M856.635,959.7016 C880.5975,1001.2041 918.545,1054.7041 967.5,1084.1016 C1013.8525,1111.9366 1040.0675,1078.1466 1087.5,1104.1016 C1176.665,1152.8916 1247.5525,1254.3351 1279.335,1305.5668 " fill="none" id="service-to-remotePluginSpi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1285.8675,1316.2848,1282.6987,1291.8674,1279.3629,1305.6105,1265.6198,1302.2747,1285.8675,1316.2848" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="970" y="1075.3394">use</text><!--MD5=[9cb4e81706c78ae9aa35523d086eb511]
-reverse link distributedLocalSpi to distributedLocal--><path d="M2409.535,604.6591 C2412.9225,659.7166 2419.7625,770.8591 2423.955,839.0066 " fill="none" id="distributedLocalSpi-backto-distributedLocal" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="2408.75,591.9316,2400.1512,615.0034,2409.5179,604.408,2420.1134,613.7747,2408.75,591.9316" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="2422.5" y="755.3394">use</text><!--MD5=[831124175a7f0b61665718210cc1039a]
-link distributedLocal to localServiceApi--><path d="M2326.825,959.5466 C2291.77,979.1116 2251.965,1000.6541 2215,1019.1016 C2132.225,1060.4091 2099.1725,1048.8166 2025,1104.1016 C1946.685,1162.4766 1877.905,1256.5836 1845.2125,1305.2333 " fill="none" id="distributedLocal-to-localServiceApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1837.695,1316.5728,1858.4607,1303.3427,1844.6007,1306.1535,1841.7899,1292.2936,1837.695,1316.5728" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="2170" y="1075.3394">use</text><!--MD5=[f4a89ba922e02101f714cab8472093b2]
-reverse link distributedNetworkApi to distributedLocal--><path d="M1784.4275,588.1166 C1880.945,634.4166 2157.33,766.9991 2314.555,842.4216 " fill="none" id="distributedNetworkApi-backto-distributedLocal" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1772.5425,582.4141,1788.5037,601.1621,1783.8128,587.8206,1797.1542,583.1297,1772.5425,582.4141" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="2152.5" y="755.3394">use</text><!--MD5=[7b9116c7448dec3c60b449a4eec11fb5]
-link distributedLocalApi to distributedNetworkApi--><path d="M2674.525,546.2891 C2661.575,498.0816 2624.025,386.5966 2545,341.6016 C2421.41,271.2291 2030.73,275.1266 1905,341.6016 C1827.5525,382.5491 1781.545,481.4966 1761.6625,534.3916 " fill="none" id="distributedLocalApi-to-distributedNetworkApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1757.3825,546.1716,1774.4649,528.4391,1761.6511,534.423,1755.6672,521.6092,1757.3825,546.1716" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="35" x="2132.5" y="305.3394">ref</text><!--MD5=[4a0b3eeef9655c3496a4fdaa602eaade]
-reverse link distributedNetworkSpi to distributedNetwork--><path d="M2042.4775,602.5891 C2007.395,656.8841 1934.31,769.9916 1889.715,839.0066 " fill="none" id="distributedNetworkSpi-backto-distributedNetwork" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="2049.3625,591.9316,2028.7545,605.406,2042.5803,602.4316,2045.5546,616.2575,2049.3625,591.9316" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1967.5" y="755.3394">use</text><!--MD5=[e9be43e0d994067f11f0415612dbfe97]
-reverse link distributedNetworkApi to distributedRemote--><path d="M1716.98,598.4316 C1652.4875,650.8316 1508.4775,767.8391 1421.2625,838.6991 " fill="none" id="distributedNetworkApi-backto-distributedRemote" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1727.3475,590.0066,1703.5794,596.4351,1717.6465,597.8895,1716.1921,611.9567,1727.3475,590.0066" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1565" y="755.3394">use</text><!--MD5=[642afc1daca78f27946de360f2593a0f]
-link distributedRemote to remotePluginApi--><path d="M1266.435,959.9316 C1213.2275,998.5316 1143.9525,1051.5516 1087.5,1104.1016 C1015.9475,1170.7091 942.03,1259.1158 904.73,1305.3681 " fill="none" id="distributedRemote-to-remotePluginApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="896.06,1316.1801,917.9364,1304.8809,903.8791,1306.4276,902.3324,1292.3703,896.06,1316.1801" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1160" y="1075.3394">use</text><!--MD5=[5dab046670370aee1dad877c0d713e24]
-link distributedRemoteApi to distributedNetworkApi--><path d="M1372.69,559.8666 C1410.8675,543.4841 1496.425,511.9266 1570,521.6016 C1628.195,529.2541 1694.4325,550.4441 1727.0875,561.7591 " fill="none" id="distributedRemoteApi-to-distributedNetworkApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1530,476.6016,1540.1731,499.0238,1539.3426,484.9061,1553.4603,484.0757,1530,476.6016" style="stroke:#A80036;stroke-width:2.5;"/><line style="stroke:#A80036;stroke-width:2.5;" x1="1539.3426" x2="1550" y1="484.9061" y2="499.1016"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="35" x="1532.5" y="512.8394">ref</text><!--MD5=[13139fde277fba12e4634ab760ba4a10]
+reverse link selectionSpi to service--><path d="M538.9525,601.2366 C591.4625,654.9866 703.2475,769.4141 771.235,839.0066 " fill="none" id="selectionSpi-backto-service" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="529.86,591.9316,538.4336,615.0128,538.5965,600.8716,552.7377,601.0345,529.86,591.9316" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="700" y="755.3394">use</text><!--MD5=[19d732a7b9592469f1b5ca9965c8b137]
+link service to distributedLocalSpi--><path d="M940.7775,944.8091 C1013.1475,970.5941 1109.58,1001.6266 1197.5,1019.1016 C1378.81,1055.1391 1861.185,1018.4491 2025,1104.1016 C2113.27,1150.2541 2180.2075,1252.1546 2210.1875,1304.3741 " fill="none" id="service-to-distributedLocalSpi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="2216.6775,1315.9208,2214.3702,1291.407,2210.5527,1305.0242,2196.9356,1301.2066,2216.6775,1315.9208" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1970" y="1075.3394">use</text><!--MD5=[eb1ccaafb9bfb55488a7b54562812ec8]
+link service to distributedRemoteSpi--><path d="M856.635,959.7016 C880.5975,1001.2041 918.545,1054.7041 967.5,1084.1016 C1013.8525,1111.9366 1040.0675,1078.1466 1087.5,1104.1016 C1176.665,1152.8916 1247.5525,1254.3351 1279.335,1305.5668 " fill="none" id="service-to-distributedRemoteSpi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1285.8675,1316.2848,1282.6987,1291.8674,1279.3629,1305.6105,1265.6198,1302.2747,1285.8675,1316.2848" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="970" y="1075.3394">use</text><!--MD5=[c8897c5b3137ebf79d0bc8037c747835]
+reverse link localSpi to distributedLocal--><path d="M2409.535,604.6591 C2412.9225,659.7166 2419.7625,770.8591 2423.955,839.0066 " fill="none" id="localSpi-backto-distributedLocal" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="2408.75,591.9316,2400.1512,615.0034,2409.5179,604.408,2420.1134,613.7747,2408.75,591.9316" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="2422.5" y="755.3394">use</text><!--MD5=[d25f0c8e86f228640a2e47c91f3aee5b]
+link distributedLocal to distributedLocalApi--><path d="M2326.825,959.5466 C2291.77,979.1116 2251.965,1000.6541 2215,1019.1016 C2132.225,1060.4091 2099.1725,1048.8166 2025,1104.1016 C1946.685,1162.4766 1877.905,1256.5836 1845.2125,1305.2333 " fill="none" id="distributedLocal-to-distributedLocalApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1837.695,1316.5728,1858.4607,1303.3427,1844.6007,1306.1535,1841.7899,1292.2936,1837.695,1316.5728" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="2170" y="1075.3394">use</text><!--MD5=[9a562fa441df7272fc0e10274ef69eac]
+reverse link networkApi to distributedLocal--><path d="M1784.4275,588.1166 C1880.945,634.4166 2157.33,766.9991 2314.555,842.4216 " fill="none" id="networkApi-backto-distributedLocal" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1772.5425,582.4141,1788.5037,601.1621,1783.8128,587.8206,1797.1542,583.1297,1772.5425,582.4141" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="2152.5" y="755.3394">use</text><!--MD5=[3fcbbc563141880839d31e747cb88ebb]
+link localApi to networkApi--><path d="M2674.525,546.2891 C2661.575,498.0816 2624.025,386.5966 2545,341.6016 C2421.41,271.2291 2030.73,275.1266 1905,341.6016 C1827.5525,382.5491 1781.545,481.4966 1761.6625,534.3916 " fill="none" id="localApi-to-networkApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1757.3825,546.1716,1774.4649,528.4391,1761.6511,534.423,1755.6672,521.6092,1757.3825,546.1716" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="35" x="2132.5" y="305.3394">ref</text><!--MD5=[021944837836121ea164dea144f9462b]
+reverse link networkSpi to distributedNetwork--><path d="M2042.4775,602.5891 C2007.395,656.8841 1934.31,769.9916 1889.715,839.0066 " fill="none" id="networkSpi-backto-distributedNetwork" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="2049.3625,591.9316,2028.7545,605.406,2042.5803,602.4316,2045.5546,616.2575,2049.3625,591.9316" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1967.5" y="755.3394">use</text><!--MD5=[9c822e01b06f826085d45d7258884a89]
+reverse link networkApi to distributedRemote--><path d="M1716.98,598.4316 C1652.4875,650.8316 1508.4775,767.8391 1421.2625,838.6991 " fill="none" id="networkApi-backto-distributedRemote" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1727.3475,590.0066,1703.5794,596.4351,1717.6465,597.8895,1716.1921,611.9567,1727.3475,590.0066" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1565" y="755.3394">use</text><!--MD5=[0f9adaaff4062d31be5be8fdbe40969d]
+link distributedRemote to distributedRemoteApi--><path d="M1266.435,959.9316 C1213.2275,998.5316 1143.9525,1051.5516 1087.5,1104.1016 C1015.9475,1170.7091 942.03,1259.1158 904.73,1305.3681 " fill="none" id="distributedRemote-to-distributedRemoteApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="896.06,1316.1801,917.9364,1304.8809,903.8791,1306.4276,902.3324,1292.3703,896.06,1316.1801" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1160" y="1075.3394">use</text><!--MD5=[24aaaaf42cf0ef8ce56c76ffb2300129]
+link remoteApi to networkApi--><path d="M1372.69,559.8666 C1410.8675,543.4841 1496.425,511.9266 1570,521.6016 C1628.195,529.2541 1694.4325,550.4441 1727.0875,561.7591 " fill="none" id="remoteApi-to-networkApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1530,476.6016,1540.1731,499.0238,1539.3426,484.9061,1553.4603,484.0757,1530,476.6016" style="stroke:#A80036;stroke-width:2.5;"/><line style="stroke:#A80036;stroke-width:2.5;" x1="1539.3426" x2="1550" y1="484.9061" y2="499.1016"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="35" x="1532.5" y="512.8394">ref</text><!--MD5=[1827a8abac258a81ee496aab12dcfbae]
 @startuml
 title
-    Keyple 2.0 - Distributed APIs dependencies - 29/01/2021
+    Keyple 2.0 - Distributed APIs dependencies - 05/02/2021
 end title
 
 ' == THEME ==
@@ -127,71 +127,71 @@ package "keyple-service" as packService {
     [Adapter] as service
 }
 package "keyple-distributed-local" as packDistributedLocal {
-    interface "Local API" as distributedLocalApi <<purple>>
-    interface "Local SPI" as distributedLocalSpi <<blue>>
+    interface "Local API" as localApi <<purple>>
+    interface "Local SPI" as localSpi <<blue>>
     [Adapter] as distributedLocal <<purple>>
 }
 package "keyple-distributed-network" as packDistributedNetwork {
-    interface "Network API" as distributedNetworkApi <<purple>>
-    interface "Network SPI" as distributedNetworkSpi <<blue>>
+    interface "Network API" as networkApi <<purple>>
+    interface "Network SPI" as networkSpi <<blue>>
     [Adapter] as distributedNetwork <<purple>>
 }
 package "keyple-distributed-remote" as packDistributedRemote {
-    interface "Remote API" as distributedRemoteApi <<purple>>
+    interface "Remote API" as remoteApi <<purple>>
     [Adapter] as distributedRemote <<purple>>
 }
-package "keyple-remote-plugin-api" as packRemotePluginApi {
-    interface "Remote Plugin SPI" as remotePluginSpi <<purple>>
-    interface "Remote Plugin API" as remotePluginApi
+package "keyple-distributed-remote-api" as packDistributedRemoteApi {
+    interface "Remote Plugin SPI" as distributedRemoteSpi <<purple>>
+    interface "Remote Plugin API" as distributedRemoteApi
 }
-package "keyple-local-service-api" as packLocalServiceApi {
-    interface "Local Service SPI" as localServiceSpi <<purple>>
-    interface "Local Service API" as localServiceApi
+package "keyple-distributed-local-api" as packDistributedLocalApi {
+    interface "Local Service SPI" as distributedLocalSpi <<purple>>
+    interface "Local Service API" as distributedLocalApi
 }
 
 ' == ASSOCIATIONS ==
 
 application - - serviceSpi #COLOR_BLUE
 application .. selectionSpi #COLOR_BLUE
-application - - distributedLocalSpi #COLOR_BLUE
-application - - distributedNetworkSpi #COLOR_BLUE
+application - - localSpi #COLOR_BLUE
+application - - networkSpi #COLOR_BLUE
 
 service -up- serviceApi #COLOR_YELLOW
-service - - localServiceApi #COLOR_YELLOW
-service - - remotePluginApi #COLOR_YELLOW
+service - - distributedLocalApi #COLOR_YELLOW
+service - - distributedRemoteApi #COLOR_YELLOW
 
-distributedLocal -up- distributedLocalApi #COLOR_PURPLE
-distributedLocal - - localServiceSpi #COLOR_PURPLE
+distributedLocal -up- localApi #COLOR_PURPLE
+distributedLocal - - distributedLocalSpi #COLOR_PURPLE
 
-distributedNetwork -up- distributedNetworkApi #COLOR_PURPLE
+distributedNetwork -up- networkApi #COLOR_PURPLE
 
-distributedRemote -up- distributedRemoteApi #COLOR_PURPLE
-distributedRemote - - remotePluginSpi #COLOR_PURPLE
+distributedRemote -up- remoteApi #COLOR_PURPLE
+distributedRemote - - distributedRemoteSpi #COLOR_PURPLE
 
 ' USE
 
 application ..> serviceApi : use
-application ..> distributedLocalApi : use
-application ..> distributedNetworkApi : use
-application ..> distributedRemoteApi : use
+application ..> localApi : use
+application ..> networkApi : use
+application ..> remoteApi : use
 
 service .up.> serviceSpi : use
 service .up.> selectionSpi : use
-service ..> localServiceSpi : use
-service ..> remotePluginSpi : use
+service ..> distributedLocalSpi : use
+service ..> distributedRemoteSpi : use
 
-distributedLocal .up.> distributedLocalSpi : use
-distributedLocal ..> localServiceApi : use
-distributedLocal .up.> distributedNetworkApi : use
+distributedLocal .up.> localSpi : use
+distributedLocal ..> distributedLocalApi : use
+distributedLocal .up.> networkApi : use
 
-distributedLocalApi ..> distributedNetworkApi : ref
+localApi ..> networkApi : ref
 
-distributedNetwork .up.> distributedNetworkSpi : use
+distributedNetwork .up.> networkSpi : use
 
-distributedRemote .up.> distributedNetworkApi : use
-distributedRemote ..> remotePluginApi : use
+distributedRemote .up.> networkApi : use
+distributedRemote ..> distributedRemoteApi : use
 
-distributedRemoteApi ..> distributedNetworkApi : ref
+remoteApi ..> networkApi : ref
 
 ' == STYLE ==
 
@@ -203,16 +203,16 @@ package packDistributedRemote #C_GREY1 {
 }
 package packService #C_GREY1 {
 }
-package packRemotePluginApi #C_GREY1 {
+package packDistributedRemoteApi #C_GREY1 {
 }
-package packLocalServiceApi #C_GREY1 {
+package packDistributedLocalApi #C_GREY1 {
 }
 
 @enduml
 
 @startuml
 title
-    Keyple 2.0 - Distributed APIs dependencies - 29/01/2021
+    Keyple 2.0 - Distributed APIs dependencies - 05/02/2021
 end title
 
 
@@ -260,69 +260,69 @@ package "keyple-service" as packService {
     [Adapter] as service
 }
 package "keyple-distributed-local" as packDistributedLocal {
-    interface "Local API" as distributedLocalApi <<purple>>
-    interface "Local SPI" as distributedLocalSpi <<blue>>
+    interface "Local API" as localApi <<purple>>
+    interface "Local SPI" as localSpi <<blue>>
     [Adapter] as distributedLocal <<purple>>
 }
 package "keyple-distributed-network" as packDistributedNetwork {
-    interface "Network API" as distributedNetworkApi <<purple>>
-    interface "Network SPI" as distributedNetworkSpi <<blue>>
+    interface "Network API" as networkApi <<purple>>
+    interface "Network SPI" as networkSpi <<blue>>
     [Adapter] as distributedNetwork <<purple>>
 }
 package "keyple-distributed-remote" as packDistributedRemote {
-    interface "Remote API" as distributedRemoteApi <<purple>>
+    interface "Remote API" as remoteApi <<purple>>
     [Adapter] as distributedRemote <<purple>>
 }
-package "keyple-remote-plugin-api" as packRemotePluginApi {
-    interface "Remote Plugin SPI" as remotePluginSpi <<purple>>
-    interface "Remote Plugin API" as remotePluginApi
+package "keyple-distributed-remote-api" as packDistributedRemoteApi {
+    interface "Remote Plugin SPI" as distributedRemoteSpi <<purple>>
+    interface "Remote Plugin API" as distributedRemoteApi
 }
-package "keyple-local-service-api" as packLocalServiceApi {
-    interface "Local Service SPI" as localServiceSpi <<purple>>
-    interface "Local Service API" as localServiceApi
+package "keyple-distributed-local-api" as packDistributedLocalApi {
+    interface "Local Service SPI" as distributedLocalSpi <<purple>>
+    interface "Local Service API" as distributedLocalApi
 }
 
 
 application - - serviceSpi #3498DB
 application .. selectionSpi #3498DB
-application - - distributedLocalSpi #3498DB
-application - - distributedNetworkSpi #3498DB
+application - - localSpi #3498DB
+application - - networkSpi #3498DB
 
 service -up- serviceApi #D4AC0D
-service - - localServiceApi #D4AC0D
-service - - remotePluginApi #D4AC0D
+service - - distributedLocalApi #D4AC0D
+service - - distributedRemoteApi #D4AC0D
 
-distributedLocal -up- distributedLocalApi #8E44AD
-distributedLocal - - localServiceSpi #8E44AD
+distributedLocal -up- localApi #8E44AD
+distributedLocal - - distributedLocalSpi #8E44AD
 
-distributedNetwork -up- distributedNetworkApi #8E44AD
+distributedNetwork -up- networkApi #8E44AD
 
-distributedRemote -up- distributedRemoteApi #8E44AD
-distributedRemote - - remotePluginSpi #8E44AD
+distributedRemote -up- remoteApi #8E44AD
+distributedRemote - - distributedRemoteSpi #8E44AD
 
 
 application ..> serviceApi : use
-application ..> distributedLocalApi : use
-application ..> distributedNetworkApi : use
-application ..> distributedRemoteApi : use
+application ..> localApi : use
+application ..> networkApi : use
+application ..> remoteApi : use
 
 service .up.> serviceSpi : use
 service .up.> selectionSpi : use
-service ..> localServiceSpi : use
-service ..> remotePluginSpi : use
+service ..> distributedLocalSpi : use
+service ..> distributedRemoteSpi : use
 
-distributedLocal .up.> distributedLocalSpi : use
-distributedLocal ..> localServiceApi : use
-distributedLocal .up.> distributedNetworkApi : use
+distributedLocal .up.> localSpi : use
+distributedLocal ..> distributedLocalApi : use
+distributedLocal .up.> networkApi : use
 
-distributedLocalApi ..> distributedNetworkApi : ref
+localApi ..> networkApi : ref
 
-distributedNetwork .up.> distributedNetworkSpi : use
+distributedNetwork .up.> networkSpi : use
 
-distributedRemote .up.> distributedNetworkApi : use
-distributedRemote ..> remotePluginApi : use
+distributedRemote .up.> networkApi : use
+distributedRemote ..> distributedRemoteApi : use
 
-distributedRemoteApi ..> distributedNetworkApi : ref
+remoteApi ..> networkApi : ref
 
 
 package packDistributedLocal #F8F9F9 {
@@ -333,14 +333,14 @@ package packDistributedRemote #F8F9F9 {
 }
 package packService #F8F9F9 {
 }
-package packRemotePluginApi #F8F9F9 {
+package packDistributedRemoteApi #F8F9F9 {
 }
-package packLocalServiceApi #F8F9F9 {
+package packDistributedLocalApi #F8F9F9 {
 }
 
 @enduml
 
-PlantUML version 1.2021.00(Sun Jan 10 11:25:05 CET 2021)
+PlantUML version 1.2021.01(Tue Feb 02 08:55:08 CET 2021)
 (GPL source distribution)
 Java Runtime: OpenJDK Runtime Environment
 JVM: OpenJDK 64-Bit Server VM

@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-local-service-api - 2.0 (01/02/2021)
+    Keyple 2.0 - keyple-distributed-local-api - 2.0 (05/02/2021)
 end title
 
 ' == THEME ==
@@ -45,7 +45,10 @@ hide <<grey>> stereotype
 
 ' == CONTENT ==
 
-package "org.eclipse.keyple.localservice" as api {
+package "org.eclipse.keyple.distributed.local" as api {
+    +class "**final** DistributedLocalApiProperties" as ApiProperties {
+        +{static} **final** String VERSION
+    }
     +interface LocalServiceManager {
         +Map<String, Boolean> getObservabilityByReaderName ()
         +String transmit (String readerName, String jsonData)
@@ -62,6 +65,8 @@ package "org.eclipse.keyple.localservice" as api {
     }
     package spi {
         +interface LocalServiceFactorySpi {
+            +String getDistributedLocalApiVersion ()
+            +String getCommonsApiVersion ()
             +LocalServiceSpi getLocalService ()
         }
         +interface LocalServiceSpi {
@@ -75,6 +80,7 @@ package "org.eclipse.keyple.localservice" as api {
 
 ' Associations
 
+LocalServiceFactorySpi .left.> ApiProperties #C_USE : provide\nAPI version <
 LocalServiceFactorySpi ..> LocalServiceSpi #C_USE : provide >
 
 LocalServiceSpi .left.> LocalServiceManager #C_USE : use >

@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Distributed APIs dependencies - 29/01/2021
+    Keyple 2.0 - Distributed APIs dependencies - 05/02/2021
 end title
 
 ' == THEME ==
@@ -75,71 +75,71 @@ package "keyple-service" as packService {
     [Adapter] as service
 }
 package "keyple-distributed-local" as packDistributedLocal {
-    interface "Local API" as distributedLocalApi <<purple>>
-    interface "Local SPI" as distributedLocalSpi <<blue>>
+    interface "Local API" as localApi <<purple>>
+    interface "Local SPI" as localSpi <<blue>>
     [Adapter] as distributedLocal <<purple>>
 }
 package "keyple-distributed-network" as packDistributedNetwork {
-    interface "Network API" as distributedNetworkApi <<purple>>
-    interface "Network SPI" as distributedNetworkSpi <<blue>>
+    interface "Network API" as networkApi <<purple>>
+    interface "Network SPI" as networkSpi <<blue>>
     [Adapter] as distributedNetwork <<purple>>
 }
 package "keyple-distributed-remote" as packDistributedRemote {
-    interface "Remote API" as distributedRemoteApi <<purple>>
+    interface "Remote API" as remoteApi <<purple>>
     [Adapter] as distributedRemote <<purple>>
 }
-package "keyple-remote-plugin-api" as packRemotePluginApi {
-    interface "Remote Plugin SPI" as remotePluginSpi <<purple>>
-    interface "Remote Plugin API" as remotePluginApi
+package "keyple-distributed-remote-api" as packDistributedRemoteApi {
+    interface "Remote Plugin SPI" as distributedRemoteSpi <<purple>>
+    interface "Remote Plugin API" as distributedRemoteApi
 }
-package "keyple-local-service-api" as packLocalServiceApi {
-    interface "Local Service SPI" as localServiceSpi <<purple>>
-    interface "Local Service API" as localServiceApi
+package "keyple-distributed-local-api" as packDistributedLocalApi {
+    interface "Local Service SPI" as distributedLocalSpi <<purple>>
+    interface "Local Service API" as distributedLocalApi
 }
 
 ' == ASSOCIATIONS ==
 
 application -- serviceSpi #COLOR_BLUE
 application .. selectionSpi #COLOR_BLUE
-application -- distributedLocalSpi #COLOR_BLUE
-application -- distributedNetworkSpi #COLOR_BLUE
+application -- localSpi #COLOR_BLUE
+application -- networkSpi #COLOR_BLUE
 
 service -up- serviceApi #COLOR_YELLOW
-service -- localServiceApi #COLOR_YELLOW
-service -- remotePluginApi #COLOR_YELLOW
+service -- distributedLocalApi #COLOR_YELLOW
+service -- distributedRemoteApi #COLOR_YELLOW
 
-distributedLocal -up- distributedLocalApi #COLOR_PURPLE
-distributedLocal -- localServiceSpi #COLOR_PURPLE
+distributedLocal -up- localApi #COLOR_PURPLE
+distributedLocal -- distributedLocalSpi #COLOR_PURPLE
 
-distributedNetwork -up- distributedNetworkApi #COLOR_PURPLE
+distributedNetwork -up- networkApi #COLOR_PURPLE
 
-distributedRemote -up- distributedRemoteApi #COLOR_PURPLE
-distributedRemote -- remotePluginSpi #COLOR_PURPLE
+distributedRemote -up- remoteApi #COLOR_PURPLE
+distributedRemote -- distributedRemoteSpi #COLOR_PURPLE
 
 ' USE
 
 application ..> serviceApi : use
-application ..> distributedLocalApi : use
-application ..> distributedNetworkApi : use
-application ..> distributedRemoteApi : use
+application ..> localApi : use
+application ..> networkApi : use
+application ..> remoteApi : use
 
 service .up.> serviceSpi : use
 service .up.> selectionSpi : use
-service ..> localServiceSpi : use
-service ..> remotePluginSpi : use
+service ..> distributedLocalSpi : use
+service ..> distributedRemoteSpi : use
 
-distributedLocal .up.> distributedLocalSpi : use
-distributedLocal ..> localServiceApi : use
-distributedLocal .up.> distributedNetworkApi : use
+distributedLocal .up.> localSpi : use
+distributedLocal ..> distributedLocalApi : use
+distributedLocal .up.> networkApi : use
 
-distributedLocalApi ..> distributedNetworkApi : ref
+localApi ..> networkApi : ref
 
-distributedNetwork .up.> distributedNetworkSpi : use
+distributedNetwork .up.> networkSpi : use
 
-distributedRemote .up.> distributedNetworkApi : use
-distributedRemote ..> remotePluginApi : use
+distributedRemote .up.> networkApi : use
+distributedRemote ..> distributedRemoteApi : use
 
-distributedRemoteApi ..> distributedNetworkApi : ref
+remoteApi ..> networkApi : ref
 
 ' == STYLE ==
 
@@ -151,9 +151,9 @@ package packDistributedRemote #C_GREY1 {
 }
 package packService #C_GREY1 {
 }
-package packRemotePluginApi #C_GREY1 {
+package packDistributedRemoteApi #C_GREY1 {
 }
-package packLocalServiceApi #C_GREY1 {
+package packDistributedLocalApi #C_GREY1 {
 }
 
 @enduml

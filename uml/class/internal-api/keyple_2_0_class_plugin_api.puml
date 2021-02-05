@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-plugin-api - 2.0 (18/01/2021)
+    Keyple 2.0 - keyple-plugin-api - 2.0 (05/02/2021)
 end title
 
 ' == THEME ==
@@ -46,9 +46,22 @@ hide <<grey>> stereotype
 ' == CONTENT ==
 
 package "org.eclipse.keyple.plugin" as api {
+    +class "**final** PluginApiProperties" as ApiProperties {
+        +{static} **final** String VERSION
+    }
     +interface AutonomousObservableReaderManager {
         +void onCardInserted ()
         +void onCardRemoved ()
+    }
+    +class "<<Exception>>\n**final** ReaderIOException" as ReaderIOException {
+        +ReaderIOException (String message)
+        +ReaderIOException (String message,
+            \tThrowable cause)
+    }
+    +class "<<Exception>>\n**final** CardIOException" as CardIOException {
+        +CardIOException (String message)
+        +CardIOException (String message,
+            \tThrowable cause)
     }
     package spi {
         together {
@@ -63,10 +76,14 @@ package "org.eclipse.keyple.plugin" as api {
                 +void releaseReader (ReaderSpi reader)
             }
             +interface PluginFactorySpi {
+                +String getPluginApiVersion ()
+                +String getCommonsApiVersion ()
                 +String getPluginName ()
                 +PluginSpi getPlugin ()
             }
             +interface PoolPluginFactorySpi {
+                +String getPluginApiVersion ()
+                +String getCommonsApiVersion ()
                 +String getPluginName ()
                 +PoolPluginSpi getPlugin ()
             }
@@ -89,9 +106,10 @@ package "org.eclipse.keyple.plugin" as api {
         package reader {
             +interface ReaderSpi {
                 --
-                +void activateReaderProtocol (String readerProtocolName)
-                +void deactivateReaderProtocol (String readerProtocolName)
-                +boolean isCurrentProtocol (String readerProtocolName)
+                +boolean isProtocolSupported (String readerProtocol)
+                +void activateProtocol (String readerProtocol)
+                +void deactivateProtocol (String readerProtocol)
+                +boolean isCurrentProtocol (String readerProtocol)
                 ..
                 +void openPhysicalChannel ()
                 +void closePhysicalChannel ()
@@ -160,10 +178,14 @@ package "org.eclipse.keyple.plugin" as api {
 
 ' Associations
 
+PluginFactorySpi .up.> ApiProperties #C_USE : provide\nAPI version <
 PluginFactorySpi ..> PluginSpi #C_USE : provide >
+
 PluginSpi ..> ReaderSpi #C_USE : provide >
 
+PoolPluginFactorySpi .up.> ApiProperties #C_USE : provide\nAPI version <
 PoolPluginFactorySpi ..> PoolPluginSpi #C_USE : provide >
+
 PoolPluginSpi ..> ReaderSpi #C_USE : provide >
 
 ThreadedObservablePluginSpi .left.> PluginObservationExceptionHandlerSpi #C_USE : provide >

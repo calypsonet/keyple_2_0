@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Specific Extension - 2.0.0 (26/01/2021)
+    Keyple 2.0 - Specific Extension - 2.0.0 (05/02/2021)
 end title
 
 ' == THEME ==
@@ -45,16 +45,17 @@ hide <<grey>> stereotype
 
 ' == CONTENT ==
 
-
 package "org.eclipse.keyple.commons" as commonsApi {
+    +interface KeypleCardExtension {
+    }
     +interface KeypleCardSelector {
     }
 }
 package "org.eclipse.keyple.service.selection.spi" as serviceSelectionSpi {
-    +interface CardSelection {
+    +interface CardSelectionSpi {
         ...
     }
-    +interface SmartCard {
+    +interface SmartCardSpi {
         ...
     }
     +class CardSelector implements KeypleCardSelector {
@@ -63,45 +64,61 @@ package "org.eclipse.keyple.service.selection.spi" as serviceSelectionSpi {
 }
 
 package "org.eclipse.keyple.card.spi" as cardSpi {
-    +interface CardSelectionSpi {
+    +interface CardExtensionSpi {
         ...
     }
-    +interface SmartCardSpi {
+    +interface InternalCardSelectionSpi {
+        ...
+    }
+    +interface InternalSmartCardSpi {
     }
 }
 
 
 package "specific.extension" as specificExtension {
-    +interface xxxSmartCard extends SmartCard {
+    +interface xxxSmartCard extends SmartCardSpi {
         ...
     }
     +class "**final** xxxCardSelectionFactory" as xxxCardSelectionFactory {
         +{static} xxxCardSelection getCardSelection ()
     }
-    +interface xxxCardSelection extends CardSelection {
+    +interface xxxCardSelection extends CardSelectionSpi {
         ...
     }
     +class "**final** xxxCardSelector" as xxxCardSelector extends CardSelector {
         ...
     }
-    ' Adapters
-    ~class "**final** xxxSmartCardAdapter" as xxxSmartCardAdapter implements xxxSmartCard, SmartCardSpi {
+    +interface "**final** xxxCardExtension" as xxxCardExtension extends KeypleCardExtension {
         ...
     }
-    ~class "**final** xxxCardSelectionAdapter" as xxxCardSelectionAdapter implements xxxCardSelection, CardSelectionSpi {
+    +class "**final** xxxCardExtensionFactory" as xxxCardExtensionFactory {
+        +{static} xxxCardExtension getCardExtension ()
+    }
+    ' Adapters
+    ~class "**final** xxxCardExtensionAdapter" as xxxCardExtensionAdapter implements xxxCardExtension, CardExtensionSpi {
+        ...
+    }
+    ~class "**final** xxxSmartCardAdapter" as xxxSmartCardAdapter implements xxxSmartCard, InternalSmartCardSpi {
+        ...
+    }
+    ~class "**final** xxxCardSelectionAdapter" as xxxCardSelectionAdapter implements xxxCardSelection, InternalCardSelectionSpi {
         ...
     }
 }
 
 ' Associations
 
-xxxCardSelectionFactory .> xxxCardSelection #C_USE : provide >
+xxxCardSelectionFactory .right.> xxxCardSelection #C_USE : provide >
+
+xxxCardExtensionFactory .right.> xxxCardExtension #C_USE : provide >
 
 ' == LAYOUT ==
 
+xxxCardSelection -[hidden]- xxxCardExtensionAdapter
 xxxCardSelection -[hidden]- xxxSmartCardAdapter
-xxxSmartCardAdapter -[hidden]- SmartCardSpi
-xxxCardSelectionAdapter -[hidden]- CardSelectionSpi
+xxxCardExtensionAdapter -[hidden]- CardExtensionSpi
+xxxSmartCardAdapter -[hidden]- InternalSmartCardSpi
+xxxCardSelectionAdapter -[hidden]- InternalCardSelectionSpi
 
 ' == STYLE ==
 
@@ -110,9 +127,11 @@ package specificExtension #C_GREY1 {}
 package cardSpi #C_GREY1 {}
 package serviceSelectionSpi #C_GREY2 {}
 
+class xxxCardExtensionAdapter <<blue>>
 class xxxCardSelectionAdapter <<blue>>
 class xxxSmartCardAdapter <<blue>>
-interface CardSelectionSpi <<blue>>
-interface SmartCardSpi <<blue>>
+interface CardExtensionSpi <<blue>>
+interface InternalCardSelectionSpi <<blue>>
+interface InternalSmartCardSpi <<blue>>
 
 @enduml

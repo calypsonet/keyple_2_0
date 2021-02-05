@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-commons-api - 2.0 (02/02/2021)
+    Keyple 2.0 - keyple-commons-api - 2.0 (05/02/2021)
 end title
 
 ' == THEME ==
@@ -47,11 +47,16 @@ hide <<grey>> stereotype
 
 
 package "org.eclipse.keyple.commons" as api {
+    +class "**final** CommonsApiProperties" as ApiProperties {
+        +{static} **final** String VERSION
+    }
     +interface KeyplePluginFactory {
     }
     +interface KeyplePlugin {
     }
     +interface KeypleReader {
+    }
+    +interface KeypleCardExtension {
     }
     +interface KeypleDistributedLocalServiceFactory {
     }

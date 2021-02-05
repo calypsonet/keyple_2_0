@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-remote-plugin-api - 2.0 (26/01/2021)
+    Keyple 2.0 - keyple-distributed-remote-api - 2.0 (05/02/2021)
 end title
 
 ' == THEME ==
@@ -45,7 +45,10 @@ hide <<grey>> stereotype
 
 ' == CONTENT ==
 
-package "org.eclipse.keyple.plugin.remote" as api {
+package "org.eclipse.keyple.distributed.remote" as api {
+    +class "**final** DistributedRemoteApiProperties" as ApiProperties {
+        +{static} **final** String VERSION
+    }
     +interface ObservableRemotePluginManager {
         --
         +RemoteReaderManager createReader (String readerName,
@@ -94,10 +97,14 @@ package "org.eclipse.keyple.plugin.remote" as api {
             +void releaseReader (RemoteReaderSpi reader)
         }
         +interface RemotePluginFactorySpi {
+            +String getDistributedRemoteApiVersion ()
+            +String getCommonsApiVersion ()
             +String getPluginName ()
             +RemotePluginSpi getPlugin ()
         }
         +interface PoolRemotePluginFactorySpi {
+            +String getDistributedRemoteApiVersion ()
+            +String getCommonsApiVersion ()
             +String getPluginName ()
             +PoolRemotePluginSpi getPlugin ()
         }
@@ -108,8 +115,10 @@ package "org.eclipse.keyple.plugin.remote" as api {
 
 ObservableRemotePluginManager ..> RemoteReaderManager #C_USE : provide >
 
+RemotePluginFactorySpi .up.> ApiProperties #C_USE : provide\nAPI version <
 RemotePluginFactorySpi ..> RemotePluginSpi #C_USE : provide >
 
+PoolRemotePluginFactorySpi .up.> ApiProperties #C_USE : provide\nAPI version <
 PoolRemotePluginFactorySpi ..> PoolRemotePluginSpi #C_USE : provide >
 
 RemotePluginSpi ..> RemoteReaderSpi #C_USE : provide >
