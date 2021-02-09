@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-service - 2.0.0 (05/02/2021)
+    Keyple 2.0 - keyple-service - 2.0.0 (09/02/2021)
 end title
 
 ' == THEME ==
@@ -200,7 +200,7 @@ package "org.eclipse.keyple.service" as service {
             +CardSelectionsService ()
             +CardSelectionsService (MultiSelectionProcessing multiSelectionProcessing)
             ..
-            +int prepareSelection (CardSelectionSpi cardSelectionSpi)
+            +int prepareSelection (CardSelection cardSelection)
             +void prepareReleaseChannel ()
             ..
             +<back:cyan>KeypleDefaultSelectionsRequest</back> getDefaultSelectionsRequest ()
@@ -214,10 +214,10 @@ package "org.eclipse.keyple.service" as service {
             PROCESS_ALL
         }
         package "spi" as selectionSpi {
-            +interface CardSelectionSpi {
+            +interface CardSelection {
                 +CardSelector getCardSelector ()
             }
-            +interface SmartCardSpi {
+            +interface SmartCard {
                 --
                 +boolean hasFci ()
                 +byte[] getFciBytes ()
@@ -291,69 +291,77 @@ package "org.eclipse.keyple.service" as service {
             +int getActiveSelectionIndex ()
             +boolean hasSelectionMatched (int selectionIndex)
             ..
-            +Map<Integer, SmartCardSpi> getSmartCards ()
-            +SmartCardSpi getSmartCard (int selectionIndex)
-            +SmartCardSpi getActiveSmartCard ()
+            +Map<Integer, SmartCard> getSmartCards ()
+            +SmartCard getSmartCard (int selectionIndex)
+            +SmartCard getActiveSmartCard ()
             ..
             ~void addSmartCard (int selectionIndex,
-                \tSmartCardSpi smartCardSpi, boolean isSelected)
+                \tSmartCard smartCard, boolean isSelected)
         }
-        +class "**final** CardResource" as CardResource<T extends SmartCardSpi> {
+        +class "**final** CardResource" as CardResource<T extends SmartCard> {
             --
-            +CardResource (Reader reader, T smartCardSpi)
+            +CardResource (Reader reader, T smartCard)
             ..
             +Reader getReader ()
             +T getSmartCard ()
         }
     }
     ' EXCEPTIONS
-    +abstract class "<<RuntimeException>>\nKeypleException" as KeypleException {
-        #KeypleException (String message)
-        #KeypleException (String message, Throwable cause)
-    }
-    +abstract class KeyplePluginException extends KeypleException {
-        #KeyplePluginException (
-            \tString message)
-        #KeyplePluginException (
-            \tString message, Throwable cause)
-    }
-    +class KeyplePluginInstantiationException extends KeyplePluginException {
-        +KeyplePluginInstantiationException (
-            \tString message)
-        +KeyplePluginInstantiationException (
-            \tString message, Throwable cause)
-    }
-    +class KeyplePluginNotFoundException extends KeyplePluginException {
-        +KeyplePluginNotFoundException (
-            \tString message)
-    }
-    +abstract class KeypleReaderException extends KeypleException {
-        #KeypleReaderException (
-            \tString message)
-        #KeypleReaderException (
-            \tString message, Throwable cause)
-    }
-    +class KeypleReaderCommunicationException extends KeypleReaderException {
-        +KeypleReaderCommunicationException (
-            \tString message)
-        +KeypleReaderCommunicationException (
-            \tString message, Throwable cause)
-    }
-    +class KeypleReaderNotFoundException extends KeypleReaderException {
-        +KeypleReaderNotFoundException (
-            \tString message)
-        +KeypleReaderNotFoundException (
-            \tString message, Throwable cause)
-    }
-    +class KeypleReaderProtocolNotSupportedException extends KeypleReaderException {
-        +KeypleReaderProtocolNotSupportedException (
-            \tString cardProtocol)
-    }
-    +class KeypleCardCommunicationException extends KeypleException {
-        +KeypleCardCommunicationException (
-            \tString message)
-        +KeypleCardCommunicationException (
-            \tString message, Throwable cause)
+    package exceptions {
+        +abstract class "<<RuntimeException>>\nKeypleException" as KeypleException {
+            #KeypleException (String message)
+            #KeypleException (String message, Throwable cause)
+        }
+        +abstract class KeyplePluginException extends KeypleException {
+            #KeyplePluginException (
+                \tString message)
+            #KeyplePluginException (
+                \tString message, Throwable cause)
+        }
+        +class KeyplePluginInstantiationException extends KeyplePluginException {
+            +KeyplePluginInstantiationException (
+                \tString message)
+            +KeyplePluginInstantiationException (
+                \tString message, Throwable cause)
+        }
+        +class KeyplePluginNotFoundException extends KeyplePluginException {
+            +KeyplePluginNotFoundException (
+                \tString message)
+        }
+        +abstract class KeypleReaderException extends KeypleException {
+            #KeypleReaderException (
+                \tString message)
+            #KeypleReaderException (
+                \tString message, Throwable cause)
+        }
+        +class KeypleReaderCommunicationException extends KeypleReaderException {
+            +KeypleReaderCommunicationException (
+                \tString message)
+            +KeypleReaderCommunicationException (
+                \tString message, Throwable cause)
+        }
+        +class KeypleReaderNotFoundException extends KeypleReaderException {
+            +KeypleReaderNotFoundException (
+                \tString message)
+            +KeypleReaderNotFoundException (
+                \tString message, Throwable cause)
+        }
+        +class KeypleReaderProtocolNotSupportedException extends KeypleReaderException {
+            +KeypleReaderProtocolNotSupportedException (
+                \tString cardProtocol)
+        }
+        +abstract class KeypleCardException extends KeypleException {
+            #KeypleCardException (
+                \tString message)
+            #KeypleCardException (
+                \tString message, Throwable cause)
+        }
+        +class KeypleCardCommunicationException extends KeypleCardException {
+            +KeypleCardCommunicationException (
+                \tString message)
+            +KeypleCardCommunicationException (
+                \tString message, Throwable cause)
+        }
     }
 }
 
@@ -375,11 +383,11 @@ ReaderEvent +-- ReaderEventType
 ReaderEvent *-- "1" ReaderEventType #C_LINK
 
 CardSelectionsService *-- "1" MultiSelectionProcessing #C_LINK
-CardSelectionsService *-- "1..N" CardSelectionSpi #C_LINK
+CardSelectionsService *-- "1..N" CardSelection #C_LINK
 
-CardSelectionsResult *-- "1..N" SmartCardSpi #C_LINK
+CardSelectionsResult *-- "1..N" SmartCard #C_LINK
 
-CardResource *-- "1" SmartCardSpi #C_LINK
+CardResource *-- "1" SmartCard #C_LINK
 CardResource *-- "1" Reader #C_LINK
 
 CardSelector +-- CardSelectorBuilder
@@ -409,16 +417,17 @@ ObservableReader ..> ReaderObserverSpi #C_USE : use >
 
 ReaderObserverSpi ..> ReaderEvent #C_USE : use >
 
-CardSelectionSpi .left.> CardSelector #C_USE : provide >
+CardSelection .left.> CardSelector #C_USE : provide >
 
 ' == LAYOUT ==
 
-FileControlInformation -[hidden]- KeypleException
+PluginEventType -[hidden]- KeypleException
 
 ' == STYLE ==
 
 package service #C_GREY1 {}
 package spi #C_GREY2 {}
+package exceptions #C_GREY2 {}
 package selection #C_GREY2 {}
 package selectionSpi #C_GREY3 {}
 

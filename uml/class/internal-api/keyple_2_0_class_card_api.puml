@@ -1,6 +1,6 @@
 @startuml
 title
-        Keyple 2.0 - keyple-card-api - 2.0 (05/02/2021)
+        Keyple 2.0 - keyple-card-api - 2.0 (09/02/2021)
 end title
 
 ' == THEME ==
@@ -183,11 +183,11 @@ package "org.eclipse.keyple.card" as api {
             +String getServiceApiVersion ()
             +String getCommonsApiVersion ()
         }
-        +interface InternalCardSelectionSpi {
+        +interface CardSelectionSpi {
             +CardSelectionRequest getCardSelectionRequest ()
-            +InternalSmartCardSpi parse (CardSelectionResponse cardSelectionResponse)
+            +SmartCardSpi parse (CardSelectionResponse cardSelectionResponse)
         }
-        +interface InternalSmartCardSpi {
+        +interface SmartCardSpi {
         }
     }
     +abstract class "<<Exception>>\nAbstractCommunicationException" as AbstractCommunicationException {

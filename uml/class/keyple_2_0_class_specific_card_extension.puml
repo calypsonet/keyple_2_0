@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Specific Extension - 2.0.0 (05/02/2021)
+    Keyple 2.0 - Specific Extension - 2.0.0 (09/02/2021)
 end title
 
 ' == THEME ==
@@ -52,10 +52,10 @@ package "org.eclipse.keyple.commons" as commonsApi {
     }
 }
 package "org.eclipse.keyple.service.selection.spi" as serviceSelectionSpi {
-    +interface CardSelectionSpi {
+    +interface CardSelection {
         ...
     }
-    +interface SmartCardSpi {
+    +interface SmartCard {
         ...
     }
     +class CardSelector implements KeypleCardSelector {
@@ -67,22 +67,22 @@ package "org.eclipse.keyple.card.spi" as cardSpi {
     +interface CardExtensionSpi {
         ...
     }
-    +interface InternalCardSelectionSpi {
+    +interface CardSelectionSpi {
         ...
     }
-    +interface InternalSmartCardSpi {
+    +interface SmartCardSpi {
     }
 }
 
 
 package "specific.extension" as specificExtension {
-    +interface xxxSmartCard extends SmartCardSpi {
+    +interface xxxSmartCard extends SmartCard {
         ...
     }
     +class "**final** xxxCardSelectionFactory" as xxxCardSelectionFactory {
         +{static} xxxCardSelection getCardSelection ()
     }
-    +interface xxxCardSelection extends CardSelectionSpi {
+    +interface xxxCardSelection extends CardSelection {
         ...
     }
     +class "**final** xxxCardSelector" as xxxCardSelector extends CardSelector {
@@ -98,10 +98,10 @@ package "specific.extension" as specificExtension {
     ~class "**final** xxxCardExtensionAdapter" as xxxCardExtensionAdapter implements xxxCardExtension, CardExtensionSpi {
         ...
     }
-    ~class "**final** xxxSmartCardAdapter" as xxxSmartCardAdapter implements xxxSmartCard, InternalSmartCardSpi {
+    ~class "**final** xxxSmartCardAdapter" as xxxSmartCardAdapter implements xxxSmartCard, SmartCardSpi {
         ...
     }
-    ~class "**final** xxxCardSelectionAdapter" as xxxCardSelectionAdapter implements xxxCardSelection, InternalCardSelectionSpi {
+    ~class "**final** xxxCardSelectionAdapter" as xxxCardSelectionAdapter implements xxxCardSelection, CardSelectionSpi {
         ...
     }
 }
@@ -117,8 +117,8 @@ xxxCardExtensionFactory .right.> xxxCardExtension #C_USE : provide >
 xxxCardSelection -[hidden]- xxxCardExtensionAdapter
 xxxCardSelection -[hidden]- xxxSmartCardAdapter
 xxxCardExtensionAdapter -[hidden]- CardExtensionSpi
-xxxSmartCardAdapter -[hidden]- InternalSmartCardSpi
-xxxCardSelectionAdapter -[hidden]- InternalCardSelectionSpi
+xxxSmartCardAdapter -[hidden]- SmartCardSpi
+xxxCardSelectionAdapter -[hidden]- CardSelectionSpi
 
 ' == STYLE ==
 
@@ -131,7 +131,7 @@ class xxxCardExtensionAdapter <<blue>>
 class xxxCardSelectionAdapter <<blue>>
 class xxxSmartCardAdapter <<blue>>
 interface CardExtensionSpi <<blue>>
-interface InternalCardSelectionSpi <<blue>>
-interface InternalSmartCardSpi <<blue>>
+interface CardSelectionSpi <<blue>>
+interface SmartCardSpi <<blue>>
 
 @enduml
