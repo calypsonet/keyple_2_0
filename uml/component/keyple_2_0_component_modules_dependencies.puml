@@ -59,22 +59,22 @@ hide <<grey>> stereotype
 
 package "Components having adapters" as packMain {
     [Specific Application] as application <<blue>>
-    [**keyple-service**\nuse <back:cyan>**keyple-commons-api**</back>] as service
-    [Specific Plugin (PCSC...)\nuse <back:cyan>**keyple-commons-api**</back>] as plugin <<red>>
-    [Specific Card Extension (Calypso...)\nuse <back:cyan>**keyple-commons-api**</back>] as extension <<green>>
+    [**keyple-java-service**\nuse <back:cyan>**keyple-java-commons-api**</back>] as service
+    [Specific Plugin (PCSC...)\nuse <back:cyan>**keyple-java-commons-api**</back>] as plugin <<red>>
+    [Specific Card Extension (Calypso...)\nuse <back:cyan>**keyple-java-commons-api**</back>] as extension <<green>>
     together {
-        [**keyple-distributed-local**\nuse <back:cyan>**keyple-commons-api**</back>] as local <<purple>>
-        [**keyple-distributed-network**] as network <<purple>>
-        [**keyple-distributed-remote**\nuse <back:cyan>**keyple-commons-api**</back>] as remote <<purple>>
+        [**keyple-java-distributed-local**\nuse <back:cyan>**keyple-java-commons-api**</back>] as local <<purple>>
+        [**keyple-java-distributed-network**] as network <<purple>>
+        [**keyple-java-distributed-remote**\nuse <back:cyan>**keyple-java-commons-api**</back>] as remote <<purple>>
     }
 }
 package "Keyple Internal APIs/SPIs (hidden for the specific application)" {
-    [**keyple-plugin-api**] as pluginApi
-    [**keyple-card-api**\nuse <back:cyan>**keyple-commons-api**</back>] as cardApi
-    [**keyple-distributed-local-api**\nuse <back:cyan>**keyple-commons-api**</back>] as distributedLocalApi
-    [**keyple-distributed-remote-api**] as distributedRemoteApi
+    [**keyple-java-plugin-api**] as pluginApi
+    [**keyple-java-card-api**\nuse <back:cyan>**keyple-java-commons-api**</back>] as cardApi
+    [**keyple-java-distributed-local-api**\nuse <back:cyan>**keyple-java-commons-api**</back>] as distributedLocalApi
+    [**keyple-java-distributed-remote-api**] as distributedRemoteApi
 }
-[**keyple-utils**] as utils
+[**keyple-java-utils**] as utils
 
 ' == ASSOCIATIONS ==
 

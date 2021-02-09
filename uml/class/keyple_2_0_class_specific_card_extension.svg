@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1747.5px" preserveAspectRatio="none" style="width:3400px;height:1747px;" version="1.1" viewBox="0 0 3400 1747" width="3400px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="1025" x="1171.25" y="46.7139">Keyple 2.0 - Specific Extension - 2.0.0 (09/02/2021)</text><!--MD5=[621c849533070c5aba8aa732369aa9f8]
-cluster commonsApi--><polygon fill="#F8F9F9" points="1915,71.6016,2430,71.6016,2447.5,130.625,2872.5,130.625,2872.5,321.6016,1915,321.6016,1915,71.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="1915" x2="2447.5" y1="130.625" y2="130.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="500" x="1925" y="112.9346">org.eclipse.keyple.commons</text><!--MD5=[1713dcaf7bcd1f6045401bf8106829bd]
-cluster serviceSelectionSpi--><polygon fill="#F2F3F4" points="2100,404.1016,2815,404.1016,2832.5,463.125,3205,463.125,3205,689.1016,2100,689.1016,2100,404.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="2100" x2="2832.5" y1="463.125" y2="463.125"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="700" x="2110" y="445.4346">org.eclipse.keyple.service.selection.spi</text><!--MD5=[a17c93d7e125af4ebdd10ac0c519bd24]
-cluster cardSpi--><polygon fill="#F8F9F9" points="1415,1446.6016,1902.5,1446.6016,1920,1505.625,2677.5,1505.625,2677.5,1731.6016,1415,1731.6016,1415,1446.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="1415" x2="1920" y1="1505.625" y2="1505.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="472.5" x="1425" y="1487.9346">org.eclipse.keyple.card.spi</text><!--MD5=[d3c8ee72d6c013b9a0ff8b73b18ac396]
-cluster specificExtension--><polygon fill="#F8F9F9" points="40,771.6016,377.5,771.6016,395,830.625,3357.5,830.625,3357.5,1364.1016,40,1364.1016,40,771.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="40" x2="395" y1="830.625" y2="830.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="322.5" x="50" y="812.9346">specific.extension</text><!--MD5=[93835d7ffcf6a3787bfc7eb02bc099b1]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1747.5px" preserveAspectRatio="none" style="width:3400px;height:1747px;" version="1.1" viewBox="0 0 3400 1747" width="3400px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="1135" x="1116.25" y="46.7139">Keyple 2.0 - Specific Card Extension - 2.0.0 (09/02/2021)</text><!--MD5=[621c849533070c5aba8aa732369aa9f8]
+cluster commonsApi--><polygon fill="#F8F9F9" points="1915,71.6016,2520,71.6016,2537.5,130.625,2872.5,130.625,2872.5,321.6016,1915,321.6016,1915,71.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="1915" x2="2537.5" y1="130.625" y2="130.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="590" x="1925" y="112.9346">org.eclipse.keyple.core.commons</text><!--MD5=[1713dcaf7bcd1f6045401bf8106829bd]
+cluster serviceSelectionSpi--><polygon fill="#F2F3F4" points="2100,404.1016,2905,404.1016,2922.5,463.125,3205,463.125,3205,689.1016,2100,689.1016,2100,404.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="2100" x2="2922.5" y1="463.125" y2="463.125"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="790" x="2110" y="445.4346">org.eclipse.keyple.core.service.selection.spi</text><!--MD5=[a17c93d7e125af4ebdd10ac0c519bd24]
+cluster cardSpi--><polygon fill="#F8F9F9" points="1415,1446.6016,1992.5,1446.6016,2010,1505.625,2677.5,1505.625,2677.5,1731.6016,1415,1731.6016,1415,1446.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="1415" x2="2010" y1="1505.625" y2="1505.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="562.5" x="1425" y="1487.9346">org.eclipse.keyple.core.card.spi</text><!--MD5=[d3c8ee72d6c013b9a0ff8b73b18ac396]
+cluster specificExtension--><polygon fill="#F8F9F9" points="40,771.6016,892.5,771.6016,910,830.625,3357.5,830.625,3357.5,1364.1016,40,1364.1016,40,771.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="40" x2="910" y1="830.625" y2="830.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="837.5" x="50" y="812.9346">org.eclipse.keyple.card.xxx (specific extension)</text><!--MD5=[93835d7ffcf6a3787bfc7eb02bc099b1]
 class KeypleCardExtension--><rect codeLine="48" fill="#FEFECE" height="120" id="KeypleCardExtension" style="stroke:#D4AC0D;stroke-width:3.75;" width="405" x="1955" y="161.6016"/><ellipse cx="1992.5" cy="201.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1995,194.1016 L1995,209.1016 L2000,209.1016 L2001.2109,209.1016 L2002.5,210.6641 L2002.5,211.6016 L2002.5,212.5391 L2001.2109,214.1016 L2000,214.1016 L1985,214.1016 L1983.7891,214.1016 L1982.5,212.5391 L1982.5,211.6016 L1982.5,210.6641 L1983.7891,209.1016 L1985,209.1016 L1990,209.1016 L1990,194.1016 L1985,194.1016 L1983.7891,194.1016 L1982.5,192.5391 L1982.5,191.6016 L1982.5,190.6641 L1983.7891,189.1016 L1985,189.1016 L2000,189.1016 L2001.2109,189.1016 L2002.5,190.6641 L2002.5,191.6016 L2002.5,192.5391 L2001.2109,194.1016 L2000,194.1016 L1995,194.1016 Z " fill="#000000"/><ellipse cx="2040" cy="200.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="297.5" x="2055" y="213.877">KeypleCardExtension</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1957.5" x2="2357.5" y1="241.6016" y2="241.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1957.5" x2="2357.5" y1="261.6016" y2="261.6016"/><!--MD5=[992e355e37ebedcd3769e1f8c146b434]
 class KeypleCardSelector--><rect codeLine="50" fill="#FEFECE" height="120" id="KeypleCardSelector" style="stroke:#D4AC0D;stroke-width:3.75;" width="382.5" x="2448.75" y="161.6016"/><ellipse cx="2486.25" cy="201.6016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2488.75,194.1016 L2488.75,209.1016 L2493.75,209.1016 L2494.9609,209.1016 L2496.25,210.6641 L2496.25,211.6016 L2496.25,212.5391 L2494.9609,214.1016 L2493.75,214.1016 L2478.75,214.1016 L2477.5391,214.1016 L2476.25,212.5391 L2476.25,211.6016 L2476.25,210.6641 L2477.5391,209.1016 L2478.75,209.1016 L2483.75,209.1016 L2483.75,194.1016 L2478.75,194.1016 L2477.5391,194.1016 L2476.25,192.5391 L2476.25,191.6016 L2476.25,190.6641 L2477.5391,189.1016 L2478.75,189.1016 L2493.75,189.1016 L2494.9609,189.1016 L2496.25,190.6641 L2496.25,191.6016 L2496.25,192.5391 L2494.9609,194.1016 L2493.75,194.1016 L2488.75,194.1016 Z " fill="#000000"/><ellipse cx="2533.75" cy="200.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="275" x="2548.75" y="213.877">KeypleCardSelector</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2451.25" x2="2828.75" y1="241.6016" y2="241.6016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2451.25" x2="2828.75" y1="261.6016" y2="261.6016"/><!--MD5=[47f0011813555fb489a606ff84d44b55]
 class CardSelection--><rect codeLine="54" fill="#FEFECE" height="154.5898" id="CardSelection" style="stroke:#D4AC0D;stroke-width:3.75;" width="302.5" x="2141.25" y="494.1016"/><ellipse cx="2178.75" cy="534.1016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2181.25,526.6016 L2181.25,541.6016 L2186.25,541.6016 L2187.4609,541.6016 L2188.75,543.1641 L2188.75,544.1016 L2188.75,545.0391 L2187.4609,546.6016 L2186.25,546.6016 L2171.25,546.6016 L2170.0391,546.6016 L2168.75,545.0391 L2168.75,544.1016 L2168.75,543.1641 L2170.0391,541.6016 L2171.25,541.6016 L2176.25,541.6016 L2176.25,526.6016 L2171.25,526.6016 L2170.0391,526.6016 L2168.75,525.0391 L2168.75,524.1016 L2168.75,523.1641 L2170.0391,521.6016 L2171.25,521.6016 L2186.25,521.6016 L2187.4609,521.6016 L2188.75,523.1641 L2188.75,524.1016 L2188.75,525.0391 L2187.4609,526.6016 L2186.25,526.6016 L2181.25,526.6016 Z " fill="#000000"/><ellipse cx="2226.25" cy="532.8516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="195" x="2241.25" y="546.377">CardSelection</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2143.75" x2="2441.25" y1="574.1016" y2="574.1016"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="2156.25" y="612.6489">...</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2143.75" x2="2441.25" y1="628.6914" y2="628.6914"/><!--MD5=[4d4351d1dd1d596b03b4778d9849998b]
@@ -37,10 +37,10 @@ link xxxCardSelectionAdapter to CardSelectionSpi--><!--MD5=[bbd507e3cb9246f123de
 link xxxCardSelectionFactory to xxxCardSelection--><path codeLine="110" d="M1866.4175,939.1016 C1936.83,939.1016 2011.7225,939.1016 2077.355,939.1016 " fill="none" id="xxxCardSelectionFactory-to-xxxCardSelection" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="2090.355,939.1016,2067.855,929.1016,2077.855,939.1016,2067.855,949.1016,2090.355,939.1016" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="1935,909.541,1912.3873,902.1937,1912.3873,916.8883,1935,909.541" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="1945" y="922.8394">provide</text><!--MD5=[93fc9b5a39ad0e7c8368ef516f3411a8]
 link xxxCardExtensionFactory to xxxCardExtension--><path codeLine="112" d="M614.0875,939.1016 C683.59,939.1016 757.795,939.1016 824.9125,939.1016 " fill="none" id="xxxCardExtensionFactory-to-xxxCardExtension" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="838.24,939.1016,815.74,929.1016,825.74,939.1016,815.74,949.1016,838.24,939.1016" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="682.5,909.541,659.8873,902.1937,659.8873,916.8883,682.5,909.541" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="692.5" y="922.8394">provide</text><!--MD5=[243ef50cdc6ca4b1d59ce7bbc578be03]
 link xxxCardSelection to xxxCardExtensionAdapter--><!--MD5=[6aef92196412bbfccb06d3ea1a2cdc76]
-link xxxCardSelection to xxxSmartCardAdapter--><!--MD5=[2b3717bc5e21e282583cef5dec30d854]
+link xxxCardSelection to xxxSmartCardAdapter--><!--MD5=[cc1b1b9edc997b0c8cd322e2d9a9e9a6]
 @startuml
 title
-    Keyple 2.0 - Specific Extension - 2.0.0 (09/02/2021)
+    Keyple 2.0 - Specific Card Extension - 2.0.0 (09/02/2021)
 end title
 
 ' == THEME ==
@@ -85,13 +85,13 @@ hide <<grey>> stereotype
 
 ' == CONTENT ==
 
-package "org.eclipse.keyple.commons" as commonsApi {
+package "org.eclipse.keyple.core.commons" as commonsApi {
     +interface KeypleCardExtension {
     }
     +interface KeypleCardSelector {
     }
 }
-package "org.eclipse.keyple.service.selection.spi" as serviceSelectionSpi {
+package "org.eclipse.keyple.core.service.selection.spi" as serviceSelectionSpi {
     +interface CardSelection {
         ...
     }
@@ -103,7 +103,7 @@ package "org.eclipse.keyple.service.selection.spi" as serviceSelectionSpi {
     }
 }
 
-package "org.eclipse.keyple.card.spi" as cardSpi {
+package "org.eclipse.keyple.core.card.spi" as cardSpi {
     +interface CardExtensionSpi {
         ...
     }
@@ -115,7 +115,7 @@ package "org.eclipse.keyple.card.spi" as cardSpi {
 }
 
 
-package "specific.extension" as specificExtension {
+package "org.eclipse.keyple.card.xxx (specific extension)" as specificExtension {
     +interface xxxSmartCard extends SmartCard {
         ...
     }
@@ -178,7 +178,7 @@ interface SmartCardSpi <<blue>>
 
 @startuml
 title
-    Keyple 2.0 - Specific Extension - 2.0.0 (09/02/2021)
+    Keyple 2.0 - Specific Card Extension - 2.0.0 (09/02/2021)
 end title
 
 
@@ -207,13 +207,13 @@ skinparam ClassBorderColor<<grey>> #2C3E50
 hide <<grey>> stereotype
 
 
-package "org.eclipse.keyple.commons" as commonsApi {
+package "org.eclipse.keyple.core.commons" as commonsApi {
     +interface KeypleCardExtension {
     }
     +interface KeypleCardSelector {
     }
 }
-package "org.eclipse.keyple.service.selection.spi" as serviceSelectionSpi {
+package "org.eclipse.keyple.core.service.selection.spi" as serviceSelectionSpi {
     +interface CardSelection {
         ...
     }
@@ -225,7 +225,7 @@ package "org.eclipse.keyple.service.selection.spi" as serviceSelectionSpi {
     }
 }
 
-package "org.eclipse.keyple.card.spi" as cardSpi {
+package "org.eclipse.keyple.core.card.spi" as cardSpi {
     +interface CardExtensionSpi {
         ...
     }
@@ -237,7 +237,7 @@ package "org.eclipse.keyple.card.spi" as cardSpi {
 }
 
 
-package "specific.extension" as specificExtension {
+package "org.eclipse.keyple.card.xxx (specific extension)" as specificExtension {
     +interface xxxSmartCard extends SmartCard {
         ...
     }

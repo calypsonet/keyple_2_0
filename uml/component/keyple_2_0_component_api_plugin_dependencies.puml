@@ -68,7 +68,7 @@ hide <<grey>> stereotype
 ' == COMPONENTS ==
 
 [Specific Application] as application <<blue>>
-package "keyple-service" as packService {
+package "keyple-java-service" as packService {
     interface "Service API" as serviceApi
     interface "Service SPI" as serviceSpi <<blue>>
     interface "Selection SPI" as selectionSpi <<green>>
@@ -78,7 +78,7 @@ package "Specific Plugin (PCSC...)" as packPlugin {
     interface "Specific Plugin API" as specificPluginApi <<red>>
     [Adapter] as plugin <<red>>
 }
-package "keyple-plugin-api" as packPluginApi {
+package "keyple-java-plugin-api" as packPluginApi {
     interface "Plugin SPI" as pluginSpi <<red>>
     interface "Plugin API" as pluginApi
 }

@@ -68,31 +68,31 @@ hide <<grey>> stereotype
 ' == COMPONENTS ==
 
 [Specific Application] as application <<blue>>
-package "keyple-service" as packService {
+package "keyple-java-service" as packService {
     interface "Service API" as serviceApi
     interface "Service SPI" as serviceSpi <<blue>>
     interface "Selection SPI" as selectionSpi <<green>>
     [Adapter] as service
 }
-package "keyple-distributed-local" as packDistributedLocal {
+package "keyple-java-distributed-local" as packDistributedLocal {
     interface "Local API" as localApi <<purple>>
     interface "Local SPI" as localSpi <<blue>>
     [Adapter] as distributedLocal <<purple>>
 }
-package "keyple-distributed-network" as packDistributedNetwork {
+package "keyple-java-distributed-network" as packDistributedNetwork {
     interface "Network API" as networkApi <<purple>>
     interface "Network SPI" as networkSpi <<blue>>
     [Adapter] as distributedNetwork <<purple>>
 }
-package "keyple-distributed-remote" as packDistributedRemote {
+package "keyple-java-distributed-remote" as packDistributedRemote {
     interface "Remote API" as remoteApi <<purple>>
     [Adapter] as distributedRemote <<purple>>
 }
-package "keyple-distributed-remote-api" as packDistributedRemoteApi {
+package "keyple-java-distributed-remote-api" as packDistributedRemoteApi {
     interface "Remote Plugin SPI" as distributedRemoteSpi <<purple>>
     interface "Remote Plugin API" as distributedRemoteApi
 }
-package "keyple-distributed-local-api" as packDistributedLocalApi {
+package "keyple-java-distributed-local-api" as packDistributedLocalApi {
     interface "Local Service SPI" as distributedLocalSpi <<purple>>
     interface "Local Service API" as distributedLocalApi
 }

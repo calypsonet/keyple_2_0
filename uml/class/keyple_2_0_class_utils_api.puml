@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-utils - 2.0.0 (22/01/2021)
+    Keyple 2.0 - keyple-java-utils - 2.0.0 (09/02/2021)
 end title
 
 ' == THEME ==
@@ -62,7 +62,7 @@ hide <<grey>> stereotype
 +class "**final** Gson" as Gson {
     ...
 }
-package "org.eclipse.keyple.utils" as utils {
+package "org.eclipse.keyple.core.utils" as utils {
     +class "**final** Assert" as Assert {
         --
         +{static} Assert getInstance ()

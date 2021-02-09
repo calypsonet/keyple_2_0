@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Specific Extension - 2.0.0 (09/02/2021)
+    Keyple 2.0 - Specific Card Extension - 2.0.0 (09/02/2021)
 end title
 
 ' == THEME ==
@@ -45,13 +45,13 @@ hide <<grey>> stereotype
 
 ' == CONTENT ==
 
-package "org.eclipse.keyple.commons" as commonsApi {
+package "org.eclipse.keyple.core.commons" as commonsApi {
     +interface KeypleCardExtension {
     }
     +interface KeypleCardSelector {
     }
 }
-package "org.eclipse.keyple.service.selection.spi" as serviceSelectionSpi {
+package "org.eclipse.keyple.core.service.selection.spi" as serviceSelectionSpi {
     +interface CardSelection {
         ...
     }
@@ -63,7 +63,7 @@ package "org.eclipse.keyple.service.selection.spi" as serviceSelectionSpi {
     }
 }
 
-package "org.eclipse.keyple.card.spi" as cardSpi {
+package "org.eclipse.keyple.core.card.spi" as cardSpi {
     +interface CardExtensionSpi {
         ...
     }
@@ -75,7 +75,7 @@ package "org.eclipse.keyple.card.spi" as cardSpi {
 }
 
 
-package "specific.extension" as specificExtension {
+package "org.eclipse.keyple.card.xxx (specific extension)" as specificExtension {
     +interface xxxSmartCard extends SmartCard {
         ...
     }

@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="912.5px" preserveAspectRatio="none" style="width:2550px;height:912px;" version="1.1" viewBox="0 0 2550 912" width="2550px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="1032.5" x="742.5" y="46.7139">Keyple 2.0 - keyple-commons-api - 2.0 (05/02/2021)</text><!--MD5=[7442f3b126ee602ae02566c1a49e158a]
-cluster api--><polygon fill="#F8F9F9" points="40,71.6016,555,71.6016,572.5,130.625,2507.5,130.625,2507.5,896.6016,40,896.6016,40,71.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="40" x2="572.5" y1="130.625" y2="130.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="500" x="50" y="112.9346">org.eclipse.keyple.commons</text><!--MD5=[120218adfd8782b0057db0a1b8294250]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="912.5px" preserveAspectRatio="none" style="width:2550px;height:912px;" version="1.1" viewBox="0 0 2550 912" width="2550px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="1130" x="693.75" y="46.7139">Keyple 2.0 - keyple-java-commons-api - 2.0 (09/02/2021)</text><!--MD5=[7442f3b126ee602ae02566c1a49e158a]
+cluster api--><polygon fill="#F8F9F9" points="40,71.6016,645,71.6016,662.5,130.625,2507.5,130.625,2507.5,896.6016,40,896.6016,40,71.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="40" x2="662.5" y1="130.625" y2="130.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="590" x="50" y="112.9346">org.eclipse.keyple.core.commons</text><!--MD5=[120218adfd8782b0057db0a1b8294250]
 class ApiProperties--><rect codeLine="49" fill="#FEFECE" height="154.5898" id="ApiProperties" style="stroke:#D4AC0D;stroke-width:3.75;" width="505" x="80" y="161.6016"/><ellipse cx="117.5" cy="201.6016" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M122.5,192.8516 Q123.0078,191.6016 123.5938,190.9766 Q124.1797,190.3516 124.8438,190.3516 Q126.0156,190.3516 126.7578,191.0547 Q127.5,191.7578 127.5,193.3984 L127.5,197.3047 Q127.5,198.9453 126.7969,199.6484 Q126.0938,200.3516 125,200.3516 Q124.0234,200.3516 123.3984,199.9219 Q122.7734,199.4922 122.5,198.3594 Q122.3828,197.5781 121.9531,197.1484 Q121.1719,196.3281 119.7656,195.8594 Q118.3594,195.3516 116.9531,195.3516 Q115.1953,195.3516 113.7109,196.0547 Q112.2656,196.7578 111.1328,198.3203 Q110,199.8828 110,202.0313 L110,204.3359 Q110,206.9141 112.1094,208.6328 Q114.2188,210.3516 117.9688,210.3516 Q120.1953,210.3516 121.7578,209.8438 Q122.6563,209.5703 123.6719,208.6719 Q124.3359,208.1641 124.6875,208.0078 Q125.0391,207.8516 125.4688,207.8516 Q126.2891,207.8516 126.875,208.5156 Q127.5,209.1406 127.5,210.0391 Q127.5,210.8984 126.6406,211.9141 Q125.3906,213.3984 123.3984,214.2188 Q120.7813,215.3516 117.5781,215.3516 Q113.8281,215.3516 110.8203,213.8672 Q108.3984,212.6953 106.6797,210.1563 Q105,207.6172 105,204.6094 L105,201.875 Q105,198.75 106.4844,196.0156 Q108.0078,193.2813 110.625,191.8359 Q113.2813,190.3516 116.25,190.3516 Q118.0469,190.3516 119.6094,190.9766 Q121.1719,191.6016 122.5,192.8516 Z " fill="#000000"/><ellipse cx="165" cy="200.3516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="180" y="213.877">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="330" x="247.5" y="213.877">CommonsApiProperties</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="82.5" x2="582.5" y1="241.6016" y2="241.6016"/><ellipse cx="107.5" cy="269.1016" fill="none" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" font-weight="bold" lengthAdjust="spacing" text-decoration="underline" textLength="57.5" x="130" y="280.1489">final</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" text-decoration="underline" textLength="190" x="195" y="280.1489">String VERSION</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="82.5" x2="582.5" y1="296.1914" y2="296.1914"/><!--MD5=[8322abeb999888483b6b56e890df9c6a]
 class KeyplePluginFactory--><rect codeLine="52" fill="#FEFECE" height="120" id="KeyplePluginFactory" style="stroke:#D4AC0D;stroke-width:3.75;" width="390" x="672.5" y="179.1016"/><ellipse cx="710" cy="219.1016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M712.5,211.6016 L712.5,226.6016 L717.5,226.6016 L718.7109,226.6016 L720,228.1641 L720,229.1016 L720,230.0391 L718.7109,231.6016 L717.5,231.6016 L702.5,231.6016 L701.2891,231.6016 L700,230.0391 L700,229.1016 L700,228.1641 L701.2891,226.6016 L702.5,226.6016 L707.5,226.6016 L707.5,211.6016 L702.5,211.6016 L701.2891,211.6016 L700,210.0391 L700,209.1016 L700,208.1641 L701.2891,206.6016 L702.5,206.6016 L717.5,206.6016 L718.7109,206.6016 L720,208.1641 L720,209.1016 L720,210.0391 L718.7109,211.6016 L717.5,211.6016 L712.5,211.6016 Z " fill="#000000"/><ellipse cx="757.5" cy="217.8516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="282.5" x="772.5" y="231.377">KeyplePluginFactory</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="675" x2="1060" y1="259.1016" y2="259.1016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="675" x2="1060" y1="279.1016" y2="279.1016"/><!--MD5=[e767d71dd6c644ebbe02fe42896e6818]
 class KeyplePlugin--><rect codeLine="54" fill="#FEFECE" height="120" id="KeyplePlugin" style="stroke:#D4AC0D;stroke-width:3.75;" width="290" x="1150" y="179.1016"/><ellipse cx="1187.5" cy="219.1016" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1190,211.6016 L1190,226.6016 L1195,226.6016 L1196.2109,226.6016 L1197.5,228.1641 L1197.5,229.1016 L1197.5,230.0391 L1196.2109,231.6016 L1195,231.6016 L1180,231.6016 L1178.7891,231.6016 L1177.5,230.0391 L1177.5,229.1016 L1177.5,228.1641 L1178.7891,226.6016 L1180,226.6016 L1185,226.6016 L1185,211.6016 L1180,211.6016 L1178.7891,211.6016 L1177.5,210.0391 L1177.5,209.1016 L1177.5,208.1641 L1178.7891,206.6016 L1180,206.6016 L1195,206.6016 L1196.2109,206.6016 L1197.5,208.1641 L1197.5,209.1016 L1197.5,210.0391 L1196.2109,211.6016 L1195,211.6016 L1190,211.6016 Z " fill="#000000"/><ellipse cx="1235" cy="217.8516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="182.5" x="1250" y="231.377">KeyplePlugin</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1152.5" x2="1437.5" y1="259.1016" y2="259.1016"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1152.5" x2="1437.5" y1="279.1016" y2="279.1016"/><!--MD5=[d43c4cfc380800cd4ea82de477c52aec]
@@ -22,10 +22,10 @@ link KeypleDistributedLocalService to KeypleDefaultSelectionsRequest--><!--MD5=[
 link KeypleCardExtension to KeypleDefaultSelectionsResponse--><!--MD5=[0ce06fbaa27741def1fb106c718a3684]
 link KeypleDefaultSelectionsResponse to KeypleCardSelector--><!--MD5=[c6458e81f2612b96d2fff22416797b84]
 link KeypleCardSelector to KeyplePluginEvent--><!--MD5=[9f3aacdec3cfe6be3f601eccda26207c]
-link KeyplePluginEvent to KeypleReaderEvent--><!--MD5=[c627f3cf41c10e577ee1d6e3928748b4]
+link KeyplePluginEvent to KeypleReaderEvent--><!--MD5=[6dd83bb5e815f89f8fe4cd2fa530a839]
 @startuml
 title
-    Keyple 2.0 - keyple-commons-api - 2.0 (05/02/2021)
+    Keyple 2.0 - keyple-java-commons-api - 2.0 (09/02/2021)
 end title
 
 ' == THEME ==
@@ -71,7 +71,7 @@ hide <<grey>> stereotype
 ' == CONTENT ==
 
 
-package "org.eclipse.keyple.commons" as api {
+package "org.eclipse.keyple.core.commons" as api {
     +class "**final** CommonsApiProperties" as ApiProperties {
         +{static} **final** String VERSION
     }
@@ -113,7 +113,7 @@ package api #C_GREY1 {}
 
 @startuml
 title
-    Keyple 2.0 - keyple-commons-api - 2.0 (05/02/2021)
+    Keyple 2.0 - keyple-java-commons-api - 2.0 (09/02/2021)
 end title
 
 
@@ -143,7 +143,7 @@ hide <<grey>> stereotype
 
 
 
-package "org.eclipse.keyple.commons" as api {
+package "org.eclipse.keyple.core.commons" as api {
     +class "**final** CommonsApiProperties" as ApiProperties {
         +{static} **final** String VERSION
     }

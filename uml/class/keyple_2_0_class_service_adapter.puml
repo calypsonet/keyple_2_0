@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-service - 2.0.0 (05/02/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (09/02/2021)
 end title
 
 ' == THEME ==
@@ -49,7 +49,7 @@ legend top
     Legend : <back:cyan>from **Commons API**</back> - <back:lightGreen>from **Card API**</back> - <back:pink>from **Plugin API**</back> - <back:plum>from **Remote Plugin API**</back> - <back:orange>from **Local Service API**</back>
 end legend
 
-package "org.eclipse.keyple.service" as service {
+package "org.eclipse.keyple.core.service" as service {
     ' SPI
     package spi {
         +interface PluginObserverSpi {

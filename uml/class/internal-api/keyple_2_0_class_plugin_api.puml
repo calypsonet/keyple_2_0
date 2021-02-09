@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-plugin-api - 2.0 (05/02/2021)
+    Keyple 2.0 - keyple-java-plugin-api - 2.0 (09/02/2021)
 end title
 
 ' == THEME ==
@@ -45,7 +45,7 @@ hide <<grey>> stereotype
 
 ' == CONTENT ==
 
-package "org.eclipse.keyple.plugin" as api {
+package "org.eclipse.keyple.core.plugin" as api {
     +class "**final** PluginApiProperties" as ApiProperties {
         +{static} **final** String VERSION
     }

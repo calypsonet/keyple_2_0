@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-distributed-remote-api - 2.0 (05/02/2021)
+    Keyple 2.0 - keyple-java-distributed-remote-api - 2.0 (09/02/2021)
 end title
 
 ' == THEME ==
@@ -45,7 +45,7 @@ hide <<grey>> stereotype
 
 ' == CONTENT ==
 
-package "org.eclipse.keyple.distributed.remote" as api {
+package "org.eclipse.keyple.core.distributed.remote" as api {
     +class "**final** DistributedRemoteApiProperties" as ApiProperties {
         +{static} **final** String VERSION
     }

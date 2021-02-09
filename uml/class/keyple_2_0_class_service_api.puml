@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-service - 2.0.0 (09/02/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (09/02/2021)
 end title
 
 ' == THEME ==
@@ -49,7 +49,7 @@ legend top
     Legend : <back:cyan>from **Commons API**</back>
 end legend
 
-package "org.eclipse.keyple.service" as service {
+package "org.eclipse.keyple.core.service" as service {
     ' SPI
     package spi {
         +interface PluginObserverSpi {
@@ -305,7 +305,7 @@ package "org.eclipse.keyple.service" as service {
         }
     }
     ' EXCEPTIONS
-    package exceptions {
+    together {
         +class "<<RuntimeException>>\nKeyplePluginInstantiationException" as KeyplePluginInstantiationException {
             +KeyplePluginInstantiationException (
                 \tString message)
@@ -397,13 +397,12 @@ CardSelection .left.> CardSelector #C_USE : provide >
 
 ' == LAYOUT ==
 
-AidSelectorBuilder -[hidden]- exceptions
+AidSelectorBuilder -[hidden]- KeyplePluginInstantiationException
 
 ' == STYLE ==
 
 package service #C_GREY1 {}
 package spi #C_GREY2 {}
-package exceptions #C_GREY2 {}
 package selection #C_GREY2 {}
 package selectionSpi #C_GREY3 {}
 

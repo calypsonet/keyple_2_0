@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-distributed-local-api - 2.0 (05/02/2021)
+    Keyple 2.0 - keyple-java-distributed-local-api - 2.0 (09/02/2021)
 end title
 
 ' == THEME ==
@@ -45,7 +45,7 @@ hide <<grey>> stereotype
 
 ' == CONTENT ==
 
-package "org.eclipse.keyple.distributed.local" as api {
+package "org.eclipse.keyple.core.distributed.local" as api {
     +class "**final** DistributedLocalApiProperties" as ApiProperties {
         +{static} **final** String VERSION
     }

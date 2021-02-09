@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Specific Plugin - 2.0.0 (26/01/2021)
+    Keyple 2.0 - Specific Plugin - 2.0.0 (09/02/2021)
 end title
 
 ' == THEME ==
@@ -45,7 +45,7 @@ hide <<grey>> stereotype
 
 ' == CONTENT ==
 
-package "org.eclipse.keyple.commons" as commonsApi {
+package "org.eclipse.keyple.core.commons" as commonsApi {
     +interface KeyplePluginFactory {
     }
     +interface KeyplePlugin {
@@ -54,7 +54,7 @@ package "org.eclipse.keyple.commons" as commonsApi {
     }
 }
 
-package "org.eclipse.keyple.plugin.spi" as pluginSpi {
+package "org.eclipse.keyple.core.plugin.spi" as pluginSpi {
     +interface ReaderSpi {
         ...
     }
@@ -66,7 +66,7 @@ package "org.eclipse.keyple.plugin.spi" as pluginSpi {
     }
 }
 
-package "specific.plugin (not pool)" as specificPluginApi {
+package "org.eclipse.keyple.plugin.xxx (specific plugin)" as specificPluginApi {
     +class "**final** xxxPluginFactoryProvider" as xxxPluginFactoryProvider {
         +{static} xxxPluginFactory getFactory ()
     }

@@ -72,13 +72,13 @@ package "Specific Card Extension (Calypso...)" as packExtension {
     interface "Specific\nCard Extension API" as specificCardExtensionApi <<green>>
     [Adapter] as extension <<green>>
 }
-package "keyple-service" as packService {
+package "keyple-java-service" as packService {
     interface "Service API" as serviceApi
     interface "Service SPI" as serviceSpi <<blue>>
     interface "Selection SPI" as selectionSpi <<green>>
     [Adapter] as service
 }
-package "keyple-card-api" as packCardApi {
+package "keyple-java-card-api" as packCardApi {
     interface "Card SPI" as cardSpi <<green>>
     interface "Card API" as cardApi
 }

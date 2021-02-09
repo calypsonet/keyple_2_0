@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="2727.5px" preserveAspectRatio="none" style="width:3090px;height:2727px;" version="1.1" viewBox="0 0 3090 2727" width="3090px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="885" x="1086.25" y="46.7139">Keyple 2.0 - keyple-utils - 2.0.0 (22/01/2021)</text><!--MD5=[c52f45833d539af9e29a9d34b8b7302b]
-cluster utils--><polygon fill="#F8F9F9" points="40,346.6016,462.5,346.6016,480,405.625,3047.5,405.625,3047.5,2711.6016,40,2711.6016,40,346.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="40" x2="480" y1="405.625" y2="405.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="407.5" x="50" y="387.9346">org.eclipse.keyple.utils</text><!--MD5=[d5b9573ae558c3cb3918aa21faca5202]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="2727.5px" preserveAspectRatio="none" style="width:3090px;height:2727px;" version="1.1" viewBox="0 0 3090 2727" width="3090px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="982.5" x="1037.5" y="46.7139">Keyple 2.0 - keyple-java-utils - 2.0.0 (09/02/2021)</text><!--MD5=[c52f45833d539af9e29a9d34b8b7302b]
+cluster utils--><polygon fill="#F8F9F9" points="40,346.6016,552.5,346.6016,570,405.625,3047.5,405.625,3047.5,2711.6016,40,2711.6016,40,346.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="40" x2="570" y1="405.625" y2="405.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="497.5" x="50" y="387.9346">org.eclipse.keyple.core.utils</text><!--MD5=[d5b9573ae558c3cb3918aa21faca5202]
 cluster bertlv--><polygon fill="#F2F3F4" points="1117.5,1636.6016,1237.5,1636.6016,1255,1695.625,2700,1695.625,2700,2631.6016,1117.5,2631.6016,1117.5,1636.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="1117.5" x2="1255" y1="1695.625" y2="1695.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="105" x="1127.5" y="1677.9346">bertlv</text><!--MD5=[4ac75f36695ece63879c728112de416c]
 cluster json--><polygon fill="#F2F3F4" points="120,476.6016,210,476.6016,227.5,535.625,2967.5,535.625,2967.5,939.1016,120,939.1016,120,476.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="120" x2="227.5" y1="535.625" y2="535.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="75" x="130" y="517.9346">json</text><!--MD5=[52b54d1eef5d217494f95d05f6b53b88]
 cluster protocols--><polygon fill="#F2F3F4" points="1002.5,1039.1016,1185,1039.1016,1202.5,1098.125,2450,1098.125,2450,1536.6016,1002.5,1536.6016,1002.5,1039.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="1002.5" x2="1202.5" y1="1098.125" y2="1098.125"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="167.5" x="1012.5" y="1080.4346">protocols</text><!--MD5=[748d96b9802ee0d94a77604226d4f903]
@@ -30,10 +30,10 @@ link Gson to KeypleGsonParser--><path codeLine="166" d="M445,271.9441 C445,344.6
 link json to protocols--><!--MD5=[3588befeacdf3116e0fd853ffedaac46]
 link json to ByteArrayUtil--><!--MD5=[77af3af9bd033e189bbbaaa818513ffc]
 link ByteArrayUtil to Assert--><!--MD5=[aeb5b2c4431e938915c3a32b6f6528bb]
-link protocols to bertlv--><!--MD5=[39b92fb545ce255e57229624269fa974]
+link protocols to bertlv--><!--MD5=[44c386ff2fa924aa64307b193aa22e29]
 @startuml
 title
-    Keyple 2.0 - keyple-utils - 2.0.0 (22/01/2021)
+    Keyple 2.0 - keyple-java-utils - 2.0.0 (09/02/2021)
 end title
 
 ' == THEME ==
@@ -95,7 +95,7 @@ hide <<grey>> stereotype
 +class "**final** Gson" as Gson {
     ...
 }
-package "org.eclipse.keyple.utils" as utils {
+package "org.eclipse.keyple.core.utils" as utils {
     +class "**final** Assert" as Assert {
         - -
         +{static} Assert getInstance ()
@@ -219,7 +219,7 @@ package protocols #C_GREY2 {}
 
 @startuml
 title
-    Keyple 2.0 - keyple-utils - 2.0.0 (22/01/2021)
+    Keyple 2.0 - keyple-java-utils - 2.0.0 (09/02/2021)
 end title
 
 
@@ -265,7 +265,7 @@ hide <<grey>> stereotype
 +class "**final** Gson" as Gson {
     ...
 }
-package "org.eclipse.keyple.utils" as utils {
+package "org.eclipse.keyple.core.utils" as utils {
     +class "**final** Assert" as Assert {
         - -
         +{static} Assert getInstance ()
@@ -383,7 +383,7 @@ package protocols #F2F3F4 {}
 
 @enduml
 
-PlantUML version 1.2021.00(Sun Jan 10 11:25:05 CET 2021)
+PlantUML version 1.2021.01(Tue Feb 02 08:55:08 CET 2021)
 (GPL source distribution)
 Java Runtime: OpenJDK Runtime Environment
 JVM: OpenJDK 64-Bit Server VM
