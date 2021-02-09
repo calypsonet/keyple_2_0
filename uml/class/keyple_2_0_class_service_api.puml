@@ -84,8 +84,6 @@ package "org.eclipse.keyple.service" as service {
             ..
             +void getDistributedLocalService (
                 \tString distributedLocalServiceName)
-            ..
-            +String getVersion ()
         }
         +interface Plugin {
             --
@@ -308,55 +306,33 @@ package "org.eclipse.keyple.service" as service {
     }
     ' EXCEPTIONS
     package exceptions {
-        +abstract class "<<RuntimeException>>\nKeypleException" as KeypleException {
-            #KeypleException (String message)
-            #KeypleException (String message, Throwable cause)
-        }
-        +abstract class KeyplePluginException extends KeypleException {
-            #KeyplePluginException (
-                \tString message)
-            #KeyplePluginException (
-                \tString message, Throwable cause)
-        }
-        +class KeyplePluginInstantiationException extends KeyplePluginException {
+        +class "<<RuntimeException>>\nKeyplePluginInstantiationException" as KeyplePluginInstantiationException {
             +KeyplePluginInstantiationException (
                 \tString message)
             +KeyplePluginInstantiationException (
                 \tString message, Throwable cause)
         }
-        +class KeyplePluginNotFoundException extends KeyplePluginException {
+        +class "<<RuntimeException>>\nKeyplePluginNotFoundException" as KeyplePluginNotFoundException {
             +KeyplePluginNotFoundException (
                 \tString message)
         }
-        +abstract class KeypleReaderException extends KeypleException {
-            #KeypleReaderException (
-                \tString message)
-            #KeypleReaderException (
-                \tString message, Throwable cause)
-        }
-        +class KeypleReaderCommunicationException extends KeypleReaderException {
+        +class "<<RuntimeException>>\nKeypleReaderCommunicationException" as KeypleReaderCommunicationException {
             +KeypleReaderCommunicationException (
                 \tString message)
             +KeypleReaderCommunicationException (
                 \tString message, Throwable cause)
         }
-        +class KeypleReaderNotFoundException extends KeypleReaderException {
+        +class "<<RuntimeException>>\nKeypleReaderNotFoundException" as KeypleReaderNotFoundException {
             +KeypleReaderNotFoundException (
                 \tString message)
             +KeypleReaderNotFoundException (
                 \tString message, Throwable cause)
         }
-        +class KeypleReaderProtocolNotSupportedException extends KeypleReaderException {
+        +class "<<RuntimeException>>\nKeypleReaderProtocolNotSupportedException" as KeypleReaderProtocolNotSupportedException {
             +KeypleReaderProtocolNotSupportedException (
                 \tString cardProtocol)
         }
-        +abstract class KeypleCardException extends KeypleException {
-            #KeypleCardException (
-                \tString message)
-            #KeypleCardException (
-                \tString message, Throwable cause)
-        }
-        +class KeypleCardCommunicationException extends KeypleCardException {
+        +class "<<RuntimeException>>\nKeypleCardCommunicationException" as KeypleCardCommunicationException {
             +KeypleCardCommunicationException (
                 \tString message)
             +KeypleCardCommunicationException (
@@ -421,7 +397,7 @@ CardSelection .left.> CardSelector #C_USE : provide >
 
 ' == LAYOUT ==
 
-PluginEventType -[hidden]- KeypleException
+AidSelectorBuilder -[hidden]- exceptions
 
 ' == STYLE ==
 
