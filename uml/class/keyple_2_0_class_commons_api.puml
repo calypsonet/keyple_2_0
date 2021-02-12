@@ -45,22 +45,23 @@ hide <<grey>> stereotype
 
 ' == CONTENT ==
 
-
 package "org.eclipse.keyple.core.commons" as api {
     +class "**final** CommonsApiProperties" as ApiProperties {
         +{static} **final** String VERSION
     }
-    +interface KeyplePluginFactory {
+    +interface KeyplePluginExtensionFactory {
     }
-    +interface KeyplePlugin {
+    +interface KeyplePluginExtension {
     }
-    +interface KeypleReader {
+    +interface KeypleReaderExtension {
+    }
+    +interface KeypleSmartCard {
     }
     +interface KeypleCardExtension {
     }
-    +interface KeypleDistributedLocalServiceFactory {
+    +interface KeypleDistributedLocalServiceExtensionFactory {
     }
-    +interface KeypleDistributedLocalService {
+    +interface KeypleDistributedLocalServiceExtension {
     }
     +interface KeypleDefaultSelectionsRequest {
     }

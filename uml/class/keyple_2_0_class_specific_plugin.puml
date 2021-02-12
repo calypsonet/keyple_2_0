@@ -46,11 +46,11 @@ hide <<grey>> stereotype
 ' == CONTENT ==
 
 package "org.eclipse.keyple.core.commons" as commonsApi {
-    +interface KeyplePluginFactory {
+    +interface KeyplePluginExtensionFactory {
     }
-    +interface KeyplePlugin {
+    +interface KeyplePluginExtension {
     }
-    +interface KeypleReader {
+    +interface KeypleReaderExtension {
     }
 }
 
@@ -70,13 +70,13 @@ package "org.eclipse.keyple.plugin.xxx (specific plugin)" as specificPluginApi {
     +class "**final** xxxPluginFactoryProvider" as xxxPluginFactoryProvider {
         +{static} xxxPluginFactory getFactory ()
     }
-    +interface xxxPluginFactory extends KeyplePluginFactory {
+    +interface xxxPluginFactory extends KeyplePluginExtensionFactory {
         ...
     }
-    +interface xxxPlugin extends KeyplePlugin {
+    +interface xxxPlugin extends KeyplePluginExtension {
         ...
     }
-    +interface xxxReader extends KeypleReader {
+    +interface xxxReader extends KeypleReaderExtension {
         ...
     }
     ' Adapters

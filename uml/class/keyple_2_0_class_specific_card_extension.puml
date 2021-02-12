@@ -48,6 +48,8 @@ hide <<grey>> stereotype
 package "org.eclipse.keyple.core.commons" as commonsApi {
     +interface KeypleCardExtension {
     }
+    +interface KeypleSmartCard {
+    }
     +interface KeypleCardSelector {
     }
 }
@@ -55,7 +57,7 @@ package "org.eclipse.keyple.core.service.selection.spi" as serviceSelectionSpi {
     +interface CardSelection {
         ...
     }
-    +interface SmartCard {
+    +interface SmartCard extends KeypleSmartCard {
         ...
     }
     +class CardSelector implements KeypleCardSelector {
