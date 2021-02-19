@@ -50,18 +50,9 @@ package "org.eclipse.keyple.core.distributed.local" as api {
         +{static} **final** String VERSION
     }
     +interface LocalServiceManager {
-        +Map<String, Boolean> getObservabilityByReaderName ()
-        +String transmit (String readerName, String jsonData)
-        +String transmitCardSelectionRequests (String readerName, String jsonData)
-        +void setDefaultSelection (String readerName, String jsonData)
-        +boolean isCardPresent (String readerName)
-        +boolean isContactless (String readerName)
-        +void startCardDetection (String readerName, String jsonData)
-        +void stopCardDetection (String readerName)
-        +void finalizeCardProcessing (String readerName)
-        +void releaseChannel (String readerName)
-        +void activatePluginObservation ()
-        +void activateReaderObservation ()
+        +String executeLocally (String readerName, String jsonData)
+        +boolean isReaderObservable (String readerName)
+        +void activateReaderObservation (String readerName)
     }
     package spi {
         +interface LocalServiceFactorySpi {
@@ -72,7 +63,7 @@ package "org.eclipse.keyple.core.distributed.local" as api {
         +interface LocalServiceSpi {
             +void setManager (LocalServiceManager manager)
             +String getName ()
-            +void onPluginEvent (String pluginName, String jsonData, <back:cyan>KeyplePluginEvent</back> pluginEvent)
+            +void onPluginEvent (String readerName, String jsonData, <back:cyan>KeyplePluginEvent</back> pluginEvent)
             +void onReaderEvent (String readerName, String jsonData, <back:cyan>KeypleReaderEvent</back> readerEvent)
         }
     }

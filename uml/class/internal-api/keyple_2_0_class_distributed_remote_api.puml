@@ -67,23 +67,13 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
             --
             +void setManager (RemoteReaderManger manager)
             ..
-            +boolean isContactless ()
-            +boolean isCardPresent ()
-            ..
-            +void releaseChannel ()
-            ..
-            +String processCardSelectionRequests (String jsonData)
-            +String processCardRequest (String jsonData)
+            +String getName ()
+            +String executeRemotely (String jsonData)
         }
         +interface ObservableRemoteReaderSpi extends RemoteReaderSpi {
-            --
-            +void startCardDetection (String jsonData)
-            +void stopCardDetection ()
-            +void setDefaultSelectionRequest (String jsonData)
-            +void finalizeCardProcessing ()
         }
         +interface RemotePluginSpi {
-            +Map<String, RemoteReaderSpi> initNativeReaders ()
+            +Set<RemoteReaderSpi> searchAvailableReaders ()
         }
         +interface ObservableRemotePluginSpi extends RemotePluginSpi {
             --
@@ -93,7 +83,7 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
             --
             +SortedSet<String> getReaderGroupReferences ()
             ..
-            +RemoteReaderSpi allocateReader (String groupReference)
+            +RemoteReaderSpi allocateReader (String readerGroupReference)
             +void releaseReader (RemoteReaderSpi reader)
         }
         +interface RemotePluginFactorySpi {

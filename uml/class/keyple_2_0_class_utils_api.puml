@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-utils - 2.0.0 (09/02/2021)
+    Keyple 2.0 - keyple-java-utils - 2.0.0 (19/02/2021)
 end title
 
 ' == THEME ==
@@ -62,7 +62,7 @@ hide <<grey>> stereotype
 +class "**final** Gson" as Gson {
     ...
 }
-package "org.eclipse.keyple.core.utils" as utils {
+package "org.eclipse.keyple.core.util" as util {
     +class "**final** Assert" as Assert {
         --
         +{static} Assert getInstance ()
@@ -139,14 +139,14 @@ package "org.eclipse.keyple.core.utils" as utils {
                 \tboolean withSubclasses)
         }
     }
-    package protocols {
-        +enum ContactCardCommonProtocols {
+    package protocol {
+        +enum ContactCardCommonProtocol {
             ISO_7816_3
             ISO_7816_3_TO
             ISO_7816_3_T1
             INNOVATRON_HIGH_SPEED_PROTOCOL_SAM
         }
-        +enum ContactlessCardCommonProtocols {
+        +enum ContactlessCardCommonProtocol {
             ISO_14443_4
             NFC_A_ISO_14443_3A
             NFC_B_ISO_14443_3B
@@ -168,18 +168,18 @@ KeypleGsonParser *-up- "1" Gson #C_LINK
 
 ' == LAYOUT ==
 
-json -[hidden]- protocols
+json -[hidden]- protocol
 json -[hidden]- ByteArrayUtil
 ByteArrayUtil -[hidden]- Assert
 
-protocols -[hidden]- bertlv
+protocol -[hidden]- bertlv
 
 ' == STYLE ==
 
-package utils #C_GREY1 {}
+package util #C_GREY1 {}
 package bertlv #C_GREY2 {}
 package json #C_GREY2 {}
-package protocols #C_GREY2 {}
+package protocol #C_GREY2 {}
 'class PoolLocalServiceServerUtils <<blue>>
 
 @enduml

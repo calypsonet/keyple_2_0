@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (09/02/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (19/02/2021)
 end title
 
 ' == THEME ==
@@ -132,7 +132,7 @@ package "org.eclipse.keyple.core.service" as service {
         ~LocalReaderAdapter (String pluginName, String readerName,
             \t<back:pink>ReaderSpi</back> readerSpi)
         ..
-        +**final** <T extends <back:cyan>KeypleReader</back>> T getExtension (Class<T> readerType)
+        +**final** <T extends <back:cyan>KeypleReaderExtension</back>> T getExtension (Class<T> readerType)
         +**final** boolean isContactless ()
         +boolean isCardPresent ()
         +**final** void activateProtocol (
@@ -157,7 +157,7 @@ package "org.eclipse.keyple.core.service" as service {
         ~RemoteReaderAdapter (String pluginName, String readerName,
             \t<back:plum>RemoteReaderSpi</back> remoteReaderSpi)
         ..
-        +**final** <T extends <back:cyan>KeypleReader</back>> T getExtension (Class<T> readerType)
+        +**final** <T extends <back:cyan>KeypleReaderExtension</back>> T getExtension (Class<T> readerType)
         +**final** boolean isContactless ()
         +**final** boolean isCardPresent ()
         +**final** void activateProtocol (
@@ -371,7 +371,7 @@ package "org.eclipse.keyple.core.service" as service {
             \tPluginSpiT pluginSpi)
         ..
         +**final** String getName ()
-        +**final** <T extends <back:cyan>KeyplePlugin</back>> T getExtension (Class<T> pluginType)
+        +**final** <T extends <back:cyan>KeyplePluginExtension</back>> T getExtension (Class<T> pluginType)
         +**final** Map<String, Reader> getReaders ()
         +**final** Set<String> getReaderNames ()
         +**final** Reader getReader (String name)
@@ -386,20 +386,12 @@ package "org.eclipse.keyple.core.service" as service {
             \t<back:orange>LocalServiceSpi</back> localServiceSpi)
         ..
         +String getName ()
-        +<T extends <back:cyan>KeypleDistributedLocalService</back>> T getExtension (Class<T> distributedLocalServiceType)
+        +<T extends <back:cyan>KeypleDistributedLocalServiceExtension</back>> T getExtension (
+            \tClass<T> distributedLocalServiceType)
         ..
-        +Map<String, Boolean> getObservabilityByReaderName ()
-        +String transmit (String readerName, String jsonData)
-        +String transmitCardSelectionRequests (String readerName, String jsonData)
-        +void setDefaultSelection (String readerName, String jsonData)
-        +boolean isCardPresent (String readerName)
-        +boolean isContactless (String readerName)
-        +void startCardDetection (String readerName, String jsonData)
-        +void stopCardDetection (String readerName)
-        +void finalizeCardProcessing (String readerName)
-        +void releaseChannel (String readerName)
-        +void activatePluginObservation ()
-        +void activateReaderObservation ()
+        +String executeLocally (String readerName, String jsonData)
+        +boolean isReaderObservable (String readerName)
+        +void activateReaderObservation (String readerName)
         ..
         ~void checkStatus ()
         ~void register ()
@@ -412,7 +404,7 @@ package "org.eclipse.keyple.core.service" as service {
         ..
         +SortedSet<String> getReaderGroupReferences ()
         ..
-        +Reader allocateReader (String groupReference)
+        +Reader allocateReader (String readerGroupReference)
         +void releaseReader (Reader reader)
     }
     ~abstract class "AbstractObservablePluginAdapter\n\n<back:pink>ObservablePluginSpi</back>\nor <back:plum>ObservableRemotePluginSpi</back>" as AbstractObservablePluginAdapter<ObservablePluginSpiT> extends PluginAdapter implements ObservablePlugin {
@@ -428,11 +420,6 @@ package "org.eclipse.keyple.core.service" as service {
         ~**final** void unregister ()
         ~**final** void notifyObservers (PluginEvent event)
     }
-    ~class ObservableLocalPluginAdapter extends AbstractObservablePluginAdapter {
-        --
-        ~ObservableLocalPluginAdapter (String name,
-            \t<back:pink>ObservablePluginSpi</back> observablePluginSpi)
-    }
     ~class "<<<back:plum>ObservableRemotePluginManager</back>>>\n**final** ObservableRemotePluginAdapter" as ObservableRemotePluginAdapter extends AbstractObservablePluginAdapter {
         --
         ~ObservableRemotePluginAdapter (String name,
@@ -443,16 +430,24 @@ package "org.eclipse.keyple.core.service" as service {
         +<back:plum>RemoteReaderManager</back> getReader (String readerName)
         +void onPluginEvent (String jsonData)
     }
-    ~class "**final** ThreadedObservableLocalPluginAdapter" as ThreadedObservableLocalPluginAdapter extends ObservableLocalPluginAdapter {
+    ~class "**final** ObservableLocalPluginAdapter" as ObservableLocalPluginAdapter extends AbstractObservablePluginAdapter {
         --
-        ~ThreadedObservableLocalPluginAdapter (String name,
-            \t<back:pink>ThreadedObservablePluginSpi</back> threadedObservablePluginSpi)
+        ~ObservableLocalPluginAdapter (String name,
+            \t<back:pink>ObservablePluginSpi</back> observablePluginSpi)
         ..
         +void addObserver (PluginObserverSpi observer)
         +void removeObserver (PluginObserverSpi observer)
         +void clearObservers ()
         ..
         ~Boolean isMonitoring ()
+    }
+    ~class "<<<back:pink>AutonomousObservablePluginManager</back>>>\n**final** AutonomousObservableLocalPluginAdapter" as AutonomousObservableLocalPluginAdapter extends AbstractObservablePluginAdapter {
+        --
+        ~AutonomousObservableLocalPluginAdapter (String name,
+            \t<back:pink>AutonomousObservablePluginSpi</back> autonomousObservablePluginSpi)
+        ..
+        +void onReaderConnected (Set<<back:pink>ReaderSpi</back>> readers)
+        +void onReaderDisconnected (Set<String> readersNames)
     }
 }
 
@@ -477,9 +472,10 @@ AbstractObservableState *-- "0..1" AbstractMonitoringJob #C_LINK
 
 PluginAdapter *-- "0..N" Reader #C_LINK
 
-ObservablePluginAdapter *-- "0..N" PluginObserverSpi #C_LINK
+AbstractObservablePluginAdapter *-- "0..N" PluginObserverSpi #C_LINK
 
 ObservableLocalReaderAdapter *-- "0..N" ReaderObserverSpi #C_LINK
+ObservableRemoteReaderAdapter *-- "0..N" ReaderObserverSpi #C_LINK
 
 ' == LAYOUT ==
 
@@ -516,7 +512,8 @@ class PoolPluginAdapter <<blue>>
 abstract class AbstractObservablePluginAdapter <<blue>>
 class ObservableLocalPluginAdapter <<blue>>
 class ObservableRemotePluginAdapter <<blue>>
-class ThreadedObservableLocalPluginAdapter <<blue>>
+class ObservableLocalPluginAdapter <<blue>>
+class AutonomousObservableLocalPluginAdapter <<blue>>
 class DistributedLocalServiceAdapter <<blue>>
 
 @enduml

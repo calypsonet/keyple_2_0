@@ -1,11 +1,12 @@
 @startuml
 title
-    Keyple 2.0 - Modules dependencies - 05/02/2021
+    Keyple 2.0 - Modules dependencies - 19/02/2021
 end title
 
 ' == THEME ==
 
 'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define C_GREY1 F8F9F9
 !define COLOR_YELLOW D4AC0D
 !define COLOR_RED E74C3C
 !define COLOR_PURPLE 8E44AD
@@ -57,7 +58,7 @@ hide <<grey>> stereotype
 
 ' == COMPONENTS ==
 
-package "Components having adapters" as packMain {
+package "Components having adapters" as packMain #C_GREY1 {
     [Specific Application] as application <<blue>>
     [**keyple-java-service**\nuse <back:cyan>**keyple-java-commons-api**</back>] as service
     [Specific Plugin (PCSC...)\nuse <back:cyan>**keyple-java-commons-api**</back>] as plugin <<red>>
@@ -68,13 +69,13 @@ package "Components having adapters" as packMain {
         [**keyple-java-distributed-remote**\nuse <back:cyan>**keyple-java-commons-api**</back>] as remote <<purple>>
     }
 }
-package "Keyple Internal APIs/SPIs (hidden for the specific application)" {
+package "Keyple Internal APIs/SPIs (hidden for the specific application)" as packApi #C_GREY1 {
     [**keyple-java-plugin-api**] as pluginApi
     [**keyple-java-card-api**\nuse <back:cyan>**keyple-java-commons-api**</back>] as cardApi
     [**keyple-java-distributed-local-api**\nuse <back:cyan>**keyple-java-commons-api**</back>] as distributedLocalApi
     [**keyple-java-distributed-remote-api**] as distributedRemoteApi
 }
-[**keyple-java-utils**] as utils
+[**keyple-java-utils**] as util
 
 ' == ASSOCIATIONS ==
 
@@ -82,7 +83,7 @@ application --> plugin #COLOR_BLUE
 application --> service #COLOR_BLUE
 application --> extension #COLOR_BLUE
 application --> local #COLOR_BLUE
-application --> network #COLOR_BLUE
+application -left-> network #COLOR_BLUE
 application --> remote #COLOR_BLUE
 
 extension --> cardApi #COLOR_GREEN
@@ -95,12 +96,14 @@ service --> cardApi #COLOR_YELLOW
 service --> distributedRemoteApi #COLOR_YELLOW
 service --> distributedLocalApi #COLOR_YELLOW
 
-local -left-> network #COLOR_PURPLE
+local -up-> network #COLOR_PURPLE
 local --> distributedLocalApi #COLOR_PURPLE
 
-remote -right-> network #COLOR_PURPLE
+remote -up-> network #COLOR_PURPLE
 remote --> distributedRemoteApi #COLOR_PURPLE
 
-packMain -up-> utils
+packMain -up-> util
+
+' == LAYOUT ==
 
 @enduml
