@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-plugin-api - 2.0 (19/02/2021)
+    Keyple 2.0 - keyple-java-plugin-api - 2.0 (25/02/2021)
 end title
 
 ' == THEME ==
@@ -73,7 +73,7 @@ package "org.eclipse.keyple.core.plugin" as api {
                 +String getPluginApiVersion ()
                 +String getCommonsApiVersion ()
                 +String getPluginName ()
-                +PoolPluginSpi getPlugin ()
+                +PoolPluginSpi getPoolPlugin ()
             }
             +interface PluginFactorySpi {
                 +String getPluginApiVersion ()
@@ -86,7 +86,7 @@ package "org.eclipse.keyple.core.plugin" as api {
                 +SortedSet<String> getReaderGroupReferences ()
                 ..
                 +ReaderSpi allocateReader (String readerGroupReference)
-                +void releaseReader (ReaderSpi reader)
+                +void releaseReader (ReaderSpi readerSpi)
             }
             +interface PluginSpi {
                 +Set<ReaderSpi> searchAvailableReaders ()
@@ -97,9 +97,9 @@ package "org.eclipse.keyple.core.plugin" as api {
             +int getMonitoringCycleDuration ()
             ..
             +Set<String> searchAvailableReadersNames ()
-            +ReaderSpi searchReader (String name)
+            +ReaderSpi searchReader (String readerName)
             ..
-            +PluginObservationExceptionHandlerSpi getObservationExceptionHandler ()
+            +PluginObservationExceptionHandlerSpi getPluginObservationExceptionHandler ()
         }
         +interface AutonomousObservablePluginSpi extends PluginSpi {
             +void setManager (AutonomousObservablePluginManager manager)
@@ -141,7 +141,7 @@ package "org.eclipse.keyple.core.plugin" as api {
                     +void onStartDetection ()
                     +void onStopDetection ()
                     ..
-                    +ReaderObservationExceptionHandlerSpi getObservationExceptionHandler ()
+                    +ReaderObservationExceptionHandlerSpi getReaderObservationExceptionHandler ()
                 }
                 +interface AutonomousObservableReaderSpi extends ObservableReaderSpi {
                     +void setManager (AutonomousObservableReaderManager manager)

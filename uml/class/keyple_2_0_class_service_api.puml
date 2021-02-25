@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (19/02/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (25/02/2021)
 end title
 
 ' == THEME ==
@@ -53,10 +53,10 @@ package "org.eclipse.keyple.core.service" as service {
     ' SPI
     package spi {
         +interface PluginObserverSpi {
-            +void update (PluginEvent event)
+            +void onPluginEvent (PluginEvent pluginEvent)
         }
         +interface ReaderObserverSpi {
-            +void update (ReaderEvent event)
+            +void onReaderEvent (ReaderEvent readerEvent)
         }
     }
     ' SERVICE
@@ -90,7 +90,7 @@ package "org.eclipse.keyple.core.service" as service {
             +String getName ()
             +<T extends <back:cyan>KeyplePluginExtension</back>> T getExtension (Class<T> pluginType)
             ..
-            +Set<String> getReaderNames ()
+            +Set<String> getReadersNames ()
             +Map<String, Reader> getReaders ()
             +Reader getReader (String readerName)
         }
@@ -159,11 +159,11 @@ package "org.eclipse.keyple.core.service" as service {
             \tString readerName,
             \tEventType eventType)
         +PluginEvent (String pluginName,
-            \tSet<String> readerNames,
+            \tSet<String> readersNames,
             \tEventType eventType)
         ..
         +String getPluginName ()
-        +SortedSet<String> getReaderNames ()
+        +SortedSet<String> getReadersNames ()
         +EventType getEventType ()
     }
     +enum "EventType" as PluginEventType {
@@ -182,8 +182,6 @@ package "org.eclipse.keyple.core.service" as service {
         +String getReaderName ()
         +EventType getEventType ()
         +<back:cyan>KeypleDefaultSelectionsResponse</back> getDefaultSelectionsResponse ()
-        +Plugin getPlugin ()
-        +Reader getReader ()
     }
     +enum "EventType" as ReaderEventType {
         CARD_INSERTED
