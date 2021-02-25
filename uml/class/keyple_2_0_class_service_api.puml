@@ -64,10 +64,11 @@ package "org.eclipse.keyple.core.service" as service {
         +class "**final** ServiceApiProperties" as ApiProperties {
             +{static} **final** String VERSION
         }
-        +class "**final** SmartCardService" as SmartCardService {
+        +class "**final** SmartCardServiceProvider" as SmartCardServiceProvider {
+            +{static} SmartCardService getService ()
+        }
+        +interface SmartCardService {
             --
-            +{static} SmartCardService getInstance ()
-            ..
             +Plugin registerPlugin (<back:cyan>KeyplePluginExtensionFactory</back> pluginFactory)
             +void unregisterPlugin (String pluginName)
             +boolean isPluginRegistered (String pluginName)
@@ -191,11 +192,12 @@ package "org.eclipse.keyple.core.service" as service {
     }
     ' SELECTION
     package selection {
-        +class "**final** CardSelectionsService" as CardSelectionsService {
+        +class "**final** CardSelectionsServiceFactory" as CardSelectionsServiceFactory {
+            +{static} CardSelectionsService getService ()
+            +{static} CardSelectionsService getService (MultiSelectionProcessing multiSelectionProcessing)
+        }
+        +interface CardSelectionsService {
             --
-            +CardSelectionsService ()
-            +CardSelectionsService (MultiSelectionProcessing multiSelectionProcessing)
-            ..
             +int prepareSelection (CardSelection cardSelection)
             +void prepareReleaseChannel ()
             ..
@@ -279,10 +281,8 @@ package "org.eclipse.keyple.core.service" as service {
                 +boolean atrMatches (byte[] atr)
             }
         }
-        +class "**final** CardSelectionsResult" as CardSelectionsResult {
+        +interface CardSelectionsResult {
             --
-            ~CardSelectionsResult ()
-            ..
             +boolean hasActiveSelection ()
             +int getActiveSelectionIndex ()
             +boolean hasSelectionMatched (int selectionIndex)
@@ -290,9 +290,6 @@ package "org.eclipse.keyple.core.service" as service {
             +Map<Integer, SmartCard> getSmartCards ()
             +SmartCard getSmartCard (int selectionIndex)
             +SmartCard getActiveSmartCard ()
-            ..
-            ~void addSmartCard (int selectionIndex,
-                \tSmartCard smartCard, boolean isSelected)
         }
         +class "**final** CardResource" as CardResource<T extends SmartCard> {
             --
@@ -342,6 +339,8 @@ package "org.eclipse.keyple.core.service" as service {
 ' Associations
 'LocalServiceClient ..> RemoteServiceParameters #C_USE : use >
 
+SmartCardServiceProvider ..> SmartCardService #C_USE : provide >
+
 SmartCardService *-- "0..N" Plugin #C_LINK
 SmartCardService *-- "0..N" DistributedLocalService #C_LINK
 
@@ -355,6 +354,8 @@ ObservableReader ..> PollingMode #C_USE : use >
 
 ReaderEvent +-- ReaderEventType
 ReaderEvent *-- "1" ReaderEventType #C_LINK
+
+CardSelectionsServiceFactory ..> CardSelectionsService #C_USE : create >
 
 CardSelectionsService *-- "1" MultiSelectionProcessing #C_LINK
 CardSelectionsService *-- "1..N" CardSelection #C_LINK

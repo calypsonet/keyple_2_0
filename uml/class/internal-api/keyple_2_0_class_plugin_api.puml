@@ -77,7 +77,7 @@ package "org.eclipse.keyple.core.plugin" as api {
             +interface PoolPluginFactorySpi {
                 +String getPluginApiVersion ()
                 +String getCommonsApiVersion ()
-                +String getPluginName ()
+                +String getPoolPluginName ()
                 +PoolPluginSpi getPoolPlugin ()
             }
             +interface PluginFactorySpi {
@@ -87,13 +87,13 @@ package "org.eclipse.keyple.core.plugin" as api {
                 +PluginSpi getPlugin ()
             }
             +interface PoolPluginSpi {
-                --
+                +String getName ()
                 +SortedSet<String> getReaderGroupReferences ()
-                ..
                 +ReaderSpi allocateReader (String readerGroupReference)
                 +void releaseReader (ReaderSpi readerSpi)
             }
             +interface PluginSpi {
+                +String getName ()
                 +Set<ReaderSpi> searchAvailableReaders ()
             }
         }
