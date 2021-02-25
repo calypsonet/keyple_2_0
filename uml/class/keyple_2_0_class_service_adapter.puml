@@ -174,43 +174,47 @@ package "org.eclipse.keyple.core.service" as service {
             \t<back:lightGreen>CardRequest</back> cardRequest,
             \t<back:lightGreen>ChannelControl</back> channelControl)
     }
-    ~class ObservableLocalReaderAdapter extends LocalReaderAdapter implements ObservableReader {
+    ~class "<<<back:pink>WaitForCardInsertionAutonomousReaderManager</back>>>\n<<<back:pink>WaitForCardRemovalAutonomousReaderManager</back>>>\n**final** ObservableLocalReaderAdapter" as ObservableLocalReaderAdapter extends LocalReaderAdapter implements ObservableReader {
         --
         ~ObservableLocalReaderAdapter (String pluginName, String readerName
             \t<back:pink>ObservableReaderSpi</back> observableReaderSpi)
         ..
-        ~**final** void onStartDetection ()
-        ~**final** void onStopDetection ()
-        ~**final** <back:pink>ReaderObservationExceptionHandlerSpi</back> getObservationExceptionHandler ()
+        ~void onStartDetection ()
+        ~void onStopDetection ()
+        ~<back:pink>ReaderObservationExceptionHandlerSpi</back> getObservationExceptionHandler ()
         ..
-        +**final** boolean isCardPresent ()
+        +boolean isCardPresent ()
         ..
-        +**final** void addObserver (ReaderObserverSpi observer)
-        +**final** void removeObserver (ReaderObserverSpi observer)
-        +**final** int countObservers ()
-        +**final** void clearObservers ()
-        +**final** void finalizeCardProcessing ()
-        +**final** void setDefaultSelectionRequest (
+        +void addObserver (ReaderObserverSpi observer)
+        +void removeObserver (ReaderObserverSpi observer)
+        +int countObservers ()
+        +void clearObservers ()
+        +void finalizeCardProcessing ()
+        +void setDefaultSelectionRequest (
             \t<back:cyan>KeypleDefaultSelectionsRequest</back> defaultSelectionsRequest,
             \tNotificationMode notificationMode)
-        +**final** void setDefaultSelectionRequest (
+        +void setDefaultSelectionRequest (
             \t<back:cyan>KeypleDefaultSelectionsRequest</back> defaultSelectionsRequest,
             \tNotificationMode notificationMode,
             \tPollingMode pollingMode)
-        +**final** void startCardDetection (PollingMode pollingMode)
-        +**final** void stopCardDetection ()
+        +void startCardDetection (PollingMode pollingMode)
+        +void stopCardDetection ()
         ..
-        ~**final** void notifyObservers (ReaderEvent event)
+        +void onCardInserted ()
         ..
-        ~**final** ReaderEvent processCardInserted ()
-        ~**final** boolean isCardPresentPing ()
-        ~**final** void processCardRemoved ()
-        ~**final** PollingMode getPollingMode ()
-        ~**final** void switchState (MonitoringState stateId)
-        ~**final** MonitoringState getCurrentMonitoringState ()
-        ~**final** void onEvent (InternalEvent event)
+        +void onCardRemoved ()
         ..
-        ~**final** void unregister ()
+        ~void notifyObservers (ReaderEvent event)
+        ..
+        ~ReaderEvent processCardInserted ()
+        ~boolean isCardPresentPing ()
+        ~void processCardRemoved ()
+        ~PollingMode getPollingMode ()
+        ~void switchState (MonitoringState stateId)
+        ~MonitoringState getCurrentMonitoringState ()
+        ~void onEvent (InternalEvent event)
+        ..
+        ~void unregister ()
     }
     ~enum InternalEvent {
         CARD_INSERTED
@@ -219,15 +223,6 @@ package "org.eclipse.keyple.core.service" as service {
         START_DETECT
         STOP_DETECT
         TIME_OUT
-    }
-    ~class "<<<back:pink>AutonomousObservableReaderManager</back>>>\n**final** AutonomousObservableLocalReaderAdapter" as AutonomousObservableLocalReaderAdapter extends ObservableLocalReaderAdapter {
-        --
-        ~AutonomousObservableLocalReaderAdapter (
-            \tString pluginName, String readerName
-            \t<back:pink>AutonomousObservableReaderSpi</back> autonomousObservableReaderSpi)
-        ..
-        +void onCardInserted ()
-        +void onCardRemoved ()
     }
     ~class "<<<back:plum>ObservableRemoteReaderManager</back>>>\n**final** ObservableRemoteReaderAdapter" as ObservableRemoteReaderAdapter extends RemoteReaderAdapter implements ObservableReader {
         --
