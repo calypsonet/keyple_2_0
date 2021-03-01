@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-plugin-api - 2.0 (25/02/2021)
+    Keyple 2.0 - keyple-java-plugin-api - 2.0 (01/03/2021)
 end title
 
 ' == THEME ==
@@ -59,6 +59,11 @@ package "org.eclipse.keyple.core.plugin" as api {
     +interface WaitForCardRemovalAutonomousReaderManager {
         +void onCardRemoved ()
     }
+    +class "<<Exception>>\n**final** PluginIOException" as PluginIOException {
+        +PluginIOException (String message)
+        +PluginIOException (String message,
+            \tThrowable cause)
+    }
     +class "<<Exception>>\n**final** ReaderIOException" as ReaderIOException {
         +ReaderIOException (String message)
         +ReaderIOException (String message,
@@ -91,10 +96,12 @@ package "org.eclipse.keyple.core.plugin" as api {
                 +SortedSet<String> getReaderGroupReferences ()
                 +ReaderSpi allocateReader (String readerGroupReference)
                 +void releaseReader (ReaderSpi readerSpi)
+                +void unregister ()
             }
             +interface PluginSpi {
                 +String getName ()
                 +Set<ReaderSpi> searchAvailableReaders ()
+                +void unregister ()
             }
         }
         +interface ObservablePluginSpi extends PluginSpi {
@@ -134,6 +141,8 @@ package "org.eclipse.keyple.core.plugin" as api {
                 +byte[] transmitApdu (byte[] apduIn)
                 ..
                 +boolean isContactless ()
+                ..
+                +void unregister ()
             }
             +interface AutonomousSelectionReaderSpi {
                 +byte[] openChannelForAid (byte[] dfName,
@@ -152,7 +161,7 @@ package "org.eclipse.keyple.core.plugin" as api {
                     +void onReaderObservationError (String pluginName,
                         \tString readerName, Throwable e)
                 }
-                package states {
+                package state {
                     package processing {
                         +interface WaitForCardRemovalDuringProcessingSpi {
                         }
@@ -215,7 +224,7 @@ WaitForCardRemovalAutonomousSpi ..> WaitForCardRemovalAutonomousReaderManager #C
 
 PluginObservationExceptionHandlerSpi -[hidden]- reader
 
-ObservableReaderSpi -[hidden]- states
+ObservableReaderSpi -[hidden]- state
 
 WaitForCardInsertionBlockingSpi -[hidden]- WaitForCardInsertionNonBlockingSpi
 WaitForCardInsertionNonBlockingSpi -[hidden]- WaitForCardInsertionAutonomousSpi
@@ -231,7 +240,7 @@ package api #C_GREY1 {}
 package spi #C_GREY2 {}
 package reader #C_GREY3 {}
 package observable #C_GREY4 {}
-package states #C_GREY5 {}
+package state #C_GREY5 {}
 package insertion #C_GREY6 {}
 package processing #C_GREY6 {}
 package removal #C_GREY6 {}
