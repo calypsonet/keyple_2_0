@@ -1,6 +1,6 @@
 @startuml
 title
-        Keyple 2.0 - keyple-java-card-api - 2.0 (09/02/2021)
+        Keyple 2.0 - keyple-java-card-api - 2.0 (03/03/2021)
 end title
 
 ' == THEME ==
@@ -60,7 +60,7 @@ package "org.eclipse.keyple.core.card" as api {
             \tMultiSelectionProcessing multiSelectionProcessing,
             \tChannelControl channelControl)
         ..
-        +CardResponse transmitCardRequest (
+            +CardResponse transmitCardRequest (
             \tCardRequest cardRequest,
             \tChannelControl channelControl)
         ..
@@ -87,9 +87,11 @@ package "org.eclipse.keyple.core.card" as api {
         }
         +class "**final** CardRequest" as CardRequest {
             --
-            +CardRequest (List<ApduRequest> apduRequests)
+            +CardRequest (List<ApduRequest> apduRequests,
+                \tboolean isStatusCodesVerificationEnabled)
             ..
             +List<ApduRequest> getApduRequests ()
+            +boolean isStatusCodesVerificationEnabled ()
         }
         +class "**final** ApduRequest" as ApduRequest {
             --
@@ -133,23 +135,21 @@ package "org.eclipse.keyple.core.card" as api {
         }
         +class "**final** CardResponse" as CardResponse {
             --
-            +CardResponse (boolean logicalChannelStatus,
-                \tList<ApduResponse> apduResponses)
+            +CardResponse (List<ApduResponse> apduResponses,
+                \tboolean isLogicalChannelOpen)
             ..
             +List<ApduResponse> getApduResponses ()
             ..
             +boolean isLogicalChannelOpen ()
+            +boolean isComplete ()
         }
         +class "**final** ApduResponse" as ApduResponse {
             --
-            +ApduResponse (byte[] buffer,
-                \tSet<Integer> successfulStatusCodes)
-            ..
-            +boolean isSuccessful ()
-            +int getStatusCode ()
+            +ApduResponse (byte[] bytes)
             ..
             +byte[] getBytes ()
             +byte[] getDataOut ()
+            +int getStatusCode ()
         }
         +class SelectionStatus {
             --
