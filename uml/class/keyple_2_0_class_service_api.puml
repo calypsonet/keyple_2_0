@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (25/02/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (04/03/2021)
 end title
 
 ' == THEME ==
@@ -80,11 +80,8 @@ package "org.eclipse.keyple.core.service" as service {
             ..
             +DistributedLocalService registerDistributedLocalService (
                 \t<back:cyan>KeypleDistributedLocalServiceExtensionFactory</back> distributedLocalServiceFactory)
-            +void unregisterDistributedLocalService (
-                \tString distributedLocalServiceName)
-            ..
-            +void getDistributedLocalService (
-                \tString distributedLocalServiceName)
+            +void unregisterDistributedLocalService (String distributedLocalServiceName)
+            +void getDistributedLocalService (String distributedLocalServiceName)
         }
         +interface Plugin {
             --
@@ -135,14 +132,6 @@ package "org.eclipse.keyple.core.service" as service {
             +void startCardDetection (PollingMode pollingMode)
             +void stopCardDetection ()
             ..
-            +void setDefaultSelectionRequest (
-                \t<back:cyan>KeypleDefaultSelectionsRequest</back> defaultSelectionsRequest,
-                \tNotificationMode notificationMode)
-            +void setDefaultSelectionRequest (
-                \t<back:cyan>KeypleDefaultSelectionsRequest</back> defaultSelectionsRequest,
-                \tNotificationMode notificationMode,
-                \tPollingMode pollingMode)
-            ..
             +void finalizeCardProcessing ()
         }
     }
@@ -177,12 +166,12 @@ package "org.eclipse.keyple.core.service" as service {
         +ReaderEvent (String pluginName,
             \tString readerName,
             \tEventType eventType,
-            \t<back:cyan>KeypleDefaultSelectionsResponse</back> defaultSelectionsResponse)
+            \tList<<back:cyan>KeypleCardSelectionResponse</back>> cardSelectionResponses)
         ..
         +String getPluginName ()
         +String getReaderName ()
         +EventType getEventType ()
-        +<back:cyan>KeypleDefaultSelectionsResponse</back> getDefaultSelectionsResponse ()
+        +List<<back:cyan>KeypleCardSelectionResponse</back>> getCardSelectionResponses ()
     }
     +enum "EventType" as ReaderEventType {
         CARD_INSERTED
@@ -191,21 +180,29 @@ package "org.eclipse.keyple.core.service" as service {
         UNREGISTERED
     }
     ' SELECTION
+    +class "**final** CardSelectionServiceFactory" as CardSelectionServiceFactory {
+        +{static} CardSelectionService getService ()
+        +{static} CardSelectionService getService (MultiSelectionProcessing multiSelectionProcessing)
+    }
     package selection {
-        +class "**final** CardSelectionsServiceFactory" as CardSelectionsServiceFactory {
-            +{static} CardSelectionsService getService ()
-            +{static} CardSelectionsService getService (MultiSelectionProcessing multiSelectionProcessing)
-        }
-        +interface CardSelectionsService {
+        +interface CardSelectionService {
             --
             +int prepareSelection (CardSelection cardSelection)
             +void prepareReleaseChannel ()
             ..
-            +<back:cyan>KeypleDefaultSelectionsRequest</back> getDefaultSelectionsRequest ()
+            +CardSelectionResult processCardSelectionScenario (
+                \tReader reader)
             ..
-            +CardSelectionsResult processExplicitSelections (Reader reader)
-            +CardSelectionsResult processDefaultSelectionsResponse (
-                \t<back:cyan>KeypleDefaultSelectionsResponse</back> defaultSelectionsResponse)
+            +void scheduleCardSelectionScenario (
+                \tObservableReader observableReader,
+                \tNotificationMode notificationMode)
+            +void scheduleCardSelectionScenario (
+                \tObservableReader observableReader,
+                \tNotificationMode notificationMode,
+                \tPollingMode pollingMode)
+            ..
+            +CardSelectionResult processCardSelectionResponses (
+                \tList<<back:cyan>KeypleCardSelectionResponse</back>> cardSelectionResponses)
         }
         +enum MultiSelectionProcessing {
             FIRST_MATCH
@@ -281,7 +278,7 @@ package "org.eclipse.keyple.core.service" as service {
                 +boolean atrMatches (byte[] atr)
             }
         }
-        +interface CardSelectionsResult {
+        +interface CardSelectionResult {
             --
             +boolean hasActiveSelection ()
             +int getActiveSelectionIndex ()
@@ -355,12 +352,12 @@ ObservableReader ..> PollingMode #C_USE : use >
 ReaderEvent +-- ReaderEventType
 ReaderEvent *-- "1" ReaderEventType #C_LINK
 
-CardSelectionsServiceFactory ..> CardSelectionsService #C_USE : create >
+CardSelectionServiceFactory ..> CardSelectionService #C_USE : create >
 
-CardSelectionsService *-- "1" MultiSelectionProcessing #C_LINK
-CardSelectionsService *-- "1..N" CardSelection #C_LINK
+CardSelectionService *-- "1" MultiSelectionProcessing #C_LINK
+CardSelectionService *-- "1..N" CardSelection #C_LINK
 
-CardSelectionsResult *-- "1..N" SmartCard #C_LINK
+CardSelectionResult *-- "1..N" SmartCard #C_LINK
 
 CardResource *-- "1" SmartCard #C_LINK
 CardResource *-- "1" Reader #C_LINK
@@ -380,8 +377,8 @@ AidSelector *-- "0..1" FileControlInformation  #C_LINK
 
 Plugin ..> Reader #C_USE : provide >
 
-CardSelectionsService ..> Reader #C_USE : use >
-CardSelectionsService ..> CardSelectionsResult #C_USE : provide >
+CardSelectionService ..> Reader #C_USE : use >
+CardSelectionService ..> CardSelectionResult #C_USE : provide >
 
 
 ObservablePlugin ..> PluginObserverSpi #C_USE : use >

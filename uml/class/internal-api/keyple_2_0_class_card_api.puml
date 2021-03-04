@@ -1,6 +1,6 @@
 @startuml
 title
-        Keyple 2.0 - keyple-java-card-api - 2.0 (03/03/2021)
+        Keyple 2.0 - keyple-java-card-api - 2.0 (04/03/2021)
 end title
 
 ' == THEME ==
@@ -55,14 +55,9 @@ package "org.eclipse.keyple.core.card" as api {
     }
     +interface ProxyReader {
         --
-        +List<CardSelectionResponse> transmitCardSelectionRequests (
-            \tList<CardSelectionRequest> cardSelectionRequests,
-            \tMultiSelectionProcessing multiSelectionProcessing,
-            \tChannelControl channelControl)
-        ..
-            +CardResponse transmitCardRequest (
-            \tCardRequest cardRequest,
-            \tChannelControl channelControl)
+        +CardResponse transmitCardRequest (
+        \tCardRequest cardRequest,
+        \tChannelControl channelControl)
         ..
         +void releaseChannel ()
     }
@@ -110,9 +105,9 @@ package "org.eclipse.keyple.core.card" as api {
             ..
             +boolean isCase4 ()
         }
-        +class "<<<back:cyan>KeypleDefaultSelectionsRequest</back>>>\n**final** DefaultSelectionsRequest" as DefaultSelectionsRequest {
+        +class "**final** CardSelectionScenario" as CardSelectionScenario {
             --
-            +DefaultSelectionsRequest (
+            +CardSelectionScenario (
                 \tList<CardSelectionRequest> cardSelectionRequests,
                 \tMultiSelectionProcessing multiSelectionProcessing,
                 \tChannelControl channelControl)
@@ -124,7 +119,7 @@ package "org.eclipse.keyple.core.card" as api {
     }
     ' RESPONSE
     together {
-        +class "**final** CardSelectionResponse" as CardSelectionResponse {
+        +class "<<<back:cyan>KeypleCardSelectionResponse</back>>>\n**final** CardSelectionResponse" as CardSelectionResponse {
             --
             +CardSelectionResponse (
                 \tSelectionStatus selectionStatus,
@@ -136,7 +131,8 @@ package "org.eclipse.keyple.core.card" as api {
         +class "**final** CardResponse" as CardResponse {
             --
             +CardResponse (List<ApduResponse> apduResponses,
-                \tboolean isLogicalChannelOpen)
+                \tboolean isLogicalChannelOpen,
+                \tboolean isComplete)
             ..
             +List<ApduResponse> getApduResponses ()
             ..
@@ -168,13 +164,6 @@ package "org.eclipse.keyple.core.card" as api {
             ..
             +byte[] getBytes ()
         }
-        +class "<<<back:cyan>KeypleDefaultSelectionsResponse</back>>>\n**final** DefaultSelectionsResponse" as DefaultSelectionsResponse {
-            --
-            +DefaultSelectionsResponse (
-                \tList<CardSelectionResponse> cardSelectionResponses)
-            ..
-            +List<CardSelectionResponse> getCardSelectionResponses ()
-        }
     }
     ' SPI
     package spi {
@@ -192,39 +181,46 @@ package "org.eclipse.keyple.core.card" as api {
     }
     +abstract class "<<Exception>>\nAbstractCommunicationException" as AbstractCommunicationException {
         --
-        #AbstractCommunicationException (String message)
-        #AbstractCommunicationException (String message, Throwable cause)
+        #AbstractCommunicationException (
+            \tCardResponse cardResponse,
+            \tString message)
+        #AbstractCommunicationException (
+            \tCardResponse cardResponse,
+            \tString message, Throwable cause)
         ..
-        +void setCardSelectionResponses (
-            \tList<CardSelectionResponse> cardSelectionResponses)
-        +List<CardSelectionResponse> getCardSelectionResponses ()
-        ..
-        +void setCardResponse (CardResponse cardResponse)
         +CardResponse getCardResponse ()
     }
     +class "**final** ReaderCommunicationException" as ReaderCommunicationException extends AbstractCommunicationException {
-        +ReaderCommunicationException (String message)
-        +ReaderCommunicationException (String message, Throwable cause)
+        --
+        +ReaderCommunicationException (
+            \tCardResponse cardResponse,
+            \tString message)
+        +ReaderCommunicationException (
+            \tCardResponse cardResponse,
+            \tString message, Throwable cause)
     }
     +class "**final** CardCommunicationException" as CardCommunicationException extends AbstractCommunicationException {
-        +CardCommunicationException (String message)
-        +CardCommunicationException (String message, Throwable cause)
+        --
+        +CardCommunicationException (
+            \tCardResponse cardResponse,
+            \tString message)
+        +CardCommunicationException (
+            \tCardResponse cardResponse,
+            \tString message, Throwable cause)
     }
 }
 
 ' Associations
 
-CardExtensionSpi .up.> ApiProperties #C_USE : provide\nAPI version <
+CardExtensionSpi ..> ApiProperties #C_USE : provide\nAPI version >
 
-DefaultSelectionsRequest *-- "1..N" CardSelectionRequest #C_LINK
-DefaultSelectionsRequest *-- "1" MultiSelectionProcessing #C_LINK
-DefaultSelectionsRequest *-- "1" ChannelControl #C_LINK
+CardSelectionScenario *-- "1..N" CardSelectionRequest #C_LINK
+CardSelectionScenario *-- "1" MultiSelectionProcessing #C_LINK
+CardSelectionScenario *-- "1" ChannelControl #C_LINK
 
 CardSelectionRequest *-- "0..1" CardRequest #C_LINK
 
 CardRequest *-- "1..N" ApduRequest #C_LINK
-
-DefaultSelectionsResponse *-- "1..N" CardSelectionResponse #C_LINK
 
 CardSelectionResponse *-- "1" CardResponse #C_LINK
 CardSelectionResponse *-- "1" SelectionStatus #C_LINK
@@ -234,8 +230,7 @@ CardResponse *-- "1..N" ApduResponse #C_LINK
 SelectionStatus *-- "0..1" ApduResponse  #C_LINK
 SelectionStatus *-- "0..1" AnswerToReset  #C_LINK
 
-AbstractCommunicationException *-- "0..N" CardSelectionResponse #C_LINK
-AbstractCommunicationException *-- "0..1" CardResponse #C_LINK
+AbstractCommunicationException *-up- "0..1" CardResponse #C_LINK
 
 ProxyReader -left-> CardSelectionRequest #C_USE : use >
 ProxyReader --> CardRequest #C_USE : use >
@@ -244,26 +239,25 @@ ProxyReader -up-> ChannelControl #C_USE : use >
 
 ProxyReader -up-> CardSelectionResponse #C_USE : provide >
 ProxyReader -> CardResponse #C_USE : provide >
-ProxyReader -up-> AbstractCommunicationException #C_USE : throw >
+ProxyReader --> AbstractCommunicationException #C_USE : throw >
 
 ' == LAYOUT ==
 
-spi -[hidden]- DefaultSelectionsRequest
-spi -[hidden]- DefaultSelectionsResponse
+spi -[hidden]- CardSelectionScenario
+spi -[hidden]- CardSelectionResponse
 
 ' == STYLE ==
 
 package api #C_GREY1 {}
 package spi #C_GREY2 {}
 
-class DefaultSelectionsRequest <<green>>
+class CardSelectionScenario <<green>>
 class CardSelectionRequest <<green>>
 enum MultiSelectionProcessing <<green>>
 enum ChannelControl <<green>>
 class CardRequest <<green>>
 class ApduRequest <<green>>
 
-class DefaultSelectionsResponse <<purple>>
 class CardSelectionResponse <<purple>>
 class CardResponse <<purple>>
 class ApduResponse <<purple>>

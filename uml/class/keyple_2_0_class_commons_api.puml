@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-commons-api - 2.0 (19/02/2021)
+    Keyple 2.0 - keyple-java-commons-api - 2.0 (04/03/2021)
 end title
 
 ' == THEME ==
@@ -63,9 +63,7 @@ package "org.eclipse.keyple.core.common" as api {
     }
     +interface KeypleDistributedLocalServiceExtension {
     }
-    +interface KeypleDefaultSelectionsRequest {
-    }
-    +interface KeypleDefaultSelectionsResponse {
+    +interface KeypleCardSelectionResponse {
     }
     +interface KeypleCardSelector {
     }

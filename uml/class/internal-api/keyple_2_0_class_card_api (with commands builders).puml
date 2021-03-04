@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-card-api - 2.0 (09/02/2021)
+    DEPRECATED - Keyple 2.0 - keyple-java-card-api - 2.0 (04/03/2021)
 end title
 
 ' == THEME ==
@@ -107,9 +107,9 @@ package "org.eclipse.keyple.core.card" as api {
         ..
         +boolean isCase4 ()
     }
-    +class "<<<back:cyan>KeypleDefaultSelectionsRequest</back>>>\n**final** DefaultSelectionsRequest" as DefaultSelectionsRequest {
+    +class "**final** CardSelectionScenario" as CardSelectionScenario {
         --
-        +DefaultSelectionsRequest (
+        +CardSelectionScenario (
             \tList<CardSelectionRequest> cardSelectionRequests,
             \tMultiSelectionProcessing multiSelectionProcessing,
             \tChannelControl channelControl)
@@ -164,9 +164,9 @@ package "org.eclipse.keyple.core.card" as api {
         ..
         +byte[] getBytes ()
     }
-    +class "<<<back:cyan>KeypleDefaultSelectionsResponse</back>>>\n**final** DefaultSelectionsResponse" as DefaultSelectionsResponse {
+    +class "<<<back:cyan>KeypleCardSelectionResponse</back>>>\n**final** CardSelectionResponses" as CardSelectionResponses {
         --
-        +DefaultSelectionsResponse (
+        +CardSelectionResponses (
             \tList<CardSelectionResponse> cardSelectionResponses)
         ..
         +List<CardSelectionResponse> getCardSelectionResponses ()
@@ -281,15 +281,15 @@ package "org.eclipse.keyple.core.card" as api {
 
 CardExtensionSpi .up.> ApiProperties #C_USE : provide\nAPI version <
 
-DefaultSelectionsRequest *-- "1..N" CardSelectionRequest #C_LINK
-DefaultSelectionsRequest *-- "1" MultiSelectionProcessing #C_LINK
-DefaultSelectionsRequest *-- "1" ChannelControl #C_LINK
+CardSelectionScenario *-- "1..N" CardSelectionRequest #C_LINK
+CardSelectionScenario *-- "1" MultiSelectionProcessing #C_LINK
+CardSelectionScenario *-- "1" ChannelControl #C_LINK
 
 CardSelectionRequest *-- "0..1" CardRequest #C_LINK
 
 CardRequest *-- "1..N" ApduRequest #C_LINK
 
-DefaultSelectionsResponse *-- "1..N" CardSelectionResponse #C_LINK
+CardSelectionResponses *-- "1..N" CardSelectionResponse #C_LINK
 
 CardSelectionResponse *-- "1" CardResponse #C_LINK
 CardSelectionResponse *-- "1" SelectionStatus #C_LINK

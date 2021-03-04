@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (25/02/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (04/03/2021)
 end title
 
 ' == THEME ==
@@ -119,10 +119,10 @@ package "org.eclipse.keyple.core.service" as service {
             \tString distributedLocalServiceName)
     }
     ' PLUGIN
-    ~class "PluginAdapter\n\n<back:pink>PluginSpi</back>\nor <back:plum>RemotePluginSpi</back>" as PluginAdapter<PluginSpiT> implements Plugin {
+    ~class "<<<back:plum>RemotePluginManager</back>>>\nPluginAdapter\n\n<back:pink>PluginSpi</back>\nor <back:plum>RemotePluginSpi</back>" as PluginAdapter<PluginSpiT> implements Plugin {
         ~Map<String, Reader> readers
         --
-        ~PluginAdapter (String name, PluginSpiT pluginSpi)
+        ~PluginAdapter (PluginSpiT pluginSpi)
         ..
         +**final** String getName ()
         +**final** <T extends <back:cyan>KeyplePluginExtension</back>> T getExtension (
@@ -130,6 +130,8 @@ package "org.eclipse.keyple.core.service" as service {
         +**final** Map<String, Reader> getReaders ()
         +**final** Set<String> getReadersNames ()
         +**final** Reader getReader (String name)
+        ..
+        +**final** void onReaderEvent (String jsonData)
         ..
         ~void checkStatus ()
         ~void register ()
@@ -152,19 +154,18 @@ package "org.eclipse.keyple.core.service" as service {
         ~void register ()
         ~void unregister ()
     }
-    ~class "PoolPluginAdapter\n\n<back:pink>PoolPluginSpi</back>\nor <back:plum>PoolRemotePluginSpi</back>" as PoolPluginAdapter<PoolPluginSpiT> extends PluginAdapter implements PoolPlugin {
+    ~class "PoolPluginAdapter\n\n<back:pink>PoolPluginSpi</back>\nor <back:plum>RemotePluginSpi</back>" as PoolPluginAdapter<PoolPluginSpiT> extends PluginAdapter implements PoolPlugin {
         --
-        ~PoolPluginAdapter (String name,
-            \tPoolPluginSpiT poolPluginSpi)
+        ~PoolPluginAdapter (PoolPluginSpiT poolPluginSpi)
         ..
         +SortedSet<String> getReaderGroupReferences ()
         ..
         +Reader allocateReader (String readerGroupReference)
         +void releaseReader (Reader reader)
     }
-    ~abstract class "AbstractObservablePluginAdapter\n\n<back:pink>ObservablePluginSpi</back>\nor <back:pink>AutonomousObservablePluginSpi</back>\nor <back:plum>ObservableRemotePluginSpi</back>" as AbstractObservablePluginAdapter<ObservablePluginSpiT> extends PluginAdapter implements ObservablePlugin {
+    ~abstract class "AbstractObservablePluginAdapter\n\n<back:pink>ObservablePluginSpi</back>\nor <back:pink>AutonomousObservablePluginSpi</back>\nor <back:plum>RemotePluginSpi</back>" as AbstractObservablePluginAdapter<ObservablePluginSpiT> extends PluginAdapter implements ObservablePlugin {
         --
-        ~AbstractObservablePluginAdapter (String name,
+        ~AbstractObservablePluginAdapter (
             \tObservablePluginSpiT observablePluginSpi)
         ..
         +void addObserver (PluginObserverSpi observer)
@@ -177,17 +178,20 @@ package "org.eclipse.keyple.core.service" as service {
     }
     ~class "<<<back:plum>ObservableRemotePluginManager</back>>>\n**final** ObservableRemotePluginAdapter" as ObservableRemotePluginAdapter extends AbstractObservablePluginAdapter {
         --
-        ~ObservableRemotePluginAdapter (String name,
-            \t<back:plum>ObservableRemotePluginSpi</back> observableRemotePluginSpi)
+        ~ObservableRemotePluginAdapter (
+            \t<back:plum>RemotePluginSpi</back> remotePluginSpi)
         ..
-        +<back:plum>RemoteReaderManager</back> createReader (String readerName,
-            \t<back:plum>RemoteReaderSpi</back> remoteReaderSpi)
-        +<back:plum>RemoteReaderManager</back> getReader (String readerName)
+        +void registerMasterReader (<back:plum>RemoteReaderSpi</back> masterReaderSpi)
+        +void registerSlaveReader (<back:plum>RemoteReaderSpi</back> slaveReaderSpi,
+            \tString masterReaderName,
+            \tString readerEventJsonData)
+        +boolean unregisterReader (readerName)
+        ..
         +void onPluginEvent (String jsonData)
     }
     ~class "**final** ObservableLocalPluginAdapter" as ObservableLocalPluginAdapter extends AbstractObservablePluginAdapter {
         --
-        ~ObservableLocalPluginAdapter (String name,
+        ~ObservableLocalPluginAdapter (
             \t<back:pink>ObservablePluginSpi</back> observablePluginSpi)
         ..
         +void addObserver (PluginObserverSpi observer)
@@ -198,7 +202,7 @@ package "org.eclipse.keyple.core.service" as service {
     }
     ~class "<<<back:pink>AutonomousObservablePluginManager</back>>>\n**final** AutonomousObservableLocalPluginAdapter" as AutonomousObservableLocalPluginAdapter extends AbstractObservablePluginAdapter {
         --
-        ~AutonomousObservableLocalPluginAdapter (String name,
+        ~AutonomousObservableLocalPluginAdapter (
             \t<back:pink>AutonomousObservablePluginSpi</back> autonomousObservablePluginSpi)
         ..
         +void onReaderConnected (Set<<back:pink>ReaderSpi</back>> readers)
@@ -207,15 +211,16 @@ package "org.eclipse.keyple.core.service" as service {
     ' READERS
     ~abstract class "<<<back:lightGreen>ProxyReader</back>>>\nAbstractReaderAdapter" as AbstractReaderAdapter implements Reader {
         --
-        ~AbstractReaderAdapter (String pluginName, String name)
+        ~AbstractReaderAdapter (String readerName, String pluginName)
         ..
         +**final** String getName ()
         ~**final** String getPluginName ()
         ..
-        +**final** List<<back:lightGreen>CardSelectionResponse</back>> transmitCardSelectionRequests (
+        ~**final** List<<back:lightGreen>CardSelectionResponse</back>> transmitCardSelectionRequests (
             \tList<<back:lightGreen>CardSelectionRequest</back>> cardSelectionRequests,
             \t<back:lightGreen>MultiSelectionProcessing</back> multiSelectionProcessing,
             \t<back:lightGreen>ChannelControl</back> channelControl)
+        ..
         +**final** <back:lightGreen>CardResponse</back> transmitCardRequest (
             \t<back:lightGreen>CardRequest</back> cardRequest,
             \t<back:lightGreen>ChannelControl</back> channelControl)
@@ -234,8 +239,7 @@ package "org.eclipse.keyple.core.service" as service {
     }
     ~class LocalReaderAdapter extends AbstractReaderAdapter {
         --
-        ~LocalReaderAdapter (String pluginName, String readerName,
-            \t<back:pink>ReaderSpi</back> readerSpi)
+        ~LocalReaderAdapter (<back:pink>ReaderSpi</back> readerSpi, String pluginName)
         ..
         +**final** <T extends <back:cyan>KeypleReaderExtension</back>> T getExtension (Class<T> readerType)
         +**final** boolean isContactless ()
@@ -257,10 +261,9 @@ package "org.eclipse.keyple.core.service" as service {
         ~**final** boolean isLogicalChannelOpen ()
         ~**final** void closeLogicalAndPhysicalChannels ()
     }
-    ~class "<<<back:plum>RemoteReaderManager</back>>>\nRemoteReaderAdapter" as RemoteReaderAdapter extends AbstractReaderAdapter {
+    ~class RemoteReaderAdapter extends AbstractReaderAdapter {
         --
-        ~RemoteReaderAdapter (String pluginName, String readerName,
-            \t<back:plum>RemoteReaderSpi</back> remoteReaderSpi)
+        ~RemoteReaderAdapter (<back:plum>RemoteReaderSpi</back> remoteReaderSpi, String pluginName)
         ..
         +**final** <T extends <back:cyan>KeypleReaderExtension</back>> T getExtension (Class<T> readerType)
         +**final** boolean isContactless ()
@@ -281,8 +284,9 @@ package "org.eclipse.keyple.core.service" as service {
     }
     ~class "<<<back:pink>WaitForCardInsertionAutonomousReaderManager</back>>>\n<<<back:pink>WaitForCardRemovalAutonomousReaderManager</back>>>\n**final** ObservableLocalReaderAdapter" as ObservableLocalReaderAdapter extends LocalReaderAdapter implements ObservableReader {
         --
-        ~ObservableLocalReaderAdapter (String pluginName, String readerName
-            \t<back:pink>ObservableReaderSpi</back> observableReaderSpi)
+        ~ObservableLocalReaderAdapter (
+            \t<back:pink>ObservableReaderSpi</back> observableReaderSpi,
+            \tString pluginName)
         ..
         ~void onStartDetection ()
         ~void onStopDetection ()
@@ -295,13 +299,15 @@ package "org.eclipse.keyple.core.service" as service {
         +int countObservers ()
         +void clearObservers ()
         +void finalizeCardProcessing ()
-        +void setDefaultSelectionRequest (
-            \t<back:cyan>KeypleDefaultSelectionsRequest</back> defaultSelectionsRequest,
+        ..
+        ~void scheduleCardSelectionScenario (
+            \t<back:lightGreen>CardSelectionScenario</back> cardSelectionScenario,
             \tNotificationMode notificationMode)
-        +void setDefaultSelectionRequest (
-            \t<back:cyan>KeypleDefaultSelectionsRequest</back> defaultSelectionsRequest,
+        ~void scheduleCardSelectionScenario (
+            \t<back:lightGreen>CardSelectionScenario</back> cardSelectionScenario,
             \tNotificationMode notificationMode,
             \tPollingMode pollingMode)
+        ..
         +void startCardDetection (PollingMode pollingMode)
         +void stopCardDetection ()
         ..
@@ -329,27 +335,28 @@ package "org.eclipse.keyple.core.service" as service {
         STOP_DETECT
         TIME_OUT
     }
-    ~class "<<<back:plum>ObservableRemoteReaderManager</back>>>\n**final** ObservableRemoteReaderAdapter" as ObservableRemoteReaderAdapter extends RemoteReaderAdapter implements ObservableReader {
+    ~class "**final** ObservableRemoteReaderAdapter" as ObservableRemoteReaderAdapter extends RemoteReaderAdapter implements ObservableReader {
         --
-        ~ObservableRemoteReaderAdapter (String pluginName, String readerName
-            \t<back:plum>ObservableRemoteReaderSpi</back> observableRemoteReaderSpi)
+        ~ObservableRemoteReaderAdapter (
+            \t<back:plum>RemoteReaderSpi</back> remoteReaderSpi,
+            \tString pluginName)
         ..
         +void addObserver (ReaderObserverSpi observer)
         +void removeObserver (ReaderObserverSpi observer)
         +int countObservers ()
         +void clearObservers ()
         +void finalizeCardProcessing ()
-        +void setDefaultSelectionRequest (
-            \t<back:cyan>KeypleDefaultSelectionsRequest</back> defaultSelectionsRequest,
+        ..
+        ~void scheduleCardSelectionScenario (
+            \t<back:lightGreen>CardSelectionScenario</back> cardSelectionScenario,
             \tNotificationMode notificationMode)
-        +void setDefaultSelectionRequest (
-            \t<back:cyan>KeypleDefaultSelectionsRequest</back> defaultSelectionsRequest,
+        ~void scheduleCardSelectionScenario (
+            \t<back:lightGreen>CardSelectionScenario</back> cardSelectionScenario,
             \tNotificationMode notificationMode,
             \tPollingMode pollingMode)
+        ..
         +void startCardDetection (PollingMode pollingMode)
         +void stopCardDetection ()
-        ..
-        +void onReaderEvent (String jsonData)
         ..
         ~void notifyObservers (ReaderEvent event)
         ..
@@ -467,46 +474,55 @@ package "org.eclipse.keyple.core.service" as service {
     }
 
     ' SELECTION
+    +class "**final** CardSelectionServiceFactory" as CardSelectionServiceFactory {
+        ...
+    }
     package selection {
-        +class "**final** CardSelectionsServiceFactory" as CardSelectionsServiceFactory {
+        +interface CardSelectionService {
             ...
         }
-        +interface CardSelectionsService {
+        +interface CardSelectionResult {
             ...
         }
-        +interface CardSelectionsResult {
-            ...
-        }
-        ' ADAPTERS
-        ~class "**final** CardSelectionsServiceAdapter" as CardSelectionsServiceAdapter implements CardSelectionsService {
-            --
-            ~CardSelectionsServiceAdapter ()
-            ~CardSelectionsServiceAdapter (MultiSelectionProcessing multiSelectionProcessing)
-            ..
-            +int prepareSelection (CardSelection cardSelection)
-            +void prepareReleaseChannel ()
-            ..
-            +<back:cyan>KeypleDefaultSelectionsRequest</back> getDefaultSelectionsRequest ()
-            ..
-            +CardSelectionsResult processExplicitSelections (Reader reader)
-            +CardSelectionsResult processDefaultSelectionsResponse (
-                \t<back:cyan>KeypleDefaultSelectionsResponse</back> defaultSelectionsResponse)
-        }
-        ~class "**final** CardSelectionsResultAdapter" as CardSelectionsResultAdapter implements CardSelectionsResult {
-            --
-            ~CardSelectionsResultAdapter ()
-            ..
-            +boolean hasActiveSelection ()
-            +int getActiveSelectionIndex ()
-            +boolean hasSelectionMatched (int selectionIndex)
-            ..
-            +Map<Integer, SmartCard> getSmartCards ()
-            +SmartCard getSmartCard (int selectionIndex)
-            +SmartCard getActiveSmartCard ()
-            ..
-            ~void addSmartCard (int selectionIndex,
-                \tSmartCard smartCard, boolean isSelected)
-        }
+    }
+    ' ADAPTERS
+    ~class "**final** CardSelectionServiceAdapter" as CardSelectionServiceAdapter implements CardSelectionService {
+        --
+        ~CardSelectionServiceAdapter ()
+        ~CardSelectionServiceAdapter (
+            \tMultiSelectionProcessing multiSelectionProcessing)
+        ..
+        +int prepareSelection (CardSelection cardSelection)
+        +void prepareReleaseChannel ()
+        ..
+        +CardSelectionResult processCardSelectionScenario (
+            \tReader reader)
+        ..
+        +void scheduleCardSelectionScenario (
+            \tObservableReader observableReader,
+            \tNotificationMode notificationMode)
+        +void scheduleCardSelectionScenario (
+            \tObservableReader observableReader,
+            \tNotificationMode notificationMode,
+            \tPollingMode pollingMode)
+        ..
+        +CardSelectionResult processCardSelectionResponses (
+            \tList<<back:cyan>KeypleCardSelectionResponse</back>> cardSelectionResponses)
+    }
+    ~class "**final** CardSelectionResultAdapter" as CardSelectionResultAdapter implements CardSelectionResult {
+        --
+        ~CardSelectionResultAdapter ()
+        ..
+        +boolean hasActiveSelection ()
+        +int getActiveSelectionIndex ()
+        +boolean hasSelectionMatched (int selectionIndex)
+        ..
+        +Map<Integer, SmartCard> getSmartCards ()
+        +SmartCard getSmartCard (int selectionIndex)
+        +SmartCard getActiveSmartCard ()
+        ..
+        ~void addSmartCard (int selectionIndex,
+            \tSmartCard smartCard, boolean isSelected)
     }
 }
 
@@ -537,9 +553,9 @@ AbstractObservablePluginAdapter *-- "0..N" PluginObserverSpi #C_LINK
 ObservableLocalReaderAdapter *-- "0..N" ReaderObserverSpi #C_LINK
 ObservableRemoteReaderAdapter *-- "0..N" ReaderObserverSpi #C_LINK
 
-CardSelectionsServiceFactory ..> CardSelectionsService #C_USE : create >
+CardSelectionServiceFactory ..> CardSelectionService #C_USE : create >
 
-CardSelectionsService ..> CardSelectionsResult #C_USE : provide >
+CardSelectionService ..> CardSelectionResult #C_USE : provide >
 
 ' == LAYOUT ==
 
@@ -581,7 +597,7 @@ class ObservableLocalPluginAdapter <<blue>>
 class AutonomousObservableLocalPluginAdapter <<blue>>
 class DistributedLocalServiceAdapter <<blue>>
 
-class CardSelectionsServiceAdapter <<blue>>
-class CardSelectionsResultAdapter <<blue>>
+class CardSelectionServiceAdapter <<blue>>
+class CardSelectionResultAdapter <<blue>>
 
 @enduml

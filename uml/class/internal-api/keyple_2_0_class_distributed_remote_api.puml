@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-remote-api - 2.0 (09/02/2021)
+    Keyple 2.0 - keyple-java-distributed-remote-api - 2.0 (04/03/2021)
 end title
 
 ' == THEME ==
@@ -49,83 +49,57 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
     +class "**final** DistributedRemoteApiProperties" as ApiProperties {
         +{static} **final** String VERSION
     }
-    +interface ObservableRemotePluginManager {
-        --
-        +RemoteReaderManager createReader (String readerName,
-            \tRemoteReaderSpi remoteReaderSpi)
-        +RemoteReaderManager getReader (String readerName)
-        +void onPluginEvent (String jsonData)
-    }
-    +interface RemoteReaderManager {
-    }
-    +interface ObservableRemoteReaderManager extends RemoteReaderManager {
+    +interface RemotePluginManager {
         --
         +void onReaderEvent (String jsonData)
     }
+    +interface ObservableRemotePluginManager extends RemotePluginManager {
+        --
+        +void registerMasterReader (RemoteReaderSpi masterReaderSpi)
+        +void registerSlaveReader (RemoteReaderSpi slaveReaderSpi,
+            \tString masterReaderName,
+            \tString readerEventJsonData)
+        +boolean unregisterReader (readerName)
+        ..
+        +void onPluginEvent (String jsonData)
+    }
     package spi {
         +interface RemoteReaderSpi {
-            --
-            +void setManager (RemoteReaderManger manager)
-            ..
             +String getName ()
+            +boolean isObservable ()
             +String executeRemotely (String jsonData)
         }
-        +interface ObservableRemoteReaderSpi extends RemoteReaderSpi {
-        }
         +interface RemotePluginSpi {
-            +Set<RemoteReaderSpi> searchAvailableReaders ()
-        }
-        +interface ObservableRemotePluginSpi extends RemotePluginSpi {
             --
-            +void setManager (ObservableRemotePluginManager manager)
-        }
-        +interface PoolRemotePluginSpi {
-            --
-            +SortedSet<String> getReaderGroupReferences ()
-            ..
-            +RemoteReaderSpi allocateReader (String readerGroupReference)
-            +void releaseReader (RemoteReaderSpi reader)
+            +void setManager (RemotePluginManager manager)
+            +String getName ()
+            +boolean isObservable ()
+            +String executeRemotely (String jsonData)
+            +RemoteReaderSpi createRemoteReader (
+                \tString localReaderName,
+                \tboolean isObservable)
         }
         +interface RemotePluginFactorySpi {
             +String getDistributedRemoteApiVersion ()
             +String getCommonsApiVersion ()
-            +String getPluginName ()
-            +RemotePluginSpi getPlugin ()
-        }
-        +interface PoolRemotePluginFactorySpi {
-            +String getDistributedRemoteApiVersion ()
-            +String getCommonsApiVersion ()
-            +String getPluginName ()
-            +PoolRemotePluginSpi getPlugin ()
+            +String getRemotePluginName ()
+            +boolean isPoolPlugin ()
+            +RemotePluginSpi getRemotePlugin ()
         }
     }
 }
 
 ' Associations
 
-ObservableRemotePluginManager ..> RemoteReaderManager #C_USE : provide >
-
-RemotePluginFactorySpi .up.> ApiProperties #C_USE : provide\nAPI version <
+RemotePluginFactorySpi .left.> ApiProperties #C_USE : provide\nAPI version <
 RemotePluginFactorySpi ..> RemotePluginSpi #C_USE : provide >
 
-PoolRemotePluginFactorySpi .up.> ApiProperties #C_USE : provide\nAPI version <
-PoolRemotePluginFactorySpi ..> PoolRemotePluginSpi #C_USE : provide >
-
 RemotePluginSpi ..> RemoteReaderSpi #C_USE : provide >
-
-ObservableRemotePluginSpi .left.> ObservableRemotePluginManager #C_USE : use >
-
-PoolRemotePluginSpi ..> RemoteReaderSpi #C_USE : provide >
-
-RemoteReaderSpi .left.> RemoteReaderManager #C_USE : use >
-
-ObservableRemoteReaderSpi .left.> ObservableRemoteReaderManager #C_USE : use >
+RemotePluginSpi .left.> RemotePluginManager #C_USE : use >
 
 ' == LAYOUT ==
 
-PoolRemotePluginSpi -[hidden]- ObservableRemotePluginSpi
-
-ObservableRemotePluginSpi -[hidden]- RemoteReaderSpi
+'ObservableRemotePluginSpi -[hidden]- RemoteReaderSpi
 
 ' == STYLE ==
 
