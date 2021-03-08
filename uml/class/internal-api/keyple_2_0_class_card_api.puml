@@ -1,6 +1,6 @@
 @startuml
 title
-        Keyple 2.0 - keyple-java-card-api - 2.0 (04/03/2021)
+        Keyple 2.0 - keyple-java-card-api - 2.0 (08/03/2021)
 end title
 
 ' == THEME ==
@@ -90,7 +90,7 @@ package "org.eclipse.keyple.core.card" as api {
         }
         +class "**final** ApduRequest" as ApduRequest {
             --
-            +ApduRequest (byte[] bytes, boolean case4)
+            +ApduRequest (byte[] bytes, boolean isCase4)
             +ApduRequest (byte cla, byte instruction,
                 \tbyte p1, byte p2, byte[] dataIn, Byte le)
             ..

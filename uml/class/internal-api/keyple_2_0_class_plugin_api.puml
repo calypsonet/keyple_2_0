@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-plugin-api - 2.0 (01/03/2021)
+    Keyple 2.0 - keyple-java-plugin-api - 2.0 (08/03/2021)
 end title
 
 ' == THEME ==
@@ -110,15 +110,9 @@ package "org.eclipse.keyple.core.plugin" as api {
             ..
             +Set<String> searchAvailableReadersNames ()
             +ReaderSpi searchReader (String readerName)
-            ..
-            +PluginObservationExceptionHandlerSpi getPluginObservationExceptionHandler ()
         }
         +interface AutonomousObservablePluginSpi extends PluginSpi {
             +void setManager (AutonomousObservablePluginManager manager)
-        }
-        +interface PluginObservationExceptionHandlerSpi {
-            +void onPluginObservationError (String pluginName,
-                \tThrowable e)
         }
         package reader {
             +interface ReaderSpi {
@@ -151,15 +145,8 @@ package "org.eclipse.keyple.core.plugin" as api {
             }
             package observable {
                 +interface ObservableReaderSpi extends ReaderSpi {
-                    --
                     +void onStartDetection ()
                     +void onStopDetection ()
-                    ..
-                    +ReaderObservationExceptionHandlerSpi getReaderObservationExceptionHandler ()
-                }
-                +interface ReaderObservationExceptionHandlerSpi {
-                    +void onReaderObservationError (String pluginName,
-                        \tString readerName, Throwable e)
                 }
                 package state {
                     package processing {
@@ -210,11 +197,7 @@ PoolPluginFactorySpi ..> PoolPluginSpi #C_USE : provide >
 
 PoolPluginSpi ..> ReaderSpi #C_USE : provide >
 
-ObservablePluginSpi ..> PluginObservationExceptionHandlerSpi #C_USE : provide >
-
 AutonomousObservablePluginSpi .up.> AutonomousObservablePluginManager #C_USE : use >
-
-ObservableReaderSpi .left.> ReaderObservationExceptionHandlerSpi #C_USE : provide >
 
 WaitForCardInsertionAutonomousSpi ..> WaitForCardInsertionAutonomousReaderManager #C_USE : use >
 
@@ -222,7 +205,7 @@ WaitForCardRemovalAutonomousSpi ..> WaitForCardRemovalAutonomousReaderManager #C
 
 ' == LAYOUT ==
 
-PluginObservationExceptionHandlerSpi -[hidden]- reader
+ObservablePluginSpi -[hidden]- reader
 
 ObservableReaderSpi -[hidden]- state
 

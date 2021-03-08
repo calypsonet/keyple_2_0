@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (04/03/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (08/03/2021)
 end title
 
 ' == THEME ==
@@ -55,8 +55,16 @@ package "org.eclipse.keyple.core.service" as service {
         +interface PluginObserverSpi {
             +void onPluginEvent (PluginEvent pluginEvent)
         }
+        +interface PluginObservationExceptionHandlerSpi {
+            +void onPluginObservationError (String pluginName,
+                \tThrowable e)
+        }
         +interface ReaderObserverSpi {
             +void onReaderEvent (ReaderEvent readerEvent)
+        }
+        +interface ReaderObservationExceptionHandlerSpi {
+            +void onReaderObservationError (String pluginName,
+                \tString readerName, Throwable e)
         }
     }
     ' SERVICE
@@ -99,10 +107,16 @@ package "org.eclipse.keyple.core.service" as service {
                 \tClass<T> distributedLocalServiceType)
         }
         +interface ObservablePlugin extends Plugin {
+            --
             +void addObserver (PluginObserverSpi observer)
             +void removeObserver (PluginObserverSpi observer)
             +void clearObservers ()
             +int countObservers ()
+            ..
+            +void setEventNotificationExecutorService (
+                \tExecutorService eventNotificationExecutorService)
+            +void setPluginObservationExceptionHandler (
+                \tPluginObservationExceptionHandlerSpi exceptionHandler)
         }
         +interface PoolPlugin extends Plugin {
             --
@@ -133,6 +147,11 @@ package "org.eclipse.keyple.core.service" as service {
             +void stopCardDetection ()
             ..
             +void finalizeCardProcessing ()
+            ..
+            +void setEventNotificationExecutorService (
+                \tExecutorService eventNotificationExecutorService)
+            +void setReaderObservationExceptionHandler (
+                \tReaderObservationExceptionHandlerSpi exceptionHandler)
         }
     }
     +enum NotificationMode {
@@ -382,10 +401,12 @@ CardSelectionService ..> CardSelectionResult #C_USE : provide >
 
 
 ObservablePlugin ..> PluginObserverSpi #C_USE : use >
+ObservablePlugin ..> PluginObservationExceptionHandlerSpi #C_USE : use >
 
 PluginObserverSpi ..> PluginEvent #C_USE : use >
 
 ObservableReader ..> ReaderObserverSpi #C_USE : use >
+ObservableReader ..> ReaderObservationExceptionHandlerSpi #C_USE : use >
 
 ReaderObserverSpi ..> ReaderEvent #C_USE : use >
 

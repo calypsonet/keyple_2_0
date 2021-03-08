@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (04/03/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (08/03/2021)
 end title
 
 ' == THEME ==
@@ -55,7 +55,13 @@ package "org.eclipse.keyple.core.service" as service {
         +interface PluginObserverSpi {
             ...
         }
+        +interface PluginObservationExceptionHandlerSpi {
+            ...
+        }
         +interface ReaderObserverSpi {
+            ...
+        }
+        +interface ReaderObservationExceptionHandlerSpi {
             ...
         }
     }
@@ -173,6 +179,11 @@ package "org.eclipse.keyple.core.service" as service {
         +void clearObservers ()
         +**final** int countObservers ()
         ..
+        +**final** void setEventNotificationExecutorService (
+            \tExecutorService eventNotificationExecutorService)
+        +void setPluginObservationExceptionHandler (
+            \tPluginObservationExceptionHandlerSpi exceptionHandler)
+        ..
         ~**final** void unregister ()
         ~**final** void notifyObservers (PluginEvent event)
     }
@@ -188,6 +199,9 @@ package "org.eclipse.keyple.core.service" as service {
         +boolean unregisterReader (readerName)
         ..
         +void onPluginEvent (String jsonData)
+        ..
+        +void setPluginObservationExceptionHandler (
+            \tPluginObservationExceptionHandlerSpi exceptionHandler)
     }
     ~class "**final** ObservableLocalPluginAdapter" as ObservableLocalPluginAdapter extends AbstractObservablePluginAdapter {
         --
@@ -207,6 +221,9 @@ package "org.eclipse.keyple.core.service" as service {
         ..
         +void onReaderConnected (Set<<back:pink>ReaderSpi</back>> readers)
         +void onReaderDisconnected (Set<String> readersNames)
+        ..
+        +void setPluginObservationExceptionHandler (
+            \tPluginObservationExceptionHandlerSpi exceptionHandler)
     }
     ' READERS
     ~abstract class "<<<back:lightGreen>ProxyReader</back>>>\nAbstractReaderAdapter" as AbstractReaderAdapter implements Reader {
@@ -315,6 +332,11 @@ package "org.eclipse.keyple.core.service" as service {
         ..
         +void onCardRemoved ()
         ..
+        +void setEventNotificationExecutorService (
+            \tExecutorService eventNotificationExecutorService)
+        +void setReaderObservationExceptionHandler (
+            \tReaderObservationExceptionHandlerSpi exceptionHandler)
+        ..
         ~void notifyObservers (ReaderEvent event)
         ..
         ~ReaderEvent processCardInserted ()
@@ -357,6 +379,11 @@ package "org.eclipse.keyple.core.service" as service {
         ..
         +void startCardDetection (PollingMode pollingMode)
         +void stopCardDetection ()
+        ..
+        +void setEventNotificationExecutorService (
+            \tExecutorService eventNotificationExecutorService)
+        +void setReaderObservationExceptionHandler (
+            \tReaderObservationExceptionHandlerSpi exceptionHandler)
         ..
         ~void notifyObservers (ReaderEvent event)
         ..
@@ -537,7 +564,7 @@ ObservableReader +-- NotificationMode
 ObservableReader +-- PollingMode
 
 ObservableLocalReaderAdapter +-- InternalEvent
-ObservableLocalReaderAdapter "1" *-up-* "1" ObservableReaderStateService #C_LINK
+ObservableLocalReaderAdapter "1" *--* "1" ObservableReaderStateService #C_LINK
 
 ObservableReaderStateService *-- "1..N" AbstractObservableState #C_LINK
 
@@ -549,9 +576,13 @@ AbstractObservableState *-- "0..1" AbstractMonitoringJob #C_LINK
 PluginAdapter *-- "0..N" Reader #C_LINK
 
 AbstractObservablePluginAdapter *-- "0..N" PluginObserverSpi #C_LINK
+AbstractObservablePluginAdapter *-- "0..1" PluginObservationExceptionHandlerSpi #C_LINK
 
 ObservableLocalReaderAdapter *-- "0..N" ReaderObserverSpi #C_LINK
+ObservableLocalReaderAdapter *-- "0..1" ReaderObservationExceptionHandlerSpi #C_LINK
+
 ObservableRemoteReaderAdapter *-- "0..N" ReaderObserverSpi #C_LINK
+ObservableRemoteReaderAdapter *-- "0..1" ReaderObservationExceptionHandlerSpi #C_LINK
 
 CardSelectionServiceFactory ..> CardSelectionService #C_USE : create >
 
