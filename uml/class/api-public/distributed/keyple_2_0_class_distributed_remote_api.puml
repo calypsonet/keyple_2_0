@@ -1,0 +1,241 @@
+@startuml
+title
+    Keyple 2.0 - keyple-java-distributed-remote - 2.0.0 (08/03/2021)
+end title
+
+' == THEME ==
+
+'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define C_GREY1 F8F9F9
+!define C_GREY2 F2F3F4
+!define C_GREY3 E5E7E9
+!define C_GREY4 D7DBDD
+!define C_GREY5 CACFD2
+!define C_GREY6 BDC3C7
+!define C_LINK 3498DB
+!define C_USE 27AE60
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+' Red
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+' Purple
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+' blue
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+' Green
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+' Grey
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+' == CONTENT ==
+
+legend top
+    __Colors legend__ :
+    * __Configuration modes__ :
+    ** <back:lightGreen>**Reader Client Side**</back>
+    ** <back:lightBlue>**Pool Reader Server Side**</back>
+    ** <back:plum>**Reader Server Side**</back>
+    * __External API references__ :
+    ** <back:yellow>**Network API**</back>
+    ** <back:cyan>**Commons API**</back>
+end legend
+
+package "org.eclipse.keyple.distributed" as root {
+
+    ' Remote Handlers
+    +interface "<<<back:cyan>KeyplePluginExtension</back>>>\nRemotePluginServer" as RemotePluginServer {
+        --
+        +<back:yellow>SyncNodeServer</back> getSyncNode ()
+        +<back:yellow>AsyncNodeServer</back> getAsyncNode ()
+        ..
+        +RemoteReaderServer getReader (String name)
+        +void terminateService (String remoteReaderName,
+            \tObject userOutputData)
+    }
+    +interface "<<<back:cyan>KeypleReaderExtension</back>>>\nRemoteReaderServer" as RemoteReaderServer {
+        +String getServiceId ()
+        +<T> T getUserInputData (Class<T> classOfT)
+        +<back:cyan>KeypleSmartCard</back> getInitialCardContent ()
+    }
+    +interface "<<<back:cyan>KeyplePluginExtension</back>>>\nRemotePluginClient" as RemotePluginClient {
+        +<back:yellow>AsyncNodeClient</back> getAsyncNode ()
+    }
+    +interface "<<<back:cyan>KeyplePluginExtension</back>>>\nPoolRemotePluginClient" as PoolRemotePluginClient {
+        +<back:yellow>AsyncNodeClient</back> getAsyncNode ()
+    }
+
+    ' Factories
+    together {
+        +interface "<<<back:cyan>KeyplePluginExtensionFactory</back>>>\nRemotePluginServerFactory" as RemotePluginServerFactory {
+        }
+        +interface "<<<back:cyan>KeyplePluginExtensionFactory</back>>>\nRemotePluginClientFactory" as RemotePluginClientFactory {
+        }
+        +interface "<<<back:cyan>KeyplePluginExtensionFactory</back>>>\nPoolRemotePluginClientFactory" as PoolRemotePluginClientFactory {
+        }
+    }
+
+    ' Factories builders
+    together {
+        +class "**final** RemotePluginServerFactoryBuilder" as RemotePluginServerFactoryBuilder {
+            + {static} NameStep builder ()
+        }
+        +interface "NameStep" as RemotePluginServerFactoryNameStep {
+            + NodeStep withDefaultPluginName ()
+            + NodeStep withPluginName (String remotePluginName)
+        }
+        +interface "NodeStep" as RemotePluginServerFactoryNodeStep {
+            + BuilderStep withSyncNode ()
+            + BuilderStep withAsyncNode (<back:yellow>AsyncEndpointServerSpi</back> endpoint)
+        }
+        +interface "BuilderStep" as RemotePluginServerFactoryBuilderStep {
+            + RemotePluginServerFactory build ()
+        }
+
+        +class "**final** RemotePluginClientFactoryBuilder" as RemotePluginClientFactoryBuilder {
+            + {static} NameStep builder ()
+        }
+        +interface "NameStep" as RemotePluginClientFactoryNameStep {
+            + NodeStep withDefaultPluginName ()
+            + NodeStep withPluginName (String remotePluginName)
+        }
+        +interface "NodeStep" as RemotePluginClientFactoryNodeStep {
+            + SyncNodePluginStep withSyncNode (<back:yellow>SyncEndpointClientSpi</back> endpoint)
+            + AsyncNodePluginStep withAsyncNode (<back:yellow>AsyncEndpointClientSpi</back> endpoint)
+        }
+        +interface "AsyncNodePluginStep" as RemotePluginClientFactoryAsyncNodePluginStep {
+            + AsyncNodeReaderStep withPluginObservation ()
+            + AsyncNodeReaderStep withoutPluginObservation ()
+        }
+        +interface "AsyncNodeReaderStep" as RemotePluginClientFactoryAsyncNodeReaderStep {
+            + BuilderStep withReaderObservation ()
+            + BuilderStep withoutReaderObservation ()
+        }
+        +interface "SyncNodePluginStep" as RemotePluginClientFactorySyncNodePluginStep {
+            + ServerPushPluginEventStrategyStep withPluginObservation ()
+            + SyncNodeReaderStep withoutPluginObservation ()
+        }
+        +interface "ServerPushPluginEventStrategyStep" as RemotePluginClientFactoryServerPushPluginEventStrategyStep {
+            + SyncNodeReaderStep usingPluginPollingStrategy (
+                \tint requestFrequencyInSeconds)
+            + SyncNodeReaderStep usingPluginLongPollingStrategy (
+                \tint requestTimeoutInSeconds)
+        }
+        +interface "SyncNodeReaderStep" as RemotePluginClientFactorySyncNodeReaderStep {
+            + ServerPushReaderEventStrategyStep withReaderObservation ()
+            + BuilderStep withoutReaderObservation ()
+        }
+        +interface "ServerPushReaderEventStrategyStep" as RemotePluginClientFactoryServerPushReaderEventStrategyStep {
+            + BuilderStep usingReaderPollingStrategy (
+                \tint requestFrequencyInSeconds)
+            + BuilderStep usingReaderLongPollingStrategy (
+                \tint requestTimeoutInSeconds)
+        }
+        +interface "BuilderStep" as RemotePluginClientFactoryBuilderStep {
+            + RemotePluginClientFactory build ()
+        }
+
+        +class "**final** PoolRemotePluginClientFactoryBuilder" as PoolRemotePluginClientFactoryBuilder {
+            + {static} NameStep builder ()
+        }
+        +interface "NameStep" as PoolRemotePluginClientFactoryNameStep {
+            + NodeStep withDefaultPluginName ()
+            + NodeStep withPluginName (String remotePluginName)
+        }
+        +class "NodeStep" as PoolRemotePluginClientFactoryNodeStep {
+            + BuilderStep withSyncNode (<back:yellow>SyncEndpointClientSpi</back> endpoint)
+            + TimeoutStep withAsyncNode (<back:yellow>AsyncEndpointClientSpi</back> endpoint)
+        }
+        +interface "TimeoutStep" as PoolRemotePluginClientFactoryTimeoutStep {
+            + BuilderStep usingDefaultTimeout ()
+            + BuilderStep usingTimeout (int timeoutInSeconds)
+        }
+        +interface "BuilderStep" as PoolRemotePluginClientFactoryBuilderStep {
+            + PoolRemotePluginClientFactory build ()
+        }
+    }
+}
+
+' Associations
+RemotePluginServerFactoryBuilder +--> RemotePluginServerFactoryNameStep
+RemotePluginServerFactoryNameStep +--> RemotePluginServerFactoryNodeStep
+RemotePluginServerFactoryNodeStep +--> RemotePluginServerFactoryBuilderStep
+RemotePluginServerFactoryBuilderStep ..> RemotePluginServerFactory #C_USE : provide >
+RemotePluginServerFactory ..> RemotePluginServer #C_USE : provide >
+
+RemotePluginClientFactoryBuilder +--> RemotePluginClientFactoryNameStep
+RemotePluginClientFactoryNameStep +--> RemotePluginClientFactoryNodeStep
+RemotePluginClientFactoryNodeStep +--> RemotePluginClientFactoryAsyncNodePluginStep
+RemotePluginClientFactoryAsyncNodePluginStep +--> RemotePluginClientFactoryAsyncNodeReaderStep
+RemotePluginClientFactoryNodeStep +--> RemotePluginClientFactorySyncNodePluginStep
+RemotePluginClientFactorySyncNodePluginStep +--> RemotePluginClientFactoryServerPushPluginEventStrategyStep
+RemotePluginClientFactoryServerPushPluginEventStrategyStep +--> RemotePluginClientFactorySyncNodeReaderStep
+RemotePluginClientFactorySyncNodePluginStep +--> RemotePluginClientFactorySyncNodeReaderStep
+RemotePluginClientFactoryAsyncNodeReaderStep +--> RemotePluginClientFactoryBuilderStep
+RemotePluginClientFactorySyncNodeReaderStep +--> RemotePluginClientFactoryBuilderStep
+RemotePluginClientFactorySyncNodeReaderStep +--> RemotePluginClientFactoryServerPushReaderEventStrategyStep
+RemotePluginClientFactoryServerPushReaderEventStrategyStep +--> RemotePluginClientFactoryBuilderStep
+RemotePluginClientFactoryBuilderStep ..> RemotePluginClientFactory #C_USE : provide >
+RemotePluginClientFactory ..> RemotePluginClient #C_USE : provide >
+
+PoolRemotePluginClientFactoryBuilder +--> PoolRemotePluginClientFactoryNameStep
+PoolRemotePluginClientFactoryNameStep +--> PoolRemotePluginClientFactoryNodeStep
+PoolRemotePluginClientFactoryNodeStep +--> PoolRemotePluginClientFactoryTimeoutStep
+PoolRemotePluginClientFactoryNodeStep +--> PoolRemotePluginClientFactoryBuilderStep
+PoolRemotePluginClientFactoryTimeoutStep +--> PoolRemotePluginClientFactoryBuilderStep
+PoolRemotePluginClientFactoryBuilderStep ..> PoolRemotePluginClientFactory #C_USE : provide >
+PoolRemotePluginClientFactory ..> PoolRemotePluginClient #C_USE : provide >
+
+RemotePluginServer *--> "1..N" RemoteReaderServer #C_LINK : readers
+
+' == LAYOUT ==
+
+' == STYLE ==
+
+package root #C_GREY1 {}
+
+interface RemotePluginServerFactory <<green>>
+interface RemotePluginServer <<green>>
+interface RemoteReaderServer <<green>>
+class RemotePluginServerFactoryBuilder <<green>>
+interface RemotePluginServerFactoryNameStep <<green>>
+interface RemotePluginServerFactoryNodeStep <<green>>
+interface RemotePluginServerFactoryBuilderStep <<green>>
+
+interface RemotePluginClientFactory <<purple>>
+interface RemotePluginClient <<purple>>
+class RemotePluginClientFactoryBuilder <<purple>>
+interface RemotePluginClientFactoryNameStep <<purple>>
+interface RemotePluginClientFactoryNodeStep <<purple>>
+interface RemotePluginClientFactoryAsyncNodePluginStep <<purple>>
+interface RemotePluginClientFactoryAsyncNodeReaderStep <<purple>>
+interface RemotePluginClientFactorySyncNodePluginStep <<purple>>
+interface RemotePluginClientFactoryServerPushPluginEventStrategyStep <<purple>>
+interface RemotePluginClientFactorySyncNodeReaderStep <<purple>>
+interface RemotePluginClientFactoryServerPushReaderEventStrategyStep <<purple>>
+interface RemotePluginClientFactoryBuilderStep <<purple>>
+
+interface PoolRemotePluginClientFactory <<blue>>
+interface PoolRemotePluginClient <<blue>>
+class PoolRemotePluginClientFactoryBuilder <<blue>>
+interface PoolRemotePluginClientFactoryNameStep <<blue>>
+interface PoolRemotePluginClientFactoryNodeStep <<blue>>
+interface PoolRemotePluginClientFactoryTimeoutStep <<blue>>
+interface PoolRemotePluginClientFactoryBuilderStep <<blue>>
+
+@enduml

@@ -1,0 +1,229 @@
+@startuml
+title
+    Keyple 2.0 - keyple-java-distributed-local - 2.0.0 (08/03/2021)
+end title
+
+' == THEME ==
+
+'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define C_GREY1 F8F9F9
+!define C_GREY2 F2F3F4
+!define C_GREY3 E5E7E9
+!define C_GREY4 D7DBDD
+!define C_GREY5 CACFD2
+!define C_GREY6 BDC3C7
+!define C_LINK 3498DB
+!define C_USE 27AE60
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+' Red
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+' Purple
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+' blue
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+' Green
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+' Grey
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+' == CONTENT ==
+
+legend top
+    __Colors legend__ :
+    * __Configuration modes__ :
+    ** <back:lightGreen>**Reader Client Side**</back>
+    ** <back:lightBlue>**Pool Reader Server Side**</back>
+    ** <back:plum>**Reader Server Side**</back>
+    * __External API references__ :
+    ** <back:yellow>**Network API**</back>
+    ** <back:cyan>**Commons API**</back>
+end legend
+
+package "org.eclipse.keyple.distributed" as root {
+
+    +interface "<<<back:cyan>KeypleDistributedLocalServiceExtension</back>>>\nLocalServiceClient" as LocalServiceClient {
+        --
+        +<back:yellow>AsyncNodeClient</back> getAsyncNode ()
+        ..
+        +<T> T executeRemoteService (
+            \tRemoteServiceParameters parameters,
+            \tClass<T> classOfT)
+    }
+    +class "**final** RemoteServiceParameters" as RemoteServiceParameters {
+        +{static} Builder builder (String serviceId, String localReaderName)
+    }
+    +class "**final** Builder" as RemoteServiceParametersBuilder {
+        +Builder withUserInputData (Object userInputData)
+        +Builder withInitialCardContent (<back:cyan>KeypleSmartCard</back> smartCard)
+        +RemoteServiceParameters build ()
+    }
+
+    +interface "<<<back:cyan>KeypleDistributedLocalServiceExtension</back>>>\nLocalServiceServer" as LocalServiceServer {
+        +<back:yellow>SyncNodeServer</back> getSyncNode ()
+        +<back:yellow>AsyncNodeServer</back> getAsyncNode ()
+    }
+
+    +interface "<<<back:cyan>KeypleDistributedLocalServiceExtension</back>>>\nPoolLocalServiceServer" as PoolLocalServiceServer {
+        +<back:yellow>SyncNodeServer</back> getSyncNode ()
+        +<back:yellow>AsyncNodeServer</back> getAsyncNode ()
+    }
+
+    ' Factories
+    together {
+        +interface "<<<back:cyan>KeypleDistributedLocalServiceExtensionFactory</back>>>\nLocalServiceClientFactory" as LocalServiceClientFactory {
+        }
+        +interface "<<<back:cyan>KeypleDistributedLocalServiceExtensionFactory</back>>>\nLocalServiceServerFactory" as LocalServiceServerFactory {
+        }
+        +interface "<<<back:cyan>KeypleDistributedLocalServiceExtensionFactory</back>>>\nPoolLocalServiceServerFactory" as PoolLocalServiceServerFactory {
+        }
+    }
+
+    ' Factories builders
+    together {
+        +class "**final** LocalServiceClientFactoryBuilder" as LocalServiceClientFactoryBuilder {
+            + {static} NameStep builder ()
+        }
+        +interface "NameStep" as LocalServiceClientFactoryNameStep {
+            + NodeStep withDefaultServiceName ()
+            + NodeStep withServiceName (String localServiceName)
+        }
+        +interface "NodeStep" as LocalServiceClientFactoryNodeStep {
+            + TimeoutStep withAsyncNode (<back:yellow>AsyncEndpointClientSpi</back> endpoint)
+            + ReaderStep withSyncNode (<back:yellow>SyncEndpointClientSpi</back> endpoint)
+        }
+        +interface "TimeoutStep" as LocalServiceClientFactoryTimeoutStep {
+            + ReaderStep usingDefaultTimeout ()
+            + ReaderStep usingTimeout (int timeoutInSeconds)
+        }
+        +interface "ReaderStep" as LocalServiceClientFactoryReaderStep {
+                + BuilderStep withReaderObservation (ObservableReaderEventFilter filter)
+            + BuilderStep withoutReaderObservation ()
+        }
+        +interface "BuilderStep" as LocalServiceClientFactoryBuilderStep {
+            + LocalServiceClientFactory build ()
+        }
+
+        package spi {
+            +interface ObservableReaderEventFilter {
+                +Object beforePropagation (<back:cyan>KeypleReaderEvent</back> event)
+                +Class<? extends Object> getUserOutputDataClass ()
+                +void afterPropagation (Object userOutputData)
+            }
+        }
+
+        +class "**final** LocalServiceServerFactoryBuilder" as LocalServiceServerFactoryBuilder {
+            + {static} NameStep builder ()
+        }
+        +interface "NameStep" as LocalServiceServerFactoryNameStep {
+            + NodeStep withDefaultServiceName ()
+            + NodeStep withServiceName (String localServiceName)
+        }
+        +interface "NodeStep" as LocalServiceServerFactoryNodeStep {
+            + BuilderStep withAsyncNode (<back:yellow>AsyncEndpointServerSpi</back> endpoint)
+            + BuilderStep withSyncNode ()
+        }
+        +interface "BuilderStep" as LocalServiceServerFactoryBuilderStep {
+            + LocalServiceServerFactory build ()
+        }
+
+        +class "**final** PoolLocalServiceServerFactoryBuilder" as PoolLocalServiceServerFactoryBuilder {
+            + {static} NameStep builder ()
+        }
+        +interface "NameStep" as PoolLocalServiceServerFactoryNameStep {
+            + NodeStep withDefaultServiceName ()
+            + NodeStep withServiceName (String localServiceName)
+        }
+        +interface "NodeStep" as PoolLocalServiceServerFactoryNodeStep {
+            + PluginStep withAsyncNode (<back:yellow>AsyncEndpointServerSpi</back> endpoint)
+            + PluginStep withSyncNode ()
+        }
+        +interface "PluginStep" as PoolLocalServiceServerFactoryPluginStep {
+            + BuilderStep withPoolPlugins (String... poolPluginNames)
+        }
+        +interface "BuilderStep" as PoolLocalServiceServerFactoryBuilderStep {
+            + PoolLocalServiceServerFactory build ()
+        }
+    }
+}
+
+' Associations
+LocalServiceClient ..> RemoteServiceParameters #C_USE : use >
+RemoteServiceParameters +--> RemoteServiceParametersBuilder
+
+LocalServiceClientFactoryBuilder +--> LocalServiceClientFactoryNameStep
+LocalServiceClientFactoryNameStep +--> LocalServiceClientFactoryNodeStep
+LocalServiceClientFactoryNodeStep +--> LocalServiceClientFactoryTimeoutStep
+LocalServiceClientFactoryNodeStep +--> LocalServiceClientFactoryReaderStep
+LocalServiceClientFactoryTimeoutStep +--> LocalServiceClientFactoryReaderStep
+LocalServiceClientFactoryReaderStep +--> LocalServiceClientFactoryBuilderStep
+LocalServiceClientFactoryReaderStep ..> ObservableReaderEventFilter #C_USE : use >
+LocalServiceClientFactoryBuilderStep ..> LocalServiceClientFactory #C_USE : provide >
+LocalServiceClientFactory ..> LocalServiceClient #C_USE : provide >
+
+LocalServiceServerFactoryBuilder +--> LocalServiceServerFactoryNameStep
+LocalServiceServerFactoryNameStep +--> LocalServiceServerFactoryNodeStep
+LocalServiceServerFactoryNodeStep +--> LocalServiceServerFactoryBuilderStep
+LocalServiceServerFactoryBuilderStep ..> LocalServiceServerFactory #C_USE : provide >
+LocalServiceServerFactory ..> LocalServiceServer #C_USE : provide >
+
+PoolLocalServiceServerFactoryBuilder +--> PoolLocalServiceServerFactoryNameStep
+PoolLocalServiceServerFactoryNameStep +--> PoolLocalServiceServerFactoryNodeStep
+PoolLocalServiceServerFactoryNodeStep +--> PoolLocalServiceServerFactoryPluginStep
+PoolLocalServiceServerFactoryPluginStep +--> PoolLocalServiceServerFactoryBuilderStep
+PoolLocalServiceServerFactoryBuilderStep ..> PoolLocalServiceServerFactory #C_USE : provide >
+PoolLocalServiceServerFactory ..> PoolLocalServiceServer #C_USE : provide >
+
+' == LAYOUT ==
+
+'LocalServiceClient -[hidden]- LocalServiceClientFactoryBuilder
+
+' == STYLE ==
+
+package root #C_GREY1 {}
+package spi #C_GREY2 {}
+
+interface LocalServiceClient <<green>>
+interface LocalServiceClientFactory <<green>>
+class LocalServiceClientFactoryBuilder <<green>>
+interface LocalServiceClientFactoryNameStep <<green>>
+interface LocalServiceClientFactoryNodeStep <<green>>
+interface LocalServiceClientFactoryTimeoutStep <<green>>
+interface LocalServiceClientFactoryReaderStep <<green>>
+interface LocalServiceClientFactoryBuilderStep <<green>>
+class RemoteServiceParameters <<green>>
+class RemoteServiceParametersBuilder <<green>>
+interface ObservableReaderEventFilter <<green>>
+
+interface LocalServiceServer <<purple>>
+interface LocalServiceServerFactory <<purple>>
+class LocalServiceServerFactoryBuilder <<purple>>
+interface LocalServiceServerFactoryNameStep <<purple>>
+interface LocalServiceServerFactoryNodeStep <<purple>>
+interface LocalServiceServerFactoryBuilderStep <<purple>>
+
+interface PoolLocalServiceServer <<blue>>
+interface PoolLocalServiceServerFactory <<blue>>
+class PoolLocalServiceServerFactoryBuilder <<blue>>
+interface PoolLocalServiceServerFactoryNameStep <<blue>>
+interface PoolLocalServiceServerFactoryNodeStep <<blue>>
+interface PoolLocalServiceServerFactoryPluginStep <<blue>>
+interface PoolLocalServiceServerFactoryBuilderStep <<blue>>
+
+@enduml

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1215px" preserveAspectRatio="none" style="width:2705px;height:1215px;" version="1.1" viewBox="0 0 2705 1215" width="2705px" zoomAndPan="magnify"><defs><filter height="1" id="b12nsx7clc9vsw0" width="1" x="0" y="0"><feFlood flood-color="#FFFF00" result="flood"/><feComposite in="SourceGraphic" in2="flood" operator="over"/></filter><filter height="1" id="b12nsx7clc9vsw1" width="1" x="0" y="0"><feFlood flood-color="#FFC0CB" result="flood"/><feComposite in="SourceGraphic" in2="flood" operator="over"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="1282.5" x="695" y="46.7139">Keyple 2.0 - keyple-java-distributed-network - 2.0.0 (08/03/2021)</text><rect fill="#DDDDDD" height="69.0234" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:2.5;" width="732.5" x="968.75" y="76.6016"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="140" x="983.75" y="125.4346">Legend :</text><text fill="#000000" filter="url(#b12nsx7clc9vsw0)" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="250" x="1133.75" y="125.4346">Sync Node API</text><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="12.5" x="1393.75" y="125.4346">-</text><text fill="#000000" filter="url(#b12nsx7clc9vsw1)" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="270" x="1416.25" y="125.4346">Async Node API</text><!--MD5=[3fb92fba1735106d511c1d05a9f83ed2]
+cluster root--><polygon fill="#F8F9F9" points="40,183.125,580,183.125,597.5,242.1484,2662.5,242.1484,2662.5,1198.125,40,1198.125,40,183.125" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="40" x2="597.5" y1="242.1484" y2="242.1484"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="525" x="50" y="224.458">org.eclipse.keyple.distributed</text><!--MD5=[f7e0e2453c87923036c1ac2adfb9cbf0]
+cluster spi--><polygon fill="#F2F3F4" points="600,739.375,667.5,739.375,685,798.3984,2602.5,798.3984,2602.5,1094.375,600,1094.375,600,739.375" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="600" x2="685" y1="798.3984" y2="798.3984"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="52.5" x="610" y="780.708">spi</text><!--MD5=[f5644b98fc2cac15db0816ab2936d10f]
+class AsyncNodeClient--><rect codeLine="53" fill="#FDEDEC" height="258.3594" id="AsyncNodeClient" style="stroke:#E74C3C;stroke-width:3.75;" width="645" x="1977.5" y="273.125"/><ellipse cx="2156.875" cy="313.125" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2159.375,305.625 L2159.375,320.625 L2164.375,320.625 L2165.5859,320.625 L2166.875,322.1875 L2166.875,323.125 L2166.875,324.0625 L2165.5859,325.625 L2164.375,325.625 L2149.375,325.625 L2148.1641,325.625 L2146.875,324.0625 L2146.875,323.125 L2146.875,322.1875 L2148.1641,320.625 L2149.375,320.625 L2154.375,320.625 L2154.375,305.625 L2149.375,305.625 L2148.1641,305.625 L2146.875,304.0625 L2146.875,303.125 L2146.875,302.1875 L2148.1641,300.625 L2149.375,300.625 L2164.375,300.625 L2165.5859,300.625 L2166.875,302.1875 L2166.875,303.125 L2166.875,304.0625 L2165.5859,305.625 L2164.375,305.625 L2159.375,305.625 Z " fill="#000000"/><ellipse cx="2220.625" cy="311.875" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="237.5" x="2235.625" y="325.4004">AsyncNodeClient</text><line style="stroke:#E74C3C;stroke-width:3.75;" x1="1980" x2="2620" y1="353.125" y2="353.125"/><line style="stroke:#E74C3C;stroke-width:3.75;" x1="1980" x2="2620" y1="373.125" y2="373.125"/><ellipse cx="2005" cy="400.625" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="372.5" x="2027.5" y="411.6724">void onOpen (String sessionId)</text><ellipse cx="2005" cy="435.2148" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="432.5" x="2027.5" y="446.2622">void onMessage (MessageDto msg)</text><ellipse cx="2005" cy="469.8047" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="375" x="2027.5" y="480.8521">void onClose (String sessionId)</text><ellipse cx="2005" cy="504.3945" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="580" x="2027.5" y="515.4419">void onError (String sessionId, Throwable error)</text><!--MD5=[0a2f2fb2edeec6d0e98aba29aa655f31]
+class AsyncNodeServer--><rect codeLine="59" fill="#FDEDEC" height="189.1797" id="AsyncNodeServer" style="stroke:#E74C3C;stroke-width:3.75;" width="645" x="1245" y="306.875"/><ellipse cx="1419.375" cy="346.875" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1421.875,339.375 L1421.875,354.375 L1426.875,354.375 L1428.0859,354.375 L1429.375,355.9375 L1429.375,356.875 L1429.375,357.8125 L1428.0859,359.375 L1426.875,359.375 L1411.875,359.375 L1410.6641,359.375 L1409.375,357.8125 L1409.375,356.875 L1409.375,355.9375 L1410.6641,354.375 L1411.875,354.375 L1416.875,354.375 L1416.875,339.375 L1411.875,339.375 L1410.6641,339.375 L1409.375,337.8125 L1409.375,336.875 L1409.375,335.9375 L1410.6641,334.375 L1411.875,334.375 L1426.875,334.375 L1428.0859,334.375 L1429.375,335.9375 L1429.375,336.875 L1429.375,337.8125 L1428.0859,339.375 L1426.875,339.375 L1421.875,339.375 Z " fill="#000000"/><ellipse cx="1483.125" cy="345.625" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="247.5" x="1498.125" y="359.1504">AsyncNodeServer</text><line style="stroke:#E74C3C;stroke-width:3.75;" x1="1247.5" x2="1887.5" y1="386.875" y2="386.875"/><line style="stroke:#E74C3C;stroke-width:3.75;" x1="1247.5" x2="1887.5" y1="406.875" y2="406.875"/><ellipse cx="1272.5" cy="434.375" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="432.5" x="1295" y="445.4224">void onMessage (MessageDto msg)</text><ellipse cx="1272.5" cy="468.9648" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="580" x="1295" y="480.0122">void onError (String sessionId, Throwable error)</text><!--MD5=[93e80188d33ab05d87f81cd0d94a3bc4]
+class SyncNodeClient--><rect codeLine="63" fill="#FEFECE" height="120" id="SyncNodeClient" style="stroke:#D4AC0D;stroke-width:3.75;" width="330" x="827.5" y="341.875"/><ellipse cx="865" cy="381.875" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M867.5,374.375 L867.5,389.375 L872.5,389.375 L873.7109,389.375 L875,390.9375 L875,391.875 L875,392.8125 L873.7109,394.375 L872.5,394.375 L857.5,394.375 L856.2891,394.375 L855,392.8125 L855,391.875 L855,390.9375 L856.2891,389.375 L857.5,389.375 L862.5,389.375 L862.5,374.375 L857.5,374.375 L856.2891,374.375 L855,372.8125 L855,371.875 L855,370.9375 L856.2891,369.375 L857.5,369.375 L872.5,369.375 L873.7109,369.375 L875,370.9375 L875,371.875 L875,372.8125 L873.7109,374.375 L872.5,374.375 L867.5,374.375 Z " fill="#000000"/><ellipse cx="912.5" cy="380.625" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="222.5" x="927.5" y="394.1504">SyncNodeClient</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="830" x2="1155" y1="421.875" y2="421.875"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="830" x2="1155" y1="441.875" y2="441.875"/><!--MD5=[6c35b9bf176c1aee30f526a9a385796d]
+class SyncNodeServer--><rect codeLine="65" fill="#FEFECE" height="154.5898" id="SyncNodeServer" style="stroke:#D4AC0D;stroke-width:3.75;" width="660" x="80" y="324.375"/><ellipse cx="269.375" cy="364.375" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M271.875,356.875 L271.875,371.875 L276.875,371.875 L278.0859,371.875 L279.375,373.4375 L279.375,374.375 L279.375,375.3125 L278.0859,376.875 L276.875,376.875 L261.875,376.875 L260.6641,376.875 L259.375,375.3125 L259.375,374.375 L259.375,373.4375 L260.6641,371.875 L261.875,371.875 L266.875,371.875 L266.875,356.875 L261.875,356.875 L260.6641,356.875 L259.375,355.3125 L259.375,354.375 L259.375,353.4375 L260.6641,351.875 L261.875,351.875 L276.875,351.875 L278.0859,351.875 L279.375,353.4375 L279.375,354.375 L279.375,355.3125 L278.0859,356.875 L276.875,356.875 L271.875,356.875 Z " fill="#000000"/><ellipse cx="333.125" cy="363.125" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="232.5" x="348.125" y="376.6504">SyncNodeServer</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="82.5" x2="737.5" y1="404.375" y2="404.375"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="82.5" x2="737.5" y1="424.375" y2="424.375"/><ellipse cx="107.5" cy="451.875" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="595" x="130" y="462.9224">List&lt;MessageDto&gt; onRequest (MessageDto msg)</text><!--MD5=[f1362ea87dac9fe50fe8caadfc737c53]
+class MessageDto--><rect codeLine="83" fill="#EBF5FB" height="431.3086" id="MessageDto" style="stroke:#3498DB;stroke-width:3.75;" width="380" x="172.5" y="725.625"/><ellipse cx="256.125" cy="765.625" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M261.125,756.875 Q261.6328,755.625 262.2188,755 Q262.8047,754.375 263.4688,754.375 Q264.6406,754.375 265.3828,755.0781 Q266.125,755.7813 266.125,757.4219 L266.125,761.3281 Q266.125,762.9688 265.4219,763.6719 Q264.7188,764.375 263.625,764.375 Q262.6484,764.375 262.0234,763.9453 Q261.3984,763.5156 261.125,762.3828 Q261.0078,761.6016 260.5781,761.1719 Q259.7969,760.3516 258.3906,759.8828 Q256.9844,759.375 255.5781,759.375 Q253.8203,759.375 252.3359,760.0781 Q250.8906,760.7813 249.7578,762.3438 Q248.625,763.9063 248.625,766.0547 L248.625,768.3594 Q248.625,770.9375 250.7344,772.6563 Q252.8438,774.375 256.5938,774.375 Q258.8203,774.375 260.3828,773.8672 Q261.2813,773.5938 262.2969,772.6953 Q262.9609,772.1875 263.3125,772.0313 Q263.6641,771.875 264.0938,771.875 Q264.9141,771.875 265.5,772.5391 Q266.125,773.1641 266.125,774.0625 Q266.125,774.9219 265.2656,775.9375 Q264.0156,777.4219 262.0234,778.2422 Q259.4063,779.375 256.2031,779.375 Q252.4531,779.375 249.4453,777.8906 Q247.0234,776.7188 245.3047,774.1797 Q243.625,771.6406 243.625,768.6328 L243.625,765.8984 Q243.625,762.7734 245.1094,760.0391 Q246.6328,757.3047 249.25,755.8594 Q251.9063,754.375 254.875,754.375 Q256.6719,754.375 258.2344,755 Q259.7969,755.625 261.125,756.875 Z " fill="#000000"/><ellipse cx="313.875" cy="764.375" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="170" x="328.875" y="777.9004">MessageDto</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="175" x2="550" y1="805.625" y2="805.625"/><ellipse cx="200" cy="833.125" fill="none" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="192.5" x="222.5" y="844.1724">String sessionId</text><ellipse cx="200" cy="867.7148" fill="none" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="150" x="222.5" y="878.7622">String action</text><ellipse cx="200" cy="902.3047" fill="none" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="222.5" x="222.5" y="913.3521">String clientNodeId</text><ellipse cx="200" cy="936.8945" fill="none" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="240" x="222.5" y="947.9419">String serverNodeId</text><ellipse cx="200" cy="971.4844" fill="none" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="287.5" x="222.5" y="982.5317">String localReaderName</text><ellipse cx="200" cy="1006.0742" fill="none" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="315" x="222.5" y="1017.1216">String remoteReaderName</text><ellipse cx="200" cy="1040.6641" fill="none" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="137.5" x="222.5" y="1051.7114">String body</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="175" x2="550" y1="1067.7539" y2="1067.7539"/><ellipse cx="200" cy="1095.2539" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="127.5" x="222.5" y="1106.3013">getters()...</text><ellipse cx="200" cy="1129.8438" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="127.5" x="222.5" y="1140.8911">setters()...</text><!--MD5=[329ccc2f1fdfefaca176e329ee6267b3]
+class AsyncEndpointClientSpi--><rect codeLine="70" fill="#FDEDEC" height="223.7695" id="AsyncEndpointClientSpi" style="stroke:#E74C3C;stroke-width:3.75;" width="527.5" x="2033.75" y="829.375"/><ellipse cx="2111.75" cy="869.375" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2114.25,861.875 L2114.25,876.875 L2119.25,876.875 L2120.4609,876.875 L2121.75,878.4375 L2121.75,879.375 L2121.75,880.3125 L2120.4609,881.875 L2119.25,881.875 L2104.25,881.875 L2103.0391,881.875 L2101.75,880.3125 L2101.75,879.375 L2101.75,878.4375 L2103.0391,876.875 L2104.25,876.875 L2109.25,876.875 L2109.25,861.875 L2104.25,861.875 L2103.0391,861.875 L2101.75,860.3125 L2101.75,859.375 L2101.75,858.4375 L2103.0391,856.875 L2104.25,856.875 L2119.25,856.875 L2120.4609,856.875 L2121.75,858.4375 L2121.75,859.375 L2121.75,860.3125 L2120.4609,861.875 L2119.25,861.875 L2114.25,861.875 Z " fill="#000000"/><ellipse cx="2168.25" cy="868.125" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="330" x="2183.25" y="881.6504">AsyncEndpointClientSpi</text><line style="stroke:#E74C3C;stroke-width:3.75;" x1="2036.25" x2="2558.75" y1="909.375" y2="909.375"/><line style="stroke:#E74C3C;stroke-width:3.75;" x1="2036.25" x2="2558.75" y1="929.375" y2="929.375"/><ellipse cx="2061.25" cy="956.875" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="435" x="2083.75" y="967.9224">void openSession (String sessionId)</text><ellipse cx="2061.25" cy="991.4648" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="462.5" x="2083.75" y="1002.5122">void sendMessage (MessageDto msg)</text><ellipse cx="2061.25" cy="1026.0547" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="440" x="2083.75" y="1037.1021">void closeSession (String sessionId)</text><!--MD5=[4ecd91beb1b1fb8385b120d0543d61f5]
+class AsyncEndpointServerSpi--><rect codeLine="75" fill="#FDEDEC" height="154.5898" id="AsyncEndpointServerSpi" style="stroke:#E74C3C;stroke-width:3.75;" width="527.5" x="1418.75" y="864.375"/><ellipse cx="1492.25" cy="904.375" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1494.75,896.875 L1494.75,911.875 L1499.75,911.875 L1500.9609,911.875 L1502.25,913.4375 L1502.25,914.375 L1502.25,915.3125 L1500.9609,916.875 L1499.75,916.875 L1484.75,916.875 L1483.5391,916.875 L1482.25,915.3125 L1482.25,914.375 L1482.25,913.4375 L1483.5391,911.875 L1484.75,911.875 L1489.75,911.875 L1489.75,896.875 L1484.75,896.875 L1483.5391,896.875 L1482.25,895.3125 L1482.25,894.375 L1482.25,893.4375 L1483.5391,891.875 L1484.75,891.875 L1499.75,891.875 L1500.9609,891.875 L1502.25,893.4375 L1502.25,894.375 L1502.25,895.3125 L1500.9609,896.875 L1499.75,896.875 L1494.75,896.875 Z " fill="#000000"/><ellipse cx="1547.75" cy="903.125" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="340" x="1562.75" y="916.6504">AsyncEndpointServerSpi</text><line style="stroke:#E74C3C;stroke-width:3.75;" x1="1421.25" x2="1943.75" y1="944.375" y2="944.375"/><line style="stroke:#E74C3C;stroke-width:3.75;" x1="1421.25" x2="1943.75" y1="964.375" y2="964.375"/><ellipse cx="1446.25" cy="991.875" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="462.5" x="1468.75" y="1002.9224">void sendMessage (MessageDto msg)</text><!--MD5=[c36e65bfe3f8fe8d38ea1e2298781c58]
+class SyncEndpointClientSpi--><rect codeLine="78" fill="#FEFECE" height="154.5898" id="SyncEndpointClientSpi" style="stroke:#D4AC0D;stroke-width:3.75;" width="690" x="640" y="864.375"/><ellipse cx="803.125" cy="904.375" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M805.625,896.875 L805.625,911.875 L810.625,911.875 L811.8359,911.875 L813.125,913.4375 L813.125,914.375 L813.125,915.3125 L811.8359,916.875 L810.625,916.875 L795.625,916.875 L794.4141,916.875 L793.125,915.3125 L793.125,914.375 L793.125,913.4375 L794.4141,911.875 L795.625,911.875 L800.625,911.875 L800.625,896.875 L795.625,896.875 L794.4141,896.875 L793.125,895.3125 L793.125,894.375 L793.125,893.4375 L794.4141,891.875 L795.625,891.875 L810.625,891.875 L811.8359,891.875 L813.125,893.4375 L813.125,894.375 L813.125,895.3125 L811.8359,896.875 L810.625,896.875 L805.625,896.875 Z " fill="#000000"/><ellipse cx="866.875" cy="903.125" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="315" x="881.875" y="916.6504">SyncEndpointClientSpi</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="642.5" x2="1327.5" y1="944.375" y2="944.375"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="642.5" x2="1327.5" y1="964.375" y2="964.375"/><ellipse cx="667.5" cy="991.875" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="625" x="690" y="1002.9224">List&lt;MessageDto&gt; sendRequest (MessageDto msg)</text><!--MD5=[701b1a3708528458ab7e0816ee62a401]
+link SyncNodeClient to SyncEndpointClientSpi--><path codeLine="97" d="M991.6825,462.6475 C990.37,556.335 987.78,741.055 986.2375,851.0225 " fill="none" id="SyncNodeClient-to-SyncEndpointClientSpi" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#3498DB" points="986.055,864.0525,996.3691,841.6947,986.23,851.5537,976.371,841.4147,986.055,864.0525" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#000000" points="999.8248,641.0632,1007.4884,618.5557,992.7952,618.3497,999.8248,641.0632" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1022.5" y="641.8628">use</text><!--MD5=[c6e9bf3b531c9f4881a0ca5ea0574c56]
+link AsyncNodeClient to AsyncEndpointClientSpi--><path codeLine="98" d="M2299.4075,531.1625 C2299.005,617.1025 2298.4775,730.1275 2298.08,815.455 " fill="none" id="AsyncNodeClient-to-AsyncEndpointClientSpi" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#3498DB" points="2298.015,828.9025,2308.1178,806.4484,2298.0721,816.4026,2288.118,806.357,2298.015,828.9025" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#000000" points="2309.9416,641.0643,2317.3945,618.4862,2302.7,618.4175,2309.9416,641.0643" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="2332.5" y="641.8628">use</text><!--MD5=[0d16d4679a9ac88f03a68b047e5f96fe]
+link AsyncNodeServer to AsyncEndpointServerSpi--><path codeLine="99" d="M1587.5325,497.565 C1608.9025,596.985 1642.5025,753.3025 1663.4775,850.885 " fill="none" id="AsyncNodeServer-to-AsyncEndpointServerSpi" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#3498DB" points="1666.225,863.6625,1671.2703,839.5628,1663.5966,851.442,1651.7175,843.7682,1666.225,863.6625" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#000000" points="1632.6268,640.7853,1635.0581,617.1335,1620.6916,620.2216,1632.6268,640.7853" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1652.5" y="641.8628">use</text><!--MD5=[def327908e4a9345e032b68d536e2396]
+link SyncNodeServer to MessageDto--><!--MD5=[890c3abeeb56e20407ded7a916671ab7]
+@startuml
+title
+    Keyple 2.0 - keyple-java-distributed-network - 2.0.0 (08/03/2021)
+end title
+
+' == THEME ==
+
+'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define C_GREY1 F8F9F9
+!define C_GREY2 F2F3F4
+!define C_GREY3 E5E7E9
+!define C_GREY4 D7DBDD
+!define C_GREY5 CACFD2
+!define C_GREY6 BDC3C7
+!define C_LINK 3498DB
+!define C_USE 27AE60
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+' Red
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+' Purple
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+' blue
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+' Green
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+' Grey
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+' == CONTENT ==
+
+legend top
+    Legend : <back:yellow>**Sync Node API**</back> - <back:pink>**Async Node API**</back>
+end legend
+
+package "org.eclipse.keyple.distributed" as root {
+    ' Nodes & Senders
+    +interface AsyncNodeClient {
+        +void onOpen (String sessionId)
+        +void onMessage (MessageDto msg)
+        +void onClose (String sessionId)
+        +void onError (String sessionId, Throwable error)
+    }
+    +interface AsyncNodeServer {
+        +void onMessage (MessageDto msg)
+        +void onError (String sessionId, Throwable error)
+    }
+    +interface SyncNodeClient {
+    }
+    +interface SyncNodeServer {
+        +List<MessageDto> onRequest (MessageDto msg)
+    }
+    ' SPI
+    package spi {
+        +interface AsyncEndpointClientSpi {
+            +void openSession (String sessionId)
+            +void sendMessage (MessageDto msg)
+            +void closeSession (String sessionId)
+        }
+        +interface AsyncEndpointServerSpi {
+            +void sendMessage (MessageDto msg)
+        }
+        +interface SyncEndpointClientSpi {
+            +List<MessageDto> sendRequest (MessageDto msg)
+        }
+    }
+    ' DTO
+    +class MessageDto {
+        + String sessionId
+        + String action
+        + String clientNodeId
+        + String serverNodeId
+        + String localReaderName
+        + String remoteReaderName
+        + String body
+        + getters()...
+        + setters()...
+    }
+}
+
+' Associations
+SyncNodeClient - -> SyncEndpointClientSpi #C_LINK : use >
+AsyncNodeClient - -> AsyncEndpointClientSpi #C_LINK : use >
+AsyncNodeServer - -> AsyncEndpointServerSpi #C_LINK : use >
+
+' == LAYOUT ==
+
+SyncNodeServer -[hidden]- MessageDto
+
+' == STYLE ==
+
+package root #C_GREY1 {}
+package spi #C_GREY2 {}
+
+AsyncNodeClient <<red>>
+AsyncNodeServer <<red>>
+AsyncEndpointClientSpi <<red>>
+AsyncEndpointServerSpi <<red>>
+
+MessageDto <<blue>>
+
+@enduml
+
+@startuml
+title
+    Keyple 2.0 - keyple-java-distributed-network - 2.0.0 (08/03/2021)
+end title
+
+
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+
+legend top
+    Legend : <back:yellow>**Sync Node API**</back> - <back:pink>**Async Node API**</back>
+end legend
+
+package "org.eclipse.keyple.distributed" as root {
+    +interface AsyncNodeClient {
+        +void onOpen (String sessionId)
+        +void onMessage (MessageDto msg)
+        +void onClose (String sessionId)
+        +void onError (String sessionId, Throwable error)
+    }
+    +interface AsyncNodeServer {
+        +void onMessage (MessageDto msg)
+        +void onError (String sessionId, Throwable error)
+    }
+    +interface SyncNodeClient {
+    }
+    +interface SyncNodeServer {
+        +List<MessageDto> onRequest (MessageDto msg)
+    }
+    package spi {
+        +interface AsyncEndpointClientSpi {
+            +void openSession (String sessionId)
+            +void sendMessage (MessageDto msg)
+            +void closeSession (String sessionId)
+        }
+        +interface AsyncEndpointServerSpi {
+            +void sendMessage (MessageDto msg)
+        }
+        +interface SyncEndpointClientSpi {
+            +List<MessageDto> sendRequest (MessageDto msg)
+        }
+    }
+    +class MessageDto {
+        + String sessionId
+        + String action
+        + String clientNodeId
+        + String serverNodeId
+        + String localReaderName
+        + String remoteReaderName
+        + String body
+        + getters()...
+        + setters()...
+    }
+}
+
+SyncNodeClient - -> SyncEndpointClientSpi #3498DB : use >
+AsyncNodeClient - -> AsyncEndpointClientSpi #3498DB : use >
+AsyncNodeServer - -> AsyncEndpointServerSpi #3498DB : use >
+
+
+SyncNodeServer -[hidden]- MessageDto
+
+
+package root #F8F9F9 {}
+package spi #F2F3F4 {}
+
+AsyncNodeClient <<red>>
+AsyncNodeServer <<red>>
+AsyncEndpointClientSpi <<red>>
+AsyncEndpointServerSpi <<red>>
+
+MessageDto <<blue>>
+
+@enduml
+
+PlantUML version 1.2021.01(Tue Feb 02 08:55:08 CET 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: fr
+Country: FR
+--></g></svg>
