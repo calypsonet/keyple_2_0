@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-local-api - 2.0 (09/02/2021)
+    Keyple 2.0 - keyple-java-distributed-local-api - 2.0 (11/03/2021)
 end title
 
 ' == THEME ==
@@ -51,13 +51,21 @@ package "org.eclipse.keyple.core.distributed.local" as api {
     }
     +interface LocalServiceManager {
         +String executeLocally (String readerName, String jsonData)
+        ..
         +boolean isReaderObservable (String readerName)
-        +void activateReaderObservation (String readerName)
+        +void startReaderObservation (String readerName)
+        +void stopReaderObservation (String readerName)
+        ..
+        +void startPluginsObservation ()
+        +void stopPluginsObservation ()
+        ..
+        +void setPoolPluginNames (String... poolPluginNames)
     }
     package spi {
         +interface LocalServiceFactorySpi {
             +String getDistributedLocalApiVersion ()
             +String getCommonsApiVersion ()
+            +String getLocalServiceName ()
             +LocalServiceSpi getLocalService ()
         }
         +interface LocalServiceSpi {

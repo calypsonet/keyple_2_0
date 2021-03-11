@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (08/03/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (11/03/2021)
 end title
 
 ' == THEME ==
@@ -93,12 +93,6 @@ package "org.eclipse.keyple.core.service" as service {
     +interface ObservableReader extends Reader {
         ...
     }
-    +enum NotificationMode {
-        ...
-    }
-    +enum PollingMode {
-        ...
-    }
 
     ' ADAPTERS
     ~class CardCommunicationExceptionJsonSerializer {
@@ -132,7 +126,7 @@ package "org.eclipse.keyple.core.service" as service {
         ..
         +**final** String getName ()
         +**final** <T extends <back:cyan>KeyplePluginExtension</back>> T getExtension (
-            \tClass<T> pluginType)
+            \tClass<T> pluginExtensionType)
         +**final** Map<String, Reader> getReaders ()
         +**final** Set<String> getReadersNames ()
         +**final** Reader getReader (String name)
@@ -143,18 +137,26 @@ package "org.eclipse.keyple.core.service" as service {
         ~void register ()
         ~void unregister ()
     }
-    ~class "<<<back:orange>LocalServiceManager</back>>>\n**final** DistributedLocalServiceAdapter" as DistributedLocalServiceAdapter implements DistributedLocalService {
+    ~class "<<<back:orange>LocalServiceManager</back>>>\n**final** DistributedLocalServiceAdapter" as DistributedLocalServiceAdapter implements DistributedLocalService, PluginObserverSpi, ReaderObserverSpi {
         --
         ~DistributedLocalServiceAdapter (String name,
             \t<back:orange>LocalServiceSpi</back> localServiceSpi)
         ..
         +String getName ()
         +<T extends <back:cyan>KeypleDistributedLocalServiceExtension</back>> T getExtension (
-            \tClass<T> distributedLocalServiceType)
+            \tClass<T> distributedLocalServiceExtensionType)
         ..
         +String executeLocally (String readerName, String jsonData)
         +boolean isReaderObservable (String readerName)
-        +void activateReaderObservation (String readerName)
+        +void startReaderObservation (String readerName)
+        +void stopReaderObservation (String readerName)
+        +void startPluginsObservation ()
+        +void stopPluginsObservation ()
+        +void setPoolPluginNames (String... poolPluginNames)
+        ..
+        +void onPluginEvent (PluginEvent pluginEvent)
+        ..
+        +void onReaderEvent (ReaderEvent readerEvent)
         ..
         ~void checkStatus ()
         ~void register ()
@@ -233,7 +235,7 @@ package "org.eclipse.keyple.core.service" as service {
         +**final** String getName ()
         ~**final** String getPluginName ()
         ..
-        ~**final** List<<back:lightGreen>CardSelectionResponse</back>> transmitCardSelectionRequests (
+        ~**final** List<<back:cyan>KeypleCardSelectionResponse</back>> transmitCardSelectionRequests (
             \tList<<back:lightGreen>CardSelectionRequest</back>> cardSelectionRequests,
             \t<back:lightGreen>MultiSelectionProcessing</back> multiSelectionProcessing,
             \t<back:lightGreen>ChannelControl</back> channelControl)
@@ -242,11 +244,11 @@ package "org.eclipse.keyple.core.service" as service {
             \t<back:lightGreen>CardRequest</back> cardRequest,
             \t<back:lightGreen>ChannelControl</back> channelControl)
         ..
-        ~{abstract} List<<back:lightGreen>CardSelectionResponse</back>> processCardSelectionRequests (
+        ~{abstract} **abstract** List<<back:lightGreen>CardSelectionResponse</back>> processCardSelectionRequests (
             \tList<<back:lightGreen>CardSelectionRequest</back>> cardSelectionRequests,
             \t<back:lightGreen>MultiSelectionProcessing</back> multiSelectionProcessing,
             \t<back:lightGreen>ChannelControl</back> channelControl)
-        ~{abstract} <back:lightGreen>CardResponse</back> processCardRequest (
+        ~{abstract} **abstract** <back:lightGreen>CardResponse</back> processCardRequest (
             \t<back:lightGreen>CardRequest</back> cardRequest,
             \t<back:lightGreen>ChannelControl</back> channelControl)
         ..
@@ -258,7 +260,8 @@ package "org.eclipse.keyple.core.service" as service {
         --
         ~LocalReaderAdapter (<back:pink>ReaderSpi</back> readerSpi, String pluginName)
         ..
-        +**final** <T extends <back:cyan>KeypleReaderExtension</back>> T getExtension (Class<T> readerType)
+        +**final** <T extends <back:cyan>KeypleReaderExtension</back>> T getExtension (
+            \tClass<T> readerExtensionType)
         +**final** boolean isContactless ()
         +boolean isCardPresent ()
         +**final** void activateProtocol (
@@ -282,7 +285,8 @@ package "org.eclipse.keyple.core.service" as service {
         --
         ~RemoteReaderAdapter (<back:plum>RemoteReaderSpi</back> remoteReaderSpi, String pluginName)
         ..
-        +**final** <T extends <back:cyan>KeypleReaderExtension</back>> T getExtension (Class<T> readerType)
+        +**final** <T extends <back:cyan>KeypleReaderExtension</back>> T getExtension (
+            \tClass<T> readerExtensionType)
         +**final** boolean isContactless ()
         +**final** boolean isCardPresent ()
         +**final** void activateProtocol (
@@ -319,9 +323,6 @@ package "org.eclipse.keyple.core.service" as service {
         ..
         ~void scheduleCardSelectionScenario (
             \t<back:lightGreen>CardSelectionScenario</back> cardSelectionScenario,
-            \tNotificationMode notificationMode)
-        ~void scheduleCardSelectionScenario (
-            \t<back:lightGreen>CardSelectionScenario</back> cardSelectionScenario,
             \tNotificationMode notificationMode,
             \tPollingMode pollingMode)
         ..
@@ -347,6 +348,8 @@ package "org.eclipse.keyple.core.service" as service {
         ~MonitoringState getCurrentMonitoringState ()
         ~void onEvent (InternalEvent event)
         ..
+        ~<back:pink>ObservableReaderSpi</back> getObservableReaderSpi ()
+        ..
         ~void unregister ()
     }
     ~enum InternalEvent {
@@ -371,9 +374,6 @@ package "org.eclipse.keyple.core.service" as service {
         ..
         ~void scheduleCardSelectionScenario (
             \t<back:lightGreen>CardSelectionScenario</back> cardSelectionScenario,
-            \tNotificationMode notificationMode)
-        ~void scheduleCardSelectionScenario (
-            \t<back:lightGreen>CardSelectionScenario</back> cardSelectionScenario,
             \tNotificationMode notificationMode,
             \tPollingMode pollingMode)
         ..
@@ -384,6 +384,8 @@ package "org.eclipse.keyple.core.service" as service {
             \tExecutorService eventNotificationExecutorService)
         +void setReaderObservationExceptionHandler (
             \tReaderObservationExceptionHandlerSpi exceptionHandler)
+        ..
+        ~ObservableRemoteReaderAdapter getMasterReader ()
         ..
         ~void notifyObservers (ReaderEvent event)
         ..
@@ -421,7 +423,7 @@ package "org.eclipse.keyple.core.service" as service {
         ~void onActivate ()
         ~void onDeactivate ()
         ..
-        ~{abstract} void onEvent (InternalEvent event)
+        ~{abstract} **abstract** void onEvent (InternalEvent event)
     }
     together {
         ~enum MonitoringState {
@@ -468,35 +470,39 @@ package "org.eclipse.keyple.core.service" as service {
         }
         ~abstract class AbstractMonitoringJob {
             --
-            ~AbstractMonitoringJob ()
-            ..
-            ~{abstract} Runnable getMonitoringJob (AbstractObservableState state)
-            ~{abstract} void stop ()
-        }
-        ~class "**final** CardAbsentPingMonitoringJob" as CardAbsentPingMonitoringJob extends AbstractMonitoringJob {
-            --
-            ~CardAbsentPingMonitoringJob (
+            ~AbstractMonitoringJob (
                 \tObservableLocalReaderAdapter reader)
-            ~CardAbsentPingMonitoringJob (
+            ..
+            ~{abstract} **abstract** Runnable getMonitoringJob (
+                \tAbstractObservableState state)
+            ~{abstract} **abstract** void stop ()
+            ..
+            ~ObservableLocalReaderAdapter getReader ()
+        }
+        ~class "**final** CardRemovalActiveMonitoringJob" as CardRemovalActiveMonitoringJob extends AbstractMonitoringJob {
+            --
+            ~CardRemovalActiveMonitoringJob (
+                \tObservableLocalReaderAdapter reader)
+            ~CardRemovalActiveMonitoringJob (
                 \tObservableLocalReaderAdapter reader,
                 \tlong removalWait)
         }
-        ~class "**final** CardPresentMonitoringJob" as CardPresentMonitoringJob extends AbstractMonitoringJob {
+        ~class "**final** CardInsertionActiveMonitoringJob" as CardInsertionActiveMonitoringJob extends AbstractMonitoringJob {
             --
-            ~CardPresentMonitoringJob (
-                \tReader reader,
+            ~CardInsertionActiveMonitoringJob (
+                \tObservableLocalReaderAdapter reader,
                 \tlong waitTimeout,
                 \tboolean monitorInsertion)
         }
-        ~class "**final** SmartInsertionMonitoringJob" as SmartInsertionMonitoringJob extends AbstractMonitoringJob {
+        ~class "**final** CardInsertionPassiveMonitoringJob" as CardInsertionPassiveMonitoringJob extends AbstractMonitoringJob {
             --
-            ~SmartInsertionMonitoringJob (
-                \t<back:pink>WaitForCardInsertionBlockingSpi</back> reader)
+            ~CardInsertionPassiveMonitoringJob (
+                \tObservableLocalReaderAdapter reader)
         }
-        ~class "**final** SmartRemovalMonitoringJob" as SmartRemovalMonitoringJob extends AbstractMonitoringJob {
+        ~class "**final** CardRemovalPassiveMonitoringJob" as CardRemovalPassiveMonitoringJob extends AbstractMonitoringJob {
             --
-            ~SmartRemovalMonitoringJob (
-                \t<back:pink>WaitForCardRemovalBlockingSpi</back> reader)
+            ~CardRemovalPassiveMonitoringJob (
+                \tObservableLocalReaderAdapter reader)
         }
     }
 
@@ -560,9 +566,6 @@ SmartCardServiceProvider ..> SmartCardService #C_USE : provide >
 SmartCardServiceAdapter *-- "0..N" Plugin #C_LINK
 SmartCardServiceAdapter *-- "0..N" DistributedLocalService #C_LINK
 
-ObservableReader +-- NotificationMode
-ObservableReader +-- PollingMode
-
 ObservableLocalReaderAdapter +-- InternalEvent
 ObservableLocalReaderAdapter "1" *--* "1" ObservableReaderStateService #C_LINK
 
@@ -573,7 +576,9 @@ AbstractObservableState *-- "1" MonitoringState #C_LINK
 AbstractObservableState *-- "1" ObservableLocalReaderAdapter #C_LINK
 AbstractObservableState *-- "0..1" AbstractMonitoringJob #C_LINK
 
-PluginAdapter *-- "0..N" Reader #C_LINK
+AbstractMonitoringJob *-up- "1" ObservableLocalReaderAdapter #C_LINK
+
+PluginAdapter *-up- "0..N" Reader #C_LINK
 
 AbstractObservablePluginAdapter *-- "0..N" PluginObserverSpi #C_LINK
 AbstractObservablePluginAdapter *-- "0..1" PluginObservationExceptionHandlerSpi #C_LINK
@@ -583,6 +588,7 @@ ObservableLocalReaderAdapter *-- "0..1" ReaderObservationExceptionHandlerSpi #C_
 
 ObservableRemoteReaderAdapter *-- "0..N" ReaderObserverSpi #C_LINK
 ObservableRemoteReaderAdapter *-- "0..1" ReaderObservationExceptionHandlerSpi #C_LINK
+ObservableRemoteReaderAdapter *-- "0..1" ObservableRemoteReaderAdapter #C_LINK : masterReader >
 
 CardSelectionServiceFactory ..> CardSelectionService #C_USE : create >
 
@@ -609,10 +615,10 @@ class AutonomousObservableLocalReaderAdapter <<blue>>
 abstract class AbstractObservableState <<blue>>
 enum MonitoringState <<blue>>
 abstract class AbstractMonitoringJob <<blue>>
-class CardAbsentPingMonitoringJob <<blue>>
-class CardPresentMonitoringJob <<blue>>
-class SmartInsertionMonitoringJob <<blue>>
-class SmartRemovalMonitoringJob <<blue>>
+class CardRemovalActiveMonitoringJob <<blue>>
+class CardInsertionActiveMonitoringJob <<blue>>
+class CardInsertionPassiveMonitoringJob <<blue>>
+class CardRemovalPassiveMonitoringJob <<blue>>
 class WaitForCardInsertionState <<blue>>
 class WaitForCardProcessingState <<blue>>
 class WaitForCardRemovalState <<blue>>
