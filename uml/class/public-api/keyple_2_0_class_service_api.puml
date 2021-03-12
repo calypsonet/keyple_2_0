@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (08/03/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (12/03/2021)
 end title
 
 ' == THEME ==
@@ -241,38 +241,32 @@ package "org.eclipse.keyple.core.service" as service {
             }
             +class "<<<back:cyan>KeypleCardSelector</back>>>\nCardSelector" as CardSelector {
                 --
-                #CardSelector (CardSelectorBuilder builder)
+                +CardSelector ()
                 ..
-                +{static} CardSelectorBuilder builder ()
-                +String getCardProtocol ()
-                +AtrFilter getAtrFilter ()
-                +AidSelector getAidSelector ()
-            }
-            +class CardSelectorBuilder <<static>> {
-                --
-                #CardSelectorBuilder ()
+                +**final** CardSelector setCardProtocol (String cardProtocol)
+                +**final** CardSelector setAtrFilter (AtrFilter atrFilter)
+                +**final** CardSelector setAidSelector (AidSelector aidSelector)
                 ..
-                +CardSelectorBuilder cardProtocol (String cardProtocol)
-                +CardSelectorBuilder atrFilter (AtrFilter atrFilter)
-                +CardSelectorBuilder aidSelector (AidSelector aidSelector)
-                +CardSelector build ()
+                +**final** String getCardProtocol ()
+                +**final** AtrFilter getAtrFilter ()
+                +**final** AidSelector getAidSelector ()
             }
             +class "**final** AidSelector" as AidSelector <<static>> {
                 +{static} **final** int AID_MIN_LENGTH
                 +{static} **final** int AID_MAX_LENGTH
-                +{static} AidSelectorBuilder builder ()
+                ..
+                +AidSelector ()
+                ..
+                +AidSelector setAidToSelect (byte[] aid)
+                +AidSelector setAidToSelect (String aid)
+                +AidSelector setFileOccurrence (FileOccurrence fileOccurrence)
+                +AidSelector setFileControlInformation (FileControlInformation fileControlInformation)
+                ..
                 +byte[] getAidToSelect ()
                 +FileOccurrence getFileOccurrence ()
                 +FileControlInformation getFileControlInformation ()
                 +Set<Integer> getSuccessfulSelectionStatusCodes ()
                 +void addSuccessfulStatusCode (int statusCode)
-            }
-            +class "**final** AidSelectorBuilder" as AidSelectorBuilder <<static>> {
-                +AidSelectorBuilder aidToSelect (byte[] aid)
-                +AidSelectorBuilder aidToSelect (String aid)
-                +AidSelectorBuilder fileOccurrence (FileOccurrence fileOccurrence)
-                +AidSelectorBuilder fileControlInformation (FileControlInformation fileControlInformation)
-                +AidSelector build ()
             }
             +enum FileOccurrence {
                 FIRST
@@ -381,13 +375,11 @@ CardSelectionResult *-- "1..N" SmartCard #C_LINK
 CardResource *-- "1" SmartCard #C_LINK
 CardResource *-- "1" Reader #C_LINK
 
-CardSelector +-- CardSelectorBuilder
 CardSelector +-- AtrFilter
 CardSelector *-- "0..1" AtrFilter #C_LINK
 CardSelector +-- AidSelector
 CardSelector *-- "0..1" AidSelector #C_LINK
 
-AidSelector +-- AidSelectorBuilder
 AidSelector +-- FileOccurrence
 AidSelector *-- "0..1" FileOccurrence  #C_LINK
 AidSelector +-- FileControlInformation
@@ -414,7 +406,7 @@ CardSelection .left.> CardSelector #C_USE : provide >
 
 ' == LAYOUT ==
 
-AidSelectorBuilder -[hidden]- KeyplePluginInstantiationException
+FileOccurrence -[hidden]- KeyplePluginInstantiationException
 
 ' == STYLE ==
 

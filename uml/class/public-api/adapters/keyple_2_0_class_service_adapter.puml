@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (11/03/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (12/03/2021)
 end title
 
 ' == THEME ==
@@ -95,7 +95,12 @@ package "org.eclipse.keyple.core.service" as service {
     }
 
     ' ADAPTERS
-    ~class CardCommunicationExceptionJsonSerializer {
+    ~class "<<JsonSerializer>>\n**final** CommunicationExceptionJsonSerializerAdapter" as CommunicationExceptionJsonSerializerAdapter {
+        --
+        +JsonElement serialize (
+            \t<back:lightGreen>AbstractCommunicationException</back> exception,
+            \tType type,
+            \tJsonSerializationContext jsonSerializationContext)
     }
     ~class "**final** SmartCardServiceAdapter" as SmartCardServiceAdapter implements SmartCardService {
         --
@@ -393,26 +398,26 @@ package "org.eclipse.keyple.core.service" as service {
     }
 
     ' AUTOMATE
-    ~class "**final** ObservableReaderStateService" as ObservableReaderStateService {
+    ~class "**final** ObservableReaderStateServiceAdapter" as ObservableReaderStateServiceAdapter {
         --
-        ~ObservableReaderStateService (ObservableLocalReaderAdapter reader)
+        ~ObservableReaderStateServiceAdapter (ObservableLocalReaderAdapter reader)
         ..
         ~void onEvent (InternalEvent event)
         ~void switchState (MonitoringState stateId)
-        ~AbstractObservableState getCurrentState ()
+        ~AbstractObservableStateAdapter getCurrentState ()
         ~MonitoringState getCurrentMonitoringState ()
         ~void shutdown ()
     }
-    ~abstract class AbstractObservableState {
+    ~abstract class AbstractObservableStateAdapter {
         ~MonitoringState state
         ~ObservableLocalReaderAdapter reader
         --
-        ~AbstractObservableState (
+        ~AbstractObservableStateAdapter (
             \tMonitoringState state,
             \tObservableLocalReaderAdapter reader,
-            \tAbstractMonitoringJob monitoringJob,
+            \tAbstractMonitoringJobAdapter monitoringJob,
             \tExecutorService executorService)
-        ~AbstractObservableState (
+        ~AbstractObservableStateAdapter (
             \tMonitoringState state,
             \tObservableLocalReaderAdapter reader)
         ..
@@ -432,76 +437,76 @@ package "org.eclipse.keyple.core.service" as service {
             WAIT_FOR_SE_PROCESSING
             WAIT_FOR_SE_REMOVAL
         }
-        ~class "**final** WaitForCardInsertionState" as WaitForCardInsertionState extends AbstractObservableState {
+        ~class "**final** WaitForCardInsertionStateAdapter" as WaitForCardInsertionStateAdapter extends AbstractObservableStateAdapter {
             --
-            ~WaitForCardInsertionState (
+            ~WaitForCardInsertionStateAdapter (
                 \tObservableLocalReaderAdapter reader,
-                \tAbstractMonitoringJob monitoringJob,
+                \tAbstractMonitoringJobAdapter monitoringJob,
                 \tExecutorService executorService)
-            ~WaitForCardInsertionState (
+            ~WaitForCardInsertionStateAdapter (
                 \tObservableLocalReaderAdapter reader)
         }
-        ~class "**final** WaitForCardProcessingState" as WaitForCardProcessingState extends AbstractObservableState {
+        ~class "**final** WaitForCardProcessingStateAdapter" as WaitForCardProcessingStateAdapter extends AbstractObservableStateAdapter {
             --
-            ~WaitForCardProcessingState (
+            ~WaitForCardProcessingStateAdapter (
                 \tObservableLocalReaderAdapter reader,
-                \tAbstractMonitoringJob monitoringJob,
+                \tAbstractMonitoringJobAdapter monitoringJob,
                 \tExecutorService executorService)
-            ~WaitForCardProcessingState (
+            ~WaitForCardProcessingStateAdapter (
                 \tObservableLocalReaderAdapter reader)
         }
-        ~class "**final** WaitForCardRemovalState" as WaitForCardRemovalState extends AbstractObservableState {
+        ~class "**final** WaitForCardRemovalStateAdapter" as WaitForCardRemovalStateAdapter extends AbstractObservableStateAdapter {
             --
-            ~WaitForCardRemovalState (
+            ~WaitForCardRemovalStateAdapter (
                 \tObservableLocalReaderAdapter reader,
-                \tAbstractMonitoringJob monitoringJob,
+                \tAbstractMonitoringJobAdapter monitoringJob,
                 \tExecutorService executorService)
-            ~WaitForCardRemovalState (
+            ~WaitForCardRemovalStateAdapter (
                 \tObservableLocalReaderAdapter reader)
         }
-        ~class "**final** WaitForStartDetectState" as WaitForStartDetectState extends AbstractObservableState {
+        ~class "**final** WaitForStartDetectStateAdapter" as WaitForStartDetectStateAdapter extends AbstractObservableStateAdapter {
             --
-            ~WaitForStartDetectState (
+            ~WaitForStartDetectStateAdapter (
                 \tObservableLocalReaderAdapter reader,
-                \tAbstractMonitoringJob monitoringJob,
+                \tAbstractMonitoringJobAdapter monitoringJob,
                 \tExecutorService executorService)
-            ~WaitForStartDetectState (
+            ~WaitForStartDetectStateAdapter (
                 \tObservableLocalReaderAdapter reader)
         }
-        ~abstract class AbstractMonitoringJob {
+        ~abstract class AbstractMonitoringJobAdapter {
             --
-            ~AbstractMonitoringJob (
+            ~AbstractMonitoringJobAdapter (
                 \tObservableLocalReaderAdapter reader)
             ..
             ~{abstract} **abstract** Runnable getMonitoringJob (
-                \tAbstractObservableState state)
+                \tAbstractObservableStateAdapter state)
             ~{abstract} **abstract** void stop ()
             ..
             ~ObservableLocalReaderAdapter getReader ()
         }
-        ~class "**final** CardRemovalActiveMonitoringJob" as CardRemovalActiveMonitoringJob extends AbstractMonitoringJob {
+        ~class "**final** CardRemovalActiveMonitoringJobAdapter" as CardRemovalActiveMonitoringJobAdapter extends AbstractMonitoringJobAdapter {
             --
-            ~CardRemovalActiveMonitoringJob (
+            ~CardRemovalActiveMonitoringJobAdapter (
                 \tObservableLocalReaderAdapter reader)
-            ~CardRemovalActiveMonitoringJob (
+            ~CardRemovalActiveMonitoringJobAdapter (
                 \tObservableLocalReaderAdapter reader,
                 \tlong removalWait)
         }
-        ~class "**final** CardInsertionActiveMonitoringJob" as CardInsertionActiveMonitoringJob extends AbstractMonitoringJob {
+        ~class "**final** CardInsertionActiveMonitoringJobAdapter" as CardInsertionActiveMonitoringJobAdapter extends AbstractMonitoringJobAdapter {
             --
-            ~CardInsertionActiveMonitoringJob (
+            ~CardInsertionActiveMonitoringJobAdapter (
                 \tObservableLocalReaderAdapter reader,
                 \tlong waitTimeout,
                 \tboolean monitorInsertion)
         }
-        ~class "**final** CardInsertionPassiveMonitoringJob" as CardInsertionPassiveMonitoringJob extends AbstractMonitoringJob {
+        ~class "**final** CardInsertionPassiveMonitoringJobAdapter" as CardInsertionPassiveMonitoringJobAdapter extends AbstractMonitoringJobAdapter {
             --
-            ~CardInsertionPassiveMonitoringJob (
+            ~CardInsertionPassiveMonitoringJobAdapter (
                 \tObservableLocalReaderAdapter reader)
         }
-        ~class "**final** CardRemovalPassiveMonitoringJob" as CardRemovalPassiveMonitoringJob extends AbstractMonitoringJob {
+        ~class "**final** CardRemovalPassiveMonitoringJobAdapter" as CardRemovalPassiveMonitoringJobAdapter extends AbstractMonitoringJobAdapter {
             --
-            ~CardRemovalPassiveMonitoringJob (
+            ~CardRemovalPassiveMonitoringJobAdapter (
                 \tObservableLocalReaderAdapter reader)
         }
     }
@@ -567,16 +572,16 @@ SmartCardServiceAdapter *-- "0..N" Plugin #C_LINK
 SmartCardServiceAdapter *-- "0..N" DistributedLocalService #C_LINK
 
 ObservableLocalReaderAdapter +-- InternalEvent
-ObservableLocalReaderAdapter "1" *--* "1" ObservableReaderStateService #C_LINK
+ObservableLocalReaderAdapter "1" *--* "1" ObservableReaderStateServiceAdapter #C_LINK
 
-ObservableReaderStateService *-- "1..N" AbstractObservableState #C_LINK
+ObservableReaderStateServiceAdapter *-- "1..N" AbstractObservableStateAdapter #C_LINK
 
-AbstractObservableState +-- MonitoringState
-AbstractObservableState *-- "1" MonitoringState #C_LINK
-AbstractObservableState *-- "1" ObservableLocalReaderAdapter #C_LINK
-AbstractObservableState *-- "0..1" AbstractMonitoringJob #C_LINK
+AbstractObservableStateAdapter +-- MonitoringState
+AbstractObservableStateAdapter *-- "1" MonitoringState #C_LINK
+AbstractObservableStateAdapter *-- "1" ObservableLocalReaderAdapter #C_LINK
+AbstractObservableStateAdapter *-- "0..1" AbstractMonitoringJobAdapter #C_LINK
 
-AbstractMonitoringJob *-up- "1" ObservableLocalReaderAdapter #C_LINK
+AbstractMonitoringJobAdapter *-up- "1" ObservableLocalReaderAdapter #C_LINK
 
 PluginAdapter *-up- "0..N" Reader #C_LINK
 
@@ -603,7 +608,7 @@ CardSelectionService ..> CardSelectionResult #C_USE : provide >
 package service #C_GREY1 {}
 package spi #C_GREY2 {}
 
-class CardCommunicationExceptionJsonSerializer <<blue>>
+class CommunicationExceptionJsonSerializerAdapter <<blue>>
 class SmartCardServiceAdapter <<blue>>
 abstract class AbstractReaderAdapter <<blue>>
 class LocalReaderAdapter <<blue>>
@@ -611,19 +616,18 @@ class RemoteReaderAdapter <<blue>>
 class ObservableLocalReaderAdapter <<blue>>
 class ObservableRemoteReaderAdapter <<blue>>
 enum InternalEvent <<blue>>
-class AutonomousObservableLocalReaderAdapter <<blue>>
-abstract class AbstractObservableState <<blue>>
+abstract class AbstractObservableStateAdapter <<blue>>
 enum MonitoringState <<blue>>
-abstract class AbstractMonitoringJob <<blue>>
-class CardRemovalActiveMonitoringJob <<blue>>
-class CardInsertionActiveMonitoringJob <<blue>>
-class CardInsertionPassiveMonitoringJob <<blue>>
-class CardRemovalPassiveMonitoringJob <<blue>>
-class WaitForCardInsertionState <<blue>>
-class WaitForCardProcessingState <<blue>>
-class WaitForCardRemovalState <<blue>>
-class WaitForStartDetectState <<blue>>
-class ObservableReaderStateService <<blue>>
+abstract class AbstractMonitoringJobAdapter <<blue>>
+class CardRemovalActiveMonitoringJobAdapter <<blue>>
+class CardInsertionActiveMonitoringJobAdapter <<blue>>
+class CardInsertionPassiveMonitoringJobAdapter <<blue>>
+class CardRemovalPassiveMonitoringJobAdapter <<blue>>
+class WaitForCardInsertionStateAdapter <<blue>>
+class WaitForCardProcessingStateAdapter <<blue>>
+class WaitForCardRemovalStateAdapter <<blue>>
+class WaitForStartDetectStateAdapter <<blue>>
+class ObservableReaderStateServiceAdapter <<blue>>
 
 class PluginAdapter <<blue>>
 class PoolPluginAdapter <<blue>>

@@ -1,6 +1,6 @@
 @startuml
 title
-        Keyple 2.0 - keyple-java-card-api - 2.0 (08/03/2021)
+        Keyple 2.0 - keyple-java-card-api - 2.0 (12/03/2021)
 end title
 
 ' == THEME ==
@@ -128,7 +128,7 @@ package "org.eclipse.keyple.core.card" as api {
             +SelectionStatus getSelectionStatus ()
             +CardResponse getCardResponse ()
         }
-        +class "**final** CardResponse" as CardResponse {
+        +class "<<Serializable>>\n**final** CardResponse" as CardResponse {
             --
             +CardResponse (List<ApduResponse> apduResponses,
                 \tboolean isLogicalChannelOpen,
@@ -139,7 +139,7 @@ package "org.eclipse.keyple.core.card" as api {
             +boolean isLogicalChannelOpen ()
             +boolean isComplete ()
         }
-        +class "**final** ApduResponse" as ApduResponse {
+        +class "<<Serializable>>\n**final** ApduResponse" as ApduResponse {
             --
             +ApduResponse (byte[] bytes)
             ..
