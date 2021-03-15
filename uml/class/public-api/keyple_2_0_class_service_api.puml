@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (12/03/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (15/03/2021)
 end title
 
 ' == THEME ==
@@ -46,21 +46,25 @@ hide <<grey>> stereotype
 ' == CONTENT ==
 
 legend top
-    Legend : <back:cyan>from **Commons API**</back>
+    __Colors legend__ :
+    * __External public API references__ :
+    ** <back:cyan>**keyple-java-commons-api**</back>
 end legend
 
 package "org.eclipse.keyple.core.service" as service {
     ' SPI
     package spi {
         +interface PluginObserverSpi {
-            +void onPluginEvent (PluginEvent pluginEvent)
+            +void onPluginEvent (
+                \tPluginEvent pluginEvent)
         }
         +interface PluginObservationExceptionHandlerSpi {
             +void onPluginObservationError (String pluginName,
                 \tThrowable e)
         }
         +interface ReaderObserverSpi {
-            +void onReaderEvent (ReaderEvent readerEvent)
+            +void onReaderEvent (
+                \tReaderEvent readerEvent)
         }
         +interface ReaderObservationExceptionHandlerSpi {
             +void onReaderObservationError (String pluginName,
@@ -148,10 +152,8 @@ package "org.eclipse.keyple.core.service" as service {
             ..
             +void finalizeCardProcessing ()
             ..
-            +void setEventNotificationExecutorService (
-                \tExecutorService eventNotificationExecutorService)
-            +void setReaderObservationExceptionHandler (
-                \tReaderObservationExceptionHandlerSpi exceptionHandler)
+            +void setEventNotificationExecutorService (ExecutorService eventNotificationExecutorService)
+            +void setReaderObservationExceptionHandler (ReaderObservationExceptionHandlerSpi exceptionHandler)
         }
     }
     +enum NotificationMode {
@@ -164,12 +166,8 @@ package "org.eclipse.keyple.core.service" as service {
     }
     +class "<<<back:cyan>KeyplePluginEvent</back>>>\n**final** PluginEvent" as PluginEvent {
         --
-        +PluginEvent (String pluginName,
-            \tString readerName,
-            \tEventType eventType)
-        +PluginEvent (String pluginName,
-            \tSet<String> readersNames,
-            \tEventType eventType)
+        +PluginEvent (String pluginName, String readerName, EventType eventType)
+        +PluginEvent (String pluginName, Set<String> readersNames, EventType eventType)
         ..
         +String getPluginName ()
         +SortedSet<String> getReadersNames ()
@@ -182,9 +180,7 @@ package "org.eclipse.keyple.core.service" as service {
     }
     +class "<<<back:cyan>KeypleReaderEvent</back>>>\n**final** ReaderEvent" as ReaderEvent {
         --
-        +ReaderEvent (String pluginName,
-            \tString readerName,
-            \tEventType eventType,
+        +ReaderEvent (String pluginName, String readerName, EventType eventType,
             \tList<<back:cyan>KeypleCardSelectionResponse</back>> cardSelectionResponses)
         ..
         +String getPluginName ()
@@ -209,16 +205,12 @@ package "org.eclipse.keyple.core.service" as service {
             +int prepareSelection (CardSelection cardSelection)
             +void prepareReleaseChannel ()
             ..
-            +CardSelectionResult processCardSelectionScenario (
-                \tReader reader)
+            +CardSelectionResult processCardSelectionScenario (Reader reader)
             ..
-            +void scheduleCardSelectionScenario (
-                \tObservableReader observableReader,
+            +void scheduleCardSelectionScenario (ObservableReader observableReader,
                 \tNotificationMode notificationMode)
-            +void scheduleCardSelectionScenario (
-                \tObservableReader observableReader,
-                \tNotificationMode notificationMode,
-                \tPollingMode pollingMode)
+            +void scheduleCardSelectionScenario (ObservableReader observableReader,
+                \tNotificationMode notificationMode, PollingMode pollingMode)
             ..
             +CardSelectionResult processCardSelectionResponses (
                 \tList<<back:cyan>KeypleCardSelectionResponse</back>> cardSelectionResponses)

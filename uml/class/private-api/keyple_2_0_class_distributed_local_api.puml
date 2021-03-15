@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-local-api - 2.0 (11/03/2021)
+    Keyple 2.0 - keyple-java-distributed-local-api - 2.0 (15/03/2021)
 end title
 
 ' == THEME ==
@@ -44,6 +44,12 @@ skinparam ClassBorderColor<<grey>> #2C3E50
 hide <<grey>> stereotype
 
 ' == CONTENT ==
+
+legend top
+    __Colors legend__ :
+    * __External public API references__ :
+    ** <back:cyan>**keyple-java-commons-api**</back>
+end legend
 
 package "org.eclipse.keyple.core.distributed.local" as api {
     +class "**final** DistributedLocalApiProperties" as ApiProperties {

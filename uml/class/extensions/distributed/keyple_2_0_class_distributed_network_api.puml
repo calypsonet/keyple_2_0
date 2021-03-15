@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-network - 2.0.0 (08/03/2021)
+    Keyple 2.0 - keyple-java-distributed-network - 2.0.0 (15/03/2021)
 end title
 
 ' == THEME ==
@@ -46,7 +46,7 @@ hide <<grey>> stereotype
 ' == CONTENT ==
 
 legend top
-    Legend : <back:yellow>**Sync Node API**</back> - <back:pink>**Async Node API**</back>
+    Legend : <back:lightGreen>**Sync Node API**</back> - <back:pink>**Async Node API**</back>
 end legend
 
 package "org.eclipse.keyple.distributed" as root {
@@ -92,6 +92,11 @@ package "org.eclipse.keyple.distributed" as root {
         + getters()...
         + setters()...
     }
+    ' Exceptions
+    +class "<<RuntimeException>>\nNodeCommunicationException" as NodeCommunicationException {
+        +NodeCommunicationException (String message)
+        +NodeCommunicationException (String message, Throwable cause)
+    }
 }
 
 ' Associations
@@ -101,7 +106,8 @@ AsyncNodeServer --> AsyncEndpointServerSpi #C_LINK : use >
 
 ' == LAYOUT ==
 
-SyncNodeServer -[hidden]- MessageDto
+SyncEndpointClientSpi -[hidden]- MessageDto
+AsyncEndpointServerSpi -[hidden]- NodeCommunicationException
 
 ' == STYLE ==
 
@@ -113,6 +119,8 @@ AsyncNodeServer <<red>>
 AsyncEndpointClientSpi <<red>>
 AsyncEndpointServerSpi <<red>>
 
-MessageDto <<blue>>
+SyncNodeServer <<green>>
+SyncNodeClient <<green>>
+SyncEndpointClientSpi <<green>>
 
 @enduml

@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-local - 2.0.0 (08/03/2021)
+    Keyple 2.0 - keyple-java-distributed-local - 2.0.0 (15/03/2021)
 end title
 
 ' == THEME ==
@@ -49,8 +49,8 @@ legend top
     __Colors legend__ :
     * __Configuration modes__ :
     ** <back:lightGreen>**Reader Client Side**</back>
-    ** <back:lightBlue>**Pool Reader Server Side**</back>
     ** <back:plum>**Reader Server Side**</back>
+    ** <back:lightBlue>**Pool Reader Server Side**</back>
     * __External API references__ :
     ** <back:yellow>**Network API**</back>
     ** <back:cyan>**Commons API**</back>
@@ -105,8 +105,8 @@ package "org.eclipse.keyple.distributed" as root {
             + NodeStep withServiceName (String localServiceName)
         }
         +interface "NodeStep" as LocalServiceClientFactoryNodeStep {
-            + TimeoutStep withAsyncNode (<back:yellow>AsyncEndpointClientSpi</back> endpoint)
             + ReaderStep withSyncNode (<back:yellow>SyncEndpointClientSpi</back> endpoint)
+            + TimeoutStep withAsyncNode (<back:yellow>AsyncEndpointClientSpi</back> endpoint)
         }
         +interface "TimeoutStep" as LocalServiceClientFactoryTimeoutStep {
             + ReaderStep usingDefaultTimeout ()
@@ -127,6 +127,9 @@ package "org.eclipse.keyple.distributed" as root {
                 +void afterPropagation (Object userOutputData)
             }
         }
+        +class "<<Exception>>\nDoNotPropagateEventException" as DoNotPropagateEventException {
+            +DoNotPropagateEventException (String message)
+        }
 
         +class "**final** LocalServiceServerFactoryBuilder" as LocalServiceServerFactoryBuilder {
             + {static} NameStep builder ()
@@ -136,8 +139,8 @@ package "org.eclipse.keyple.distributed" as root {
             + NodeStep withServiceName (String localServiceName)
         }
         +interface "NodeStep" as LocalServiceServerFactoryNodeStep {
-            + BuilderStep withAsyncNode (<back:yellow>AsyncEndpointServerSpi</back> endpoint)
             + BuilderStep withSyncNode ()
+            + BuilderStep withAsyncNode (<back:yellow>AsyncEndpointServerSpi</back> endpoint)
         }
         +interface "BuilderStep" as LocalServiceServerFactoryBuilderStep {
             + LocalServiceServerFactory build ()
@@ -151,8 +154,8 @@ package "org.eclipse.keyple.distributed" as root {
             + NodeStep withServiceName (String localServiceName)
         }
         +interface "NodeStep" as PoolLocalServiceServerFactoryNodeStep {
-            + PluginStep withAsyncNode (<back:yellow>AsyncEndpointServerSpi</back> endpoint)
             + PluginStep withSyncNode ()
+            + PluginStep withAsyncNode (<back:yellow>AsyncEndpointServerSpi</back> endpoint)
         }
         +interface "PluginStep" as PoolLocalServiceServerFactoryPluginStep {
             + BuilderStep withPoolPlugins (String... poolPluginNames)
@@ -174,6 +177,7 @@ LocalServiceClientFactoryNodeStep +--> LocalServiceClientFactoryReaderStep
 LocalServiceClientFactoryTimeoutStep +--> LocalServiceClientFactoryReaderStep
 LocalServiceClientFactoryReaderStep +--> LocalServiceClientFactoryBuilderStep
 LocalServiceClientFactoryReaderStep ..> ObservableReaderEventFilter #C_USE : use >
+ObservableReaderEventFilter ..> DoNotPropagateEventException #C_USE : throw >
 LocalServiceClientFactoryBuilderStep ..> LocalServiceClientFactory #C_USE : provide >
 LocalServiceClientFactory ..> LocalServiceClient #C_USE : provide >
 
@@ -192,7 +196,7 @@ PoolLocalServiceServerFactory ..> PoolLocalServiceServer #C_USE : provide >
 
 ' == LAYOUT ==
 
-'LocalServiceClient -[hidden]- LocalServiceClientFactoryBuilder
+DoNotPropagateEventException -[hidden]- LocalServiceClientFactory
 
 ' == STYLE ==
 
@@ -210,6 +214,7 @@ interface LocalServiceClientFactoryBuilderStep <<green>>
 class RemoteServiceParameters <<green>>
 class RemoteServiceParametersBuilder <<green>>
 interface ObservableReaderEventFilter <<green>>
+class DoNotPropagateEventException <<green>>
 
 interface LocalServiceServer <<purple>>
 interface LocalServiceServerFactory <<purple>>

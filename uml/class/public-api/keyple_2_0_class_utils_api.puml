@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-utils - 2.0.0 (11/03/2021)
+    Keyple 2.0 - keyple-java-utils - 2.0.0 (15/03/2021)
 end title
 
 ' == THEME ==
@@ -45,23 +45,12 @@ hide <<grey>> stereotype
 
 ' == CONTENT ==
 
-+class RuntimeException {
-}
-+interface JsonSerializer {
-    --
-    +JsonElement serialize (
-        \tbyte[] data, Type typeOfSrc,
-        \tJsonSerializationContext context)
-}
-+interface JsonDeserializer<T> {
-    --
-    +T deserialize (
-        \tJsonElement jsonElement, Type type,
-        \tJsonDeserializationContext jsonDeserializationContext)
-}
-+class "**final** Gson" as Gson {
-    ...
-}
+legend top
+    __Colors legend__ :
+    * __External API references__ :
+    ** <back:yellow>**com.google.code.gson**</back>
+end legend
+
 package "org.eclipse.keyple.core.util" as util {
     +class "**final** Assert" as Assert {
         --
@@ -121,22 +110,35 @@ package "org.eclipse.keyple.core.util" as util {
             +String getCode ()
             +RuntimeException getException ()
         }
-        +class BodyErrorJsonDeserializer implements JsonDeserializer {
+        +class "<<<back:yellow>JsonDeserializer</back>>>\nBodyErrorJsonDeserializer" as BodyErrorJsonDeserializer {
+            --
             +BodyErrorJsonDeserializer ()
+            -- **JsonDeserializer** --
+            +T deserialize (<back:yellow>JsonElement</back> jsonElement, <back:yellow>Type</back> type,
+                \t<back:yellow>JsonDeserializationContext</back> jsonDeserializationContext)
         }
-        +class ByteArrayJsonAdapter implements JsonSerializer, JsonDeserializer {
+        +class "<<<back:yellow>JsonSerializer</back>>>\n<<<back:yellow>JsonDeserializer</back>>>\nByteArrayJsonAdapter" as ByteArrayJsonAdapter {
+            --
             +ByteArrayJsonAdapter ()
+            -- **JsonSerializer** --
+            +<back:yellow>JsonElement</back> serialize (byte[] data, <back:yellow>Type</back> typeOfSrc,
+                \t<back:yellow>JsonSerializationContext</back> context)
+            -- **JsonDeserializer** --
+            +T deserialize (<back:yellow>JsonElement</back> jsonElement, <back:yellow>Type</back> type,
+                \t<back:yellow>JsonDeserializationContext</back> jsonDeserializationContext)
         }
-        +class ThrowableJsonSerializer implements JsonSerializer {
+        +class "<<<back:yellow>JsonSerializer</back>>>\nThrowableJsonSerializer" as ThrowableJsonSerializer {
+            --
             +ThrowableJsonSerializer ()
+            -- **JsonSerializer** --
+            +<back:yellow>JsonElement</back> serialize (byte[] data, <back:yellow>Type</back> typeOfSrc,
+                \t<back:yellow>JsonSerializationContext</back> context)
         }
         +class "**final** JsonUtil" as JsonUtil {
             --
-            +{static} Gson getParser ()
-            +{static} Gson registerTypeAdapter (
-                \tClass<?> matchingClass,
-                \tObject adapter,
-                \tboolean withSubclasses)
+            +{static} <back:yellow>Gson</back> getParser ()
+            +{static} <back:yellow>Gson</back> registerTypeAdapter (Class<?> matchingClass,
+                \tObject adapter, boolean withSubclasses)
             ..
             +{static} String toJson (Object obj)
         }
@@ -164,14 +166,11 @@ package "org.eclipse.keyple.core.util" as util {
 Tag +-- TagType
 Tag *-- "1" TagType #C_LINK
 
-BodyError *-up- "1" RuntimeException #C_LINK
-
-JsonUtil *-up- "1" Gson #C_LINK
-
 ' == LAYOUT ==
 
-json -[hidden]- protocol
-json -[hidden]- ByteArrayUtil
+JsonUtil -[hidden]- BodyError
+BodyError -[hidden]- protocol
+BodyError -[hidden]- ByteArrayUtil
 ByteArrayUtil -[hidden]- Assert
 
 protocol -[hidden]- bertlv

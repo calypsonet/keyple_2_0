@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-plugin-api - 2.0 (08/03/2021)
+    Keyple 2.0 - keyple-java-plugin-api - 2.0 (15/03/2021)
 end title
 
 ' == THEME ==
@@ -139,8 +139,7 @@ package "org.eclipse.keyple.core.plugin" as api {
                 +void unregister ()
             }
             +interface AutonomousSelectionReaderSpi {
-                +byte[] openChannelForAid (byte[] dfName,
-                    \tbyte isoControlMask)
+                +byte[] openChannelForAid (byte[] dfName, byte isoControlMask)
                 +void closeLogicalChannel ()
             }
             package observable {

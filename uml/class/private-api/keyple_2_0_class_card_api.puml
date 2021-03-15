@@ -1,6 +1,6 @@
 @startuml
 title
-        Keyple 2.0 - keyple-java-card-api - 2.0 (12/03/2021)
+        Keyple 2.0 - keyple-java-card-api - 2.0 (15/03/2021)
 end title
 
 ' == THEME ==
@@ -46,7 +46,9 @@ hide <<grey>> stereotype
 ' == CONTENT ==
 
 legend top
-    Legend : <back:cyan>from **Commons API**</back>
+    __Colors legend__ :
+    * __External public API references__ :
+    ** <back:cyan>**keyple-java-commons-api**</back>
 end legend
 
 package "org.eclipse.keyple.core.card" as api {
@@ -82,8 +84,7 @@ package "org.eclipse.keyple.core.card" as api {
         }
         +class "**final** CardRequest" as CardRequest {
             --
-            +CardRequest (List<ApduRequest> apduRequests,
-                \tboolean isStatusCodesVerificationEnabled)
+            +CardRequest (List<ApduRequest> apduRequests, boolean isStatusCodesVerificationEnabled)
             ..
             +List<ApduRequest> getApduRequests ()
             +boolean isStatusCodesVerificationEnabled ()
@@ -91,11 +92,9 @@ package "org.eclipse.keyple.core.card" as api {
         +class "**final** ApduRequest" as ApduRequest {
             --
             +ApduRequest (byte[] bytes, boolean isCase4)
-            +ApduRequest (byte cla, byte instruction,
-                \tbyte p1, byte p2, byte[] dataIn, Byte le)
+            +ApduRequest (byte cla, byte instruction, byte p1, byte p2, byte[] dataIn, Byte le)
             ..
-            +ApduRequest setSuccessfulStatusCodes (
-                \tSet<Integer> successfulStatusCodes)
+            +ApduRequest setSuccessfulStatusCodes (Set<Integer> successfulStatusCodes)
             +Set<Integer> getSuccessfulStatusCodes ()
             ..
             +ApduRequest setName (String name)
@@ -121,9 +120,7 @@ package "org.eclipse.keyple.core.card" as api {
     together {
         +class "<<<back:cyan>KeypleCardSelectionResponse</back>>>\n**final** CardSelectionResponse" as CardSelectionResponse {
             --
-            +CardSelectionResponse (
-                \tSelectionStatus selectionStatus,
-                \tCardResponse cardResponse)
+            +CardSelectionResponse (SelectionStatus selectionStatus, CardResponse cardResponse)
             ..
             +SelectionStatus getSelectionStatus ()
             +CardResponse getCardResponse ()
@@ -192,21 +189,13 @@ package "org.eclipse.keyple.core.card" as api {
     }
     +class "**final** ReaderCommunicationException" as ReaderCommunicationException extends AbstractCommunicationException {
         --
-        +ReaderCommunicationException (
-            \tCardResponse cardResponse,
-            \tString message)
-        +ReaderCommunicationException (
-            \tCardResponse cardResponse,
-            \tString message, Throwable cause)
+        +ReaderCommunicationException (CardResponse cardResponse, String message)
+        +ReaderCommunicationException (CardResponse cardResponse, String message, Throwable cause)
     }
     +class "**final** CardCommunicationException" as CardCommunicationException extends AbstractCommunicationException {
         --
-        +CardCommunicationException (
-            \tCardResponse cardResponse,
-            \tString message)
-        +CardCommunicationException (
-            \tCardResponse cardResponse,
-            \tString message, Throwable cause)
+        +CardCommunicationException (CardResponse cardResponse, String message)
+        +CardCommunicationException (CardResponse cardResponse, String message, Throwable cause)
     }
 }
 
