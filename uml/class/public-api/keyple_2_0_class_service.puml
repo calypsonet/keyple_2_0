@@ -303,10 +303,10 @@ package "org.eclipse.keyple.core.service" as service {
     }
     ' EXCEPTIONS
     together {
-        +class "<<RuntimeException>>\nKeyplePluginInstantiationException" as KeyplePluginInstantiationException {
-            +KeyplePluginInstantiationException (
+        +class "<<RuntimeException>>\nKeyplePluginException" as KeyplePluginException {
+            +KeyplePluginException (
                 \tString message)
-            +KeyplePluginInstantiationException (
+            +KeyplePluginException (
                 \tString message, Throwable cause)
         }
         +class "<<RuntimeException>>\nKeyplePluginNotFoundException" as KeyplePluginNotFoundException {
@@ -398,7 +398,7 @@ CardSelection .left.> CardSelector #C_USE : provide >
 
 ' == LAYOUT ==
 
-FileOccurrence -[hidden]- KeyplePluginInstantiationException
+FileOccurrence -[hidden]- KeyplePluginException
 
 ' == STYLE ==
 
