@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (15/03/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (16/03/2021)
 end title
 
 ' == THEME ==
@@ -93,8 +93,8 @@ package "org.eclipse.keyple.core.service" as service {
         --
         ~PluginAdapter (PluginSpiT pluginSpi)
         ..
-        ~void checkStatus ()
-        ~void register ()
+        ~**final** void checkStatus ()
+        ~**final** void register ()
         ~void unregister ()
         -- **Plugin** --
         +**final** String getName ()
@@ -174,8 +174,6 @@ package "org.eclipse.keyple.core.service" as service {
         +void addObserver (PluginObserverSpi observer)
         +void removeObserver (PluginObserverSpi observer)
         +void clearObservers ()
-        +void setPluginObservationExceptionHandler (
-            \tPluginObservationExceptionHandlerSpi exceptionHandler)
     }
     ~class "<<<back:pink>AutonomousObservablePluginManager</back>>>\n**final** AutonomousObservableLocalPluginAdapter" as AutonomousObservableLocalPluginAdapter extends AbstractObservablePluginAdapter {
         --
@@ -194,8 +192,8 @@ package "org.eclipse.keyple.core.service" as service {
         ~**final** List<<back:cyan>KeypleCardSelectionResponse</back>> transmitCardSelectionRequests (List<<back:lightGreen>CardSelectionRequest</back>> cardSelectionRequests,
             \t<back:lightGreen>MultiSelectionProcessing</back> multiSelectionProcessing, <back:lightGreen>ChannelControl</back> channelControl)
         ..
-        ~void checkStatus ()
-        ~void register ()
+        ~**final** void checkStatus ()
+        ~**final** void register ()
         ~void unregister ()
         ..
         ~{abstract} **abstract** List<<back:lightGreen>CardSelectionResponse</back>> processCardSelectionRequests (List<<back:lightGreen>CardSelectionRequest</back>> cardSelectionRequests,
@@ -337,13 +335,13 @@ package "org.eclipse.keyple.core.service" as service {
         ~AbstractObservableStateAdapter (MonitoringState monitoringState, ObservableLocalReaderAdapter reader, AbstractMonitoringJobAdapter monitoringJob, ExecutorService executorService)
         ~AbstractObservableStateAdapter (MonitoringState monitoringState, ObservableLocalReaderAdapter reader)
         ..
-        ~MonitoringState getMonitoringState ()
-        ~ObservableLocalReaderAdapter getReader ()
+        ~**final** MonitoringState getMonitoringState ()
+        ~**final** ObservableLocalReaderAdapter getReader ()
         ..
-        ~void switchState (MonitoringState stateId)
+        ~**final** void switchState (MonitoringState stateId)
         ..
-        ~void onActivate ()
-        ~void onDeactivate ()
+        ~**final** void onActivate ()
+        ~**final** void onDeactivate ()
         ..
         ~{abstract} **abstract** void onEvent (InternalEvent event)
     }
@@ -403,7 +401,7 @@ package "org.eclipse.keyple.core.service" as service {
         --
         ~AbstractMonitoringJobAdapter (ObservableLocalReaderAdapter reader)
         ..
-        ~ObservableLocalReaderAdapter getReader ()
+        ~**final** ObservableLocalReaderAdapter getReader ()
         ..
         ~{abstract} **abstract** Runnable getMonitoringJob (AbstractObservableStateAdapter monitoringState)
         ~{abstract} **abstract** void stop ()
@@ -455,7 +453,6 @@ package "org.eclipse.keyple.core.service" as service {
     ' ADAPTERS
     ~class "<<CardSelectionService>>\n**final** CardSelectionServiceAdapter" as CardSelectionServiceAdapter {
         --
-        ~CardSelectionServiceAdapter ()
         ~CardSelectionServiceAdapter (MultiSelectionProcessing multiSelectionProcessing)
         -- **CardSelectionService** --
         +int prepareSelection (CardSelection cardSelection)
