@@ -209,7 +209,7 @@ package "org.eclipse.keyple.core.service" as service {
         ~LocalReaderAdapter (<back:pink>ReaderSpi</back> readerSpi, String pluginName)
         ..
         ~**final** boolean isLogicalChannelOpen ()
-        ~**final** void closeLogicalAndPhysicalChannels ()
+        ~**final** void closeLogicalAndPhysicalChannelsSilently ()
         -- **AbstractReaderAdapter** --
         ~**final** List<<back:lightGreen>CardSelectionResponse</back>> processCardSelectionRequests (
             \tList<<back:lightGreen>CardSelectionRequest</back>> cardSelectionRequests,
@@ -262,7 +262,6 @@ package "org.eclipse.keyple.core.service" as service {
         ~MonitoringState getCurrentMonitoringState ()
         ~boolean isCardPresentPing ()
         ..
-        ~void onEvent (InternalEvent event)
         ~ReaderEvent processCardInserted ()
         ~void processCardRemoved ()
         ~void switchState (MonitoringState stateId)

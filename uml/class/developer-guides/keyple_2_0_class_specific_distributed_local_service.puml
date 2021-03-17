@@ -62,7 +62,7 @@ package "org.eclipse.keyple.core.distributed.local.spi" as distributedLocalSpi {
 }
 
 package "org.eclipse.keyple.distributed.local.xxx (specific distributed local service)" as specificDistributedLocalApi {
-    +class "**final** xxxDistributedLocalServiceFactoryBuilder" as xxxDistributedLocalServiceFactoryBuilder {
+    +class "**final** xxxDistributedLocalServiceFactoryProvider" as xxxDistributedLocalServiceFactoryProvider {
         +{static} xxxDistributedLocalServiceFactory getFactory ()
     }
     +interface xxxDistributedLocalServiceFactory extends KeypleDistributedLocalServiceExtensionFactory {
@@ -82,7 +82,7 @@ package "org.eclipse.keyple.distributed.local.xxx (specific distributed local se
 
 ' Associations
 
-xxxDistributedLocalServiceFactoryBuilder .right.> xxxDistributedLocalServiceFactory #C_USE : build >
+xxxDistributedLocalServiceFactoryProvider .right.> xxxDistributedLocalServiceFactory #C_USE : provide >
 xxxDistributedLocalServiceFactoryAdapter *- "1" xxxDistributedLocalAdapter #C_LINK
 
 ' == LAYOUT ==

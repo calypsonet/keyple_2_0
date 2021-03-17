@@ -67,7 +67,7 @@ package "org.eclipse.keyple.core.distributed.remote.spi" as pluginSpi {
 }
 
 package "org.eclipse.keyple.plugin.xxx (specific plugin)" as specificPluginApi {
-    +class "**final** xxxPluginFactoryBuilder" as xxxPluginFactoryBuilder {
+    +class "**final** xxxPluginFactoryProvider" as xxxPluginFactoryProvider {
         +{static} xxxPluginFactory getFactory ()
     }
     +interface xxxPluginFactory extends KeyplePluginExtensionFactory {
@@ -93,7 +93,7 @@ package "org.eclipse.keyple.plugin.xxx (specific plugin)" as specificPluginApi {
 
 ' Associations
 
-xxxPluginFactoryBuilder .> xxxPluginFactory #C_USE : build >
+xxxPluginFactoryProvider .> xxxPluginFactory #C_USE : provide >
 xxxPluginFactoryAdapter *- "1" xxxPluginAdapter #C_LINK
 xxxPluginAdapter *- "0..N" xxxReaderAdapter #C_LINK
 
