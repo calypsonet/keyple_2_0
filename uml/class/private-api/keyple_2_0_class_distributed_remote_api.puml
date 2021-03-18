@@ -57,9 +57,8 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
         --
         +void registerMasterReader (RemoteReaderSpi masterReaderSpi)
         +void registerSlaveReader (RemoteReaderSpi slaveReaderSpi,
-            \tString masterReaderName,
-            \tString readerEventJsonData)
-        +boolean unregisterReader (readerName)
+            \tString masterReaderName, String readerEventJsonData)
+        +boolean unregisterReader (Sting readerName)
         ..
         +void onPluginEvent (String jsonData)
     }
@@ -77,8 +76,7 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
             +String getName ()
             +String executeRemotely (String jsonData)
             +RemoteReaderSpi createRemoteReader (
-                \tString localReaderName,
-                \tboolean isObservable)
+                \tString localReaderName, boolean isObservable)
             ..
             +boolean isObservable ()
             +void startPluginsObservation ()
