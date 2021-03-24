@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-utils - 2.0.0 (15/03/2021)
+    Keyple 2.0 - keyple-java-utils - 2.0.0 (24/03/2021)
 end title
 
 ' == THEME ==
@@ -105,10 +105,10 @@ package "org.eclipse.keyple.core.util" as util {
     package json {
         +class BodyError {
             --
-            +BodyError (RuntimeException exception)
+            +BodyError (Exception exception)
             ..
             +String getCode ()
-            +RuntimeException getException ()
+            +Exception getException ()
         }
         +class "<<<back:yellow>JsonDeserializer</back>>>\nBodyErrorJsonDeserializer" as BodyErrorJsonDeserializer {
             --

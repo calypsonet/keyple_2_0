@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (16/03/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (24/03/2021)
 end title
 
 ' == THEME ==
@@ -109,7 +109,6 @@ package "org.eclipse.keyple.core.service" as service {
         --
         ~DistributedLocalServiceAdapter (String name, <back:orange>LocalServiceSpi</back> localServiceSpi)
         ..
-        ~void checkStatus ()
         ~void register ()
         ~void unregister ()
         -- **DistributedLocalService** --
@@ -132,8 +131,8 @@ package "org.eclipse.keyple.core.service" as service {
         --
         ~PoolPluginAdapter (PoolPluginSpiT poolPluginSpi)
         -- **PoolPlugin** --
-        +SortedSet<String> getReaderGroupReferences ()
-        +Reader allocateReader (String readerGroupReference)
+        +SortedSet<String> getKeyGroupReferences ()
+        +Reader allocateReader (String keyGroupReference)
         +void releaseReader (Reader reader)
     }
     ~abstract class "<<ObservablePlugin>>\nAbstractObservablePluginAdapter\n\n<back:pink>ObservablePluginSpi</back>\nor <back:pink>AutonomousObservablePluginSpi</back>\nor <back:plum>RemotePluginSpi</back>" as AbstractObservablePluginAdapter<ObservablePluginSpiT> extends PluginAdapter {

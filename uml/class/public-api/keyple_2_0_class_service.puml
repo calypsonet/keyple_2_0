@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (15/03/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (24/03/2021)
 end title
 
 ' == THEME ==
@@ -124,9 +124,9 @@ package "org.eclipse.keyple.core.service" as service {
         }
         +interface PoolPlugin extends Plugin {
             --
-            +SortedSet<String> getReaderGroupReferences ()
+            +SortedSet<String> getKeyGroupReferences ()
             ..
-            +Reader allocateReader (String readerGroupReference)
+            +Reader allocateReader (String keyGroupReference)
             +void releaseReader (Reader reader)
         }
         +interface Reader {
@@ -293,13 +293,6 @@ package "org.eclipse.keyple.core.service" as service {
             +SmartCard getSmartCard (int selectionIndex)
             +SmartCard getActiveSmartCard ()
         }
-        +class "**final** CardResource" as CardResource<T extends SmartCard> {
-            --
-            +CardResource (Reader reader, T smartCard)
-            ..
-            +Reader getReader ()
-            +T getSmartCard ()
-        }
     }
     ' EXCEPTIONS
     together {
@@ -363,9 +356,6 @@ CardSelectionService *-- "1" MultiSelectionProcessing #C_LINK
 CardSelectionService *-- "1..N" CardSelection #C_LINK
 
 CardSelectionResult *-- "1..N" SmartCard #C_LINK
-
-CardResource *-- "1" SmartCard #C_LINK
-CardResource *-- "1" Reader #C_LINK
 
 CardSelector +-- AtrFilter
 CardSelector *-- "0..1" AtrFilter #C_LINK
