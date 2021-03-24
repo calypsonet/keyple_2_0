@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="3935px" preserveAspectRatio="none" style="width:4732px;height:3935px;" version="1.1" viewBox="0 0 4732 3935" width="4732.5px" zoomAndPan="magnify"><defs><filter height="1" id="b1kx6uv1yqxlxj0" width="1" x="0" y="0"><feFlood flood-color="#FFFF00" result="flood"/><feComposite in="SourceGraphic" in2="flood" operator="over"/></filter><filter height="1" id="b1kx6uv1yqxlxj1" width="1" x="0" y="0"><feFlood flood-color="#00FFFF" result="flood"/><feComposite in="SourceGraphic" in2="flood" operator="over"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="1140" x="1780.419" y="46.7139">Keyple 2.0 - Calypso Card Extension - 2.0.0 (24/03/2021)</text><rect fill="#DDDDDD" height="201.0938" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:2.5;" width="452.5" x="2122.919" y="76.6016"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" text-decoration="underline" textLength="220" x="2137.919" y="125.4346">Colors legend</text><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="10" x="2367.919" y="125.4346">:</text><ellipse cx="2151.669" cy="158.3984" fill="#000000" rx="6.25" ry="6.25" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" text-decoration="underline" textLength="370" x="2170.419" y="169.458">External API references</text><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="10" x="2550.419" y="169.458">:</text><rect fill="#000000" height="8.75" style="stroke:#000000;stroke-width:0.0;" width="8.75" x="2190.419" y="201.1719"/><text fill="#000000" filter="url(#b1kx6uv1yqxlxj0)" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="200" x="2202.919" y="213.4814">Service API</text><rect fill="#000000" height="8.75" style="stroke:#000000;stroke-width:0.0;" width="8.75" x="2190.419" y="245.1953"/><text fill="#000000" filter="url(#b1kx6uv1yqxlxj1)" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="237.5" x="2202.919" y="257.5049">Commons API</text><!--MD5=[d08f533e0a97815ebcffa7318f61e649]
+cluster calypso--><polygon fill="#F8F9F9" points="228.3395,315.1953,795.8395,315.1953,813.3395,374.2188,4690.838,374.2188,4690.838,3917.6953,228.3395,3917.6953,228.3395,315.1953" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="228.3395" x2="813.3395" y1="374.2188" y2="374.2188"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="552.5" x="238.3395" y="356.5283">org.eclipse.keyple.card.calypso</text><!--MD5=[e932f88177fee34933e70ab475471612]
+cluster po--><polygon fill="#F2F3F4" points="688.3405,1267.6953,748.3405,1267.6953,765.8405,1326.7188,3858.338,1326.7188,3858.338,1922.6953,688.3405,1922.6953,688.3405,1267.6953" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="688.3405" x2="765.8405" y1="1326.7188" y2="1326.7188"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="45" x="698.3405" y="1309.0283">po</text><!--MD5=[98d4fa74a8fc0b7c744d347d810a7562]
+cluster sam--><polygon fill="#F2F3F4" points="320.8395,2047.6953,405.8395,2047.6953,423.3395,2106.7188,3545.838,2106.7188,3545.838,3857.6953,320.8395,3857.6953,320.8395,2047.6953" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="320.8395" x2="423.3395" y1="2106.7188" y2="2106.7188"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="70" x="330.8395" y="2089.0283">sam</text><!--MD5=[f9c58d90839a0c7c212d8c6553ac9eb7]
+cluster transaction--><polygon fill="#F2F3F4" points="3605.838,2047.6953,3818.338,2047.6953,3835.838,2106.7188,4630.838,2106.7188,4630.838,2717.6953,3605.838,2717.6953,3605.838,2047.6953" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="3605.838" x2="3835.838" y1="2106.7188" y2="2106.7188"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="197.5" x="3615.838" y="2089.0283">transaction</text><!--MD5=[401fc4f5e92739f17b5a29e5389f188c]
+class CalypsoCardExtensionProvider--><rect codeLine="55" fill="#FEFECE" height="154.5898" id="CalypsoCardExtensionProvider" style="stroke:#D4AC0D;stroke-width:3.75;" width="605" x="2235.8405" y="405.1953"/><ellipse cx="2273.3405" cy="445.1953" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M2278.3405,436.4453 Q2278.8483,435.1953 2279.4343,434.5703 Q2280.0202,433.9453 2280.6843,433.9453 Q2281.8561,433.9453 2282.5983,434.6484 Q2283.3405,435.3516 2283.3405,436.9922 L2283.3405,440.8984 Q2283.3405,442.5391 2282.6374,443.2422 Q2281.9343,443.9453 2280.8405,443.9453 Q2279.8639,443.9453 2279.2389,443.5156 Q2278.6139,443.0859 2278.3405,441.9531 Q2278.2233,441.1719 2277.7936,440.7422 Q2277.0124,439.9219 2275.6061,439.4531 Q2274.1999,438.9453 2272.7936,438.9453 Q2271.0358,438.9453 2269.5514,439.6484 Q2268.1061,440.3516 2266.9733,441.9141 Q2265.8405,443.4766 2265.8405,445.625 L2265.8405,447.9297 Q2265.8405,450.5078 2267.9499,452.2266 Q2270.0593,453.9453 2273.8093,453.9453 Q2276.0358,453.9453 2277.5983,453.4375 Q2278.4968,453.1641 2279.5124,452.2656 Q2280.1764,451.7578 2280.528,451.6016 Q2280.8796,451.4453 2281.3093,451.4453 Q2282.1296,451.4453 2282.7155,452.1094 Q2283.3405,452.7344 2283.3405,453.6328 Q2283.3405,454.4922 2282.4811,455.5078 Q2281.2311,456.9922 2279.2389,457.8125 Q2276.6218,458.9453 2273.4186,458.9453 Q2269.6686,458.9453 2266.6608,457.4609 Q2264.2389,456.2891 2262.5202,453.75 Q2260.8405,451.2109 2260.8405,448.2031 L2260.8405,445.4688 Q2260.8405,442.3438 2262.3249,439.6094 Q2263.8483,436.875 2266.4655,435.4297 Q2269.1218,433.9453 2272.0905,433.9453 Q2273.8874,433.9453 2275.4499,434.5703 Q2277.0124,435.1953 2278.3405,436.4453 Z " fill="#000000"/><ellipse cx="2320.8405" cy="443.9453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="2335.8405" y="457.4707">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="430" x="2403.3405" y="457.4707">CalypsoCardExtensionProvider</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2238.3405" x2="2838.3405" y1="485.1953" y2="485.1953"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2238.3405" x2="2838.3405" y1="505.1953" y2="505.1953"/><ellipse cx="2263.3405" cy="532.6953" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" text-decoration="underline" textLength="437.5" x="2285.8405" y="543.7427">CalypsoCardExtension getService ()</text><!--MD5=[6ea7a51f1d9d5e1f7b4a4fca63a9fc69]
+class CalypsoCardExtension--><rect codeLine="58" fill="#FEFECE" height="353.418" id="CalypsoCardExtension" style="stroke:#D4AC0D;stroke-width:3.75;" width="1870" x="1603.3405" y="755.1953"/><ellipse cx="2330.2155" cy="805.4297" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2332.7155,797.9297 L2332.7155,812.9297 L2337.7155,812.9297 L2338.9264,812.9297 L2340.2155,814.4922 L2340.2155,815.4297 L2340.2155,816.3672 L2338.9264,817.9297 L2337.7155,817.9297 L2322.7155,817.9297 L2321.5046,817.9297 L2320.2155,816.3672 L2320.2155,815.4297 L2320.2155,814.4922 L2321.5046,812.9297 L2322.7155,812.9297 L2327.7155,812.9297 L2327.7155,797.9297 L2322.7155,797.9297 L2321.5046,797.9297 L2320.2155,796.3672 L2320.2155,795.4297 L2320.2155,794.4922 L2321.5046,792.9297 L2322.7155,792.9297 L2337.7155,792.9297 L2338.9264,792.9297 L2340.2155,794.4922 L2340.2155,795.4297 L2340.2155,796.3672 L2338.9264,797.9297 L2337.7155,797.9297 L2332.7155,797.9297 Z " fill="#000000"/><ellipse cx="2393.9655" cy="804.1797" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="35" x="2408.9655" y="798.8379">&lt;&lt;</text><text fill="#000000" filter="url(#b1kx6uv1yqxlxj1)" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="297.5" x="2443.9655" y="798.8379">KeypleCardExtension</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="35" x="2741.4655" y="798.8379">&gt;&gt;</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="315" x="2435.2155" y="836.5723">CalypsoCardExtension</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1605.8405" x2="3470.8405" y1="855.6641" y2="855.6641"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="1605.8405" x2="3470.8405" y1="875.6641" y2="875.6641"/><ellipse cx="1630.8405" cy="903.1641" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="832.5" x="1653.3405" y="914.2114">CalypsoPoCardSelection createPoSelection (CalypsoPoCardSelector)</text><line style="stroke:#D4AC0D;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="1605.8405" x2="3470.8405" y1="930.2539" y2="930.2539"/><ellipse cx="1630.8405" cy="957.7539" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="787.5" x="1653.3405" y="968.8013">SamResourceManagerBuilder getSamResourceManagerBuilder ()</text><ellipse cx="1630.8405" cy="992.3438" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="1007.5" x="1653.3405" y="1003.3911">PoSecuritySettingBuilder getPoSecuritySettingBuilder (SamResource samResource)</text><ellipse cx="1630.8405" cy="1026.9336" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="642.5" x="1653.3405" y="1037.981">PoTransactionService createPoSecuredTransaction (</text><text fill="#000000" filter="url(#b1kx6uv1yqxlxj0)" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="87.5" x="2295.8405" y="1037.981">Reader</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="1067.5" x="2390.8405" y="1037.981">reader, CalypsoPoSmartCard calypsoPoSmartCard, PoSecuritySetting poSecuritySetting)</text><line style="stroke:#D4AC0D;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="1605.8405" x2="3470.8405" y1="1054.0234" y2="1054.0234"/><ellipse cx="1630.8405" cy="1081.5234" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="672.5" x="1653.3405" y="1092.5708">PoTransactionService createPoUnsecuredTransaction (</text><text fill="#000000" filter="url(#b1kx6uv1yqxlxj0)" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="87.5" x="2325.8405" y="1092.5708">Reader</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="620" x="2420.8405" y="1092.5708">reader, CalypsoPoSmartCard calypsoPoSmartCard)</text><!--MD5=[a14970f5f684abd360fa51b82a607e88]
+class CalypsoPoCardSelector--><rect codeLine="69" fill="#FEFECE" height="175.0586" id="CalypsoPoCardSelector" style="stroke:#D4AC0D;stroke-width:3.75;" width="505" x="2285.8405" y="1357.6953"/><ellipse cx="2323.3405" cy="1407.9297" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M2328.3405,1399.1797 Q2328.8483,1397.9297 2329.4343,1397.3047 Q2330.0202,1396.6797 2330.6843,1396.6797 Q2331.8561,1396.6797 2332.5983,1397.3828 Q2333.3405,1398.0859 2333.3405,1399.7266 L2333.3405,1403.6328 Q2333.3405,1405.2734 2332.6374,1405.9766 Q2331.9343,1406.6797 2330.8405,1406.6797 Q2329.8639,1406.6797 2329.2389,1406.25 Q2328.6139,1405.8203 2328.3405,1404.6875 Q2328.2233,1403.9063 2327.7936,1403.4766 Q2327.0124,1402.6563 2325.6061,1402.1875 Q2324.1999,1401.6797 2322.7936,1401.6797 Q2321.0358,1401.6797 2319.5514,1402.3828 Q2318.1061,1403.0859 2316.9733,1404.6484 Q2315.8405,1406.2109 2315.8405,1408.3594 L2315.8405,1410.6641 Q2315.8405,1413.2422 2317.9499,1414.9609 Q2320.0593,1416.6797 2323.8093,1416.6797 Q2326.0358,1416.6797 2327.5983,1416.1719 Q2328.4968,1415.8984 2329.5124,1415 Q2330.1764,1414.4922 2330.528,1414.3359 Q2330.8796,1414.1797 2331.3093,1414.1797 Q2332.1296,1414.1797 2332.7155,1414.8438 Q2333.3405,1415.4688 2333.3405,1416.3672 Q2333.3405,1417.2266 2332.4811,1418.2422 Q2331.2311,1419.7266 2329.2389,1420.5469 Q2326.6218,1421.6797 2323.4186,1421.6797 Q2319.6686,1421.6797 2316.6608,1420.1953 Q2314.2389,1419.0234 2312.5202,1416.4844 Q2310.8405,1413.9453 2310.8405,1410.9375 L2310.8405,1408.2031 Q2310.8405,1405.0781 2312.3249,1402.3438 Q2313.8483,1399.6094 2316.4655,1398.1641 Q2319.1218,1396.6797 2322.0905,1396.6797 Q2323.8874,1396.6797 2325.4499,1397.3047 Q2327.0124,1397.9297 2328.3405,1399.1797 Z " fill="#000000"/><ellipse cx="2370.8405" cy="1406.6797" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="35" x="2459.5905" y="1401.3379">&lt;&lt;</text><text fill="#000000" filter="url(#b1kx6uv1yqxlxj0)" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="180" x="2494.5905" y="1401.3379">CardSelector</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="35" x="2674.5905" y="1401.3379">&gt;&gt;</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="2385.8405" y="1439.0723">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="330" x="2453.3405" y="1439.0723">CalypsoPoCardSelector</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2288.3405" x2="2788.3405" y1="1458.1641" y2="1458.1641"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="2288.3405" x2="2788.3405" y1="1478.1641" y2="1478.1641"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="2300.8405" y="1516.7114">...</text><!--MD5=[f2bd05134255aa13e23176c1ccfcc85c]
+class CalypsoPoCardSelection--><rect codeLine="73" fill="#FEFECE" height="175.0586" id="CalypsoPoCardSelection" style="stroke:#D4AC0D;stroke-width:3.75;" width="452.5" x="2879.588" y="1357.6953"/><ellipse cx="2917.088" cy="1407.9297" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2919.588,1400.4297 L2919.588,1415.4297 L2924.588,1415.4297 L2925.7989,1415.4297 L2927.088,1416.9922 L2927.088,1417.9297 L2927.088,1418.8672 L2925.7989,1420.4297 L2924.588,1420.4297 L2909.588,1420.4297 L2908.3771,1420.4297 L2907.088,1418.8672 L2907.088,1417.9297 L2907.088,1416.9922 L2908.3771,1415.4297 L2909.588,1415.4297 L2914.588,1415.4297 L2914.588,1400.4297 L2909.588,1400.4297 L2908.3771,1400.4297 L2907.088,1398.8672 L2907.088,1397.9297 L2907.088,1396.9922 L2908.3771,1395.4297 L2909.588,1395.4297 L2924.588,1395.4297 L2925.7989,1395.4297 L2927.088,1396.9922 L2927.088,1397.9297 L2927.088,1398.8672 L2925.7989,1400.4297 L2924.588,1400.4297 L2919.588,1400.4297 Z " fill="#000000"/><ellipse cx="2964.588" cy="1406.6797" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="35" x="3019.588" y="1401.3379">&lt;&lt;</text><text fill="#000000" filter="url(#b1kx6uv1yqxlxj0)" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="195" x="3054.588" y="1401.3379">CardSelection</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="35" x="3249.588" y="1401.3379">&gt;&gt;</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="345" x="2979.588" y="1439.0723">CalypsoPoCardSelection</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2882.088" x2="3329.588" y1="1458.1641" y2="1458.1641"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="2882.088" x2="3329.588" y1="1478.1641" y2="1478.1641"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="2894.588" y="1516.7114">...</text><!--MD5=[858307e347215d8034d295bce1f15f07]
+class SelectFileControl--><rect codeLine="77" fill="#FEFECE" height="154.5898" id="SelectFileControl" style="stroke:#D4AC0D;stroke-width:3.75;" width="342.5" x="3474.588" y="1727.6953"/><ellipse cx="3512.088" cy="1767.6953" fill="#EB937F" rx="27.5" ry="27.5" style="stroke:#EB93DF;stroke-width:2.5;"/><path d="M3508.338,1770.1953 L3508.338,1775.1953 L3518.338,1775.1953 L3518.338,1772.6953 L3518.338,1771.4844 L3519.9005,1770.1953 L3520.838,1770.1953 L3521.7755,1770.1953 L3523.338,1771.4844 L3523.338,1772.6953 L3523.338,1780.1953 L3503.338,1780.1953 L3502.1271,1780.1953 L3500.838,1778.6328 L3500.838,1777.6953 L3500.838,1776.7578 L3502.1271,1775.1953 L3503.338,1775.1953 L3503.338,1775.1953 L3503.338,1760.1953 L3503.338,1760.1953 L3502.1271,1760.1953 L3500.838,1758.6328 L3500.838,1757.6953 L3500.838,1756.7578 L3502.1271,1755.1953 L3503.338,1755.1953 L3523.338,1755.1953 L3523.338,1762.6953 L3523.338,1763.9063 L3521.7755,1765.1953 L3520.838,1765.1953 L3519.9005,1765.1953 L3518.338,1763.9063 L3518.338,1762.6953 L3518.338,1760.1953 L3508.338,1760.1953 L3508.338,1765.1953 L3510.838,1765.1953 L3510.838,1763.9844 L3510.838,1763.9844 L3512.4005,1762.6953 L3513.338,1762.6953 L3514.2755,1762.6953 L3515.838,1763.9844 L3515.838,1765.1953 L3515.838,1770.1953 L3515.838,1771.4063 L3514.2755,1772.6953 L3514.2755,1772.6953 L3513.338,1772.6953 L3512.4005,1772.6953 L3510.838,1771.4063 L3510.838,1771.4063 L3510.838,1770.1953 L3508.338,1770.1953 Z " fill="#000000"/><ellipse cx="3559.588" cy="1766.4453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="235" x="3574.588" y="1779.9707">SelectFileControl</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="3477.088" x2="3814.588" y1="1807.6953" y2="1807.6953"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="3477.088" x2="3814.588" y1="1827.6953" y2="1827.6953"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="3489.588" y="1866.2427">...</text><!--MD5=[398aa619a15cda6859c755fd2a8a589c]
+class CalypsoPoSmartCard--><rect codeLine="81" fill="#FEFECE" height="175.0586" id="CalypsoPoSmartCard" style="stroke:#D4AC0D;stroke-width:3.75;" width="407.5" x="1789.5905" y="1357.6953"/><ellipse cx="1827.0905" cy="1407.9297" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1829.5905,1400.4297 L1829.5905,1415.4297 L1834.5905,1415.4297 L1835.8014,1415.4297 L1837.0905,1416.9922 L1837.0905,1417.9297 L1837.0905,1418.8672 L1835.8014,1420.4297 L1834.5905,1420.4297 L1819.5905,1420.4297 L1818.3796,1420.4297 L1817.0905,1418.8672 L1817.0905,1417.9297 L1817.0905,1416.9922 L1818.3796,1415.4297 L1819.5905,1415.4297 L1824.5905,1415.4297 L1824.5905,1400.4297 L1819.5905,1400.4297 L1818.3796,1400.4297 L1817.0905,1398.8672 L1817.0905,1397.9297 L1817.0905,1396.9922 L1818.3796,1395.4297 L1819.5905,1395.4297 L1834.5905,1395.4297 L1835.8014,1395.4297 L1837.0905,1396.9922 L1837.0905,1397.9297 L1837.0905,1398.8672 L1835.8014,1400.4297 L1834.5905,1400.4297 L1829.5905,1400.4297 Z " fill="#000000"/><ellipse cx="1874.5905" cy="1406.6797" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="35" x="1929.5905" y="1401.3379">&lt;&lt;</text><text fill="#000000" filter="url(#b1kx6uv1yqxlxj0)" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="150" x="1964.5905" y="1401.3379">SmartCard</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="35" x="2114.5905" y="1401.3379">&gt;&gt;</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="300" x="1889.5905" y="1439.0723">CalypsoPoSmartCard</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1792.0905" x2="2194.5905" y1="1458.1641" y2="1458.1641"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="1792.0905" x2="2194.5905" y1="1478.1641" y2="1478.1641"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="1804.5905" y="1516.7114">...</text><!--MD5=[0b9f931ff20ef873cbf798587ab2189f]
+class DirectoryHeader--><rect codeLine="85" fill="#FEFECE" height="154.5898" id="DirectoryHeader" style="stroke:#D4AC0D;stroke-width:3.75;" width="332.5" x="3054.588" y="1727.6953"/><ellipse cx="3092.088" cy="1767.6953" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M3094.588,1760.1953 L3094.588,1775.1953 L3099.588,1775.1953 L3100.7989,1775.1953 L3102.088,1776.7578 L3102.088,1777.6953 L3102.088,1778.6328 L3100.7989,1780.1953 L3099.588,1780.1953 L3084.588,1780.1953 L3083.3771,1780.1953 L3082.088,1778.6328 L3082.088,1777.6953 L3082.088,1776.7578 L3083.3771,1775.1953 L3084.588,1775.1953 L3089.588,1775.1953 L3089.588,1760.1953 L3084.588,1760.1953 L3083.3771,1760.1953 L3082.088,1758.6328 L3082.088,1757.6953 L3082.088,1756.7578 L3083.3771,1755.1953 L3084.588,1755.1953 L3099.588,1755.1953 L3100.7989,1755.1953 L3102.088,1756.7578 L3102.088,1757.6953 L3102.088,1758.6328 L3100.7989,1760.1953 L3099.588,1760.1953 L3094.588,1760.1953 Z " fill="#000000"/><ellipse cx="3139.588" cy="1766.4453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="225" x="3154.588" y="1779.9707">DirectoryHeader</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="3057.088" x2="3384.588" y1="1807.6953" y2="1807.6953"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="3057.088" x2="3384.588" y1="1827.6953" y2="1827.6953"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="3069.588" y="1866.2427">...</text><!--MD5=[96ed275c747ab8e5816af3c7b7a6d739]
+class ElementaryFile--><rect codeLine="89" fill="#FEFECE" height="154.5898" id="ElementaryFile" style="stroke:#D4AC0D;stroke-width:3.75;" width="315" x="728.3405" y="1727.6953"/><ellipse cx="765.8405" cy="1767.6953" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M768.3405,1760.1953 L768.3405,1775.1953 L773.3405,1775.1953 L774.5514,1775.1953 L775.8405,1776.7578 L775.8405,1777.6953 L775.8405,1778.6328 L774.5514,1780.1953 L773.3405,1780.1953 L758.3405,1780.1953 L757.1296,1780.1953 L755.8405,1778.6328 L755.8405,1777.6953 L755.8405,1776.7578 L757.1296,1775.1953 L758.3405,1775.1953 L763.3405,1775.1953 L763.3405,1760.1953 L758.3405,1760.1953 L757.1296,1760.1953 L755.8405,1758.6328 L755.8405,1757.6953 L755.8405,1756.7578 L757.1296,1755.1953 L758.3405,1755.1953 L773.3405,1755.1953 L774.5514,1755.1953 L775.8405,1756.7578 L775.8405,1757.6953 L775.8405,1758.6328 L774.5514,1760.1953 L773.3405,1760.1953 L768.3405,1760.1953 Z " fill="#000000"/><ellipse cx="813.3405" cy="1766.4453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="207.5" x="828.3405" y="1779.9707">ElementaryFile</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="730.8405" x2="1040.8405" y1="1807.6953" y2="1807.6953"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="730.8405" x2="1040.8405" y1="1827.6953" y2="1827.6953"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="743.3405" y="1866.2427">...</text><!--MD5=[486f9787c412818ec30cf5d906211656]
+class FileHeader--><rect codeLine="93" fill="#FEFECE" height="154.5898" id="FileHeader" style="stroke:#D4AC0D;stroke-width:3.75;" width="260" x="1130.8405" y="1727.6953"/><ellipse cx="1168.3405" cy="1767.6953" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1170.8405,1760.1953 L1170.8405,1775.1953 L1175.8405,1775.1953 L1177.0514,1775.1953 L1178.3405,1776.7578 L1178.3405,1777.6953 L1178.3405,1778.6328 L1177.0514,1780.1953 L1175.8405,1780.1953 L1160.8405,1780.1953 L1159.6296,1780.1953 L1158.3405,1778.6328 L1158.3405,1777.6953 L1158.3405,1776.7578 L1159.6296,1775.1953 L1160.8405,1775.1953 L1165.8405,1775.1953 L1165.8405,1760.1953 L1160.8405,1760.1953 L1159.6296,1760.1953 L1158.3405,1758.6328 L1158.3405,1757.6953 L1158.3405,1756.7578 L1159.6296,1755.1953 L1160.8405,1755.1953 L1175.8405,1755.1953 L1177.0514,1755.1953 L1178.3405,1756.7578 L1178.3405,1757.6953 L1178.3405,1758.6328 L1177.0514,1760.1953 L1175.8405,1760.1953 L1170.8405,1760.1953 Z " fill="#000000"/><ellipse cx="1215.8405" cy="1766.4453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="152.5" x="1230.8405" y="1779.9707">FileHeader</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1133.3405" x2="1388.3405" y1="1807.6953" y2="1807.6953"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="1133.3405" x2="1388.3405" y1="1827.6953" y2="1827.6953"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="1145.8405" y="1866.2427">...</text><!--MD5=[9e0c9777a80d688403528ae1660d9a4a]
+class FileData--><rect codeLine="97" fill="#FEFECE" height="154.5898" id="FileData" style="stroke:#D4AC0D;stroke-width:3.75;" width="222.5" x="1479.5905" y="1727.6953"/><ellipse cx="1517.0905" cy="1767.6953" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1519.5905,1760.1953 L1519.5905,1775.1953 L1524.5905,1775.1953 L1525.8014,1775.1953 L1527.0905,1776.7578 L1527.0905,1777.6953 L1527.0905,1778.6328 L1525.8014,1780.1953 L1524.5905,1780.1953 L1509.5905,1780.1953 L1508.3796,1780.1953 L1507.0905,1778.6328 L1507.0905,1777.6953 L1507.0905,1776.7578 L1508.3796,1775.1953 L1509.5905,1775.1953 L1514.5905,1775.1953 L1514.5905,1760.1953 L1509.5905,1760.1953 L1508.3796,1760.1953 L1507.0905,1758.6328 L1507.0905,1757.6953 L1507.0905,1756.7578 L1508.3796,1755.1953 L1509.5905,1755.1953 L1524.5905,1755.1953 L1525.8014,1755.1953 L1527.0905,1756.7578 L1527.0905,1757.6953 L1527.0905,1758.6328 L1525.8014,1760.1953 L1524.5905,1760.1953 L1519.5905,1760.1953 Z " fill="#000000"/><ellipse cx="1564.5905" cy="1766.4453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="115" x="1579.5905" y="1779.9707">FileData</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1482.0905" x2="1699.5905" y1="1807.6953" y2="1807.6953"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="1482.0905" x2="1699.5905" y1="1827.6953" y2="1827.6953"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="1494.5905" y="1866.2427">...</text><!--MD5=[1f2bcacd80917a698e8eb156a5c9dcfa]
+class PoRevision--><rect codeLine="101" fill="#FEFECE" height="154.5898" id="PoRevision" style="stroke:#D4AC0D;stroke-width:3.75;" width="265" x="1790.8405" y="1727.6953"/><ellipse cx="1828.3405" cy="1767.6953" fill="#EB937F" rx="27.5" ry="27.5" style="stroke:#EB93DF;stroke-width:2.5;"/><path d="M1824.5905,1770.1953 L1824.5905,1775.1953 L1834.5905,1775.1953 L1834.5905,1772.6953 L1834.5905,1771.4844 L1836.153,1770.1953 L1837.0905,1770.1953 L1838.028,1770.1953 L1839.5905,1771.4844 L1839.5905,1772.6953 L1839.5905,1780.1953 L1819.5905,1780.1953 L1818.3796,1780.1953 L1817.0905,1778.6328 L1817.0905,1777.6953 L1817.0905,1776.7578 L1818.3796,1775.1953 L1819.5905,1775.1953 L1819.5905,1775.1953 L1819.5905,1760.1953 L1819.5905,1760.1953 L1818.3796,1760.1953 L1817.0905,1758.6328 L1817.0905,1757.6953 L1817.0905,1756.7578 L1818.3796,1755.1953 L1819.5905,1755.1953 L1839.5905,1755.1953 L1839.5905,1762.6953 L1839.5905,1763.9063 L1838.028,1765.1953 L1837.0905,1765.1953 L1836.153,1765.1953 L1834.5905,1763.9063 L1834.5905,1762.6953 L1834.5905,1760.1953 L1824.5905,1760.1953 L1824.5905,1765.1953 L1827.0905,1765.1953 L1827.0905,1763.9844 L1827.0905,1763.9844 L1828.653,1762.6953 L1829.5905,1762.6953 L1830.528,1762.6953 L1832.0905,1763.9844 L1832.0905,1765.1953 L1832.0905,1770.1953 L1832.0905,1771.4063 L1830.528,1772.6953 L1830.528,1772.6953 L1829.5905,1772.6953 L1828.653,1772.6953 L1827.0905,1771.4063 L1827.0905,1771.4063 L1827.0905,1770.1953 L1824.5905,1770.1953 Z " fill="#000000"/><ellipse cx="1875.8405" cy="1766.4453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="157.5" x="1890.8405" y="1779.9707">PoRevision</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1793.3405" x2="2053.3405" y1="1807.6953" y2="1807.6953"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="1793.3405" x2="2053.3405" y1="1827.6953" y2="1827.6953"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="1805.8405" y="1866.2427">...</text><!--MD5=[c749d7bba5587d09bce06f9a9a7e89ad]
+class SvLoadLogRecord--><rect codeLine="105" fill="#FEFECE" height="154.5898" id="SvLoadLogRecord" style="stroke:#D4AC0D;stroke-width:3.75;" width="365" x="2143.3405" y="1727.6953"/><ellipse cx="2180.8405" cy="1767.6953" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2183.3405,1760.1953 L2183.3405,1775.1953 L2188.3405,1775.1953 L2189.5514,1775.1953 L2190.8405,1776.7578 L2190.8405,1777.6953 L2190.8405,1778.6328 L2189.5514,1780.1953 L2188.3405,1780.1953 L2173.3405,1780.1953 L2172.1296,1780.1953 L2170.8405,1778.6328 L2170.8405,1777.6953 L2170.8405,1776.7578 L2172.1296,1775.1953 L2173.3405,1775.1953 L2178.3405,1775.1953 L2178.3405,1760.1953 L2173.3405,1760.1953 L2172.1296,1760.1953 L2170.8405,1758.6328 L2170.8405,1757.6953 L2170.8405,1756.7578 L2172.1296,1755.1953 L2173.3405,1755.1953 L2188.3405,1755.1953 L2189.5514,1755.1953 L2190.8405,1756.7578 L2190.8405,1757.6953 L2190.8405,1758.6328 L2189.5514,1760.1953 L2188.3405,1760.1953 L2183.3405,1760.1953 Z " fill="#000000"/><ellipse cx="2228.3405" cy="1766.4453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="257.5" x="2243.3405" y="1779.9707">SvLoadLogRecord</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2145.8405" x2="2505.8405" y1="1807.6953" y2="1807.6953"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="2145.8405" x2="2505.8405" y1="1827.6953" y2="1827.6953"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="2158.3405" y="1866.2427">...</text><!--MD5=[f7bb9a4e07bc41a393fc40394d0e062c]
+class SvDebitLogRecord--><rect codeLine="109" fill="#FEFECE" height="154.5898" id="SvDebitLogRecord" style="stroke:#D4AC0D;stroke-width:3.75;" width="370" x="2595.8405" y="1727.6953"/><ellipse cx="2633.3405" cy="1767.6953" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2635.8405,1760.1953 L2635.8405,1775.1953 L2640.8405,1775.1953 L2642.0514,1775.1953 L2643.3405,1776.7578 L2643.3405,1777.6953 L2643.3405,1778.6328 L2642.0514,1780.1953 L2640.8405,1780.1953 L2625.8405,1780.1953 L2624.6296,1780.1953 L2623.3405,1778.6328 L2623.3405,1777.6953 L2623.3405,1776.7578 L2624.6296,1775.1953 L2625.8405,1775.1953 L2630.8405,1775.1953 L2630.8405,1760.1953 L2625.8405,1760.1953 L2624.6296,1760.1953 L2623.3405,1758.6328 L2623.3405,1757.6953 L2623.3405,1756.7578 L2624.6296,1755.1953 L2625.8405,1755.1953 L2640.8405,1755.1953 L2642.0514,1755.1953 L2643.3405,1756.7578 L2643.3405,1757.6953 L2643.3405,1758.6328 L2642.0514,1760.1953 L2640.8405,1760.1953 L2635.8405,1760.1953 Z " fill="#000000"/><ellipse cx="2680.8405" cy="1766.4453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="262.5" x="2695.8405" y="1779.9707">SvDebitLogRecord</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2598.3405" x2="2963.3405" y1="1807.6953" y2="1807.6953"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="2598.3405" x2="2963.3405" y1="1827.6953" y2="1827.6953"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="2610.8405" y="1866.2427">...</text><!--MD5=[157614e362fa00640e2c5d8c19216b20]
+class CalypsoSamSmartCard--><rect codeLine="115" fill="#FEFECE" height="175.0586" id="CalypsoSamSmartCard" style="stroke:#D4AC0D;stroke-width:3.75;" width="435" x="453.3405" y="3292.6953"/><ellipse cx="490.8405" cy="3342.9297" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M493.3405,3335.4297 L493.3405,3350.4297 L498.3405,3350.4297 L499.5514,3350.4297 L500.8405,3351.9922 L500.8405,3352.9297 L500.8405,3353.8672 L499.5514,3355.4297 L498.3405,3355.4297 L483.3405,3355.4297 L482.1296,3355.4297 L480.8405,3353.8672 L480.8405,3352.9297 L480.8405,3351.9922 L482.1296,3350.4297 L483.3405,3350.4297 L488.3405,3350.4297 L488.3405,3335.4297 L483.3405,3335.4297 L482.1296,3335.4297 L480.8405,3333.8672 L480.8405,3332.9297 L480.8405,3331.9922 L482.1296,3330.4297 L483.3405,3330.4297 L498.3405,3330.4297 L499.5514,3330.4297 L500.8405,3331.9922 L500.8405,3332.9297 L500.8405,3333.8672 L499.5514,3335.4297 L498.3405,3335.4297 L493.3405,3335.4297 Z " fill="#000000"/><ellipse cx="538.3405" cy="3341.6797" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="35" x="607.0905" y="3336.3379">&lt;&lt;</text><text fill="#000000" filter="url(#b1kx6uv1yqxlxj0)" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="150" x="642.0905" y="3336.3379">SmartCard</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="35" x="792.0905" y="3336.3379">&gt;&gt;</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="327.5" x="553.3405" y="3374.0723">CalypsoSamSmartCard</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="455.8405" x2="885.8405" y1="3393.1641" y2="3393.1641"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="455.8405" x2="885.8405" y1="3413.1641" y2="3413.1641"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="468.3405" y="3451.7114">...</text><!--MD5=[21076d4cb49c9b8fb9039f58c6db20e1]
+class SamResourceManagerBuilder--><rect codeLine="119" fill="#FEFECE" height="189.1797" id="SamResourceManagerBuilder" style="stroke:#D4AC0D;stroke-width:3.75;" width="522.5" x="362.0895" y="2137.6953"/><ellipse cx="399.5895" cy="2177.6953" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M402.0895,2170.1953 L402.0895,2185.1953 L407.0895,2185.1953 L408.3004,2185.1953 L409.5895,2186.7578 L409.5895,2187.6953 L409.5895,2188.6328 L408.3004,2190.1953 L407.0895,2190.1953 L392.0895,2190.1953 L390.8786,2190.1953 L389.5895,2188.6328 L389.5895,2187.6953 L389.5895,2186.7578 L390.8786,2185.1953 L392.0895,2185.1953 L397.0895,2185.1953 L397.0895,2170.1953 L392.0895,2170.1953 L390.8786,2170.1953 L389.5895,2168.6328 L389.5895,2167.6953 L389.5895,2166.7578 L390.8786,2165.1953 L392.0895,2165.1953 L407.0895,2165.1953 L408.3004,2165.1953 L409.5895,2166.7578 L409.5895,2167.6953 L409.5895,2168.6328 L408.3004,2170.1953 L407.0895,2170.1953 L402.0895,2170.1953 Z " fill="#000000"/><ellipse cx="447.0895" cy="2176.4453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="415" x="462.0895" y="2189.9707">SamResourceManagerBuilder</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="364.5895" x2="882.0895" y1="2217.6953" y2="2217.6953"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="364.5895" x2="882.0895" y1="2237.6953" y2="2237.6953"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="412.0895" y="2276.2427">...</text><ellipse cx="389.5895" cy="2299.7852" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="365" x="412.0895" y="2310.8325">SamResourceManager build ()</text><!--MD5=[bbf9a05abc34de724727e9c889cadb95]
+class PluginStep--><rect codeLine="125" fill="#FEFECE" height="189.1797" id="PluginStep" style="stroke:#D4AC0D;stroke-width:3.75;" width="747.5" x="972.0905" y="2137.6953"/><ellipse cx="1246.4655" cy="2177.6953" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1248.9655,2170.1953 L1248.9655,2185.1953 L1253.9655,2185.1953 L1255.1764,2185.1953 L1256.4655,2186.7578 L1256.4655,2187.6953 L1256.4655,2188.6328 L1255.1764,2190.1953 L1253.9655,2190.1953 L1238.9655,2190.1953 L1237.7546,2190.1953 L1236.4655,2188.6328 L1236.4655,2187.6953 L1236.4655,2186.7578 L1237.7546,2185.1953 L1238.9655,2185.1953 L1243.9655,2185.1953 L1243.9655,2170.1953 L1238.9655,2170.1953 L1237.7546,2170.1953 L1236.4655,2168.6328 L1236.4655,2167.6953 L1236.4655,2166.7578 L1237.7546,2165.1953 L1238.9655,2165.1953 L1253.9655,2165.1953 L1255.1764,2165.1953 L1256.4655,2166.7578 L1256.4655,2167.6953 L1256.4655,2168.6328 L1255.1764,2170.1953 L1253.9655,2170.1953 L1248.9655,2170.1953 Z " fill="#000000"/><ellipse cx="1310.2155" cy="2176.4453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="150" x="1325.2155" y="2189.9707">PluginStep</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="974.5905" x2="1717.0905" y1="2217.6953" y2="2217.6953"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="974.5905" x2="1717.0905" y1="2237.6953" y2="2237.6953"/><ellipse cx="999.5905" cy="2265.1953" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="682.5" x="1022.0905" y="2276.2427">TimeoutStep withPlugin (Plugin plugin, String readerFilter)</text><ellipse cx="999.5905" cy="2299.7852" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="602.5" x="1022.0905" y="2310.8325">TimeoutStep withPoolPlugin (PoolPlugin poolPlugin)</text><!--MD5=[84b967743fec6b778142160ccf981280]
+class TimeoutStep--><rect codeLine="129" fill="#FEFECE" height="189.1797" id="TimeoutStep" style="stroke:#D4AC0D;stroke-width:3.75;" width="792.5" x="1807.0905" y="2137.6953"/><ellipse cx="2091.4655" cy="2177.6953" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2093.9655,2170.1953 L2093.9655,2185.1953 L2098.9655,2185.1953 L2100.1764,2185.1953 L2101.4655,2186.7578 L2101.4655,2187.6953 L2101.4655,2188.6328 L2100.1764,2190.1953 L2098.9655,2190.1953 L2083.9655,2190.1953 L2082.7546,2190.1953 L2081.4655,2188.6328 L2081.4655,2187.6953 L2081.4655,2186.7578 L2082.7546,2185.1953 L2083.9655,2185.1953 L2088.9655,2185.1953 L2088.9655,2170.1953 L2083.9655,2170.1953 L2082.7546,2170.1953 L2081.4655,2168.6328 L2081.4655,2167.6953 L2081.4655,2166.7578 L2082.7546,2165.1953 L2083.9655,2165.1953 L2098.9655,2165.1953 L2100.1764,2165.1953 L2101.4655,2166.7578 L2101.4655,2167.6953 L2101.4655,2168.6328 L2100.1764,2170.1953 L2098.9655,2170.1953 L2093.9655,2170.1953 Z " fill="#000000"/><ellipse cx="2155.2155" cy="2176.4453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="175" x="2170.2155" y="2189.9707">TimeoutStep</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1809.5905" x2="2597.0905" y1="2217.6953" y2="2217.6953"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1809.5905" x2="2597.0905" y1="2237.6953" y2="2237.6953"/><ellipse cx="1834.5905" cy="2265.1953" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="402.5" x="1857.0905" y="2276.2427">BuilderStep withDefaultTimeout ()</text><ellipse cx="1834.5905" cy="2299.7852" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="727.5" x="1857.0905" y="2310.8325">BuilderStep withTimeout (int maxBlockingTime, int sleepTime)</text><!--MD5=[b96bbdd43d6a619d99f97da444a890e3]
+class KeyGroupReferenceStep--><rect codeLine="133" fill="#FEFECE" height="189.1797" id="KeyGroupReferenceStep" style="stroke:#D4AC0D;stroke-width:3.75;" width="817.5" x="2687.088" y="2137.6953"/><ellipse cx="2900.213" cy="2177.6953" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2902.713,2170.1953 L2902.713,2185.1953 L2907.713,2185.1953 L2908.9239,2185.1953 L2910.213,2186.7578 L2910.213,2187.6953 L2910.213,2188.6328 L2908.9239,2190.1953 L2907.713,2190.1953 L2892.713,2190.1953 L2891.5021,2190.1953 L2890.213,2188.6328 L2890.213,2187.6953 L2890.213,2186.7578 L2891.5021,2185.1953 L2892.713,2185.1953 L2897.713,2185.1953 L2897.713,2170.1953 L2892.713,2170.1953 L2891.5021,2170.1953 L2890.213,2168.6328 L2890.213,2167.6953 L2890.213,2166.7578 L2891.5021,2165.1953 L2892.713,2165.1953 L2907.713,2165.1953 L2908.9239,2165.1953 L2910.213,2166.7578 L2910.213,2167.6953 L2910.213,2168.6328 L2908.9239,2170.1953 L2907.713,2170.1953 L2902.713,2170.1953 Z " fill="#000000"/><ellipse cx="2963.963" cy="2176.4453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="342.5" x="2978.963" y="2189.9707">KeyGroupReferenceStep</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2689.588" x2="3502.088" y1="2217.6953" y2="2217.6953"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2689.588" x2="3502.088" y1="2237.6953" y2="2237.6953"/><ellipse cx="2714.588" cy="2265.1953" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="475" x="2737.088" y="2276.2427">BuilderStep withoutSamRevisionFilter ()</text><ellipse cx="2714.588" cy="2299.7852" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="752.5" x="2737.088" y="2310.8325">BuilderStep withSamRevisionFilter (SamRevision samRevision)</text><!--MD5=[d82c561607f70d894934ca85a449527f]
+class SerialNumberFilterStep--><rect codeLine="137" fill="#FEFECE" height="189.1797" id="SerialNumberFilterStep" style="stroke:#D4AC0D;stroke-width:3.75;" width="655" x="1303.3405" y="2522.6953"/><ellipse cx="1443.9655" cy="2562.6953" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1446.4655,2555.1953 L1446.4655,2570.1953 L1451.4655,2570.1953 L1452.6764,2570.1953 L1453.9655,2571.7578 L1453.9655,2572.6953 L1453.9655,2573.6328 L1452.6764,2575.1953 L1451.4655,2575.1953 L1436.4655,2575.1953 L1435.2546,2575.1953 L1433.9655,2573.6328 L1433.9655,2572.6953 L1433.9655,2571.7578 L1435.2546,2570.1953 L1436.4655,2570.1953 L1441.4655,2570.1953 L1441.4655,2555.1953 L1436.4655,2555.1953 L1435.2546,2555.1953 L1433.9655,2553.6328 L1433.9655,2552.6953 L1433.9655,2551.7578 L1435.2546,2550.1953 L1436.4655,2550.1953 L1451.4655,2550.1953 L1452.6764,2550.1953 L1453.9655,2551.7578 L1453.9655,2552.6953 L1453.9655,2553.6328 L1452.6764,2555.1953 L1451.4655,2555.1953 L1446.4655,2555.1953 Z " fill="#000000"/><ellipse cx="1507.7155" cy="2561.4453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="325" x="1522.7155" y="2574.9707">SerialNumberFilterStep</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1305.8405" x2="1955.8405" y1="2602.6953" y2="2602.6953"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1305.8405" x2="1955.8405" y1="2622.6953" y2="2622.6953"/><ellipse cx="1330.8405" cy="2650.1953" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="480" x="1353.3405" y="2661.2427">BuilderStep withoutSerialNumberFilter ()</text><ellipse cx="1330.8405" cy="2684.7852" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="590" x="1353.3405" y="2695.8325">BuilderStep withSerialNumberFilter (String regex)</text><!--MD5=[45ea120367609ef522ec24f6eeb73578]
+class SamRevisionFilterStep--><rect codeLine="141" fill="#FEFECE" height="189.1797" id="SamRevisionFilterStep" style="stroke:#D4AC0D;stroke-width:3.75;" width="817.5" x="2047.0905" y="2522.6953"/><ellipse cx="2273.9655" cy="2562.6953" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2276.4655,2555.1953 L2276.4655,2570.1953 L2281.4655,2570.1953 L2282.6764,2570.1953 L2283.9655,2571.7578 L2283.9655,2572.6953 L2283.9655,2573.6328 L2282.6764,2575.1953 L2281.4655,2575.1953 L2266.4655,2575.1953 L2265.2546,2575.1953 L2263.9655,2573.6328 L2263.9655,2572.6953 L2263.9655,2571.7578 L2265.2546,2570.1953 L2266.4655,2570.1953 L2271.4655,2570.1953 L2271.4655,2555.1953 L2266.4655,2555.1953 L2265.2546,2555.1953 L2263.9655,2553.6328 L2263.9655,2552.6953 L2263.9655,2551.7578 L2265.2546,2550.1953 L2266.4655,2550.1953 L2281.4655,2550.1953 L2282.6764,2550.1953 L2283.9655,2551.7578 L2283.9655,2552.6953 L2283.9655,2553.6328 L2282.6764,2555.1953 L2281.4655,2555.1953 L2276.4655,2555.1953 Z " fill="#000000"/><ellipse cx="2337.7155" cy="2561.4453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="315" x="2352.7155" y="2574.9707">SamRevisionFilterStep</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2049.5905" x2="2862.0905" y1="2602.6953" y2="2602.6953"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2049.5905" x2="2862.0905" y1="2622.6953" y2="2622.6953"/><ellipse cx="2074.5905" cy="2650.1953" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="475" x="2097.0905" y="2661.2427">BuilderStep withoutSamRevisionFilter ()</text><ellipse cx="2074.5905" cy="2684.7852" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="752.5" x="2097.0905" y="2695.8325">BuilderStep withSamRevisionFilter (SamRevision samRevision)</text><!--MD5=[900ffb3fa809917103322b18257c27e6]
+class BuilderStep--><rect codeLine="145" fill="#FEFECE" height="154.5898" id="BuilderStep" style="stroke:#D4AC0D;stroke-width:3.75;" width="430" x="2953.338" y="2540.1953"/><ellipse cx="3063.963" cy="2580.1953" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M3066.463,2572.6953 L3066.463,2587.6953 L3071.463,2587.6953 L3072.6739,2587.6953 L3073.963,2589.2578 L3073.963,2590.1953 L3073.963,2591.1328 L3072.6739,2592.6953 L3071.463,2592.6953 L3056.463,2592.6953 L3055.2521,2592.6953 L3053.963,2591.1328 L3053.963,2590.1953 L3053.963,2589.2578 L3055.2521,2587.6953 L3056.463,2587.6953 L3061.463,2587.6953 L3061.463,2572.6953 L3056.463,2572.6953 L3055.2521,2572.6953 L3053.963,2571.1328 L3053.963,2570.1953 L3053.963,2569.2578 L3055.2521,2567.6953 L3056.463,2567.6953 L3071.463,2567.6953 L3072.6739,2567.6953 L3073.963,2569.2578 L3073.963,2570.1953 L3073.963,2571.1328 L3072.6739,2572.6953 L3071.463,2572.6953 L3066.463,2572.6953 Z " fill="#000000"/><ellipse cx="3127.713" cy="2578.9453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="160" x="3142.713" y="2592.4707">BuilderStep</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2955.838" x2="3380.838" y1="2620.1953" y2="2620.1953"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2955.838" x2="3380.838" y1="2640.1953" y2="2640.1953"/><ellipse cx="2980.838" cy="2667.6953" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="365" x="3003.338" y="2678.7427">SamResourceManager build ()</text><!--MD5=[7e1520c37f877dcee4dcfe09654b60f7]
+class SamResourceManager--><rect codeLine="150" fill="#FEFECE" height="189.1797" id="SamResourceManager" style="stroke:#D4AC0D;stroke-width:3.75;" width="855" x="360.8395" y="2522.6953"/><ellipse cx="605.2145" cy="2562.6953" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M607.7145,2555.1953 L607.7145,2570.1953 L612.7145,2570.1953 L613.9254,2570.1953 L615.2145,2571.7578 L615.2145,2572.6953 L615.2145,2573.6328 L613.9254,2575.1953 L612.7145,2575.1953 L597.7145,2575.1953 L596.5036,2575.1953 L595.2145,2573.6328 L595.2145,2572.6953 L595.2145,2571.7578 L596.5036,2570.1953 L597.7145,2570.1953 L602.7145,2570.1953 L602.7145,2555.1953 L597.7145,2555.1953 L596.5036,2555.1953 L595.2145,2553.6328 L595.2145,2552.6953 L595.2145,2551.7578 L596.5036,2550.1953 L597.7145,2550.1953 L612.7145,2550.1953 L613.9254,2550.1953 L615.2145,2551.7578 L615.2145,2552.6953 L615.2145,2553.6328 L613.9254,2555.1953 L612.7145,2555.1953 L607.7145,2555.1953 Z " fill="#000000"/><ellipse cx="668.9645" cy="2561.4453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="317.5" x="683.9645" y="2574.9707">SamResourceManager</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="363.3395" x2="1213.3395" y1="2602.6953" y2="2602.6953"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="363.3395" x2="1213.3395" y1="2622.6953" y2="2622.6953"/><ellipse cx="388.3395" cy="2650.1953" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="790" x="410.8395" y="2661.2427">SamResource allocateSamResource (String keyGroupReference)</text><ellipse cx="388.3395" cy="2684.7852" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="690" x="410.8395" y="2695.8325">void releaseSamResource (SamResource samResource)</text><!--MD5=[43918d86839edc1befb88ea50efcfbfb]
+class SamResource--><rect codeLine="154" fill="#FEFECE" height="189.1797" id="SamResource" style="stroke:#D4AC0D;stroke-width:3.75;" width="542.5" x="399.5905" y="2907.6953"/><ellipse cx="547.7155" cy="2947.6953" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M550.2155,2940.1953 L550.2155,2955.1953 L555.2155,2955.1953 L556.4264,2955.1953 L557.7155,2956.7578 L557.7155,2957.6953 L557.7155,2958.6328 L556.4264,2960.1953 L555.2155,2960.1953 L540.2155,2960.1953 L539.0046,2960.1953 L537.7155,2958.6328 L537.7155,2957.6953 L537.7155,2956.7578 L539.0046,2955.1953 L540.2155,2955.1953 L545.2155,2955.1953 L545.2155,2940.1953 L540.2155,2940.1953 L539.0046,2940.1953 L537.7155,2938.6328 L537.7155,2937.6953 L537.7155,2936.7578 L539.0046,2935.1953 L540.2155,2935.1953 L555.2155,2935.1953 L556.4264,2935.1953 L557.7155,2936.7578 L557.7155,2937.6953 L557.7155,2938.6328 L556.4264,2940.1953 L555.2155,2940.1953 L550.2155,2940.1953 Z " fill="#000000"/><ellipse cx="611.4655" cy="2946.4453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="197.5" x="626.4655" y="2959.9707">SamResource</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="402.0905" x2="939.5905" y1="2987.6953" y2="2987.6953"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="402.0905" x2="939.5905" y1="3007.6953" y2="3007.6953"/><ellipse cx="427.0905" cy="3035.1953" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" filter="url(#b1kx6uv1yqxlxj0)" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="87.5" x="449.5905" y="3046.2427">Reader</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="152.5" x="544.5905" y="3046.2427">getReader ()</text><ellipse cx="427.0905" cy="3069.7852" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="477.5" x="449.5905" y="3080.8325">CalypsoSamSmartCard getSmartCard ()</text><!--MD5=[80a94cacccc110cca69265c28ad8642b]
+class SamRevision--><rect codeLine="158" fill="#FEFECE" height="154.5898" id="SamRevision" style="stroke:#D4AC0D;stroke-width:3.75;" width="292.5" x="524.5905" y="3662.6953"/><ellipse cx="562.0905" cy="3702.6953" fill="#EB937F" rx="27.5" ry="27.5" style="stroke:#EB93DF;stroke-width:2.5;"/><path d="M558.3405,3705.1953 L558.3405,3710.1953 L568.3405,3710.1953 L568.3405,3707.6953 L568.3405,3706.4844 L569.903,3705.1953 L570.8405,3705.1953 L571.778,3705.1953 L573.3405,3706.4844 L573.3405,3707.6953 L573.3405,3715.1953 L553.3405,3715.1953 L552.1296,3715.1953 L550.8405,3713.6328 L550.8405,3712.6953 L550.8405,3711.7578 L552.1296,3710.1953 L553.3405,3710.1953 L553.3405,3710.1953 L553.3405,3695.1953 L553.3405,3695.1953 L552.1296,3695.1953 L550.8405,3693.6328 L550.8405,3692.6953 L550.8405,3691.7578 L552.1296,3690.1953 L553.3405,3690.1953 L573.3405,3690.1953 L573.3405,3697.6953 L573.3405,3698.9063 L571.778,3700.1953 L570.8405,3700.1953 L569.903,3700.1953 L568.3405,3698.9063 L568.3405,3697.6953 L568.3405,3695.1953 L558.3405,3695.1953 L558.3405,3700.1953 L560.8405,3700.1953 L560.8405,3698.9844 L560.8405,3698.9844 L562.403,3697.6953 L563.3405,3697.6953 L564.278,3697.6953 L565.8405,3698.9844 L565.8405,3700.1953 L565.8405,3705.1953 L565.8405,3706.4063 L564.278,3707.6953 L564.278,3707.6953 L563.3405,3707.6953 L562.403,3707.6953 L560.8405,3706.4063 L560.8405,3706.4063 L560.8405,3705.1953 L558.3405,3705.1953 Z " fill="#000000"/><ellipse cx="609.5905" cy="3701.4453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="185" x="624.5905" y="3714.9707">SamRevision</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="527.0905" x2="814.5905" y1="3742.6953" y2="3742.6953"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="527.0905" x2="814.5905" y1="3762.6953" y2="3762.6953"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="539.5905" y="3801.2427">...</text><!--MD5=[36dd6719095217758b7d4f86153b9501]
+class PoTransactionService--><rect codeLine="164" fill="#FEFECE" height="154.5898" id="PoTransactionService" style="stroke:#D4AC0D;stroke-width:3.75;" width="407.5" x="3647.088" y="2155.1953"/><ellipse cx="3684.588" cy="2195.1953" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M3687.088,2187.6953 L3687.088,2202.6953 L3692.088,2202.6953 L3693.2989,2202.6953 L3694.588,2204.2578 L3694.588,2205.1953 L3694.588,2206.1328 L3693.2989,2207.6953 L3692.088,2207.6953 L3677.088,2207.6953 L3675.8771,2207.6953 L3674.588,2206.1328 L3674.588,2205.1953 L3674.588,2204.2578 L3675.8771,2202.6953 L3677.088,2202.6953 L3682.088,2202.6953 L3682.088,2187.6953 L3677.088,2187.6953 L3675.8771,2187.6953 L3674.588,2186.1328 L3674.588,2185.1953 L3674.588,2184.2578 L3675.8771,2182.6953 L3677.088,2182.6953 L3692.088,2182.6953 L3693.2989,2182.6953 L3694.588,2184.2578 L3694.588,2185.1953 L3694.588,2186.1328 L3693.2989,2187.6953 L3692.088,2187.6953 L3687.088,2187.6953 Z " fill="#000000"/><ellipse cx="3732.088" cy="2193.9453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="300" x="3747.088" y="2207.4707">PoTransactionService</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="3649.588" x2="4052.088" y1="2235.1953" y2="2235.1953"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="3649.588" x2="4052.088" y1="2255.1953" y2="2255.1953"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="3662.088" y="2293.7427">...</text><!--MD5=[4ea882bf7bd4263b7e27aeb216026ca4]
+class PoSecuritySettingBuilder--><rect codeLine="168" fill="#FEFECE" height="189.1797" id="PoSecuritySettingBuilder" style="stroke:#D4AC0D;stroke-width:3.75;" width="447.5" x="4142.088" y="2137.6953"/><ellipse cx="4179.588" cy="2177.6953" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M4182.088,2170.1953 L4182.088,2185.1953 L4187.088,2185.1953 L4188.2989,2185.1953 L4189.588,2186.7578 L4189.588,2187.6953 L4189.588,2188.6328 L4188.2989,2190.1953 L4187.088,2190.1953 L4172.088,2190.1953 L4170.8771,2190.1953 L4169.588,2188.6328 L4169.588,2187.6953 L4169.588,2186.7578 L4170.8771,2185.1953 L4172.088,2185.1953 L4177.088,2185.1953 L4177.088,2170.1953 L4172.088,2170.1953 L4170.8771,2170.1953 L4169.588,2168.6328 L4169.588,2167.6953 L4169.588,2166.7578 L4170.8771,2165.1953 L4172.088,2165.1953 L4187.088,2165.1953 L4188.2989,2165.1953 L4189.588,2166.7578 L4189.588,2167.6953 L4189.588,2168.6328 L4188.2989,2170.1953 L4187.088,2170.1953 L4182.088,2170.1953 Z " fill="#000000"/><ellipse cx="4227.088" cy="2176.4453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="340" x="4242.088" y="2189.9707">PoSecuritySettingBuilder</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="4144.588" x2="4587.088" y1="2217.6953" y2="2217.6953"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="4144.588" x2="4587.088" y1="2237.6953" y2="2237.6953"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="4192.088" y="2276.2427">...</text><ellipse cx="4169.588" cy="2299.7852" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="302.5" x="4192.088" y="2310.8325">PoSecuritySetting build ()</text><!--MD5=[e4d4ea7db949ad9d239210033b878e09]
+class PoSecuritySetting--><rect codeLine="173" fill="#FEFECE" height="120" id="PoSecuritySetting" style="stroke:#D4AC0D;stroke-width:3.75;" width="350" x="3850.838" y="2557.6953"/><ellipse cx="3888.338" cy="2597.6953" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M3890.838,2590.1953 L3890.838,2605.1953 L3895.838,2605.1953 L3897.0489,2605.1953 L3898.338,2606.7578 L3898.338,2607.6953 L3898.338,2608.6328 L3897.0489,2610.1953 L3895.838,2610.1953 L3880.838,2610.1953 L3879.6271,2610.1953 L3878.338,2608.6328 L3878.338,2607.6953 L3878.338,2606.7578 L3879.6271,2605.1953 L3880.838,2605.1953 L3885.838,2605.1953 L3885.838,2590.1953 L3880.838,2590.1953 L3879.6271,2590.1953 L3878.338,2588.6328 L3878.338,2587.6953 L3878.338,2586.7578 L3879.6271,2585.1953 L3880.838,2585.1953 L3895.838,2585.1953 L3897.0489,2585.1953 L3898.338,2586.7578 L3898.338,2587.6953 L3898.338,2588.6328 L3897.0489,2590.1953 L3895.838,2590.1953 L3890.838,2590.1953 Z " fill="#000000"/><ellipse cx="3935.838" cy="2596.4453" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="242.5" x="3950.838" y="2609.9707">PoSecuritySetting</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="3853.338" x2="4198.338" y1="2637.6953" y2="2637.6953"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="3853.338" x2="4198.338" y1="2657.6953" y2="2657.6953"/><!--MD5=[272273998e8ddc65263de48999845f98]
+link CalypsoCardExtensionProvider to CalypsoCardExtension--><path codeLine="180" d="M2538.3405,560.4703 C2538.3405,610.3203 2538.3405,678.0203 2538.3405,741.7953 " fill="none" id="CalypsoCardExtensionProvider-to-CalypsoCardExtension" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="2538.3405,754.4953,2548.3405,731.9953,2538.3405,741.9953,2528.3405,731.9953,2538.3405,754.4953" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="2550.8405,670.6348,2558.1878,648.0221,2543.4932,648.0221,2550.8405,670.6348" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="2573.3405" y="671.4331">provide</text><!--MD5=[a75f32d2e0db04aff49dd4025288b881]
+link CalypsoCardExtension to SamResource--><path codeLine="182" d="M1603.3255,968.3203 C1147.358,1006.1453 665.3255,1084.8203 515.8405,1247.6953 C64.053,1739.9628 15,2141.0928 315.8395,2737.6953 C349.6063,2804.6578 409.4155,2858.7803 470.4305,2900.0928 " fill="none" id="CalypsoCardExtension-to-SamResource" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="481.028,2907.1353,467.8226,2886.3539,470.6169,2900.2172,456.7536,2903.0116,481.028,2907.1353" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="139.5161,1996.4173,157.2932,1980.6283,144.6175,1973.1946,139.5161,1996.4173" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="168.3396" y="1998.9331">use</text><!--MD5=[ccb07f9d9ffeaeac3e2111c107cf757a]
+link CalypsoCardExtension to SamResourceManagerBuilder--><path codeLine="183" d="M1602.833,1006.7453 C1219.9355,1053.7703 832.9305,1129.0953 688.3405,1247.6953 C430.783,1458.9603 527.668,1917.8853 588.628,2125.0178 " fill="none" id="CalypsoCardExtension-to-SamResourceManagerBuilder" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="592.2255,2137.0903,595.3886,2112.6722,588.6582,2125.1101,576.2203,2118.3798,592.2255,2137.0903" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="527.443,1639.8939,548.0766,1628.0799,537.1918,1618.208,527.443,1639.8939" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="558.3405" y="1643.9331">provide</text><!--MD5=[41d11e461b4fac271edca0a29a78f48f]
+link CalypsoCardExtension to PoSecuritySettingBuilder--><path codeLine="184" d="M3474.038,1060.4453 C3683.888,1107.0703 3865.988,1168.4953 3938.338,1247.6953 C4178.638,1510.7778 4298.663,1930.2103 4343.888,2124.7403 " fill="none" id="CalypsoCardExtension-to-PoSecuritySettingBuilder" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="4346.763,2137.2253,4351.4672,2113.0567,4343.9622,2125.0431,4331.9758,2117.5381,4346.763,2137.2253" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="4206.2484,1640.3134,4197.6273,1618.155,4186.2494,1627.4542,4206.2484,1640.3134" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="4220.838" y="1643.9331">provide</text><!--MD5=[101d157f73a57af74142df5f94ba2804]
+link CalypsoCardExtension to CalypsoPoCardSelection--><path codeLine="185" d="M2732.838,1108.3203 C2822.513,1188.6953 2925.413,1280.9453 3000.388,1348.1703 " fill="none" id="CalypsoCardExtension-to-CalypsoPoCardSelection" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="3010.313,1357.0703,3000.2785,1334.5857,3001.0218,1348.7083,2986.8992,1349.4515,3010.313,1357.0703" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="2880.1455,1213.9786,2868.2125,1193.4136,2858.4037,1204.3552,2880.1455,1213.9786" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="90" x="2893.338" y="1218.9331">create</text><!--MD5=[1f7747fb28c96e5022cb73f5e62a0f84]
+link CalypsoCardExtension to CalypsoPoCardSelector--><path codeLine="186" d="M2538.3405,1108.3203 C2538.3405,1187.0703 2538.3405,1277.1953 2538.3405,1344.0203 " fill="none" id="CalypsoCardExtension-to-CalypsoPoCardSelector" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="2538.3405,1357.0703,2548.3405,1334.5703,2538.3405,1344.5703,2528.3405,1334.5703,2538.3405,1357.0703" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="2550.8405,1218.1348,2558.1878,1195.5221,2543.4932,1195.5221,2550.8405,1218.1348" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="2573.3405" y="1218.9331">use</text><!--MD5=[e768beff966a29b54fafe94c19035898]
+link CalypsoCardExtension to CalypsoPoSmartCard--><path codeLine="187" d="M2351.543,1108.3203 C2265.433,1188.6953 2166.613,1280.9453 2094.608,1348.1703 " fill="none" id="CalypsoCardExtension-to-CalypsoPoSmartCard" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="2085.073,1357.0703,2108.3297,1348.9849,2094.1951,1348.5241,2094.6559,1334.3895,2085.073,1357.0703" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="2269.2031,1214.1646,2290.7465,1204.1048,2280.7191,1193.3632,2269.2031,1214.1646" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="2300.8405" y="1218.9331">use</text><!--MD5=[08974c1e824734f05852934b0814e28f]
+link CalypsoCardExtension to PoTransactionService--><path codeLine="188" d="M3473.563,1071.1703 C3651.463,1116.3203 3800.388,1174.3453 3858.338,1247.6953 C4067.888,1512.8953 3948.563,1956.1778 3883.913,2142.9803 " fill="none" id="CalypsoCardExtension-to-PoTransactionService" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="3879.738,2154.9103,3896.5974,2136.9657,3883.8594,2143.1093,3877.7158,2130.3714,3879.738,2154.9103" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="3992.8074,1642.3084,3991.5838,1618.5635,3977.8606,1623.8176,3992.8074,1642.3084" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="90" x="4010.838" y="1643.9331">create</text><!--MD5=[b5831fe2f38c217483a231289f3a8748]
+link PoSecuritySettingBuilder to PoSecuritySetting--><path codeLine="190" d="M4282.663,2328.1528 C4221.838,2396.1453 4140.713,2486.8028 4086.063,2547.8903 " fill="none" id="PoSecuritySettingBuilder-to-PoSecuritySetting" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="4077.513,2557.4328,4099.9656,2547.3268,4085.8454,2548.1151,4085.0572,2533.9949,4077.513,2557.4328" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="4210.0032,2434.9504,4230.5566,2422.9973,4219.6054,2413.1992,4210.0032,2434.9504" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="67.5" x="4240.838" y="2438.9331">build</text><!--MD5=[b59ca0eaa1a8e1172f93896e9e9d458f]
+link PoTransactionService to PoSecuritySetting--><path codeLine="192" d="M3885.413,2310.2703 C3916.913,2378.6878 3963.088,2478.9503 3993.788,2545.5978 " fill="none" id="PoTransactionService-to-PoSecuritySetting" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="3999.338,2557.6353,3999.0124,2533.0153,3994.1106,2546.2808,3980.8452,2541.3791,3999.338,2557.6353" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="3961.0668,2436.9886,3958.2815,2413.3759,3944.9342,2419.5227,3961.0668,2436.9886" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="3978.338" y="2438.9331">use</text><!--MD5=[e540cb2a929618348de763ff27ae6c5f]
+reverse link SelectFileControl to PoTransactionService--><path codeLine="193" d="M3653.538,1896.1703 C3658.913,1931.9128 3667.988,1972.8603 3683.338,2007.6953 C3706.938,2061.2253 3745.663,2113.8603 3779.913,2154.4878 " fill="none" id="SelectFileControl-backto-PoTransactionService" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="3651.738,1883.2603,3644.9622,1906.9318,3653.4753,1895.639,3664.7681,1904.1521,3651.738,1883.2603" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="3690.3448,1974.4064,3693.6822,1997.9475,3706.8819,1991.4899,3690.3448,1974.4064" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="3718.338" y="1998.9331">use</text><!--MD5=[52c09c1a7227b5b8b33f68f818858625]
+link SamResourceManagerBuilder to SamResourceManager--><path codeLine="195" d="M663.703,2328.1528 C687.663,2383.3353 718.1055,2453.4428 742.9055,2510.5578 " fill="none" id="SamResourceManagerBuilder-to-SamResourceManager" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="748.108,2522.5378,748.318,2497.9166,743.1289,2511.0723,729.9732,2505.8831,748.108,2522.5378" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="728.3191,2437.1005,726.0522,2413.4324,712.5733,2419.2851,728.3191,2437.1005" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="67.5" x="745.8405" y="2438.9331">build</text><!--MD5=[15cf82b70813623e87d65b72e03da973]
+link SamResourceManager to SamResource--><path codeLine="197" d="M759.5955,2713.1528 C742.533,2768.3353 720.8555,2838.4428 703.1955,2895.5578 " fill="none" id="SamResourceManager-to-SamResource" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="699.4905,2907.5378,715.6909,2888.9961,703.1831,2895.5957,696.5835,2883.0879,699.4905,2907.5378" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="742.148,2822.5769,755.8473,2803.1438,741.8084,2798.8029,742.148,2822.5769" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="90" x="768.3405" y="2823.9331">create</text><!--MD5=[98a7242e44565d1bae7a7897c84f8797]
+link SamResource to CalypsoSamSmartCard--><path codeLine="199" d="M670.8405,3098.2328 C670.8405,3153.2928 670.8405,3223.0003 670.8405,3279.0203 " fill="none" id="SamResource-to-CalypsoSamSmartCard" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="670.8405,3292.2153,680.8405,3269.7153,670.8405,3279.7153,660.8405,3269.7153,670.8405,3292.2153" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="683.3405,3208.1348,690.6878,3185.5221,675.9932,3185.5221,683.3405,3208.1348" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="705.8405" y="3208.9331">provide</text><!--MD5=[08ecc57c4560ae1afbd5a334ec5bee22]
+link CalypsoSamSmartCard to SamRevision--><path codeLine="201" d="M670.8405,3467.7278 C670.8405,3522.4178 670.8405,3593.3578 670.8405,3648.7928 " fill="none" id="CalypsoSamSmartCard-to-SamRevision" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="670.8405,3661.8103,680.8405,3639.3103,670.8405,3649.3103,660.8405,3639.3103,670.8405,3661.8103" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="683.3405,3578.1348,690.6878,3555.5221,675.9932,3555.5221,683.3405,3578.1348" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="705.8405" y="3578.9331">provide</text><!--MD5=[ef506f8925426c9bc8ca2601c99a59ae]
+link CalypsoPoCardSelection to SelectFileControl--><path codeLine="203" d="M3044.563,1533.5878 C3024.213,1573.3003 3013.013,1619.0153 3040.838,1652.6953 C3153.238,1788.7828 3260.388,1681.8378 3430.838,1727.6953 C3440.988,1730.4278 3451.363,1733.4003 3461.763,1736.5353 " fill="none" id="CalypsoPoCardSelection-to-SelectFileControl" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="3474.013,1740.2853,3455.4495,1724.1098,3462.0659,1736.6087,3449.567,1743.2251,3474.013,1740.2853" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="3064.5786,1636.1028,3047.4582,1619.604,3041.0302,1632.8181,3064.5786,1636.1028" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="3075.838" y="1643.9331">use</text><!--MD5=[3c396b941fe4a028082f7a9fde3cbe1b]
+link CalypsoPoSmartCard to DirectoryHeader--><path codeLine="205" d="M2197.348,1519.9203 C2212.0055,1524.4428 2226.6105,1528.7528 2240.8405,1532.6953 C2395.2005,1575.4528 2437.9705,1568.7578 2593.3405,1607.6953 C2779.588,1654.3703 2825.513,1669.0528 3008.338,1727.6953 C3019.288,1731.2053 3030.513,1734.8978 3041.813,1738.6828 " fill="none" id="CalypsoPoSmartCard-to-DirectoryHeader" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="3054.113,1742.8253,3035.996,1726.1512,3042.2703,1738.8254,3029.5961,1745.0996,3054.113,1742.8253" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="2785.4386,1633.7695,2765.391,1620.9862,2761.7059,1635.2113,2785.4386,1633.7695" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="2795.838" y="1643.9331">provide</text><!--MD5=[77767f685e6d08ef10b4a4aeadb9be73]
+link CalypsoPoSmartCard to ElementaryFile--><path codeLine="206" d="M1788.8255,1529.6378 C1785.313,1530.6903 1781.8155,1531.7103 1778.3405,1532.6953 C1594.848,1584.6828 1538.888,1554.1703 1355.8405,1607.6953 C1253.188,1637.7128 1142.5155,1682.9478 1054.363,1722.2978 " fill="none" id="CalypsoPoSmartCard-to-ElementaryFile" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="1042.628,1727.5603,1067.25,1727.471,1054.0322,1722.4422,1059.061,1709.2244,1042.628,1727.5603" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="1356.2496,1633.8064,1379.9865,1635.1757,1376.258,1620.962,1356.2496,1633.8064" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="1390.8405" y="1643.9331">provide</text><!--MD5=[928ede0e0e9a1e04cf0469013bb4ce56]
+link CalypsoPoSmartCard to FileHeader--><path codeLine="207" d="M1788.5305,1528.6453 C1701.548,1563.3053 1615.553,1598.0528 1595.8405,1607.6953 C1526.6955,1641.5153 1452.4605,1684.0428 1391.4905,1720.7428 " fill="none" id="CalypsoPoSmartCard-to-FileHeader" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="1380.263,1727.5253,1404.6919,1724.4463,1390.9611,1721.06,1394.3474,1707.3293,1380.263,1727.5253" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="1597.0883,1636.0788,1620.6437,1632.8443,1614.2438,1619.6165,1597.0883,1636.0788" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="1630.8405" y="1643.9331">provide</text><!--MD5=[54fa117977dc58ea45f4c7eafc4b32c8]
+link CalypsoPoSmartCard to FileData--><path codeLine="208" d="M1887.0055,1532.7778 C1857.9255,1556.6303 1826.6355,1582.8403 1798.3405,1607.6953 C1757.9355,1643.1853 1714.403,1683.7228 1677.6955,1718.6103 " fill="none" id="CalypsoPoSmartCard-to-FileData" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="1668.5155,1727.3528,1691.704,1719.0738,1677.566,1718.7309,1677.9089,1704.5929,1668.5155,1727.3528" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="1801.493,1638.9338,1823.2808,1629.415,1813.5247,1618.4264,1801.493,1638.9338" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="1833.3405" y="1643.9331">provide</text><!--MD5=[7be77bf278014ddaa9752a982d17d42c]
+link CalypsoPoSmartCard to PoRevision--><path codeLine="209" d="M1976.573,1532.7278 C1965.743,1587.6478 1951.683,1658.9578 1940.7305,1714.4953 " fill="none" id="CalypsoPoSmartCard-to-PoRevision" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="1938.303,1726.8103,1952.4662,1706.6694,1940.7208,1714.5464,1932.8439,1702.801,1938.303,1726.8103" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="1970.9222,1642.8986,1982.5054,1622.1345,1968.0884,1619.2917,1970.9222,1642.8986" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="1995.8405" y="1643.9331">provide</text><!--MD5=[9c09d78d9bc02db83776a8143a238de4]
+link CalypsoPoSmartCard to SvLoadLogRecord--><path codeLine="210" d="M2072.9805,1532.7278 C2125.288,1588.5728 2193.4605,1661.3603 2245.8405,1717.2803 " fill="none" id="CalypsoPoSmartCard-to-SvLoadLogRecord" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="2254.7655,1726.8103,2246.6883,1703.5507,2246.2225,1717.6852,2232.0881,1717.2195,2254.7655,1726.8103" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="2201.8856,1639.7579,2191.7898,1618.2313,2181.0649,1628.2767,2201.8856,1639.7579" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="2215.8405" y="1643.9331">provide</text><!--MD5=[d6711a69256f49e0f95d999a7a9e0288]
+link CalypsoPoSmartCard to SvDebitLogRecord--><path codeLine="211" d="M2181.9655,1532.7278 C2309.3605,1590.1553 2476.498,1665.5003 2601.8255,1721.9953 " fill="none" id="CalypsoPoSmartCard-to-SvDebitLogRecord" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="2613.8205,1727.4028,2597.4205,1709.0374,2602.4256,1722.2642,2589.1987,1727.2693,2613.8205,1727.4028" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="2459.7362,1635.7718,2442.1407,1619.7806,2436.1018,1633.177,2459.7362,1635.7718" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="2470.8405" y="1643.9331">provide</text><!--MD5=[5f2633a27977191d53d4a7661d3a16d3]
+link PoRevision to SamResourceManagerBuilder--><!--MD5=[448f9c1cd10369c0a36c81dc27214663]
+link PluginStep to TimeoutStep--><!--MD5=[01d2687a23d9799e7a25c3d8260c8db1]
+link TimeoutStep to KeyGroupReferenceStep--><!--MD5=[a7eb7a3f96b7be5234ee941c6e2eb59a]
+link PluginStep to SerialNumberFilterStep--><!--MD5=[cabf58fc367edb1c59d98cd2656c8db6]
+link SerialNumberFilterStep to SamRevisionFilterStep--><!--MD5=[0c94bab5172e6471d757d70e8fb27b7b]
+link SamRevisionFilterStep to BuilderStep--><!--MD5=[82d923be5b36110756abe4e130da9c1a]
+@startuml
+title
+    Keyple 2.0 - Calypso Card Extension - 2.0.0 (24/03/2021)
+end title
+
+' == THEME ==
+
+'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define C_GREY1 F8F9F9
+!define C_GREY2 F2F3F4
+!define C_GREY3 E5E7E9
+!define C_GREY4 D7DBDD
+!define C_GREY5 CACFD2
+!define C_GREY6 BDC3C7
+!define C_LINK 3498DB
+!define C_USE 27AE60
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+' Red
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+' Purple
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+' blue
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+' Green
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+' Grey
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+' == CONTENT ==
+
+legend top
+    __Colors legend__ :
+    * __External API references__ :
+    ** <back:yellow>**Service API**</back>
+    ** <back:cyan>**Commons API**</back>
+end legend
+
+package "org.eclipse.keyple.card.calypso" as calypso {
+    +class "**final** CalypsoCardExtensionProvider" as CalypsoCardExtensionProvider {
+        +{static} CalypsoCardExtension getService ()
+    }
+    +interface "<<<back:cyan>KeypleCardExtension</back>>>\nCalypsoCardExtension" as CalypsoCardExtension {
+        - -
+        +CalypsoPoCardSelection createPoSelection (CalypsoPoCardSelector)
+        ..
+        +SamResourceManagerBuilder getSamResourceManagerBuilder ()
+        +PoSecuritySettingBuilder getPoSecuritySettingBuilder (SamResource samResource)
+        +PoTransactionService createPoSecuredTransaction (<back:yellow>Reader</back> reader, CalypsoPoSmartCard calypsoPoSmartCard, PoSecuritySetting poSecuritySetting)
+        ..
+        +PoTransactionService createPoUnsecuredTransaction (<back:yellow>Reader</back> reader, CalypsoPoSmartCard calypsoPoSmartCard)
+    }
+    package po {
+        +class "<<<back:yellow>CardSelector</back>>>\n**final** CalypsoPoCardSelector" as CalypsoPoCardSelector {
+            - -
+            ...
+        }
+        +interface "<<<back:yellow>CardSelection</back>>>\nCalypsoPoCardSelection" as CalypsoPoCardSelection {
+            - -
+            ...
+        }
+        +enum SelectFileControl {
+            - -
+            ...
+        }
+        +interface "<<<back:yellow>SmartCard</back>>>\nCalypsoPoSmartCard" as CalypsoPoSmartCard {
+            - -
+            ...
+        }
+        +interface DirectoryHeader {
+            - -
+            ...
+        }
+        +interface ElementaryFile {
+            - -
+            ...
+        }
+        +interface FileHeader {
+            - -
+            ...
+        }
+        +interface FileData {
+            - -
+            ...
+        }
+        +enum PoRevision {
+            - -
+            ...
+        }
+        +interface SvLoadLogRecord {
+            - -
+            ...
+        }
+        +interface SvDebitLogRecord {
+            - -
+            ...
+        }
+    }
+    package sam {
+        +interface "<<<back:yellow>SmartCard</back>>>\nCalypsoSamSmartCard" as CalypsoSamSmartCard {
+            - -
+            ...
+        }
+        +interface SamResourceManagerBuilder {
+            - -
+            ...
+            +SamResourceManager build ()
+        }
+
+        +interface PluginStep {
+            +TimeoutStep withPlugin (Plugin plugin, String readerFilter)
+            +TimeoutStep withPoolPlugin (PoolPlugin poolPlugin)
+        }
+        +interface TimeoutStep {
+            +BuilderStep withDefaultTimeout ()
+            +BuilderStep withTimeout (int maxBlockingTime, int sleepTime)
+        }
+        +interface KeyGroupReferenceStep {
+            +BuilderStep withoutSamRevisionFilter ()
+            +BuilderStep withSamRevisionFilter (SamRevision samRevision)
+        }
+        +interface SerialNumberFilterStep {
+            +BuilderStep withoutSerialNumberFilter ()
+            +BuilderStep withSerialNumberFilter (String regex)
+        }
+        +interface SamRevisionFilterStep {
+            +BuilderStep withoutSamRevisionFilter ()
+            +BuilderStep withSamRevisionFilter (SamRevision samRevision)
+        }
+        +interface BuilderStep {
+            +SamResourceManager build ()
+        }
+
+
+        +interface SamResourceManager {
+            +SamResource allocateSamResource (String keyGroupReference)
+            +void releaseSamResource (SamResource samResource)
+        }
+        +interface SamResource {
+            +<back:yellow>Reader</back> getReader ()
+            +CalypsoSamSmartCard getSmartCard ()
+        }
+        +enum SamRevision {
+            - -
+            ...
+        }
+    }
+    package transaction {
+        +interface PoTransactionService {
+            - -
+            ...
+        }
+        +interface PoSecuritySettingBuilder {
+            - -
+            ...
+            +PoSecuritySetting build ()
+        }
+        +interface PoSecuritySetting {
+        }
+    }
+}
+
+' Associations
+
+CalypsoCardExtensionProvider ..> CalypsoCardExtension #C_USE : provide >
+
+CalypsoCardExtension ..> SamResource #C_USE : use >
+CalypsoCardExtension ..> SamResourceManagerBuilder #C_USE : provide >
+CalypsoCardExtension ..> PoSecuritySettingBuilder #C_USE : provide >
+CalypsoCardExtension ..> CalypsoPoCardSelection #C_USE : create >
+CalypsoCardExtension ..> CalypsoPoCardSelector #C_USE : use >
+CalypsoCardExtension ..> CalypsoPoSmartCard #C_USE : use >
+CalypsoCardExtension ..> PoTransactionService #C_USE : create >
+
+PoSecuritySettingBuilder ..> PoSecuritySetting #C_USE : build >
+
+PoTransactionService ..> PoSecuritySetting #C_USE : use >
+PoTransactionService .up.> SelectFileControl #C_USE : use >
+
+SamResourceManagerBuilder ..> SamResourceManager #C_USE : build >
+
+SamResourceManager ..> SamResource #C_USE : create >
+
+SamResource ..> CalypsoSamSmartCard #C_USE : provide >
+
+CalypsoSamSmartCard ..> SamRevision #C_USE : provide >
+
+CalypsoPoCardSelection ..> SelectFileControl #C_USE : use >
+
+CalypsoPoSmartCard ..> DirectoryHeader #C_USE : provide >
+CalypsoPoSmartCard ..> ElementaryFile #C_USE : provide >
+CalypsoPoSmartCard ..> FileHeader #C_USE : provide >
+CalypsoPoSmartCard ..> FileData #C_USE : provide >
+CalypsoPoSmartCard ..> PoRevision #C_USE : provide >
+CalypsoPoSmartCard ..> SvLoadLogRecord #C_USE : provide >
+CalypsoPoSmartCard ..> SvDebitLogRecord #C_USE : provide >
+
+
+' == LAYOUT ==
+
+PoRevision -[hidden]- SamResourceManagerBuilder
+
+' == STYLE ==
+
+package calypso #C_GREY1 {}
+package po #C_GREY2 {}
+package sam #C_GREY2 {}
+package transaction #C_GREY2 {}
+
+
+@enduml
+
+@startuml
+title
+    Keyple 2.0 - Calypso Card Extension - 2.0.0 (24/03/2021)
+end title
+
+
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+
+legend top
+    __Colors legend__ :
+    * __External API references__ :
+    ** <back:yellow>**Service API**</back>
+    ** <back:cyan>**Commons API**</back>
+end legend
+
+package "org.eclipse.keyple.card.calypso" as calypso {
+    +class "**final** CalypsoCardExtensionProvider" as CalypsoCardExtensionProvider {
+        +{static} CalypsoCardExtension getService ()
+    }
+    +interface "<<<back:cyan>KeypleCardExtension</back>>>\nCalypsoCardExtension" as CalypsoCardExtension {
+        - -
+        +CalypsoPoCardSelection createPoSelection (CalypsoPoCardSelector)
+        ..
+        +SamResourceManagerBuilder getSamResourceManagerBuilder ()
+        +PoSecuritySettingBuilder getPoSecuritySettingBuilder (SamResource samResource)
+        +PoTransactionService createPoSecuredTransaction (<back:yellow>Reader</back> reader, CalypsoPoSmartCard calypsoPoSmartCard, PoSecuritySetting poSecuritySetting)
+        ..
+        +PoTransactionService createPoUnsecuredTransaction (<back:yellow>Reader</back> reader, CalypsoPoSmartCard calypsoPoSmartCard)
+    }
+    package po {
+        +class "<<<back:yellow>CardSelector</back>>>\n**final** CalypsoPoCardSelector" as CalypsoPoCardSelector {
+            - -
+            ...
+        }
+        +interface "<<<back:yellow>CardSelection</back>>>\nCalypsoPoCardSelection" as CalypsoPoCardSelection {
+            - -
+            ...
+        }
+        +enum SelectFileControl {
+            - -
+            ...
+        }
+        +interface "<<<back:yellow>SmartCard</back>>>\nCalypsoPoSmartCard" as CalypsoPoSmartCard {
+            - -
+            ...
+        }
+        +interface DirectoryHeader {
+            - -
+            ...
+        }
+        +interface ElementaryFile {
+            - -
+            ...
+        }
+        +interface FileHeader {
+            - -
+            ...
+        }
+        +interface FileData {
+            - -
+            ...
+        }
+        +enum PoRevision {
+            - -
+            ...
+        }
+        +interface SvLoadLogRecord {
+            - -
+            ...
+        }
+        +interface SvDebitLogRecord {
+            - -
+            ...
+        }
+    }
+    package sam {
+        +interface "<<<back:yellow>SmartCard</back>>>\nCalypsoSamSmartCard" as CalypsoSamSmartCard {
+            - -
+            ...
+        }
+        +interface SamResourceManagerBuilder {
+            - -
+            ...
+            +SamResourceManager build ()
+        }
+
+        +interface PluginStep {
+            +TimeoutStep withPlugin (Plugin plugin, String readerFilter)
+            +TimeoutStep withPoolPlugin (PoolPlugin poolPlugin)
+        }
+        +interface TimeoutStep {
+            +BuilderStep withDefaultTimeout ()
+            +BuilderStep withTimeout (int maxBlockingTime, int sleepTime)
+        }
+        +interface KeyGroupReferenceStep {
+            +BuilderStep withoutSamRevisionFilter ()
+            +BuilderStep withSamRevisionFilter (SamRevision samRevision)
+        }
+        +interface SerialNumberFilterStep {
+            +BuilderStep withoutSerialNumberFilter ()
+            +BuilderStep withSerialNumberFilter (String regex)
+        }
+        +interface SamRevisionFilterStep {
+            +BuilderStep withoutSamRevisionFilter ()
+            +BuilderStep withSamRevisionFilter (SamRevision samRevision)
+        }
+        +interface BuilderStep {
+            +SamResourceManager build ()
+        }
+
+
+        +interface SamResourceManager {
+            +SamResource allocateSamResource (String keyGroupReference)
+            +void releaseSamResource (SamResource samResource)
+        }
+        +interface SamResource {
+            +<back:yellow>Reader</back> getReader ()
+            +CalypsoSamSmartCard getSmartCard ()
+        }
+        +enum SamRevision {
+            - -
+            ...
+        }
+    }
+    package transaction {
+        +interface PoTransactionService {
+            - -
+            ...
+        }
+        +interface PoSecuritySettingBuilder {
+            - -
+            ...
+            +PoSecuritySetting build ()
+        }
+        +interface PoSecuritySetting {
+        }
+    }
+}
+
+
+CalypsoCardExtensionProvider ..> CalypsoCardExtension #27AE60 : provide >
+
+CalypsoCardExtension ..> SamResource #27AE60 : use >
+CalypsoCardExtension ..> SamResourceManagerBuilder #27AE60 : provide >
+CalypsoCardExtension ..> PoSecuritySettingBuilder #27AE60 : provide >
+CalypsoCardExtension ..> CalypsoPoCardSelection #27AE60 : create >
+CalypsoCardExtension ..> CalypsoPoCardSelector #27AE60 : use >
+CalypsoCardExtension ..> CalypsoPoSmartCard #27AE60 : use >
+CalypsoCardExtension ..> PoTransactionService #27AE60 : create >
+
+PoSecuritySettingBuilder ..> PoSecuritySetting #27AE60 : build >
+
+PoTransactionService ..> PoSecuritySetting #27AE60 : use >
+PoTransactionService .up.> SelectFileControl #27AE60 : use >
+
+SamResourceManagerBuilder ..> SamResourceManager #27AE60 : build >
+
+SamResourceManager ..> SamResource #27AE60 : create >
+
+SamResource ..> CalypsoSamSmartCard #27AE60 : provide >
+
+CalypsoSamSmartCard ..> SamRevision #27AE60 : provide >
+
+CalypsoPoCardSelection ..> SelectFileControl #27AE60 : use >
+
+CalypsoPoSmartCard ..> DirectoryHeader #27AE60 : provide >
+CalypsoPoSmartCard ..> ElementaryFile #27AE60 : provide >
+CalypsoPoSmartCard ..> FileHeader #27AE60 : provide >
+CalypsoPoSmartCard ..> FileData #27AE60 : provide >
+CalypsoPoSmartCard ..> PoRevision #27AE60 : provide >
+CalypsoPoSmartCard ..> SvLoadLogRecord #27AE60 : provide >
+CalypsoPoSmartCard ..> SvDebitLogRecord #27AE60 : provide >
+
+
+
+PoRevision -[hidden]- SamResourceManagerBuilder
+
+
+package calypso #F8F9F9 {}
+package po #F2F3F4 {}
+package sam #F2F3F4 {}
+package transaction #F2F3F4 {}
+
+
+@enduml
+
+PlantUML version 1.2021.2(Sun Mar 07 12:10:27 CET 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: fr
+Country: FR
+--></g></svg>

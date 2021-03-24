@@ -1,0 +1,227 @@
+@startuml
+title
+    Keyple 2.0 - Calypso Card Extension - 2.0.0 (24/03/2021)
+end title
+
+' == THEME ==
+
+'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define C_GREY1 F8F9F9
+!define C_GREY2 F2F3F4
+!define C_GREY3 E5E7E9
+!define C_GREY4 D7DBDD
+!define C_GREY5 CACFD2
+!define C_GREY6 BDC3C7
+!define C_LINK 3498DB
+!define C_USE 27AE60
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+' Red
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+' Purple
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+' blue
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+' Green
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+' Grey
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+' == CONTENT ==
+
+legend top
+    __Colors legend__ :
+    * __External API references__ :
+    ** <back:yellow>**Service API**</back>
+    ** <back:cyan>**Commons API**</back>
+end legend
+
+package "org.eclipse.keyple.card.calypso" as calypso {
+    +class "**final** CalypsoCardExtensionProvider" as CalypsoCardExtensionProvider {
+        +{static} CalypsoCardExtension getService ()
+    }
+    +interface "<<<back:cyan>KeypleCardExtension</back>>>\nCalypsoCardExtension" as CalypsoCardExtension {
+        --
+        +CalypsoPoCardSelection createPoSelection (CalypsoPoCardSelector)
+        ..
+        +SamResourceManagerBuilder getSamResourceManagerBuilder ()
+        +PoSecuritySettingBuilder getPoSecuritySettingBuilder (SamResource samResource)
+        +PoTransactionService createPoSecuredTransaction (<back:yellow>Reader</back> reader, CalypsoPoSmartCard calypsoPoSmartCard, PoSecuritySetting poSecuritySetting)
+        ..
+        +PoTransactionService createPoUnsecuredTransaction (<back:yellow>Reader</back> reader, CalypsoPoSmartCard calypsoPoSmartCard)
+    }
+    package po {
+        +class "<<<back:yellow>CardSelector</back>>>\n**final** CalypsoPoCardSelector" as CalypsoPoCardSelector {
+            --
+            ...
+        }
+        +interface "<<<back:yellow>CardSelection</back>>>\nCalypsoPoCardSelection" as CalypsoPoCardSelection {
+            --
+            ...
+        }
+        +enum SelectFileControl {
+            --
+            ...
+        }
+        +interface "<<<back:yellow>SmartCard</back>>>\nCalypsoPoSmartCard" as CalypsoPoSmartCard {
+            --
+            ...
+        }
+        +interface DirectoryHeader {
+            --
+            ...
+        }
+        +interface ElementaryFile {
+            --
+            ...
+        }
+        +interface FileHeader {
+            --
+            ...
+        }
+        +interface FileData {
+            --
+            ...
+        }
+        +enum PoRevision {
+            --
+            ...
+        }
+        +interface SvLoadLogRecord {
+            --
+            ...
+        }
+        +interface SvDebitLogRecord {
+            --
+            ...
+        }
+    }
+    package sam {
+        +interface "<<<back:yellow>SmartCard</back>>>\nCalypsoSamSmartCard" as CalypsoSamSmartCard {
+            --
+            ...
+        }
+        +interface SamResourceManagerBuilder {
+            --
+            ...
+            +SamResourceManager build ()
+        }
+
+        +interface PluginStep {
+            +TimeoutStep withPlugin (Plugin plugin, String readerFilter)
+            +TimeoutStep withPoolPlugin (PoolPlugin poolPlugin)
+        }
+        +interface TimeoutStep {
+            +BuilderStep withDefaultTimeout ()
+            +BuilderStep withTimeout (int maxBlockingTime, int sleepTime)
+        }
+        +interface KeyGroupReferenceStep {
+            +BuilderStep withoutSamRevisionFilter ()
+            +BuilderStep withSamRevisionFilter (SamRevision samRevision)
+        }
+        +interface SerialNumberFilterStep {
+            +BuilderStep withoutSerialNumberFilter ()
+            +BuilderStep withSerialNumberFilter (String regex)
+        }
+        +interface SamRevisionFilterStep {
+            +BuilderStep withoutSamRevisionFilter ()
+            +BuilderStep withSamRevisionFilter (SamRevision samRevision)
+        }
+        +interface BuilderStep {
+            +SamResourceManager build ()
+        }
+
+
+        +interface SamResourceManager {
+            +SamResource allocateSamResource (String keyGroupReference)
+            +void releaseSamResource (SamResource samResource)
+        }
+        +interface SamResource {
+            +<back:yellow>Reader</back> getReader ()
+            +CalypsoSamSmartCard getSmartCard ()
+        }
+        +enum SamRevision {
+            --
+            ...
+        }
+    }
+    package transaction {
+        +interface PoTransactionService {
+            --
+            ...
+        }
+        +interface PoSecuritySettingBuilder {
+            --
+            ...
+            +PoSecuritySetting build ()
+        }
+        +interface PoSecuritySetting {
+        }
+    }
+}
+
+' Associations
+
+CalypsoCardExtensionProvider ..> CalypsoCardExtension #C_USE : provide >
+
+CalypsoCardExtension ..> SamResource #C_USE : use >
+CalypsoCardExtension ..> SamResourceManagerBuilder #C_USE : provide >
+CalypsoCardExtension ..> PoSecuritySettingBuilder #C_USE : provide >
+CalypsoCardExtension ..> CalypsoPoCardSelection #C_USE : create >
+CalypsoCardExtension ..> CalypsoPoCardSelector #C_USE : use >
+CalypsoCardExtension ..> CalypsoPoSmartCard #C_USE : use >
+CalypsoCardExtension ..> PoTransactionService #C_USE : create >
+
+PoSecuritySettingBuilder ..> PoSecuritySetting #C_USE : build >
+
+PoTransactionService ..> PoSecuritySetting #C_USE : use >
+PoTransactionService .up.> SelectFileControl #C_USE : use >
+
+SamResourceManagerBuilder ..> SamResourceManager #C_USE : build >
+
+SamResourceManager ..> SamResource #C_USE : create >
+
+SamResource ..> CalypsoSamSmartCard #C_USE : provide >
+
+CalypsoSamSmartCard ..> SamRevision #C_USE : provide >
+
+CalypsoPoCardSelection ..> SelectFileControl #C_USE : use >
+
+CalypsoPoSmartCard ..> DirectoryHeader #C_USE : provide >
+CalypsoPoSmartCard ..> ElementaryFile #C_USE : provide >
+CalypsoPoSmartCard ..> FileHeader #C_USE : provide >
+CalypsoPoSmartCard ..> FileData #C_USE : provide >
+CalypsoPoSmartCard ..> PoRevision #C_USE : provide >
+CalypsoPoSmartCard ..> SvLoadLogRecord #C_USE : provide >
+CalypsoPoSmartCard ..> SvDebitLogRecord #C_USE : provide >
+
+
+' == LAYOUT ==
+
+PoRevision -[hidden]- SamResourceManagerBuilder
+
+' == STYLE ==
+
+package calypso #C_GREY1 {}
+package po #C_GREY2 {}
+package sam #C_GREY2 {}
+package transaction #C_GREY2 {}
+
+
+@enduml
