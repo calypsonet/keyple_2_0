@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Calypso Card Extension - 2.0.0 (24/03/2021)
+    Keyple 2.0 - Calypso Card Extension - 2.0.0 (25/03/2021)
 end title
 
 ' == THEME ==
@@ -58,10 +58,10 @@ package "org.eclipse.keyple.card.calypso" as calypso {
     }
     +interface "<<<back:cyan>KeypleCardExtension</back>>>\nCalypsoCardExtension" as CalypsoCardExtension {
         --
-        +CalypsoPoCardSelection createPoSelection (CalypsoPoCardSelector)
+        +CalypsoPoCardSelection createPoSelection (CalypsoPoCardSelector calypsoPoCardSelector)
         ..
-        +SamResourceManagerBuilder getSamResourceManagerBuilder ()
-        +PoSecuritySettingBuilder getPoSecuritySettingBuilder (SamResource samResource)
+        +SamResourceManager getSamResourceManager ()
+        +PoSecuritySettingBuilder getPoSecuritySettingBuilder (String samProfileName)
         +PoTransactionService createPoSecuredTransaction (<back:yellow>Reader</back> reader, CalypsoPoSmartCard calypsoPoSmartCard, PoSecuritySetting poSecuritySetting)
         ..
         +PoTransactionService createPoUnsecuredTransaction (<back:yellow>Reader</back> reader, CalypsoPoSmartCard calypsoPoSmartCard)
@@ -117,40 +117,74 @@ package "org.eclipse.keyple.card.calypso" as calypso {
             --
             ...
         }
-        +interface SamResourceManagerBuilder {
-            --
-            ...
-            +SamResourceManager build ()
+
+        +interface SamResourceManagerConfigurator {
+            +SamResourceAllocationStrategyStep withPlugins ()
+            +PoolPluginSamResourceAllocationStrategyStep withPoolPlugins ()
+            +SamResourceAllocationTimeoutStep endPluginsConfiguration ()
         }
 
+        +interface SamResourceAllocationStrategyStep {
+            +PluginStep usingFirstSamAvailableAllocationStrategy ()
+            +PluginStep usingCyclicAllocationStrategy ()
+            +PluginStep usingRandomAllocationStrategy ()
+        }
         +interface PluginStep {
-            +TimeoutStep withPlugin (Plugin plugin, String readerFilter)
-            +TimeoutStep withPoolPlugin (PoolPlugin poolPlugin)
-        }
-        +interface TimeoutStep {
-            +BuilderStep withDefaultTimeout ()
-            +BuilderStep withTimeout (int maxBlockingTime, int sleepTime)
-        }
-        +interface KeyGroupReferenceStep {
-            +BuilderStep withoutSamRevisionFilter ()
-            +BuilderStep withSamRevisionFilter (SamRevision samRevision)
-        }
-        +interface SerialNumberFilterStep {
-            +BuilderStep withoutSerialNumberFilter ()
-            +BuilderStep withSerialNumberFilter (String regex)
-        }
-        +interface SamRevisionFilterStep {
-            +BuilderStep withoutSamRevisionFilter ()
-            +BuilderStep withSamRevisionFilter (SamRevision samRevision)
-        }
-        +interface BuilderStep {
-            +SamResourceManager build ()
+            +PluginStep addPlugin (Plugin plugin, boolean withPluginObservation, boolean withReaderObservation)
+            +SamResourceManagerConfigurator addNoMorePlugins ()
         }
 
+        +interface PoolPluginSamResourceAllocationStrategyStep {
+            +PoolPluginStep usingPoolPluginFirstAllocationStrategy ()
+            +PoolPluginStep usingPoolPluginLastAllocationStrategy ()
+        }
+        +interface PoolPluginStep {
+            +PoolPluginStep addPoolPlugin (PoolPlugin poolPlugin, boolean withReaderObservation)
+            +SamResourceManagerConfigurator addNoMorePoolPlugins ()
+        }
+
+        +interface SamResourceAllocationTimeoutStep {
+            +SamProfileStep usingDefaultAllocationTimeout ()
+            +SamProfileStep usingAllocationTimeout (int cycleDurationInMillis, int timeoutInMillis)
+        }
+
+        +interface SamProfileStep {
+            +SamProfileParameterStep addSamProfile (String name)
+            +ConfigurationStep addNoMoreSamProfiles ()
+        }
+        +interface SamProfileParameterStep {
+            +SamProfileParameterStep setSamRevisionFilter (SamRevision samRevision)
+            +SamProfileParameterStep setSamSerialNumberFilter (String samSerialNumber)
+            +SamProfileParameterStep setSamKeyGroupReferenceFilter (String samKeyGroupReference)
+            +SamProfileParameterStep addPluginNameFilter (String pluginName)
+            +SamProfileParameterStep addReaderNameFilter (String readerName)
+            +SamProfileParameterStep setUnlockData (String hexData)
+            +SamProfileStep addNoMoreParameters ()
+        }
+
+        +interface ConfigurationStep {
+            +void configure ()
+        }
+
+        '+class SamProfile {
+        '    +String name
+        '    +SamRevision samRevision
+        '    +String serialNumber
+        '    +String keyGroupReference
+        '    +List<String> pluginsNames
+        '    +List<String> readersNames
+        '}
+        '+class Manager {
+        '    +Map<String, SamProfile> samProfileByName
+        '    +Map<SamProfile, List<SamResource>> samResourcesBySamProfile
+        '    +Set<SamResource> busySamResources
+        '    +SamResource allocateSamResource (String samProfileName)
+        '    +void releaseSamResource (SamResource samResource)
+        '}
 
         +interface SamResourceManager {
-            +SamResource allocateSamResource (String keyGroupReference)
-            +void releaseSamResource (SamResource samResource)
+            +SamResourceManagerConfigurator getConfigurator()
+            +List<SamResource> getSamResources (String samProfileName)
         }
         +interface SamResource {
             +<back:yellow>Reader</back> getReader ()
@@ -180,8 +214,7 @@ package "org.eclipse.keyple.card.calypso" as calypso {
 
 CalypsoCardExtensionProvider ..> CalypsoCardExtension #C_USE : provide >
 
-CalypsoCardExtension ..> SamResource #C_USE : use >
-CalypsoCardExtension ..> SamResourceManagerBuilder #C_USE : provide >
+CalypsoCardExtension ..> SamResourceManager #C_USE : provide >
 CalypsoCardExtension ..> PoSecuritySettingBuilder #C_USE : provide >
 CalypsoCardExtension ..> CalypsoPoCardSelection #C_USE : create >
 CalypsoCardExtension ..> CalypsoPoCardSelector #C_USE : use >
@@ -193,9 +226,8 @@ PoSecuritySettingBuilder ..> PoSecuritySetting #C_USE : build >
 PoTransactionService ..> PoSecuritySetting #C_USE : use >
 PoTransactionService .up.> SelectFileControl #C_USE : use >
 
-SamResourceManagerBuilder ..> SamResourceManager #C_USE : build >
-
-SamResourceManager ..> SamResource #C_USE : create >
+SamResourceManager ..> SamResource #C_USE : provide >
+SamResourceManager ..> SamResourceManagerConfigurator #C_USE : provide >
 
 SamResource ..> CalypsoSamSmartCard #C_USE : provide >
 
@@ -212,9 +244,31 @@ CalypsoPoSmartCard ..> SvLoadLogRecord #C_USE : provide >
 CalypsoPoSmartCard ..> SvDebitLogRecord #C_USE : provide >
 
 
+SamResourceManagerConfigurator +--> SamResourceAllocationStrategyStep
+SamResourceManagerConfigurator +--> PoolPluginSamResourceAllocationStrategyStep
+SamResourceManagerConfigurator +--> SamResourceAllocationTimeoutStep
+
+SamResourceAllocationStrategyStep +--> PluginStep
+
+PluginStep +--> PluginStep
+PluginStep +-up-> SamResourceManagerConfigurator
+
+PoolPluginSamResourceAllocationStrategyStep +--> PoolPluginStep
+
+PoolPluginStep +--> PoolPluginStep
+PoolPluginStep +-up-> SamResourceManagerConfigurator
+
+SamResourceAllocationTimeoutStep +--> SamProfileStep
+
+SamProfileStep +--> SamProfileParameterStep
+SamProfileStep +--> ConfigurationStep
+
+SamProfileParameterStep +--> SamProfileParameterStep
+SamProfileParameterStep +-up-> SamProfileStep
+
 ' == LAYOUT ==
 
-PoRevision -[hidden]- SamResourceManagerBuilder
+'PoRevision -[hidden]- SamResourceManagerBuilder
 
 ' == STYLE ==
 
