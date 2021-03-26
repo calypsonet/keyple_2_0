@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-local - 2.0.0 (15/03/2021)
+    Keyple 2.0 - keyple-java-distributed-local - 2.0.0 (26/03/2021)
 end title
 
 ' == THEME ==
@@ -110,7 +110,7 @@ package "org.eclipse.keyple.distributed" as root {
         }
         +interface "TimeoutStep" as LocalServiceClientFactoryTimeoutStep {
             + ReaderStep usingDefaultTimeout ()
-            + ReaderStep usingTimeout (int timeoutInSeconds)
+            + ReaderStep usingTimeout (int timeoutSeconds)
         }
         +interface "ReaderStep" as LocalServiceClientFactoryReaderStep {
                 + BuilderStep withReaderObservation (ObservableReaderEventFilter filter)

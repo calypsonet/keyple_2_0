@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of Keyple Distributed Solution - 2.0.0 (15/03/2021)
+    Keyple 2.0 - Adapter of Keyple Distributed Solution - 2.0.0 (26/03/2021)
 end title
 
 ' == THEME ==
@@ -185,7 +185,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
         --
         ~ServerPushEventStrategyAdapter (Type type)
         ..
-        ~ServerPushEventStrategyAdapter setDuration (int durationInSeconds)
+        ~ServerPushEventStrategyAdapter setDuration (int durationSeconds)
         ~Type getType ()
         ~int getDuration ()
     }
@@ -244,9 +244,9 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             --
             ~AbstractRemotePluginAdapter (String remotePluginName, boolean isObservable)
             ..
-            ~**final** <back:plum>RemotePluginManager</back> getManager ()
+            ~**final** <back:plum>RemotePluginApi</back> getRemotePluginApi ()
             -- **RemotePluginSpi** --
-            +**final** void setManager (<back:plum>RemotePluginManager</back> manager)
+            +**final** void connect (<back:plum>RemotePluginApi</back> remotePluginApi)
             +**final** String getName ()
             +**final** String executeRemotely (String jsonData)
             +**final** boolean isObservable ()
@@ -355,7 +355,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
                 \tString localServiceName,
                 \tSyncEndpointClientSpi syncEndpointClientSpi,
                 \tAsyncEndpointClientSpi asyncEndpointClientSpi,
-                \tInteger asyncNodeClientTimeoutInSeconds,
+                \tInteger asyncNodeClientTimeoutSeconds,
                 \tboolean withReaderObservation,
                 \tObservableReaderEventFilter eventFilter)
             -- **LocalServiceFactorySpi** --
@@ -387,9 +387,9 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             --
             ~AbstractLocalServiceAdapter (String localServiceName)
             ..
-            ~<back:yellow>LocalServiceManager</back> getManager ()
+            ~<back:yellow>LocalServiceApi</back> getLocalServiceApi ()
             -- **LocalServiceSpi** --
-            +void setManager (<back:yellow>LocalServiceManager</back> manager)
+            +void connect (<back:yellow>LocalServiceApi</back> localServiceApi)
             +**final** String getName ()
             +**final** void onPluginEvent (String readerName, String jsonData, <back:cyan>KeyplePluginEvent</back> pluginEvent)
             +void onReaderEvent (String readerName, String jsonData, <back:cyan>KeypleReaderEvent</back> readerEvent)
@@ -417,7 +417,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             +SyncNodeServer getSyncNode ()
             +AsyncNodeServer getAsyncNode ()
             -- **LocalServiceSpi** --
-            +void setManager (<back:yellow>LocalServiceManager</back> manager)
+            +void connect (<back:yellow>LocalServiceApi</back> localServiceApi)
             -- **AbstractMessageHandlerAdapter** --
             ~void onMessage (MessageDto msg)
         }

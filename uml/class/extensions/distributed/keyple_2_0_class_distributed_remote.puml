@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-remote - 2.0.0 (15/03/2021)
+    Keyple 2.0 - keyple-java-distributed-remote - 2.0.0 (26/03/2021)
 end title
 
 ' == THEME ==
@@ -128,9 +128,9 @@ package "org.eclipse.keyple.distributed" as root {
         }
         +interface "ServerPushPluginEventStrategyStep" as RemotePluginClientFactoryServerPushPluginEventStrategyStep {
             + SyncNodeReaderStep usingPluginPollingStrategy (
-                \tint requestFrequencyInSeconds)
+                \tint requestFrequencySeconds)
             + SyncNodeReaderStep usingPluginLongPollingStrategy (
-                \tint requestTimeoutInSeconds)
+                \tint requestTimeoutSeconds)
         }
         +interface "SyncNodeReaderStep" as RemotePluginClientFactorySyncNodeReaderStep {
             + ServerPushReaderEventStrategyStep withReaderObservation ()
@@ -138,9 +138,9 @@ package "org.eclipse.keyple.distributed" as root {
         }
         +interface "ServerPushReaderEventStrategyStep" as RemotePluginClientFactoryServerPushReaderEventStrategyStep {
             + BuilderStep usingReaderPollingStrategy (
-                \tint requestFrequencyInSeconds)
+                \tint requestFrequencySeconds)
             + BuilderStep usingReaderLongPollingStrategy (
-                \tint requestTimeoutInSeconds)
+                \tint requestTimeoutSeconds)
         }
         +interface "BuilderStep" as RemotePluginClientFactoryBuilderStep {
             + RemotePluginClientFactory build ()
@@ -159,7 +159,7 @@ package "org.eclipse.keyple.distributed" as root {
         }
         +interface "TimeoutStep" as PoolRemotePluginClientFactoryTimeoutStep {
             + BuilderStep usingDefaultTimeout ()
-            + BuilderStep usingTimeout (int timeoutInSeconds)
+            + BuilderStep usingTimeout (int timeoutSeconds)
         }
         +interface "BuilderStep" as PoolRemotePluginClientFactoryBuilderStep {
             + PoolRemotePluginClientFactory build ()
