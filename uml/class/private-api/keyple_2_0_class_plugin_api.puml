@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-plugin-api - 2.0 (24/03/2021)
+    Keyple 2.0 - keyple-java-plugin-api - 2.0 (26/03/2021)
 end title
 
 ' == THEME ==
@@ -49,14 +49,14 @@ package "org.eclipse.keyple.core.plugin" as api {
     +class "**final** PluginApiProperties" as ApiProperties {
         +{static} **final** String VERSION
     }
-    +interface AutonomousObservablePluginManager {
+    +interface AutonomousObservablePluginApi {
         +void onReaderConnected (Set<ReaderSpi> readers)
         +void onReaderDisconnected (Set<String> readersNames)
     }
-    +interface WaitForCardInsertionAutonomousReaderManager {
+    +interface WaitForCardInsertionAutonomousReaderApi {
         +void onCardInserted ()
     }
-    +interface WaitForCardRemovalAutonomousReaderManager {
+    +interface WaitForCardRemovalAutonomousReaderApi {
         +void onCardRemoved ()
     }
     +class "<<Exception>>\n**final** PluginIOException" as PluginIOException {
@@ -112,7 +112,9 @@ package "org.eclipse.keyple.core.plugin" as api {
             +ReaderSpi searchReader (String readerName)
         }
         +interface AutonomousObservablePluginSpi extends PluginSpi {
-            +void setManager (AutonomousObservablePluginManager manager)
+            --
+            +void connect (
+                \tAutonomousObservablePluginApi autonomousObservablePluginApi)
         }
         package reader {
             +interface ReaderSpi {
@@ -156,8 +158,10 @@ package "org.eclipse.keyple.core.plugin" as api {
                     }
                     package insertion {
                         +interface WaitForCardInsertionAutonomousSpi {
-                            +void setManager (
-                                \tWaitForCardInsertionAutonomousReaderManager manager)
+                            --
+                            +void connect (
+                                \tWaitForCardInsertionAutonomousReaderApi
+                                \t\twaitForCardInsertionAutonomousReaderApi)
                         }
                         +interface WaitForCardInsertionBlockingSpi {
                             +void waitForCardInsertion ()
@@ -168,8 +172,10 @@ package "org.eclipse.keyple.core.plugin" as api {
                     }
                     package removal {
                         +interface WaitForCardRemovalAutonomousSpi {
-                            +void setManager (
-                                \tWaitForCardRemovalAutonomousReaderManager manager)
+                            --
+                            +void connect (
+                                \tWaitForCardRemovalAutonomousReaderApi
+                                \t\twaitForCardRemovalAutonomousReaderApi)
                         }
                         +interface WaitForCardRemovalBlockingSpi {
                             +void waitForCardRemoval ()
@@ -196,11 +202,11 @@ PoolPluginFactorySpi ..> PoolPluginSpi #C_USE : provide >
 
 PoolPluginSpi ..> ReaderSpi #C_USE : provide >
 
-AutonomousObservablePluginSpi .up.> AutonomousObservablePluginManager #C_USE : use >
+AutonomousObservablePluginSpi .up.> AutonomousObservablePluginApi #C_USE : use >
 
-WaitForCardInsertionAutonomousSpi ..> WaitForCardInsertionAutonomousReaderManager #C_USE : use >
+WaitForCardInsertionAutonomousSpi ..> WaitForCardInsertionAutonomousReaderApi #C_USE : use >
 
-WaitForCardRemovalAutonomousSpi ..> WaitForCardRemovalAutonomousReaderManager #C_USE : use >
+WaitForCardRemovalAutonomousSpi ..> WaitForCardRemovalAutonomousReaderApi #C_USE : use >
 
 ' == LAYOUT ==
 

@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-remote-api - 2.0 (11/03/2021)
+    Keyple 2.0 - keyple-java-distributed-remote-api - 2.0 (26/03/2021)
 end title
 
 ' == THEME ==
@@ -49,11 +49,11 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
     +class "**final** DistributedRemoteApiProperties" as ApiProperties {
         +{static} **final** String VERSION
     }
-    +interface RemotePluginManager {
+    +interface RemotePluginApi {
         --
         +void onReaderEvent (String jsonData)
     }
-    +interface ObservableRemotePluginManager extends RemotePluginManager {
+    +interface ObservableRemotePluginApi extends RemotePluginApi {
         --
         +void registerMasterReader (RemoteReaderSpi masterReaderSpi)
         +void registerSlaveReader (RemoteReaderSpi slaveReaderSpi,
@@ -72,7 +72,7 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
         }
         +interface RemotePluginSpi {
             --
-            +void setManager (RemotePluginManager manager)
+            +void connect (RemotePluginApi remotePluginApi)
             +String getName ()
             +String executeRemotely (String jsonData)
             +RemoteReaderSpi createRemoteReader (
@@ -100,7 +100,7 @@ RemotePluginFactorySpi .left.> ApiProperties #C_USE : provide\nAPI version <
 RemotePluginFactorySpi ..> RemotePluginSpi #C_USE : provide >
 
 RemotePluginSpi ..> RemoteReaderSpi #C_USE : provide >
-RemotePluginSpi .left.> RemotePluginManager #C_USE : use >
+RemotePluginSpi .left.> RemotePluginApi #C_USE : use >
 
 ' == LAYOUT ==
 

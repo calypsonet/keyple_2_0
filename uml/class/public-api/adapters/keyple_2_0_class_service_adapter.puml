@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (24/03/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (26/03/2021)
 end title
 
 ' == THEME ==
@@ -89,7 +89,7 @@ package "org.eclipse.keyple.core.service" as service {
         +void getDistributedLocalService (String distributedLocalServiceName)
     }
     ' PLUGIN
-    ~class "<<Plugin>>\n<<<back:plum>RemotePluginManager</back>>>\nPluginAdapter\n\n<back:pink>PluginSpi</back>\nor <back:plum>RemotePluginSpi</back>" as PluginAdapter<PluginSpiT> {
+    ~class "<<Plugin>>\n<<<back:plum>RemotePluginApi</back>>>\nPluginAdapter\n\n<back:pink>PluginSpi</back>\nor <back:plum>RemotePluginSpi</back>" as PluginAdapter<PluginSpiT> {
         --
         ~PluginAdapter (PluginSpiT pluginSpi)
         ..
@@ -102,10 +102,10 @@ package "org.eclipse.keyple.core.service" as service {
         +**final** Map<String, Reader> getReaders ()
         +**final** Set<String> getReadersNames ()
         +**final** Reader getReader (String name)
-        -- **RemotePluginManager** --
+        -- **RemotePluginApi** --
         +**final** void onReaderEvent (String jsonData)
     }
-    ~class "<<DistributedLocalService>>\n<<PluginObserverSpi>>\n<<ReaderObserverSpi>>\n<<<back:orange>LocalServiceManager</back>>>\n**final** DistributedLocalServiceAdapter" as DistributedLocalServiceAdapter {
+    ~class "<<DistributedLocalService>>\n<<PluginObserverSpi>>\n<<ReaderObserverSpi>>\n<<<back:orange>LocalServiceApi</back>>>\n**final** DistributedLocalServiceAdapter" as DistributedLocalServiceAdapter {
         --
         ~DistributedLocalServiceAdapter (String name, <back:orange>LocalServiceSpi</back> localServiceSpi)
         ..
@@ -118,7 +118,7 @@ package "org.eclipse.keyple.core.service" as service {
         +void onPluginEvent (PluginEvent pluginEvent)
         -- **ReaderObserverSpi** --
         +void onReaderEvent (ReaderEvent readerEvent)
-        -- **LocalServiceManager** --
+        -- **LocalServiceApi** --
         +String executeLocally (String readerName, String jsonData)
         +boolean isReaderObservable (String readerName)
         +void startReaderObservation (String readerName)
@@ -151,11 +151,11 @@ package "org.eclipse.keyple.core.service" as service {
         +**final** void setEventNotificationExecutorService (ExecutorService eventNotificationExecutorService)
         +**final** void setPluginObservationExceptionHandler (PluginObservationExceptionHandlerSpi exceptionHandler)
     }
-    ~class "<<<back:plum>ObservableRemotePluginManager</back>>>\n**final** ObservableRemotePluginAdapter" as ObservableRemotePluginAdapter extends AbstractObservablePluginAdapter {
+    ~class "<<<back:plum>ObservableRemotePluginApi</back>>>\n**final** ObservableRemotePluginAdapter" as ObservableRemotePluginAdapter extends AbstractObservablePluginAdapter {
         --
         ~ObservableRemotePluginAdapter (
             \t<back:plum>RemotePluginSpi</back> remotePluginSpi)
-        -- **ObservableRemotePluginManager** --
+        -- **ObservableRemotePluginApi** --
         +void registerMasterReader (<back:plum>RemoteReaderSpi</back> masterReaderSpi)
         +void registerSlaveReader (<back:plum>RemoteReaderSpi</back> slaveReaderSpi,
             \tString masterReaderName,
@@ -174,11 +174,11 @@ package "org.eclipse.keyple.core.service" as service {
         +void removeObserver (PluginObserverSpi observer)
         +void clearObservers ()
     }
-    ~class "<<<back:pink>AutonomousObservablePluginManager</back>>>\n**final** AutonomousObservableLocalPluginAdapter" as AutonomousObservableLocalPluginAdapter extends AbstractObservablePluginAdapter {
+    ~class "<<<back:pink>AutonomousObservablePluginApi</back>>>\n**final** AutonomousObservableLocalPluginAdapter" as AutonomousObservableLocalPluginAdapter extends AbstractObservablePluginAdapter {
         --
         ~AutonomousObservableLocalPluginAdapter (
             \t<back:pink>AutonomousObservablePluginSpi</back> autonomousObservablePluginSpi)
-        -- **AutonomousObservablePluginManager** --
+        -- **AutonomousObservablePluginApi** --
         +void onReaderConnected (Set<<back:pink>ReaderSpi</back>> readers)
         +void onReaderDisconnected (Set<String> readersNames)
     }
@@ -251,7 +251,7 @@ package "org.eclipse.keyple.core.service" as service {
         -- **ProxyReader** --
         +**final** void releaseChannel ()
     }
-    ~class "<<ObservableReader>>\n<<<back:pink>WaitForCardInsertionAutonomousReaderManager</back>>>\n<<<back:pink>WaitForCardRemovalAutonomousReaderManager</back>>>\n**final** ObservableLocalReaderAdapter" as ObservableLocalReaderAdapter extends LocalReaderAdapter {
+    ~class "<<ObservableReader>>\n<<<back:pink>WaitForCardInsertionAutonomousReaderApi</back>>>\n<<<back:pink>WaitForCardRemovalAutonomousReaderApi</back>>>\n**final** ObservableLocalReaderAdapter" as ObservableLocalReaderAdapter extends LocalReaderAdapter {
         --
         ~ObservableLocalReaderAdapter (<back:pink>ObservableReaderSpi</back> observableReaderSpi, String pluginName)
         ..
@@ -281,9 +281,9 @@ package "org.eclipse.keyple.core.service" as service {
         +void finalizeCardProcessing ()
         +void setEventNotificationExecutorService (ExecutorService eventNotificationExecutorService)
         +void setReaderObservationExceptionHandler (ReaderObservationExceptionHandlerSpi exceptionHandler)
-        -- **WaitForCardInsertionAutonomousReaderManager** --
+        -- **WaitForCardInsertionAutonomousReaderApi** --
         +void onCardInserted ()
-        -- **WaitForCardRemovalAutonomousReaderManager** --
+        -- **WaitForCardRemovalAutonomousReaderApi** --
         +void onCardRemoved ()
     }
     ~enum InternalEvent {
@@ -408,7 +408,7 @@ package "org.eclipse.keyple.core.service" as service {
         --
         ~CardRemovalActiveMonitoringJobAdapter (
             \tObservableLocalReaderAdapter reader,
-            \tlong cycleDurationInMillis)
+            \tlong cycleDurationMillis)
         -- **AbstractMonitoringJobAdapter** --
         ~Runnable getMonitoringJob (
             \tAbstractObservableStateAdapter monitoringState)
@@ -418,7 +418,7 @@ package "org.eclipse.keyple.core.service" as service {
         --
         ~CardInsertionActiveMonitoringJobAdapter (
             \tObservableLocalReaderAdapter reader,
-            \tlong cycleDurationInMillis,
+            \tlong cycleDurationMillis,
             \tboolean monitorInsertion)
         -- **AbstractMonitoringJobAdapter** --
         ~Runnable getMonitoringJob (
