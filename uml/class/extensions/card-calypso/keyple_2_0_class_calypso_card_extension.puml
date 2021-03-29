@@ -125,7 +125,7 @@ package "org.eclipse.keyple.card.calypso" as calypso {
         }
 
         +interface SamResourceAllocationStrategyStep {
-            +PluginStep usingFirstSamAvailableAllocationStrategy ()
+            +PluginStep usingFirstAllocationStrategy ()
             +PluginStep usingCyclicAllocationStrategy ()
             +PluginStep usingRandomAllocationStrategy ()
         }
