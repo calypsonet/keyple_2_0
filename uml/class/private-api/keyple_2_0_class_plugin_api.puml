@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-plugin-api - 2.0 (26/03/2021)
+    Keyple 2.0 - keyple-java-plugin-api - 2.0 (29/03/2021)
 end title
 
 ' == THEME ==
@@ -93,8 +93,8 @@ package "org.eclipse.keyple.core.plugin" as api {
             }
             +interface PoolPluginSpi {
                 +String getName ()
-                +SortedSet<String> getKeyGroupReferences ()
-                +ReaderSpi allocateReader (String keyGroupReference)
+                +SortedSet<String> getReaderGroupReferences ()
+                +ReaderSpi allocateReader (String readerGroupReference)
                 +void releaseReader (ReaderSpi readerSpi)
                 +void unregister ()
             }

@@ -155,7 +155,7 @@ package "org.eclipse.keyple.card.calypso" as calypso {
         +interface SamProfileParameterStep {
             +SamProfileParameterStep setSamRevision (SamRevision samRevision)
             +SamProfileParameterStep setSamSerialNumberRegex (String samSerialNumberRegex)
-            +SamProfileParameterStep setSamKeyGroupReference (String samKeyGroupReference)
+            +SamProfileParameterStep setSamReaderGroupReference (String samReaderGroupReference)
             +SamProfileParameterStep setPlugins (Plugin... plugins)
             +SamProfileParameterStep setReaderNameRegex (String readerNameRegex)
             +SamProfileParameterStep setUnlockData (String unlockData)
@@ -170,7 +170,7 @@ package "org.eclipse.keyple.card.calypso" as calypso {
         '    +String name
         '    +SamRevision samRevision
         '    +String serialNumber
-        '    +String keyGroupReference
+        '    +String readerGroupReference
         '    +List<String> pluginsNames
         '    +List<String> readersNames
         '}

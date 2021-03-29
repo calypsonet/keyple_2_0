@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (24/03/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (29/03/2021)
 end title
 
 ' == THEME ==
@@ -84,15 +84,15 @@ package "org.eclipse.keyple.core.service" as service {
             +Plugin registerPlugin (<back:cyan>KeyplePluginExtensionFactory</back> pluginFactory)
             +void unregisterPlugin (String pluginName)
             +boolean isPluginRegistered (String pluginName)
-            ..
-            +Map<String, Plugin> getPlugins ()
             +Plugin getPlugin (String pluginName)
+            +Map<String, Plugin> getPlugins ()
             ..
             +void checkCardExtension (<back:cyan>KeypleCardExtension</back> cardExtension)
             ..
             +DistributedLocalService registerDistributedLocalService (
                 \t<back:cyan>KeypleDistributedLocalServiceExtensionFactory</back> distributedLocalServiceFactory)
             +void unregisterDistributedLocalService (String distributedLocalServiceName)
+            +boolean isDistributedLocalServiceRegistered (String distributedLocalServiceName)
             +void getDistributedLocalService (String distributedLocalServiceName)
         }
         +interface Plugin {
@@ -124,9 +124,9 @@ package "org.eclipse.keyple.core.service" as service {
         }
         +interface PoolPlugin extends Plugin {
             --
-            +SortedSet<String> getKeyGroupReferences ()
+            +SortedSet<String> getReaderGroupReferences ()
             ..
-            +Reader allocateReader (String keyGroupReference)
+            +Reader allocateReader (String readerGroupReference)
             +void releaseReader (Reader reader)
         }
         +interface Reader {
