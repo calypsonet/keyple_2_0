@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Calypso Card Extension - 2.0.0 (25/03/2021)
+    Keyple 2.0 - Calypso Card Extension - 2.0.0 (29/03/2021)
 end title
 
 ' == THEME ==
@@ -60,7 +60,7 @@ package "org.eclipse.keyple.card.calypso" as calypso {
         --
         +CalypsoPoCardSelection createPoSelection (CalypsoPoCardSelector calypsoPoCardSelector)
         ..
-        +SamResourceManager getSamResourceManager ()
+        +SamResourceService getSamResourceService ()
         +PoSecuritySettingBuilder getPoSecuritySettingBuilder (String samProfileName)
         +PoTransactionService createPoSecuredTransaction (<back:yellow>Reader</back> reader, CalypsoPoSmartCard calypsoPoSmartCard, PoSecuritySetting poSecuritySetting)
         ..
@@ -118,10 +118,10 @@ package "org.eclipse.keyple.card.calypso" as calypso {
             ...
         }
 
-        +interface SamResourceManagerConfigurator {
+        +interface SamResourceServiceConfigurator {
             +SamResourceAllocationStrategyStep withPlugins ()
             +PoolPluginSamResourceAllocationStrategyStep withPoolPlugins ()
-            +SamResourceAllocationTimeoutStep endPluginsConfiguration ()
+            +SamResourceAllocationTimingParameterStep endPluginsConfiguration ()
         }
 
         +interface SamResourceAllocationStrategyStep {
@@ -130,8 +130,8 @@ package "org.eclipse.keyple.card.calypso" as calypso {
             +PluginStep usingRandomAllocationStrategy ()
         }
         +interface PluginStep {
-            +PluginStep addPlugin (Plugin plugin, boolean withPluginObservation, boolean withReaderObservation)
-            +SamResourceManagerConfigurator addNoMorePlugins ()
+            +PluginStep addPlugin (Plugin plugin, boolean withReaderMonitoring, boolean withCardMonitoring)
+            +SamResourceServiceConfigurator addNoMorePlugins ()
         }
 
         +interface PoolPluginSamResourceAllocationStrategyStep {
@@ -139,13 +139,13 @@ package "org.eclipse.keyple.card.calypso" as calypso {
             +PoolPluginStep usingPoolPluginLastAllocationStrategy ()
         }
         +interface PoolPluginStep {
-            +PoolPluginStep addPoolPlugin (PoolPlugin poolPlugin, boolean withReaderObservation)
-            +SamResourceManagerConfigurator addNoMorePoolPlugins ()
+            +PoolPluginStep addPoolPlugin (PoolPlugin poolPlugin, boolean withCardMonitoring)
+            +SamResourceServiceConfigurator addNoMorePoolPlugins ()
         }
 
-        +interface SamResourceAllocationTimeoutStep {
-            +SamProfileStep usingDefaultAllocationTimeout ()
-            +SamProfileStep usingAllocationTimeout (int cycleDurationInMillis, int timeoutInMillis)
+        +interface SamResourceAllocationTimingParameterStep {
+            +SamProfileStep usingDefaultAllocationTimingParameters ()
+            +SamProfileStep usingAllocationTimingParameters (int cycleDurationMillis, int timeoutMillis)
         }
 
         +interface SamProfileStep {
@@ -153,12 +153,12 @@ package "org.eclipse.keyple.card.calypso" as calypso {
             +ConfigurationStep addNoMoreSamProfiles ()
         }
         +interface SamProfileParameterStep {
-            +SamProfileParameterStep setSamRevisionFilter (SamRevision samRevision)
-            +SamProfileParameterStep setSamSerialNumberFilter (String samSerialNumber)
-            +SamProfileParameterStep setSamKeyGroupReferenceFilter (String samKeyGroupReference)
-            +SamProfileParameterStep addPluginNameFilter (String pluginName)
-            +SamProfileParameterStep addReaderNameFilter (String readerName)
-            +SamProfileParameterStep setUnlockData (String hexData)
+            +SamProfileParameterStep setSamRevision (SamRevision samRevision)
+            +SamProfileParameterStep setSamSerialNumberRegex (String samSerialNumberRegex)
+            +SamProfileParameterStep setSamKeyGroupReference (String samKeyGroupReference)
+            +SamProfileParameterStep setPlugins (Plugin... plugins)
+            +SamProfileParameterStep setReaderNameRegex (String readerNameRegex)
+            +SamProfileParameterStep setUnlockData (String unlockData)
             +SamProfileStep addNoMoreParameters ()
         }
 
@@ -174,7 +174,7 @@ package "org.eclipse.keyple.card.calypso" as calypso {
         '    +List<String> pluginsNames
         '    +List<String> readersNames
         '}
-        '+class Manager {
+        '+class Service {
         '    +Map<String, SamProfile> samProfileByName
         '    +Map<SamProfile, List<SamResource>> samResourcesBySamProfile
         '    +Set<SamResource> busySamResources
@@ -182,8 +182,10 @@ package "org.eclipse.keyple.card.calypso" as calypso {
         '    +void releaseSamResource (SamResource samResource)
         '}
 
-        +interface SamResourceManager {
-            +SamResourceManagerConfigurator getConfigurator()
+        +interface SamResourceService {
+            +void start ()
+            +void stop ()
+            +SamResourceServiceConfigurator getConfigurator()
             +List<SamResource> getSamResources (String samProfileName)
         }
         +interface SamResource {
@@ -214,7 +216,7 @@ package "org.eclipse.keyple.card.calypso" as calypso {
 
 CalypsoCardExtensionProvider ..> CalypsoCardExtension #C_USE : provide >
 
-CalypsoCardExtension ..> SamResourceManager #C_USE : provide >
+CalypsoCardExtension ..> SamResourceService #C_USE : provide >
 CalypsoCardExtension ..> PoSecuritySettingBuilder #C_USE : provide >
 CalypsoCardExtension ..> CalypsoPoCardSelection #C_USE : create >
 CalypsoCardExtension ..> CalypsoPoCardSelector #C_USE : use >
@@ -226,8 +228,8 @@ PoSecuritySettingBuilder ..> PoSecuritySetting #C_USE : build >
 PoTransactionService ..> PoSecuritySetting #C_USE : use >
 PoTransactionService .up.> SelectFileControl #C_USE : use >
 
-SamResourceManager ..> SamResource #C_USE : provide >
-SamResourceManager ..> SamResourceManagerConfigurator #C_USE : provide >
+SamResourceService ..> SamResource #C_USE : provide >
+SamResourceService ..> SamResourceServiceConfigurator #C_USE : provide >
 
 SamResource ..> CalypsoSamSmartCard #C_USE : provide >
 
@@ -244,21 +246,21 @@ CalypsoPoSmartCard ..> SvLoadLogRecord #C_USE : provide >
 CalypsoPoSmartCard ..> SvDebitLogRecord #C_USE : provide >
 
 
-SamResourceManagerConfigurator +--> SamResourceAllocationStrategyStep
-SamResourceManagerConfigurator +--> PoolPluginSamResourceAllocationStrategyStep
-SamResourceManagerConfigurator +--> SamResourceAllocationTimeoutStep
+SamResourceServiceConfigurator +--> SamResourceAllocationStrategyStep
+SamResourceServiceConfigurator +--> PoolPluginSamResourceAllocationStrategyStep
+SamResourceServiceConfigurator +--> SamResourceAllocationTimingParameterStep
 
 SamResourceAllocationStrategyStep +--> PluginStep
 
 PluginStep +--> PluginStep
-PluginStep +-up-> SamResourceManagerConfigurator
+PluginStep +-up-> SamResourceServiceConfigurator
 
 PoolPluginSamResourceAllocationStrategyStep +--> PoolPluginStep
 
 PoolPluginStep +--> PoolPluginStep
-PoolPluginStep +-up-> SamResourceManagerConfigurator
+PoolPluginStep +-up-> SamResourceServiceConfigurator
 
-SamResourceAllocationTimeoutStep +--> SamProfileStep
+SamResourceAllocationTimingParameterStep +--> SamProfileStep
 
 SamProfileStep +--> SamProfileParameterStep
 SamProfileStep +--> ConfigurationStep
@@ -268,7 +270,7 @@ SamProfileParameterStep +-up-> SamProfileStep
 
 ' == LAYOUT ==
 
-'PoRevision -[hidden]- SamResourceManagerBuilder
+'PoRevision -[hidden]- SamResourceServiceBuilder
 
 ' == STYLE ==
 
