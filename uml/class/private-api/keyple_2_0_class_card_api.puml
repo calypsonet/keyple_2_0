@@ -1,6 +1,6 @@
 @startuml
 title
-        Keyple 2.0 - keyple-java-card-api - 2.0 (15/03/2021)
+        Keyple 2.0 - keyple-java-card-api - 2.0 (30/03/2021)
 end title
 
 ' == THEME ==
@@ -175,6 +175,9 @@ package "org.eclipse.keyple.core.card" as api {
         }
         +interface SmartCardSpi {
         }
+        +interface CardResourceProfileExtensionSpi {
+            +SmartCardSpi matches (ProxyReader reader)
+        }
     }
     +abstract class "<<Exception>>\nAbstractCommunicationException" as AbstractCommunicationException {
         --
@@ -203,6 +206,13 @@ package "org.eclipse.keyple.core.card" as api {
 
 CardExtensionSpi ..> ApiProperties #C_USE : provide\nAPI version >
 
+CardSelectionSpi .right.> SmartCardSpi #C_USE : provide >
+CardSelectionSpi ..> CardSelectionRequest #C_USE : provide >
+CardSelectionSpi ..> CardSelectionResponse #C_USE : use >
+
+CardResourceProfileExtensionSpi .left.> SmartCardSpi #C_USE : provide >
+CardResourceProfileExtensionSpi ..> ProxyReader #C_USE : use >
+
 CardSelectionScenario *-- "1..N" CardSelectionRequest #C_LINK
 CardSelectionScenario *-- "1" MultiSelectionProcessing #C_LINK
 CardSelectionScenario *-- "1" ChannelControl #C_LINK
@@ -221,17 +231,18 @@ SelectionStatus *-- "0..1" AnswerToReset  #C_LINK
 
 AbstractCommunicationException *-up- "0..1" CardResponse #C_LINK
 
-ProxyReader -left-> CardSelectionRequest #C_USE : use >
-ProxyReader --> CardRequest #C_USE : use >
-ProxyReader -up-> MultiSelectionProcessing #C_USE : use >
-ProxyReader -up-> ChannelControl #C_USE : use >
+ProxyReader .left.> CardSelectionRequest #C_USE : use >
+ProxyReader ..> CardRequest #C_USE : use >
+ProxyReader .up.> MultiSelectionProcessing #C_USE : use >
+ProxyReader .up.> ChannelControl #C_USE : use >
 
-ProxyReader -up-> CardSelectionResponse #C_USE : provide >
-ProxyReader -> CardResponse #C_USE : provide >
-ProxyReader --> AbstractCommunicationException #C_USE : throw >
+ProxyReader .up.> CardSelectionResponse #C_USE : provide >
+ProxyReader .> CardResponse #C_USE : provide >
+ProxyReader ..> AbstractCommunicationException #C_USE : throw >
 
 ' == LAYOUT ==
 
+SmartCardSpi -[hidden]right- CardResourceProfileExtensionSpi
 spi -[hidden]- CardSelectionScenario
 spi -[hidden]- CardSelectionResponse
 

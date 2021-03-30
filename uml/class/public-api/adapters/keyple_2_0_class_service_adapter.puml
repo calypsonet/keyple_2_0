@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (29/03/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (30/03/2021)
 end title
 
 ' == THEME ==
@@ -65,7 +65,6 @@ package "org.eclipse.keyple.core.service" as service {
     +class "**final** SmartCardServiceProvider" as SmartCardServiceProvider {
         ...
     }
-
     ' ADAPTERS
     ~class "<<<back:yellow>JsonSerializer</back>>>\n**final** CommunicationExceptionJsonSerializerAdapter" as CommunicationExceptionJsonSerializerAdapter {
         --
@@ -76,7 +75,7 @@ package "org.eclipse.keyple.core.service" as service {
     }
     ~class "<<SmartCardService>>\n**final** SmartCardServiceAdapter" as SmartCardServiceAdapter {
         --
-        ~{static} getInstance ()
+        ~{static} SmartCardServiceAdapter getInstance ()
         -- **SmartCardService** --
         +Plugin registerPlugin (<back:cyan>KeyplePluginExtensionFactory</back> pluginFactory)
         +void unregisterPlugin (String pluginName)
@@ -473,6 +472,28 @@ package "org.eclipse.keyple.core.service" as service {
         +SmartCard getSmartCard (int selectionIndex)
         +SmartCard getActiveSmartCard ()
     }
+
+    ' CARD RESOURCE SERVICE
+    +class CardResourceServiceProvider {
+        ...
+    }
+    ~class "<<CardResourceService>>\n**final** CardResourceServiceAdapter" as CardResourceServiceAdapter {
+        --
+        ~{static} CardResourceServiceAdapter getInstance ()
+        ..
+        ~void configure (CardResourceServiceConfiguratorAdapter configurator)
+        -- **CardResourceService** --
+        +void start ()
+        +void stop ()
+        +CardResourceServiceConfigurator getConfigurator()
+        +List<CardResource> getCardResources (String cardResourceProfileName)
+    }
+    ~class "<<CardResourceServiceConfigurator>>\n<<AllocationStrategyStep>>\n<<PluginStep>>\n<<PoolAllocationStrategyStep>>\n<<PoolPluginStep>>\n<<AllocationTimingParameterStep>>\n<<ProfileStep>>\n<<ProfileParameterStep>>\n<<ConfigurationStep>>\n**final** CardResourceServiceConfiguratorAdapter" as CardResourceServiceConfiguratorAdapter {
+        --
+        ~CardResourceServiceConfiguratorAdapter ()
+        -- **CardResourceServiceConfigurator** --
+        ...
+    }
 }
 
 ' Associations
@@ -501,6 +522,10 @@ ObservableRemoteReaderAdapter *-- "0..1" ObservableRemoteReaderAdapter #C_LINK :
 CardSelectionServiceFactory ..> CardSelectionServiceAdapter #C_USE : create >
 
 CardSelectionServiceAdapter ..> CardSelectionResultAdapter #C_USE : create >
+
+CardResourceServiceProvider ..> CardResourceServiceAdapter #C_USE : provide >
+
+CardResourceServiceAdapter ..> CardResourceServiceConfiguratorAdapter #C_USE : create >
 
 ' == LAYOUT ==
 
@@ -544,5 +569,8 @@ class DistributedLocalServiceAdapter <<blue>>
 
 class CardSelectionServiceAdapter <<blue>>
 class CardSelectionResultAdapter <<blue>>
+
+class CardResourceServiceAdapter <<blue>>
+class CardResourceServiceConfiguratorAdapter <<blue>>
 
 @enduml

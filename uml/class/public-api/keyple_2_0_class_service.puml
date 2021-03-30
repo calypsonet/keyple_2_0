@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (29/03/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (30/03/2021)
 end title
 
 ' == THEME ==
@@ -72,6 +72,78 @@ package "org.eclipse.keyple.core.service" as service {
         }
     }
     ' SERVICE
+
+        ' Card Resource Service
+        +class CardResourceServiceProvider {
+            +{static} CardResourceService getService ()
+        }
+
+        +interface CardResourceService {
+            +void start ()
+            +void stop ()
+            +CardResourceServiceConfigurator getConfigurator()
+            +List<CardResource> getCardResources (String cardResourceProfileName)
+        }
+
+        +interface CardResourceServiceConfigurator {
+            +AllocationStrategyStep withPlugins ()
+            +PoolAllocationStrategyStep withPoolPlugins ()
+            +AllocationTimingParameterStep endPluginsConfiguration ()
+        }
+
+        +interface AllocationStrategyStep {
+            +PluginStep usingFirstAllocationStrategy ()
+            +PluginStep usingCyclicAllocationStrategy ()
+            +PluginStep usingRandomAllocationStrategy ()
+        }
+        +interface PluginStep {
+            --
+            +PluginStep addPlugin (Plugin plugin,
+                \tboolean withReaderMonitoring,
+                \tboolean withCardMonitoring)
+            +CardResourceServiceConfigurator addNoMorePlugins ()
+        }
+
+        +interface PoolAllocationStrategyStep {
+            +PoolPluginStep usingPoolPluginFirstAllocationStrategy ()
+            +PoolPluginStep usingPoolPluginLastAllocationStrategy ()
+        }
+        +interface PoolPluginStep {
+            --
+            +PoolPluginStep addPoolPlugin (PoolPlugin poolPlugin,
+                \tboolean withCardMonitoring)
+            +CardResourceServiceConfigurator addNoMorePoolPlugins ()
+        }
+
+        +interface AllocationTimingParameterStep {
+            +ProfileStep usingDefaultAllocationTimingParameters ()
+            +ProfileStep usingAllocationTimingParameters (
+                \tint cycleDurationMillis, int timeoutMillis)
+        }
+
+        +interface ProfileStep {
+            +ProfileParameterStep addCardResourceProfile (String name)
+            +ConfigurationStep addNoMoreCardResourceProfiles ()
+        }
+        +interface ProfileParameterStep {
+            +ProfileParameterStep setPlugins (Plugin... plugins)
+            +ProfileParameterStep setReaderNameRegex (String readerNameRegex)
+            +ProfileParameterStep setReaderGroupReference (String readerGroupReference)
+            +ProfileParameterStep setCardResourceProfileExtension (<back:cyan>KeypleCardResourceProfileExtension</back> cardResourceProfileExtension)
+            +ProfileStep addNoMoreParameters ()
+        }
+
+        +interface ConfigurationStep {
+            +void configure ()
+        }
+
+        +class "**final** CardResource" as CardResource {
+            --
+            +CardResource (Reader reader, SmartCard smartCard)
+            ..
+            +Reader getReader ()
+            +SmartCard getSmartCard ()
+        }
     together {
         +class "**final** ServiceApiProperties" as ApiProperties {
             +{static} **final** String VERSION
@@ -164,20 +236,6 @@ package "org.eclipse.keyple.core.service" as service {
         REPEATING
         SINGLESHOT
     }
-    +class "<<<back:cyan>KeyplePluginEvent</back>>>\n**final** PluginEvent" as PluginEvent {
-        --
-        +PluginEvent (String pluginName, String readerName, EventType eventType)
-        +PluginEvent (String pluginName, Set<String> readersNames, EventType eventType)
-        ..
-        +String getPluginName ()
-        +SortedSet<String> getReadersNames ()
-        +EventType getEventType ()
-    }
-    +enum "EventType" as PluginEventType {
-        READER_CONNECTED
-        READER_DISCONNECTED
-        UNREGISTERED
-    }
     +class "<<<back:cyan>KeypleReaderEvent</back>>>\n**final** ReaderEvent" as ReaderEvent {
         --
         +ReaderEvent (String pluginName, String readerName, EventType eventType,
@@ -194,12 +252,27 @@ package "org.eclipse.keyple.core.service" as service {
         CARD_REMOVED
         UNREGISTERED
     }
+    +class "<<<back:cyan>KeyplePluginEvent</back>>>\n**final** PluginEvent" as PluginEvent {
+        --
+        +PluginEvent (String pluginName, String readerName, EventType eventType)
+        +PluginEvent (String pluginName, Set<String> readersNames, EventType eventType)
+        ..
+        +String getPluginName ()
+        +SortedSet<String> getReadersNames ()
+        +EventType getEventType ()
+    }
+    +enum "EventType" as PluginEventType {
+        READER_CONNECTED
+        READER_DISCONNECTED
+        UNREGISTERED
+    }
     ' SELECTION
     +class "**final** CardSelectionServiceFactory" as CardSelectionServiceFactory {
         +{static} CardSelectionService getService ()
         +{static} CardSelectionService getService (MultiSelectionProcessing multiSelectionProcessing)
     }
     package selection {
+        ' Selection
         +interface CardSelectionService {
             --
             +int prepareSelection (CardSelection cardSelection)
@@ -219,6 +292,8 @@ package "org.eclipse.keyple.core.service" as service {
             FIRST_MATCH
             PROCESS_ALL
         }
+
+        ' Card Extension SPI
         package "spi" as selectionSpi {
             +interface CardSelection {
                 +CardSelector getCardSelector ()
@@ -363,16 +438,44 @@ CardSelector +-- AidSelector
 CardSelector *-- "0..1" AidSelector #C_LINK
 
 AidSelector +-- FileOccurrence
-AidSelector *-- "0..1" FileOccurrence  #C_LINK
+AidSelector *-- "0..1" FileOccurrence #C_LINK
 AidSelector +-- FileControlInformation
-AidSelector *-- "0..1" FileControlInformation  #C_LINK
+AidSelector *-- "0..1" FileControlInformation #C_LINK
 
+CardResourceServiceProvider ..> CardResourceService #C_USE : provide >
+
+CardResourceService ..> CardResource #C_USE : provide >
+CardResourceService ..> CardResourceServiceConfigurator #C_USE : provide >
+
+CardResource *-- "1" Reader #C_LINK
+CardResource *-- "1" SmartCard #C_LINK
+
+CardResourceServiceConfigurator +--> AllocationStrategyStep
+CardResourceServiceConfigurator +--> PoolAllocationStrategyStep
+CardResourceServiceConfigurator +--> AllocationTimingParameterStep
+
+AllocationStrategyStep +--> PluginStep
+
+PluginStep +--> PluginStep
+PluginStep +-up-> CardResourceServiceConfigurator
+
+PoolAllocationStrategyStep +--> PoolPluginStep
+
+PoolPluginStep +--> PoolPluginStep
+PoolPluginStep +-up-> CardResourceServiceConfigurator
+
+AllocationTimingParameterStep +--> ProfileStep
+
+ProfileStep +--> ProfileParameterStep
+ProfileStep +--> ConfigurationStep
+
+ProfileParameterStep +--> ProfileParameterStep
+ProfileParameterStep +-up-> ProfileStep
 
 Plugin ..> Reader #C_USE : provide >
 
 CardSelectionService ..> Reader #C_USE : use >
 CardSelectionService ..> CardSelectionResult #C_USE : provide >
-
 
 ObservablePlugin ..> PluginObserverSpi #C_USE : use >
 ObservablePlugin ..> PluginObservationExceptionHandlerSpi #C_USE : use >
