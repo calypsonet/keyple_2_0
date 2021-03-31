@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (30/03/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (31/03/2021)
 end title
 
 ' == THEME ==
@@ -74,7 +74,7 @@ package "org.eclipse.keyple.core.service" as service {
     ' SERVICE
 
         ' Card Resource Service
-        +class CardResourceServiceProvider {
+        +class "**final** CardResourceServiceProvider" as CardResourceServiceProvider {
             +{static} CardResourceService getService ()
         }
 
@@ -376,10 +376,6 @@ package "org.eclipse.keyple.core.service" as service {
                 \tString message)
             +KeyplePluginException (
                 \tString message, Throwable cause)
-        }
-        +class "<<RuntimeException>>\nKeyplePluginNotFoundException" as KeyplePluginNotFoundException {
-            +KeyplePluginNotFoundException (
-                \tString message)
         }
         +class "<<RuntimeException>>\nKeypleReaderCommunicationException" as KeypleReaderCommunicationException {
             +KeypleReaderCommunicationException (

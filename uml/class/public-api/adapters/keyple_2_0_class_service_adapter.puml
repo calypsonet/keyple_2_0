@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (30/03/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (31/03/2021)
 end title
 
 ' == THEME ==
@@ -106,7 +106,7 @@ package "org.eclipse.keyple.core.service" as service {
     }
     ~class "<<DistributedLocalService>>\n<<PluginObserverSpi>>\n<<ReaderObserverSpi>>\n<<<back:orange>LocalServiceApi</back>>>\n**final** DistributedLocalServiceAdapter" as DistributedLocalServiceAdapter {
         --
-        ~DistributedLocalServiceAdapter (String name, <back:orange>LocalServiceSpi</back> localServiceSpi)
+        ~DistributedLocalServiceAdapter (<back:orange>LocalServiceSpi</back> localServiceSpi)
         ..
         ~void register ()
         ~void unregister ()
@@ -474,7 +474,7 @@ package "org.eclipse.keyple.core.service" as service {
     }
 
     ' CARD RESOURCE SERVICE
-    +class CardResourceServiceProvider {
+    +class "**final** CardResourceServiceProvider" as CardResourceServiceProvider {
         ...
     }
     ~class "<<CardResourceService>>\n**final** CardResourceServiceAdapter" as CardResourceServiceAdapter {
