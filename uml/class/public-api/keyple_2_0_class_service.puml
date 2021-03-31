@@ -322,18 +322,17 @@ package "org.eclipse.keyple.core.service" as service {
                 +{static} **final** int AID_MIN_LENGTH
                 +{static} **final** int AID_MAX_LENGTH
                 ..
-                +AidSelector ()
+                +AidSelector (byte[] aid)
+                +AidSelector (String aid)
                 ..
-                +AidSelector setAidToSelect (byte[] aid)
-                +AidSelector setAidToSelect (String aid)
                 +AidSelector setFileOccurrence (FileOccurrence fileOccurrence)
                 +AidSelector setFileControlInformation (FileControlInformation fileControlInformation)
+                +AidSelector addSuccessfulStatusCode (int statusCode)
                 ..
-                +byte[] getAidToSelect ()
+                +byte[] getAid ()
                 +FileOccurrence getFileOccurrence ()
                 +FileControlInformation getFileControlInformation ()
                 +Set<Integer> getSuccessfulSelectionStatusCodes ()
-                +void addSuccessfulStatusCode (int statusCode)
             }
             +enum FileOccurrence {
                 FIRST
@@ -353,8 +352,8 @@ package "org.eclipse.keyple.core.service" as service {
                 --
                 +AtrFilter (String atrRegex)
                 ..
-                +void setAtrRegex (String atrRegex)
                 +String getAtrRegex ()
+                ..
                 +boolean atrMatches (byte[] atr)
             }
         }
