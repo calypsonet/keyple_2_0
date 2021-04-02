@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (31/03/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (02/04/2021)
 end title
 
 ' == THEME ==
@@ -306,56 +306,50 @@ package "org.eclipse.keyple.core.service" as service {
                 +boolean hasAtr ()
                 +byte[] getAtrBytes ()
             }
-            +class "<<<back:cyan>KeypleCardSelector</back>>>\nCardSelector" as CardSelector {
-                --
-                +CardSelector ()
-                ..
-                +**final** CardSelector setCardProtocol (String cardProtocol)
-                +**final** CardSelector setAtrFilter (AtrFilter atrFilter)
-                +**final** CardSelector setAidSelector (AidSelector aidSelector)
-                ..
-                +**final** String getCardProtocol ()
-                +**final** AtrFilter getAtrFilter ()
-                +**final** AidSelector getAidSelector ()
-            }
-            +class "**final** AidSelector" as AidSelector <<static>> {
-                +{static} **final** int AID_MIN_LENGTH
-                +{static} **final** int AID_MAX_LENGTH
-                ..
-                +AidSelector (byte[] aid)
-                +AidSelector (String aid)
-                ..
-                +AidSelector setFileOccurrence (FileOccurrence fileOccurrence)
-                +AidSelector setFileControlInformation (FileControlInformation fileControlInformation)
-                +AidSelector addSuccessfulStatusCode (int statusCode)
-                ..
-                +byte[] getAid ()
-                +FileOccurrence getFileOccurrence ()
-                +FileControlInformation getFileControlInformation ()
-                +Set<Integer> getSuccessfulSelectionStatusCodes ()
-            }
-            +enum FileOccurrence {
-                FIRST
-                LAST
-                NEXT
-                PREVIOUS
-                +byte getIsoBitMask ()
-            }
-            +enum FileControlInformation {
-                FCI
-                FCP
-                FMD
-                NO_RESPONSE
-                +byte getIsoBitMask ()
-            }
-            +class "**final** AtrFilter" as AtrFilter <<static>> {
-                --
-                +AtrFilter (String atrRegex)
-                ..
-                +String getAtrRegex ()
-                ..
-                +boolean atrMatches (byte[] atr)
-            }
+        }
+        +class "<<<back:cyan>KeypleCardSelector</back>>>\n**final** CardSelector" as CardSelector {
+            --
+            +{static} Builder builder ()
+            ..
+            +String getCardProtocol ()
+            ..
+            +String getAtrRegex ()
+            ..
+            +byte[] getAid ()
+            +FileOccurrence getFileOccurrence ()
+            +FileControlInformation getFileControlInformation ()
+            +Set<Integer> getSuccessfulSelectionStatusCodes ()
+            ..
+            +CardSelector addSuccessfulStatusCode (int statusCode)
+            ..
+            +boolean atrMatches (byte[] atr)
+        }
+        +interface "Builder" as CardSelectorBuilder {
+            +Builder filterByCardProtocol (String cardProtocol)
+            +Builder filterByAtr (String atrRegex)
+            +AidFilterStep filterByAid (byte[] aid)
+            +AidFilterStep filterByAid (String aid)
+            +CardSelector build ()
+        }
+        +interface "AidFilterStep" as CardSelectorBuilderAidFilterStep {
+            +AidFilterStep fileOccurrence (FileOccurrence fileOccurrence)
+            +AidFilterStep fileControlInformation (FileControlInformation fileControlInformation)
+            +AidFilterStep addSuccessfulStatusCode (int statusCode)
+            +Builder endAidFilter ()
+        }
+        +enum FileOccurrence {
+            FIRST
+            LAST
+            NEXT
+            PREVIOUS
+            +byte getIsoBitMask ()
+        }
+        +enum FileControlInformation {
+            FCI
+            FCP
+            FMD
+            NO_RESPONSE
+            +byte getIsoBitMask ()
         }
         +interface CardSelectionResult {
             --
@@ -427,15 +421,19 @@ CardSelectionService *-- "1..N" CardSelection #C_LINK
 
 CardSelectionResult *-- "1..N" SmartCard #C_LINK
 
-CardSelector +-- AtrFilter
-CardSelector *-- "0..1" AtrFilter #C_LINK
-CardSelector +-- AidSelector
-CardSelector *-- "0..1" AidSelector #C_LINK
+CardSelector +-- CardSelectorBuilder
+CardSelector ..> CardSelectorBuilder #C_USE : provide >
+CardSelector +-- FileOccurrence
+CardSelector *-- "0..1" FileOccurrence #C_LINK
+CardSelector +-- FileControlInformation
+CardSelector *-- "0..1" FileControlInformation #C_LINK
 
-AidSelector +-- FileOccurrence
-AidSelector *-- "0..1" FileOccurrence #C_LINK
-AidSelector +-- FileControlInformation
-AidSelector *-- "0..1" FileControlInformation #C_LINK
+CardSelectorBuilder ..> CardSelectorBuilder #C_USE
+CardSelectorBuilder ..> CardSelectorBuilderAidFilterStep #C_USE
+CardSelectorBuilder .up.> CardSelector #C_USE : create >
+
+CardSelectorBuilderAidFilterStep ..> CardSelectorBuilderAidFilterStep #C_USE
+CardSelectorBuilderAidFilterStep .up.> CardSelectorBuilder #C_USE
 
 CardResourceServiceProvider ..> CardResourceService #C_USE : provide >
 
@@ -445,27 +443,27 @@ CardResourceService ..> CardResourceServiceConfigurator #C_USE : provide >
 CardResource *-- "1" Reader #C_LINK
 CardResource *-- "1" SmartCard #C_LINK
 
-CardResourceServiceConfigurator +--> AllocationStrategyStep
-CardResourceServiceConfigurator +--> PoolAllocationStrategyStep
-CardResourceServiceConfigurator +--> AllocationTimingParameterStep
+CardResourceServiceConfigurator ..> AllocationStrategyStep #C_USE
+CardResourceServiceConfigurator ..> PoolAllocationStrategyStep #C_USE
+CardResourceServiceConfigurator ..> AllocationTimingParameterStep #C_USE
 
-AllocationStrategyStep +--> PluginStep
+AllocationStrategyStep ..> PluginStep #C_USE
 
-PluginStep +--> PluginStep
-PluginStep +-up-> CardResourceServiceConfigurator
+PluginStep ..> PluginStep #C_USE
+PluginStep .up.> CardResourceServiceConfigurator #C_USE
 
-PoolAllocationStrategyStep +--> PoolPluginStep
+PoolAllocationStrategyStep ..> PoolPluginStep #C_USE
 
-PoolPluginStep +--> PoolPluginStep
-PoolPluginStep +-up-> CardResourceServiceConfigurator
+PoolPluginStep ..> PoolPluginStep #C_USE
+PoolPluginStep .up.> CardResourceServiceConfigurator #C_USE
 
-AllocationTimingParameterStep +--> ProfileStep
+AllocationTimingParameterStep ..> ProfileStep #C_USE
 
-ProfileStep +--> ProfileParameterStep
-ProfileStep +--> ConfigurationStep
+ProfileStep ..> ProfileParameterStep #C_USE
+ProfileStep ..> ConfigurationStep #C_USE
 
-ProfileParameterStep +--> ProfileParameterStep
-ProfileParameterStep +-up-> ProfileStep
+ProfileParameterStep ..> ProfileParameterStep #C_USE
+ProfileParameterStep .up.> ProfileStep #C_USE
 
 Plugin ..> Reader #C_USE : provide >
 
@@ -482,11 +480,11 @@ ObservableReader ..> ReaderObservationExceptionHandlerSpi #C_USE : use >
 
 ReaderObserverSpi ..> ReaderEvent #C_USE : use >
 
-CardSelection .left.> CardSelector #C_USE : provide >
+CardSelection ..> CardSelector #C_USE : provide >
 
 ' == LAYOUT ==
 
-FileOccurrence -[hidden]- KeyplePluginException
+FileOccurrence -[hidden]right- KeyplePluginException
 
 ' == STYLE ==
 

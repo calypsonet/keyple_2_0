@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Specific Card Extension - 2.0.0 (19/02/2021)
+    Keyple 2.0 - Specific Card Extension - 2.0.0 (02/04/2021)
 end title
 
 ' == THEME ==
@@ -50,8 +50,6 @@ package "org.eclipse.keyple.core.common" as commonsApi {
     }
     +interface KeypleSmartCard {
     }
-    +interface KeypleCardSelector {
-    }
     +interface KeypleCardResourceProfileExtension {
     }
 }
@@ -60,9 +58,6 @@ package "org.eclipse.keyple.core.service.selection.spi" as serviceSelectionSpi {
         ...
     }
     +interface SmartCard extends KeypleSmartCard {
-        ...
-    }
-    +class CardSelector implements KeypleCardSelector {
         ...
     }
 }
@@ -91,9 +86,6 @@ package "org.eclipse.keyple.card.xxx (specific extension)" as specificExtension 
         ...
     }
     +interface xxxCardSelection extends CardSelection {
-        ...
-    }
-    +class "**final** xxxCardSelector" as xxxCardSelector extends CardSelector {
         ...
     }
     +interface "**final** xxxCardExtension" as xxxCardExtension extends KeypleCardExtension {

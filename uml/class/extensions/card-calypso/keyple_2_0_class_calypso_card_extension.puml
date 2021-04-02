@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Calypso Card Extension - 2.0.0 (31/03/2021)
+    Keyple 2.0 - Calypso Card Extension - 2.0.0 (02/04/2021)
 end title
 
 ' == THEME ==
@@ -58,7 +58,7 @@ package "org.eclipse.keyple.card.calypso" as calypso {
     }
     +interface "<<<back:cyan>KeypleCardExtension</back>>>\nCalypsoCardExtension" as CalypsoCardExtension {
         --
-        +PoCardSelection createPoCardSelection (PoCardSelector poCardSelector)
+        +PoCardSelection createPoCardSelection (<back:yellow>CardSelector</back> poCardSelector, boolean acceptInvalidatedPo)
         ..
         +SamCardResourceProfileExtension createSamCardResourceProfileExtension ()
         +PoTransactionService createPoSecuredTransaction (<back:yellow>Reader</back> reader, PoSmartCard poSmartCard, PoSecuritySetting poSecuritySetting)
@@ -66,12 +66,6 @@ package "org.eclipse.keyple.card.calypso" as calypso {
         +PoTransactionService createPoUnsecuredTransaction (<back:yellow>Reader</back> reader, PoSmartCard poSmartCard)
     }
     package po {
-        +class "<<<back:yellow>CardSelector</back>>>\n**final** PoCardSelector" as PoCardSelector {
-            --
-            +PoCardSelector ()
-            ..
-            ...
-        }
         +interface "<<<back:yellow>CardSelection</back>>>\nPoCardSelection" as PoCardSelection {
             --
             ...
@@ -135,9 +129,14 @@ package "org.eclipse.keyple.card.calypso" as calypso {
         }
         +class "**final** PoSecuritySetting" as PoSecuritySetting {
             --
-            +PoSecuritySetting (String samCardResourceProfileName)
+            +{static} Builder builder (String samCardResourceProfileName)
             ..
             ...
+        }
+        +class "**final** Builder" as PoSecuritySettingBuilder {
+            --
+            ...
+            +PoSecuritySetting build ()
         }
     }
 }
@@ -149,12 +148,16 @@ CalypsoCardExtensionProvider ..> CalypsoCardExtension #C_USE : provide >
 CalypsoCardExtension .up.> SamCardResourceProfileExtension #C_USE : create >
 CalypsoCardExtension ..> PoSecuritySetting #C_USE : use >
 CalypsoCardExtension ..> PoCardSelection #C_USE : create >
-CalypsoCardExtension ..> PoCardSelector #C_USE : use >
 CalypsoCardExtension ..> PoSmartCard #C_USE : use >
 CalypsoCardExtension ..> PoTransactionService #C_USE : create >
 
 PoTransactionService ..> PoSecuritySetting #C_USE : use >
 PoTransactionService ..> SelectFileControl #C_USE : use >
+
+PoSecuritySetting +-- PoSecuritySettingBuilder
+PoSecuritySetting ..> PoSecuritySettingBuilder #C_USE : provide >
+
+PoSecuritySettingBuilder .up.> PoSecuritySetting #C_USE : create >
 
 SamCardResourceProfileExtension ..> SamRevision #C_USE : use >
 
