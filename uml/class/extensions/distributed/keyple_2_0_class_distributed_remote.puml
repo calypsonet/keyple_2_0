@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-remote - 2.0.0 (26/03/2021)
+    Keyple 2.0 - keyple-java-distributed-remote - 2.0.0 (02/04/2021)
 end title
 
 ' == THEME ==
@@ -168,34 +168,34 @@ package "org.eclipse.keyple.distributed" as root {
 }
 
 ' Associations
-RemotePluginServerFactoryBuilder +--> RemotePluginServerFactoryNameStep
-RemotePluginServerFactoryNameStep +--> RemotePluginServerFactoryNodeStep
-RemotePluginServerFactoryNodeStep +--> RemotePluginServerFactoryBuilderStep
-RemotePluginServerFactoryBuilderStep ..> RemotePluginServerFactory #C_USE : provide >
-RemotePluginServerFactory ..> RemotePluginServer #C_USE : provide >
+RemotePluginServerFactoryBuilder ..> RemotePluginServerFactoryNameStep #C_USE : provide >
+RemotePluginServerFactoryNameStep ..> RemotePluginServerFactoryNodeStep #C_USE
+RemotePluginServerFactoryNodeStep ..> RemotePluginServerFactoryBuilderStep #C_USE
+RemotePluginServerFactoryBuilderStep ..> RemotePluginServerFactory #C_USE : create >
+RemotePluginServerFactory ..> RemotePluginServer #C_USE : create >
 RemotePluginServer *--> "1..N" RemoteReaderServer #C_LINK : provide >
 
-RemotePluginClientFactoryBuilder +--> RemotePluginClientFactoryNameStep
-RemotePluginClientFactoryNameStep +--> RemotePluginClientFactoryNodeStep
-RemotePluginClientFactoryNodeStep +--> RemotePluginClientFactoryBuilderStep
-RemotePluginClientFactoryNodeStep +--> RemotePluginClientFactorySyncNodePluginStep
-RemotePluginClientFactorySyncNodePluginStep +--> RemotePluginClientFactoryServerPushPluginEventStrategyStep
-RemotePluginClientFactoryServerPushPluginEventStrategyStep +--> RemotePluginClientFactorySyncNodeReaderStep
-RemotePluginClientFactorySyncNodePluginStep +--> RemotePluginClientFactorySyncNodeReaderStep
-RemotePluginClientFactorySyncNodeReaderStep +--> RemotePluginClientFactoryBuilderStep
-RemotePluginClientFactorySyncNodeReaderStep +--> RemotePluginClientFactoryServerPushReaderEventStrategyStep
-RemotePluginClientFactoryServerPushReaderEventStrategyStep +--> RemotePluginClientFactoryBuilderStep
-RemotePluginClientFactoryBuilderStep ..> RemotePluginClientFactory #C_USE : provide >
-RemotePluginClientFactory ..> RemotePluginClient #C_USE : provide >
+RemotePluginClientFactoryBuilder ..> RemotePluginClientFactoryNameStep #C_USE : provide >
+RemotePluginClientFactoryNameStep ..> RemotePluginClientFactoryNodeStep #C_USE
+RemotePluginClientFactoryNodeStep ..> RemotePluginClientFactoryBuilderStep #C_USE
+RemotePluginClientFactoryNodeStep ..> RemotePluginClientFactorySyncNodePluginStep #C_USE
+RemotePluginClientFactorySyncNodePluginStep ..> RemotePluginClientFactoryServerPushPluginEventStrategyStep #C_USE
+RemotePluginClientFactoryServerPushPluginEventStrategyStep ..> RemotePluginClientFactorySyncNodeReaderStep #C_USE
+RemotePluginClientFactorySyncNodePluginStep ..> RemotePluginClientFactorySyncNodeReaderStep #C_USE
+RemotePluginClientFactorySyncNodeReaderStep ..> RemotePluginClientFactoryBuilderStep #C_USE
+RemotePluginClientFactorySyncNodeReaderStep ..> RemotePluginClientFactoryServerPushReaderEventStrategyStep #C_USE
+RemotePluginClientFactoryServerPushReaderEventStrategyStep ..> RemotePluginClientFactoryBuilderStep #C_USE
+RemotePluginClientFactoryBuilderStep ..> RemotePluginClientFactory #C_USE : create >
+RemotePluginClientFactory ..> RemotePluginClient #C_USE : create >
 RemotePluginClient *--> "1..N" RemoteReaderClient #C_LINK : provide >
 
-PoolRemotePluginClientFactoryBuilder +--> PoolRemotePluginClientFactoryNameStep
-PoolRemotePluginClientFactoryNameStep +--> PoolRemotePluginClientFactoryNodeStep
-PoolRemotePluginClientFactoryNodeStep +--> PoolRemotePluginClientFactoryTimeoutStep
-PoolRemotePluginClientFactoryNodeStep +--> PoolRemotePluginClientFactoryBuilderStep
-PoolRemotePluginClientFactoryTimeoutStep +--> PoolRemotePluginClientFactoryBuilderStep
-PoolRemotePluginClientFactoryBuilderStep ..> PoolRemotePluginClientFactory #C_USE : provide >
-PoolRemotePluginClientFactory ..> PoolRemotePluginClient #C_USE : provide >
+PoolRemotePluginClientFactoryBuilder ..> PoolRemotePluginClientFactoryNameStep #C_USE : provide >
+PoolRemotePluginClientFactoryNameStep ..> PoolRemotePluginClientFactoryNodeStep #C_USE
+PoolRemotePluginClientFactoryNodeStep ..> PoolRemotePluginClientFactoryTimeoutStep #C_USE
+PoolRemotePluginClientFactoryNodeStep ..> PoolRemotePluginClientFactoryBuilderStep #C_USE
+PoolRemotePluginClientFactoryTimeoutStep ..> PoolRemotePluginClientFactoryBuilderStep #C_USE
+PoolRemotePluginClientFactoryBuilderStep ..> PoolRemotePluginClientFactory #C_USE : create >
+PoolRemotePluginClientFactory ..> PoolRemotePluginClient #C_USE : create >
 PoolRemotePluginClient *--> "1..N" PoolRemoteReaderClient #C_LINK : provide >
 
 ' == LAYOUT ==

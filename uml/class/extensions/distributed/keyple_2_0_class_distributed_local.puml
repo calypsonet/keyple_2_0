@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-local - 2.0.0 (26/03/2021)
+    Keyple 2.0 - keyple-java-distributed-local - 2.0.0 (02/04/2021)
 end title
 
 ' == THEME ==
@@ -168,31 +168,32 @@ package "org.eclipse.keyple.distributed" as root {
 
 ' Associations
 LocalServiceClient ..> RemoteServiceParameters #C_USE : use >
-RemoteServiceParameters +--> RemoteServiceParametersBuilder
+RemoteServiceParameters ..> RemoteServiceParametersBuilder #C_USE : provide >
+RemoteServiceParametersBuilder .up.> RemoteServiceParameters #C_USE : create >
 
-LocalServiceClientFactoryBuilder +--> LocalServiceClientFactoryNameStep
-LocalServiceClientFactoryNameStep +--> LocalServiceClientFactoryNodeStep
-LocalServiceClientFactoryNodeStep +--> LocalServiceClientFactoryTimeoutStep
-LocalServiceClientFactoryNodeStep +--> LocalServiceClientFactoryReaderStep
-LocalServiceClientFactoryTimeoutStep +--> LocalServiceClientFactoryReaderStep
-LocalServiceClientFactoryReaderStep +--> LocalServiceClientFactoryBuilderStep
+LocalServiceClientFactoryBuilder ..> LocalServiceClientFactoryNameStep #C_USE : provide >
+LocalServiceClientFactoryNameStep ..> LocalServiceClientFactoryNodeStep #C_USE
+LocalServiceClientFactoryNodeStep ..> LocalServiceClientFactoryTimeoutStep #C_USE
+LocalServiceClientFactoryNodeStep ..> LocalServiceClientFactoryReaderStep #C_USE
+LocalServiceClientFactoryTimeoutStep ..> LocalServiceClientFactoryReaderStep #C_USE
+LocalServiceClientFactoryReaderStep ..> LocalServiceClientFactoryBuilderStep #C_USE
 LocalServiceClientFactoryReaderStep ..> ObservableReaderEventFilter #C_USE : use >
 ObservableReaderEventFilter ..> DoNotPropagateEventException #C_USE : throw >
-LocalServiceClientFactoryBuilderStep ..> LocalServiceClientFactory #C_USE : provide >
-LocalServiceClientFactory ..> LocalServiceClient #C_USE : provide >
+LocalServiceClientFactoryBuilderStep ..> LocalServiceClientFactory #C_USE : create >
+LocalServiceClientFactory ..> LocalServiceClient #C_USE : create >
 
-LocalServiceServerFactoryBuilder +--> LocalServiceServerFactoryNameStep
-LocalServiceServerFactoryNameStep +--> LocalServiceServerFactoryNodeStep
-LocalServiceServerFactoryNodeStep +--> LocalServiceServerFactoryBuilderStep
-LocalServiceServerFactoryBuilderStep ..> LocalServiceServerFactory #C_USE : provide >
-LocalServiceServerFactory ..> LocalServiceServer #C_USE : provide >
+LocalServiceServerFactoryBuilder ..> LocalServiceServerFactoryNameStep #C_USE : provide >
+LocalServiceServerFactoryNameStep ..> LocalServiceServerFactoryNodeStep #C_USE
+LocalServiceServerFactoryNodeStep ..> LocalServiceServerFactoryBuilderStep #C_USE
+LocalServiceServerFactoryBuilderStep ..> LocalServiceServerFactory #C_USE : create >
+LocalServiceServerFactory ..> LocalServiceServer #C_USE : create >
 
-PoolLocalServiceServerFactoryBuilder +--> PoolLocalServiceServerFactoryNameStep
-PoolLocalServiceServerFactoryNameStep +--> PoolLocalServiceServerFactoryNodeStep
-PoolLocalServiceServerFactoryNodeStep +--> PoolLocalServiceServerFactoryPluginStep
-PoolLocalServiceServerFactoryPluginStep +--> PoolLocalServiceServerFactoryBuilderStep
-PoolLocalServiceServerFactoryBuilderStep ..> PoolLocalServiceServerFactory #C_USE : provide >
-PoolLocalServiceServerFactory ..> PoolLocalServiceServer #C_USE : provide >
+PoolLocalServiceServerFactoryBuilder ..> PoolLocalServiceServerFactoryNameStep #C_USE : provide >
+PoolLocalServiceServerFactoryNameStep ..> PoolLocalServiceServerFactoryNodeStep #C_USE
+PoolLocalServiceServerFactoryNodeStep ..> PoolLocalServiceServerFactoryPluginStep #C_USE
+PoolLocalServiceServerFactoryPluginStep ..> PoolLocalServiceServerFactoryBuilderStep #C_USE
+PoolLocalServiceServerFactoryBuilderStep ..> PoolLocalServiceServerFactory #C_USE : create >
+PoolLocalServiceServerFactory ..> PoolLocalServiceServer #C_USE : create >
 
 ' == LAYOUT ==
 
