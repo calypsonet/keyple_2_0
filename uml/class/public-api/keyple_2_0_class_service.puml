@@ -324,18 +324,15 @@ package "org.eclipse.keyple.core.service" as service {
             ..
             +boolean atrMatches (byte[] atr)
         }
-        +interface "Builder" as CardSelectorBuilder {
+        +class "**final** Builder" as CardSelectorBuilder {
             +Builder filterByCardProtocol (String cardProtocol)
             +Builder filterByAtr (String atrRegex)
-            +AidFilterStep filterByAid (byte[] aid)
-            +AidFilterStep filterByAid (String aid)
+            +Builder filterByDfName (byte[] aid)
+            +Builder filterByDfName (String aid)
+            +Builder setFileOccurrence (FileOccurrence fileOccurrence)
+            +Builder setFileControlInformation (FileControlInformation fileControlInformation)
+            +Builder addSuccessfulStatusCode (int statusCode)
             +CardSelector build ()
-        }
-        +interface "AidFilterStep" as CardSelectorBuilderAidFilterStep {
-            +AidFilterStep fileOccurrence (FileOccurrence fileOccurrence)
-            +AidFilterStep fileControlInformation (FileControlInformation fileControlInformation)
-            +AidFilterStep addSuccessfulStatusCode (int statusCode)
-            +Builder endAidFilter ()
         }
         +enum FileOccurrence {
             FIRST
@@ -421,7 +418,6 @@ CardSelectionService *-- "1..N" CardSelection #C_LINK
 
 CardSelectionResult *-- "1..N" SmartCard #C_LINK
 
-CardSelector +-- CardSelectorBuilder
 CardSelector ..> CardSelectorBuilder #C_USE : provide >
 CardSelector +-- FileOccurrence
 CardSelector *-- "0..1" FileOccurrence #C_LINK
@@ -429,11 +425,7 @@ CardSelector +-- FileControlInformation
 CardSelector *-- "0..1" FileControlInformation #C_LINK
 
 CardSelectorBuilder ..> CardSelectorBuilder #C_USE
-CardSelectorBuilder ..> CardSelectorBuilderAidFilterStep #C_USE
 CardSelectorBuilder .up.> CardSelector #C_USE : create >
-
-CardSelectorBuilderAidFilterStep ..> CardSelectorBuilderAidFilterStep #C_USE
-CardSelectorBuilderAidFilterStep .up.> CardSelectorBuilder #C_USE
 
 CardResourceServiceProvider ..> CardResourceService #C_USE : provide >
 

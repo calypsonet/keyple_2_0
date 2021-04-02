@@ -154,7 +154,6 @@ CalypsoCardExtension ..> PoTransactionService #C_USE : create >
 PoTransactionService ..> PoSecuritySetting #C_USE : use >
 PoTransactionService ..> SelectFileControl #C_USE : use >
 
-PoSecuritySetting +-- PoSecuritySettingBuilder
 PoSecuritySetting ..> PoSecuritySettingBuilder #C_USE : provide >
 
 PoSecuritySettingBuilder .up.> PoSecuritySetting #C_USE : create >
