@@ -1,6 +1,6 @@
 @startuml
 title
-        Keyple 2.0 - keyple-java-card-api - 2.0 (30/03/2021)
+        Keyple 2.0 - keyple-java-card-api - 2.0 (07/04/2021)
 end title
 
 ' == THEME ==
@@ -94,7 +94,7 @@ package "org.eclipse.keyple.core.card" as api {
             +ApduRequest (byte[] bytes, boolean isCase4)
             +ApduRequest (byte cla, byte instruction, byte p1, byte p2, byte[] dataIn, Byte le)
             ..
-            +ApduRequest setSuccessfulStatusCodes (Set<Integer> successfulStatusCodes)
+            +ApduRequest addSuccessfulStatusCode (int successfulStatusCode)
             +Set<Integer> getSuccessfulStatusCodes ()
             ..
             +ApduRequest setName (String name)
@@ -179,26 +179,31 @@ package "org.eclipse.keyple.core.card" as api {
             +SmartCardSpi matches (ProxyReader reader)
         }
     }
-    +abstract class "<<Exception>>\nAbstractCommunicationException" as AbstractCommunicationException {
+    +abstract class "<<Exception>>\nAbstractApduException" as AbstractApduException {
         --
-        #AbstractCommunicationException (
+        #AbstractApduException (
             \tCardResponse cardResponse,
             \tString message)
-        #AbstractCommunicationException (
+        #AbstractApduException (
             \tCardResponse cardResponse,
             \tString message, Throwable cause)
         ..
         +CardResponse getCardResponse ()
     }
-    +class "**final** ReaderCommunicationException" as ReaderCommunicationException extends AbstractCommunicationException {
+    +class "**final** ReaderCommunicationException" as ReaderCommunicationException extends AbstractApduException {
         --
         +ReaderCommunicationException (CardResponse cardResponse, String message)
         +ReaderCommunicationException (CardResponse cardResponse, String message, Throwable cause)
     }
-    +class "**final** CardCommunicationException" as CardCommunicationException extends AbstractCommunicationException {
+    +class "**final** CardCommunicationException" as CardCommunicationException extends AbstractApduException {
         --
         +CardCommunicationException (CardResponse cardResponse, String message)
         +CardCommunicationException (CardResponse cardResponse, String message, Throwable cause)
+    }
+    +class "**final** UnexpectedStatusCodeException" as UnexpectedStatusCodeException extends AbstractApduException {
+        --
+        +UnexpectedStatusCodeException (CardResponse cardResponse, String message)
+        +UnexpectedStatusCodeException (CardResponse cardResponse, String message, Throwable cause)
     }
 }
 
@@ -229,7 +234,7 @@ CardResponse *-- "1..N" ApduResponse #C_LINK
 SelectionStatus *-- "0..1" ApduResponse  #C_LINK
 SelectionStatus *-- "0..1" AnswerToReset  #C_LINK
 
-AbstractCommunicationException *-up- "0..1" CardResponse #C_LINK
+AbstractApduException *-up- "0..1" CardResponse #C_LINK
 
 ProxyReader .left.> CardSelectionRequest #C_USE : use >
 ProxyReader ..> CardRequest #C_USE : use >
@@ -238,7 +243,7 @@ ProxyReader .up.> ChannelControl #C_USE : use >
 
 ProxyReader .up.> CardSelectionResponse #C_USE : provide >
 ProxyReader .> CardResponse #C_USE : provide >
-ProxyReader ..> AbstractCommunicationException #C_USE : throw >
+ProxyReader ..> AbstractApduException #C_USE : throw >
 
 ' == LAYOUT ==
 
@@ -263,8 +268,9 @@ class CardResponse <<purple>>
 class ApduResponse <<purple>>
 class SelectionStatus <<purple>>
 class AnswerToReset <<purple>>
-abstract class AbstractCommunicationException <<purple>>
+abstract class AbstractApduException <<purple>>
 class ReaderCommunicationException <<purple>>
 class CardCommunicationException <<purple>>
+class UnexpectedStatusCodeException <<purple>>
 
 @enduml
