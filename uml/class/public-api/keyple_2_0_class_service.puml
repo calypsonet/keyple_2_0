@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (02/04/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (09/04/2021)
 end title
 
 ' == THEME ==
@@ -371,12 +371,6 @@ package "org.eclipse.keyple.core.service" as service {
             +KeypleReaderCommunicationException (
                 \tString message)
             +KeypleReaderCommunicationException (
-                \tString message, Throwable cause)
-        }
-        +class "<<RuntimeException>>\nKeypleReaderNotFoundException" as KeypleReaderNotFoundException {
-            +KeypleReaderNotFoundException (
-                \tString message)
-            +KeypleReaderNotFoundException (
                 \tString message, Throwable cause)
         }
         +class "<<RuntimeException>>\nKeypleReaderProtocolNotSupportedException" as KeypleReaderProtocolNotSupportedException {
