@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (09/04/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (12/04/2021)
 end title
 
 ' == THEME ==
@@ -90,32 +90,32 @@ package "org.eclipse.keyple.core.service" as service {
     ' PLUGIN
     ~abstract class "<<Plugin>>\nAbstractPluginAdapter" as AbstractPluginAdapter {
         --
-        ~AbstractPluginAdapter (String pluginName)
+        ~AbstractPluginAdapter (String pluginName, Object pluginExtension)
         ..
         ~**final** void checkStatus ()
         ~void register ()
         ~void unregister ()
         -- **Plugin** --
         +**final** String getName ()
+        +**final** <T extends <back:cyan>KeyplePluginExtension</back>> T getExtension (Class<T> pluginExtensionType)
         +**final** Map<String, Reader> getReaders ()
         +**final** Set<String> getReadersNames ()
         +**final** Reader getReader (String name)
     }
     ~class LocalPluginAdapter extends AbstractPluginAdapter {
         --
-        ~PluginAdapter (<back:pink>PluginSpi</back> pluginSpi)
+        ~LocalPluginAdapter (<back:pink>PluginSpi</back> pluginSpi)
         -- **AbstractPluginAdapter** --
         ~void register ()
-        -- **Plugin** --
-        +**final** <T extends <back:cyan>KeyplePluginExtension</back>> T getExtension (Class<T> pluginExtensionType)
+        ~void unregister ()
     }
     ~class "<<<back:plum>RemotePluginApi</back>>>\nRemotePluginAdapter" as RemotePluginAdapter extends AbstractPluginAdapter {
         --
         ~RemotePluginAdapter (<back:plum>RemotePluginSpi</back> remotePluginSpi)
+        ..
+        ~<back:plum>RemotePluginSpi</back> getRemotePluginSpi ()
         -- **AbstractPluginAdapter** --
-        ~void register ()
-        -- **Plugin** --
-        +**final** <T extends <back:cyan>KeyplePluginExtension</back>> T getExtension (Class<T> pluginExtensionType)
+        ~**final** void register ()
         -- **RemotePluginApi** --
         +**final** void onReaderEvent (String jsonData)
     }
@@ -132,7 +132,7 @@ package "org.eclipse.keyple.core.service" as service {
     }
     ~class "<<PoolPlugin>>\n**final** RemotePoolPluginAdapter" as RemotePoolPluginAdapter extends AbstractPluginAdapter {
         --
-        ~RemotePoolPluginAdapter (<back:plum>RemotePluginSpi</back> poolPluginSpi)
+        ~RemotePoolPluginAdapter (<back:plum>RemotePluginSpi</back> remotePluginSpi)
         -- **PoolPlugin** --
         +SortedSet<String> getReaderGroupReferences ()
         +Reader allocateReader (String readerGroupReference)
@@ -141,7 +141,7 @@ package "org.eclipse.keyple.core.service" as service {
     ' OBSERVABLE PLUGINS
     ~abstract class "<<ObservablePlugin>>\nAbstractObservableLocalPluginAdapter" as AbstractObservableLocalPluginAdapter extends LocalPluginAdapter {
         --
-        ~AbstractObservableLocalPluginAdapter ()
+        ~AbstractObservableLocalPluginAdapter (<back:pink>PluginSpi</back> pluginSpi)
         ..
         ~**final** PluginObservationExceptionHandlerSpi getObservationExceptionHandler ()
         ~**final** void notifyObservers (PluginEvent event)
@@ -159,7 +159,7 @@ package "org.eclipse.keyple.core.service" as service {
         --
         ~ObservableLocalPluginAdapter (<back:pink>ObservablePluginSpi</back> observablePluginSpi)
         ..
-        ~Boolean isMonitoring ()
+        ~boolean isMonitoring ()
         -- **ObservablePlugin** --
         +void addObserver (PluginObserverSpi observer)
         +void removeObserver (PluginObserverSpi observer)
@@ -219,7 +219,7 @@ package "org.eclipse.keyple.core.service" as service {
     ' READERS
     ~abstract class "<<Reader>>\n<<<back:lightGreen>ProxyReader</back>>>\nAbstractReaderAdapter" as AbstractReaderAdapter {
         --
-        ~AbstractReaderAdapter (String readerName, String pluginName)
+        ~AbstractReaderAdapter (String readerName, Object readerExtension, String pluginName)
         ..
         ~**final** String getPluginName ()
         ~**final** List<<back:cyan>KeypleCardSelectionResponse</back>> transmitCardSelectionRequests (List<<back:lightGreen>CardSelectionRequest</back>> cardSelectionRequests,
@@ -234,6 +234,7 @@ package "org.eclipse.keyple.core.service" as service {
         ~{abstract} **abstract** <back:lightGreen>CardResponse</back> processCardRequest (<back:lightGreen>CardRequest</back> cardRequest, <back:lightGreen>ChannelControl</back> channelControl)
         -- **Reader** --
         +**final** String getName ()
+        +**final** <T extends <back:cyan>KeypleReaderExtension</back>> T getExtension (Class<T> readerExtensionType)
         -- **ProxyReader** --
         +**final** <back:lightGreen>CardResponse</back> transmitCardRequest (<back:lightGreen>CardRequest</back> cardRequest, <back:lightGreen>ChannelControl</back> channelControl)
     }
@@ -253,8 +254,6 @@ package "org.eclipse.keyple.core.service" as service {
             \t<back:lightGreen>CardRequest</back> cardRequest,
             \t<back:lightGreen>ChannelControl</back> channelControl)
         -- **Reader** --
-        +**final** <T extends <back:cyan>KeypleReaderExtension</back>> T getExtension (
-            \tClass<T> readerExtensionType)
         +**final** boolean isContactless ()
         +boolean isCardPresent ()
         +**final** void activateProtocol (
@@ -265,8 +264,7 @@ package "org.eclipse.keyple.core.service" as service {
     }
     ~class RemoteReaderAdapter extends AbstractReaderAdapter {
         --
-        ~RemoteReaderAdapter (<back:plum>RemoteReaderSpi</back> remoteReaderSpi,
-            \tString pluginName)
+        ~RemoteReaderAdapter (<back:plum>RemoteReaderSpi</back> remoteReaderSpi, String pluginName)
         ..
         ~**final** <back:plum>RemoteReaderSpi</back> getRemoteReaderSpi ()
         -- **AbstractReaderAdapter** --
@@ -278,8 +276,6 @@ package "org.eclipse.keyple.core.service" as service {
             \t<back:lightGreen>CardRequest</back> cardRequest,
             \t<back:lightGreen>ChannelControl</back> channelControl)
         -- **Reader** --
-        +**final** <T extends <back:cyan>KeypleReaderExtension</back>> T getExtension (
-            \tClass<T> readerExtensionType)
         +**final** boolean isContactless ()
         +**final** boolean isCardPresent ()
         +**final** void activateProtocol (
