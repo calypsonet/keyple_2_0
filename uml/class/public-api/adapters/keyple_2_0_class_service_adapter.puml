@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (12/04/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (15/04/2021)
 end title
 
 ' == THEME ==
@@ -66,11 +66,11 @@ package "org.eclipse.keyple.core.service" as service {
         ...
     }
     ' ADAPTERS
-    ~class "<<<back:yellow>JsonSerializer</back>>>\n**final** CommunicationExceptionJsonSerializerAdapter" as CommunicationExceptionJsonSerializerAdapter {
+    ~class "<<<back:yellow>JsonSerializer</back>>>\n**final** ApduExceptionJsonSerializerAdapter" as ApduExceptionJsonSerializerAdapter {
         --
-        ~CommunicationExceptionJsonSerializerAdapter ()
+        ~ApduExceptionJsonSerializerAdapter ()
         -- **JsonSerializer** --
-        +<back:yellow>JsonElement</back> serialize (<back:lightGreen>AbstractCommunicationException</back> exception,
+        +<back:yellow>JsonElement</back> serialize (<back:lightGreen>AbstractApduException</back> exception,
             \t<back:yellow>Type</back> type, <back:yellow>JsonSerializationContext</back> jsonSerializationContext)
     }
     ~class "<<SmartCardService>>\n**final** SmartCardServiceAdapter" as SmartCardServiceAdapter {
@@ -138,22 +138,38 @@ package "org.eclipse.keyple.core.service" as service {
         +Reader allocateReader (String readerGroupReference)
         +void releaseReader (Reader reader)
     }
+    ' OBSERVATION MANAGER
+    ~class "**final** ObservationManagerAdapter\n\n**T** : PluginObserverSpi\nor ReaderObserverSpi\n\n**S** : PluginObservationExceptionHandlerSpi\nor ReaderObservationExceptionHandlerSpi" as ObservationManagerAdapter<T, S> {
+        --
+        ~ObservationManagerAdapter (String pluginName, String readerName)
+        ..
+        ~void setEventNotificationExecutorService (ExecutorService eventNotificationExecutorService)
+        ~void setObservationExceptionHandler (S exceptionHandler)
+        ~void addObserver (T observer)
+        ~void removeObserver (T observer)
+        ~void clearObservers ()
+        ~int countObservers ()
+        ..
+        ~Set<T> getObservers ()
+        ~ExecutorService getEventNotificationExecutorService ()
+        ~S getObservationExceptionHandler ()
+    }
     ' OBSERVABLE PLUGINS
     ~abstract class "<<ObservablePlugin>>\nAbstractObservableLocalPluginAdapter" as AbstractObservableLocalPluginAdapter extends LocalPluginAdapter {
         --
         ~AbstractObservableLocalPluginAdapter (<back:pink>PluginSpi</back> pluginSpi)
         ..
-        ~**final** PluginObservationExceptionHandlerSpi getObservationExceptionHandler ()
+        ~**final** ObservationManagerAdapter<PluginObserverSpi, PluginObservationExceptionHandlerSpi> getObservationManager ()
         ~**final** void notifyObservers (PluginEvent event)
         -- **AbstractPluginAdapter** --
         ~**final** void unregister ()
         -- **ObservablePlugin** --
+        +**final** void setEventNotificationExecutorService (ExecutorService eventNotificationExecutorService)
+        +**final** void setPluginObservationExceptionHandler (PluginObservationExceptionHandlerSpi exceptionHandler)
         +void addObserver (PluginObserverSpi observer)
         +void removeObserver (PluginObserverSpi observer)
         +void clearObservers ()
         +**final** int countObservers ()
-        +**final** void setEventNotificationExecutorService (ExecutorService eventNotificationExecutorService)
-        +**final** void setPluginObservationExceptionHandler (PluginObservationExceptionHandlerSpi exceptionHandler)
     }
     ~class "**final** ObservableLocalPluginAdapter" as ObservableLocalPluginAdapter extends AbstractObservableLocalPluginAdapter {
         --
@@ -167,7 +183,8 @@ package "org.eclipse.keyple.core.service" as service {
     }
     ~class "<<<back:pink>AutonomousObservablePluginApi</back>>>\n**final** AutonomousObservableLocalPluginAdapter" as AutonomousObservableLocalPluginAdapter extends AbstractObservableLocalPluginAdapter {
         --
-        ~AutonomousObservableLocalPluginAdapter (<back:pink>AutonomousObservablePluginSpi</back> autonomousObservablePluginSpi)
+        ~AutonomousObservableLocalPluginAdapter (
+            \t<back:pink>AutonomousObservablePluginSpi</back> autonomousObservablePluginSpi)
         -- **AutonomousObservablePluginApi** --
         +void onReaderConnected (Set<<back:pink>ReaderSpi</back>> readers)
         +void onReaderDisconnected (Set<String> readersNames)
@@ -176,17 +193,16 @@ package "org.eclipse.keyple.core.service" as service {
         --
         ~ObservableRemotePluginAdapter (<back:plum>RemotePluginSpi</back> remotePluginSpi)
         ..
-        ~PluginObservationExceptionHandlerSpi getObservationExceptionHandler ()
         ~void notifyObservers (PluginEvent event)
         -- **AbstractPluginAdapter** --
         ~void unregister ()
         -- **ObservablePlugin** --
+        +void setEventNotificationExecutorService (ExecutorService eventNotificationExecutorService)
+        +void setPluginObservationExceptionHandler (PluginObservationExceptionHandlerSpi exceptionHandler)
         +void addObserver (PluginObserverSpi observer)
         +void removeObserver (PluginObserverSpi observer)
         +void clearObservers ()
         +int countObservers ()
-        +void setEventNotificationExecutorService (ExecutorService eventNotificationExecutorService)
-        +void setPluginObservationExceptionHandler (PluginObservationExceptionHandlerSpi exceptionHandler)
         -- **ObservableRemotePluginApi** --
         +void registerMasterReader (<back:plum>RemoteReaderSpi</back> masterReaderSpi)
         +void registerSlaveReader (<back:plum>RemoteReaderSpi</back> slaveReaderSpi, String masterReaderName, String readerEventJsonData)
@@ -215,6 +231,16 @@ package "org.eclipse.keyple.core.service" as service {
         +void startPluginsObservation ()
         +void stopPluginsObservation ()
         +void setPoolPluginNames (String... poolPluginNames)
+    }
+    ~class "**final** DistributedUtilAdapter" as DistributedUtilAdapter {
+        --
+        ~{static} JsonObject executePluginServiceRemotely (
+            \tJsonObject input, <back:plum>RemotePluginSpi</back> remotePluginSpi,
+            \tString pluginName, Logger logger)
+        ~{static} JsonObject executeReaderServiceRemotely (
+            \tJsonObject input, <back:plum>RemoteReaderSpi</back> remoteReaderSpi,
+            \tString readerName, String pluginName, Logger logger)
+        ~{static} void throwRuntimeException (Exception e)
     }
     ' READERS
     ~abstract class "<<Reader>>\n<<<back:lightGreen>ProxyReader</back>>>\nAbstractReaderAdapter" as AbstractReaderAdapter {
@@ -299,12 +325,15 @@ package "org.eclipse.keyple.core.service" as service {
         ~void switchState (MonitoringState stateId)
         ~void notifyObservers (ReaderEvent event)
         ..
-        ~void scheduleCardSelectionScenario (<back:lightGreen>CardSelectionScenario</back> cardSelectionScenario, NotificationMode notificationMode, PollingMode pollingMode)
+        ~void scheduleCardSelectionScenario (
+            \t<back:lightGreen>CardSelectionScenario</back> cardSelectionScenario, NotificationMode notificationMode, PollingMode pollingMode)
         -- **AbstractReaderAdapter** --
         ~void unregister ()
         -- **Reader** --
         +boolean isCardPresent ()
         -- **ObservableReader** --
+        +void setEventNotificationExecutorService (ExecutorService eventNotificationExecutorService)
+        +void setReaderObservationExceptionHandler (ReaderObservationExceptionHandlerSpi exceptionHandler)
         +void addObserver (ReaderObserverSpi observer)
         +void removeObserver (ReaderObserverSpi observer)
         +int countObservers ()
@@ -312,8 +341,6 @@ package "org.eclipse.keyple.core.service" as service {
         +void startCardDetection (PollingMode pollingMode)
         +void stopCardDetection ()
         +void finalizeCardProcessing ()
-        +void setEventNotificationExecutorService (ExecutorService eventNotificationExecutorService)
-        +void setReaderObservationExceptionHandler (ReaderObservationExceptionHandlerSpi exceptionHandler)
         -- **WaitForCardInsertionAutonomousReaderApi** --
         +void onCardInserted ()
         -- **WaitForCardRemovalAutonomousReaderApi** --
@@ -329,16 +356,20 @@ package "org.eclipse.keyple.core.service" as service {
     }
     ~class "<<ObservableReader>>\n**final** ObservableRemoteReaderAdapter" as ObservableRemoteReaderAdapter extends RemoteReaderAdapter {
         --
-        ~ObservableRemoteReaderAdapter (<back:plum>RemoteReaderSpi</back> remoteReaderSpi, ObservableRemoteReaderAdapter masterReader, String pluginName)
+        ~ObservableRemoteReaderAdapter (<back:plum>RemoteReaderSpi</back> remoteReaderSpi,
+            \tObservableRemoteReaderAdapter masterReader, String pluginName)
         ..
         ~ObservableRemoteReaderAdapter getMasterReader ()
         ..
         ~void notifyObservers (ReaderEvent event)
         ..
-        ~void scheduleCardSelectionScenario (<back:lightGreen>CardSelectionScenario</back> cardSelectionScenario, NotificationMode notificationMode, PollingMode pollingMode)
+        ~void scheduleCardSelectionScenario (<back:lightGreen>CardSelectionScenario</back> cardSelectionScenario,
+            \tNotificationMode notificationMode, PollingMode pollingMode)
         -- **AbstractReaderAdapter** --
         ~void unregister ()
         -- **ObservableReader** --
+        +void setEventNotificationExecutorService (ExecutorService eventNotificationExecutorService)
+        +void setReaderObservationExceptionHandler (ReaderObservationExceptionHandlerSpi exceptionHandler)
         +void addObserver (ReaderObserverSpi observer)
         +void removeObserver (ReaderObserverSpi observer)
         +int countObservers ()
@@ -346,8 +377,6 @@ package "org.eclipse.keyple.core.service" as service {
         +void startCardDetection (PollingMode pollingMode)
         +void stopCardDetection ()
         +void finalizeCardProcessing ()
-        +void setEventNotificationExecutorService (ExecutorService eventNotificationExecutorService)
-        +void setReaderObservationExceptionHandler (ReaderObservationExceptionHandlerSpi exceptionHandler)
     }
 
     ' AUTOMATE
@@ -537,7 +566,12 @@ SmartCardServiceProvider ..> SmartCardServiceAdapter #C_USE : provide >
 SmartCardServiceAdapter *-- "0..N" AbstractPluginAdapter #C_LINK
 SmartCardServiceAdapter *-- "0..N" DistributedLocalServiceAdapter #C_LINK
 
+AbstractObservableLocalPluginAdapter *-- "1" ObservationManagerAdapter #C_LINK
+
+ObservableRemotePluginAdapter *-- "1" ObservationManagerAdapter #C_LINK
+
 ObservableLocalReaderAdapter +-- InternalEvent
+ObservableLocalReaderAdapter *-- "1" ObservationManagerAdapter #C_LINK
 ObservableLocalReaderAdapter "1" *--* "1" ObservableReaderStateServiceAdapter #C_LINK
 
 ObservableReaderStateServiceAdapter *-- "1..N" AbstractObservableStateAdapter #C_LINK
@@ -552,6 +586,7 @@ AbstractMonitoringJobAdapter *-- "1" ObservableLocalReaderAdapter #C_LINK
 AbstractPluginAdapter *-- "0..N" AbstractReaderAdapter #C_LINK
 
 ObservableRemoteReaderAdapter *-- "0..1" ObservableRemoteReaderAdapter #C_LINK : masterReader >
+ObservableRemoteReaderAdapter *-- "1" ObservationManagerAdapter #C_LINK
 
 CardSelectionServiceFactory ..> CardSelectionServiceAdapter #C_USE : create >
 
@@ -570,7 +605,7 @@ WaitForStartDetectStateAdapter -[hidden]- AbstractMonitoringJobAdapter
 
 package service #C_GREY1 {}
 
-class CommunicationExceptionJsonSerializerAdapter <<blue>>
+class ApduExceptionJsonSerializerAdapter <<blue>>
 class SmartCardServiceAdapter <<blue>>
 abstract class AbstractReaderAdapter <<blue>>
 class LocalReaderAdapter <<blue>>
@@ -591,6 +626,8 @@ class WaitForCardRemovalStateAdapter <<blue>>
 class WaitForStartDetectStateAdapter <<blue>>
 class ObservableReaderStateServiceAdapter <<blue>>
 
+class ObservationManagerAdapter <<blue>>
+
 abstract class AbstractPluginAdapter <<blue>>
 class LocalPluginAdapter <<blue>>
 class RemotePluginAdapter <<blue>>
@@ -602,6 +639,7 @@ class AutonomousObservableLocalPluginAdapter <<blue>>
 class ObservableRemotePluginAdapter <<blue>>
 
 class DistributedLocalServiceAdapter <<blue>>
+class DistributedUtilAdapter <<blue>>
 
 class CardSelectionServiceAdapter <<blue>>
 class CardSelectionResultAdapter <<blue>>

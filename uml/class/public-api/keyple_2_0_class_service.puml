@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (09/04/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (15/04/2021)
 end title
 
 ' == THEME ==
@@ -73,77 +73,82 @@ package "org.eclipse.keyple.core.service" as service {
     }
     ' SERVICE
 
-        ' Card Resource Service
-        +class "**final** CardResourceServiceProvider" as CardResourceServiceProvider {
-            +{static} CardResourceService getService ()
-        }
+    ' Card Resource Service
+    +class "**final** CardResourceServiceProvider" as CardResourceServiceProvider {
+        +{static} CardResourceService getService ()
+    }
 
-        +interface CardResourceService {
-            +void start ()
-            +void stop ()
-            +CardResourceServiceConfigurator getConfigurator()
-            +List<CardResource> getCardResources (String cardResourceProfileName)
-        }
+    +interface CardResourceService {
+        +void start ()
+        +void stop ()
+        +CardResourceServiceConfigurator getConfigurator()
+        +CardResource getCardResource (String cardResourceProfileName)
+        +void releaseCardResource (CardResource cardResource)
+        +void removeCardResource (CardResource cardResource)
+    }
 
-        +interface CardResourceServiceConfigurator {
-            +AllocationStrategyStep withPlugins ()
-            +PoolAllocationStrategyStep withPoolPlugins ()
-            +AllocationTimingParameterStep endPluginsConfiguration ()
-        }
+    +interface CardResourceServiceConfigurator {
+        +AllocationStrategyStep withPlugins ()
+        +PoolAllocationStrategyStep withPoolPlugins ()
+        +AllocationModeStep endPluginsConfiguration ()
+    }
 
-        +interface AllocationStrategyStep {
-            +PluginStep usingFirstAllocationStrategy ()
-            +PluginStep usingCyclicAllocationStrategy ()
-            +PluginStep usingRandomAllocationStrategy ()
-        }
-        +interface PluginStep {
-            --
-            +PluginStep addPlugin (Plugin plugin,
-                \tboolean withReaderMonitoring,
-                \tboolean withCardMonitoring)
-            +CardResourceServiceConfigurator addNoMorePlugins ()
-        }
+    +interface AllocationStrategyStep {
+        +PluginStep usingFirstAllocationStrategy ()
+        +PluginStep usingCyclicAllocationStrategy ()
+        +PluginStep usingRandomAllocationStrategy ()
+    }
+    +interface PluginStep {
+        --
+        +PluginStep addPlugin (Plugin plugin,
+            \tboolean withReaderMonitoring,
+            \tboolean withCardMonitoring)
+        +CardResourceServiceConfigurator addNoMorePlugins ()
+    }
 
-        +interface PoolAllocationStrategyStep {
-            +PoolPluginStep usingPoolPluginFirstAllocationStrategy ()
-            +PoolPluginStep usingPoolPluginLastAllocationStrategy ()
-        }
-        +interface PoolPluginStep {
-            --
-            +PoolPluginStep addPoolPlugin (PoolPlugin poolPlugin,
-                \tboolean withCardMonitoring)
-            +CardResourceServiceConfigurator addNoMorePoolPlugins ()
-        }
+    +interface PoolAllocationStrategyStep {
+        +PoolPluginStep usingPoolPluginFirstAllocationStrategy ()
+        +PoolPluginStep usingPoolPluginLastAllocationStrategy ()
+    }
+    +interface PoolPluginStep {
+        --
+        +PoolPluginStep addPoolPlugin (PoolPlugin poolPlugin,
+            \tboolean withCardMonitoring)
+        +CardResourceServiceConfigurator addNoMorePoolPlugins ()
+    }
 
-        +interface AllocationTimingParameterStep {
-            +ProfileStep usingDefaultAllocationTimingParameters ()
-            +ProfileStep usingAllocationTimingParameters (
-                \tint cycleDurationMillis, int timeoutMillis)
-        }
+    +interface AllocationModeStep {
+        --
+        +ProfileStep usingBlockingAllocationMode ()
+        +ProfileStep usingBlockingAllocationMode (
+            \tint cycleDurationMillis, int timeoutMillis)
+        +ProfileStep usingNonBlockingAllocationMode ()
+    }
 
-        +interface ProfileStep {
-            +ProfileParameterStep addCardResourceProfile (String name)
-            +ConfigurationStep addNoMoreCardResourceProfiles ()
-        }
-        +interface ProfileParameterStep {
-            +ProfileParameterStep setPlugins (Plugin... plugins)
-            +ProfileParameterStep setReaderNameRegex (String readerNameRegex)
-            +ProfileParameterStep setReaderGroupReference (String readerGroupReference)
-            +ProfileParameterStep setCardResourceProfileExtension (<back:cyan>KeypleCardResourceProfileExtension</back> cardResourceProfileExtension)
-            +ProfileStep addNoMoreParameters ()
-        }
+    +interface ProfileStep {
+        +ProfileParameterStep addCardResourceProfile (String name,
+            \t<back:cyan>KeypleCardResourceProfileExtension</back> cardResourceProfileExtension)
+        +ConfigurationStep addNoMoreCardResourceProfiles ()
+    }
+    +interface ProfileParameterStep {
+        +ProfileParameterStep setPlugins (Plugin... plugins)
+        +ProfileParameterStep setReaderNameRegex (String readerNameRegex)
+        +ProfileParameterStep setReaderGroupReference (String readerGroupReference)
+        +ProfileStep addNoMoreParameters ()
+    }
 
-        +interface ConfigurationStep {
-            +void configure ()
-        }
+    +interface ConfigurationStep {
+        +void configure ()
+    }
 
-        +class "**final** CardResource" as CardResource {
-            --
-            +CardResource (Reader reader, SmartCard smartCard)
-            ..
-            +Reader getReader ()
-            +SmartCard getSmartCard ()
-        }
+    +class "CardResource" as CardResource {
+        --
+        +CardResource (Reader reader, SmartCard smartCard)
+        ..
+        +**final** Reader getReader ()
+        +**final** SmartCard getSmartCard ()
+    }
+
     together {
         +class "**final** ServiceApiProperties" as ApiProperties {
             +{static} **final** String VERSION
@@ -184,15 +189,15 @@ package "org.eclipse.keyple.core.service" as service {
         }
         +interface ObservablePlugin extends Plugin {
             --
-            +void addObserver (PluginObserverSpi observer)
-            +void removeObserver (PluginObserverSpi observer)
-            +void clearObservers ()
-            +int countObservers ()
-            ..
             +void setEventNotificationExecutorService (
                 \tExecutorService eventNotificationExecutorService)
             +void setPluginObservationExceptionHandler (
                 \tPluginObservationExceptionHandlerSpi exceptionHandler)
+            ..
+            +void addObserver (PluginObserverSpi observer)
+            +void removeObserver (PluginObserverSpi observer)
+            +void clearObservers ()
+            +int countObservers ()
         }
         +interface PoolPlugin extends Plugin {
             --
@@ -214,6 +219,9 @@ package "org.eclipse.keyple.core.service" as service {
         }
         +interface ObservableReader extends Reader {
             --
+            +void setEventNotificationExecutorService (ExecutorService eventNotificationExecutorService)
+            +void setReaderObservationExceptionHandler (ReaderObservationExceptionHandlerSpi exceptionHandler)
+            ..
             +void addObserver (ReaderObserverSpi observer)
             +void removeObserver (ReaderObserverSpi observer)
             +void clearObservers ()
@@ -221,11 +229,7 @@ package "org.eclipse.keyple.core.service" as service {
             ..
             +void startCardDetection (PollingMode pollingMode)
             +void stopCardDetection ()
-            ..
             +void finalizeCardProcessing ()
-            ..
-            +void setEventNotificationExecutorService (ExecutorService eventNotificationExecutorService)
-            +void setReaderObservationExceptionHandler (ReaderObservationExceptionHandlerSpi exceptionHandler)
         }
     }
     +enum NotificationMode {
@@ -431,7 +435,7 @@ CardResource *-- "1" SmartCard #C_LINK
 
 CardResourceServiceConfigurator ..> AllocationStrategyStep #C_USE
 CardResourceServiceConfigurator ..> PoolAllocationStrategyStep #C_USE
-CardResourceServiceConfigurator ..> AllocationTimingParameterStep #C_USE
+CardResourceServiceConfigurator ..> AllocationModeStep #C_USE
 
 AllocationStrategyStep ..> PluginStep #C_USE
 
@@ -443,7 +447,7 @@ PoolAllocationStrategyStep ..> PoolPluginStep #C_USE
 PoolPluginStep ..> PoolPluginStep #C_USE
 PoolPluginStep .up.> CardResourceServiceConfigurator #C_USE
 
-AllocationTimingParameterStep ..> ProfileStep #C_USE
+AllocationModeStep ..> ProfileStep #C_USE
 
 ProfileStep ..> ProfileParameterStep #C_USE
 ProfileStep ..> ConfigurationStep #C_USE
