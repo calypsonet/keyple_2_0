@@ -520,7 +520,7 @@ package "org.eclipse.keyple.core.service" as service {
         +CardSelectionResult processCardSelectionScenario (Reader reader)
         +void scheduleCardSelectionScenario (ObservableReader observableReader, NotificationMode notificationMode)
         +void scheduleCardSelectionScenario (ObservableReader observableReader, NotificationMode notificationMode, PollingMode pollingMode)
-        +CardSelectionResult processCardSelectionResponses (List<<back:cyan>KeypleCardSelectionResponse</back>> cardSelectionResponses)
+        +CardSelectionResult parseCardSelectionResponses (List<<back:cyan>KeypleCardSelectionResponse</back>> cardSelectionResponses)
     }
     ~class "<<CardSelectionResult>>\n**final** CardSelectionResultAdapter" as CardSelectionResultAdapter {
         --
