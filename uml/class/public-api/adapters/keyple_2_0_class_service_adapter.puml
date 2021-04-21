@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (15/04/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (21/04/2021)
 end title
 
 ' == THEME ==
@@ -537,25 +537,31 @@ package "org.eclipse.keyple.core.service" as service {
     }
 
     ' CARD RESOURCE SERVICE
-    +class "**final** CardResourceServiceProvider" as CardResourceServiceProvider {
-        ...
-    }
-    ~class "<<CardResourceService>>\n**final** CardResourceServiceAdapter" as CardResourceServiceAdapter {
-        --
-        ~{static} CardResourceServiceAdapter getInstance ()
-        ..
-        ~void configure (CardResourceServiceConfiguratorAdapter configurator)
-        -- **CardResourceService** --
-        +void start ()
-        +void stop ()
-        +CardResourceServiceConfigurator getConfigurator()
-        +List<CardResource> getCardResources (String cardResourceProfileName)
-    }
-    ~class "<<CardResourceServiceConfigurator>>\n<<AllocationStrategyStep>>\n<<PluginStep>>\n<<PoolAllocationStrategyStep>>\n<<PoolPluginStep>>\n<<AllocationTimingParameterStep>>\n<<ProfileStep>>\n<<ProfileParameterStep>>\n<<ConfigurationStep>>\n**final** CardResourceServiceConfiguratorAdapter" as CardResourceServiceConfiguratorAdapter {
-        --
-        ~CardResourceServiceConfiguratorAdapter ()
-        -- **CardResourceServiceConfigurator** --
-        ...
+    package resource {
+        +class "**final** CardResourceServiceProvider" as CardResourceServiceProvider {
+            ...
+        }
+        ~class "<<CardResourceService>>\n<<PluginObserverSpi>>\n<<ReaderObserverSpi>>\n**final** CardResourceServiceAdapter" as CardResourceServiceAdapter {
+            --
+            ~{static} CardResourceServiceAdapter getInstance ()
+            ..
+            ~void configure (CardResourceServiceConfiguratorAdapter configurator)
+            -- **CardResourceService** --
+            +void start ()
+            +void stop ()
+            +CardResourceServiceConfigurator getConfigurator()
+            +List<CardResource> getCardResources (String cardResourceProfileName)
+            -- **PluginObserverSpi** --
+            +void onPluginEvent (PluginEvent pluginEvent)
+            -- **ReaderObserverSpi** --
+            +void onReaderEvent (ReaderEvent readerEvent)
+        }
+        ~class "<<CardResourceServiceConfigurator>>\n<<AllocationStrategyStep>>\n<<PluginStep>>\n<<PoolAllocationStrategyStep>>\n<<PoolPluginStep>>\n<<AllocationTimingParameterStep>>\n<<ProfileStep>>\n<<ProfileParameterStep>>\n<<ConfigurationStep>>\n**final** CardResourceServiceConfiguratorAdapter" as CardResourceServiceConfiguratorAdapter {
+            --
+            ~CardResourceServiceConfiguratorAdapter ()
+            -- **CardResourceServiceConfigurator** --
+            ...
+        }
     }
 }
 
@@ -604,6 +610,7 @@ WaitForStartDetectStateAdapter -[hidden]- AbstractMonitoringJobAdapter
 ' == STYLE ==
 
 package service #C_GREY1 {}
+package resource #C_GREY2 {}
 
 class ApduExceptionJsonSerializerAdapter <<blue>>
 class SmartCardServiceAdapter <<blue>>
