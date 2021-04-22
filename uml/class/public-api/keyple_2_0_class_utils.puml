@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-utils - 2.0.0 (24/03/2021)
+    Keyple 2.0 - keyple-java-utils - 2.0.0 (22/04/2021)
 end title
 
 ' == THEME ==
@@ -121,7 +121,17 @@ package "org.eclipse.keyple.core.util" as util {
             --
             +ByteArrayJsonAdapter ()
             -- **JsonSerializer** --
-            +<back:yellow>JsonElement</back> serialize (byte[] data, <back:yellow>Type</back> typeOfSrc,
+            +<back:yellow>JsonElement</back> serialize (T data, <back:yellow>Type</back> typeOfSrc,
+                \t<back:yellow>JsonSerializationContext</back> context)
+            -- **JsonDeserializer** --
+            +T deserialize (<back:yellow>JsonElement</back> jsonElement, <back:yellow>Type</back> type,
+                \t<back:yellow>JsonDeserializationContext</back> jsonDeserializationContext)
+        }
+        +class "<<<back:yellow>JsonSerializer</back>>>\n<<<back:yellow>JsonDeserializer</back>>>\nIntegerJsonAdapter" as IntegerJsonAdapter {
+            --
+            +IntegerJsonAdapter ()
+            -- **JsonSerializer** --
+            +<back:yellow>JsonElement</back> serialize (Integer data, <back:yellow>Type</back> typeOfSrc,
                 \t<back:yellow>JsonSerializationContext</back> context)
             -- **JsonDeserializer** --
             +T deserialize (<back:yellow>JsonElement</back> jsonElement, <back:yellow>Type</back> type,
@@ -131,7 +141,7 @@ package "org.eclipse.keyple.core.util" as util {
             --
             +ThrowableJsonSerializer ()
             -- **JsonSerializer** --
-            +<back:yellow>JsonElement</back> serialize (byte[] data, <back:yellow>Type</back> typeOfSrc,
+            +<back:yellow>JsonElement</back> serialize (T data, <back:yellow>Type</back> typeOfSrc,
                 \t<back:yellow>JsonSerializationContext</back> context)
         }
         +class "**final** JsonUtil" as JsonUtil {
