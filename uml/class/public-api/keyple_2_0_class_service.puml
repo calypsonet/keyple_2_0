@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (21/04/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (23/04/2021)
 end title
 
 ' == THEME ==
@@ -80,9 +80,9 @@ package "org.eclipse.keyple.core.service" as service {
         }
 
         +interface CardResourceService {
+            +CardResourceServiceConfigurator getConfigurator()
             +void start ()
             +void stop ()
-            +CardResourceServiceConfigurator getConfigurator()
             +CardResource getCardResource (String cardResourceProfileName)
             +void releaseCardResource (CardResource cardResource)
             +void removeCardResource (CardResource cardResource)

@@ -545,17 +545,47 @@ package "org.eclipse.keyple.core.service" as service {
         ~class "<<CardResourceService>>\n<<PluginObserverSpi>>\n<<ReaderObserverSpi>>\n**final** CardResourceServiceAdapter" as CardResourceServiceAdapter {
             --
             ~{static} CardResourceServiceAdapter getInstance ()
+            ~{static} String getCardResourceInfo (CardResource cardResource)
             ..
+            ~ReaderManagerAdapter getReaderManager (Reader reader)
+            ~void registerPoolCardResource (CardResource cardResource, PoolPlugin poolPlugin)
             ~void configure (CardResourceServiceConfiguratorAdapter configurator)
             -- **CardResourceService** --
+            +CardResourceServiceConfigurator getConfigurator()
             +void start ()
             +void stop ()
-            +CardResourceServiceConfigurator getConfigurator()
             +List<CardResource> getCardResources (String cardResourceProfileName)
+            +void releaseCardResource (CardResource cardResource)
+            +void removeCardResource (CardResource cardResource)
             -- **PluginObserverSpi** --
             +void onPluginEvent (PluginEvent pluginEvent)
             -- **ReaderObserverSpi** --
             +void onReaderEvent (ReaderEvent readerEvent)
+        }
+        ~class "**final** ReaderManagerAdapter" as ReaderManagerAdapter {
+            --
+            ~ReaderManagerAdapter (Reader reader, Plugin plugin)
+            ..
+            ~Reader getReader ()
+            ~Plugin getPlugin ()
+            ~Set<CardResource> getCardResources ()
+            ~boolean isActive ()
+            ..
+            ~void activate ()
+            ~CardResource matches (<back:lightGreen>CardResourceProfileExtensionSpi</back> extension)
+            ~boolean lock (CardResource cardResource, <back:lightGreen>CardResourceProfileExtensionSpi</back> extension)
+            ~void unlock ()
+            ~void removeCardResource (CardResource cardResource)
+        }
+        ~class "**final** CardProfileManagerAdapter" as CardProfileManagerAdapter {
+            --
+            ~CardProfileManagerAdapter(CardProfile cardProfile,
+                \tCardResourceServiceConfiguratorAdapter globalConfiguration)
+            ..
+            ~void removeCardResource (CardResource cardResource)
+            ~void onReaderConnected (ReaderManagerAdapter readerManager)
+            ~void onCardInserted (ReaderManagerAdapter readerManager)
+            ~CardResource getCardResource ()
         }
         ~class "<<CardResourceServiceConfigurator>>\n<<AllocationStrategyStep>>\n<<PluginStep>>\n<<PoolAllocationStrategyStep>>\n<<PoolPluginStep>>\n<<AllocationTimingParameterStep>>\n<<ProfileStep>>\n<<ProfileParameterStep>>\n<<ConfigurationStep>>\n**final** CardResourceServiceConfiguratorAdapter" as CardResourceServiceConfiguratorAdapter {
             --
@@ -601,12 +631,17 @@ CardSelectionServiceAdapter ..> CardSelectionResultAdapter #C_USE : create >
 
 CardResourceServiceProvider ..> CardResourceServiceAdapter #C_USE : provide >
 
-CardResourceServiceAdapter ..> CardResourceServiceConfiguratorAdapter #C_USE : create >
+CardResourceServiceAdapter *-- "1" CardResourceServiceConfiguratorAdapter #C_LINK
+CardResourceServiceAdapter *-- "0..N" ReaderManagerAdapter #C_LINK
+CardResourceServiceAdapter *-- "1..N" CardProfileManagerAdapter #C_LINK
+
+CardProfileManagerAdapter *-right- "1" CardResourceServiceConfiguratorAdapter #C_LINK
 
 ' == LAYOUT ==
 
 'ReaderObservationExceptionHandlerSpi -[hidden]- ObservableReaderStateServiceAdapter
 WaitForStartDetectStateAdapter -[hidden]- AbstractMonitoringJobAdapter
+CardRemovalActiveMonitoringJobAdapter -[hidden]- CardResourceServiceProvider
 
 ' == STYLE ==
 
@@ -654,5 +689,7 @@ class CardSelectionResultAdapter <<blue>>
 
 class CardResourceServiceAdapter <<blue>>
 class CardResourceServiceConfiguratorAdapter <<blue>>
+class ReaderManagerAdapter <<blue>>
+class CardProfileManagerAdapter <<blue>>
 
 @enduml
