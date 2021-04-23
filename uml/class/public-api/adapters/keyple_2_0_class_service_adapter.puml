@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (21/04/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (23/04/2021)
 end title
 
 ' == THEME ==
@@ -268,6 +268,7 @@ package "org.eclipse.keyple.core.service" as service {
         --
         ~LocalReaderAdapter (<back:pink>ReaderSpi</back> readerSpi, String pluginName)
         ..
+        ~**final** <back:pink>ReaderSpi</back> getReaderSpi ()
         ~**final** boolean isLogicalChannelOpen ()
         ~**final** void closeLogicalAndPhysicalChannelsSilently ()
         -- **AbstractReaderAdapter** --
