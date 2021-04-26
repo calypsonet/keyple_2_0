@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Card APIs dependencies - 29/01/2021
+    Keyple 2.0 - Card APIs dependencies - 26/04/2021
 end title
 
 ' == THEME ==
@@ -68,8 +68,8 @@ hide <<grey>> stereotype
 ' == COMPONENTS ==
 
 [Specific Application] as application <<blue>>
-package "Specific Card Extension (Calypso...)" as packExtension {
-    interface "Specific\nCard Extension API" as specificCardExtensionApi <<green>>
+package "Specific Card Extension\n(Calypso...)" as packExtension {
+    interface "Specific\nCard\nExtension\nAPI" as specificCardExtensionApi <<green>>
     [Adapter] as extension <<green>>
 }
 package "keyple-java-service" as packService {
@@ -86,10 +86,9 @@ package "keyple-java-card-api" as packCardApi {
 ' == ASSOCIATIONS ==
 
 application -- serviceSpi #COLOR_BLUE
-application .. selectionSpi #COLOR_BLUE
 
 extension -up- specificCardExtensionApi #COLOR_GREEN
-extension -up- selectionSpi #COLOR_GREEN
+extension -right- selectionSpi #COLOR_GREEN
 extension -- cardSpi #COLOR_GREEN
 
 service -up- serviceApi #COLOR_YELLOW
@@ -101,7 +100,7 @@ application ..> specificCardExtensionApi : use
 application ..> serviceApi : use
 
 service .up.> serviceSpi : use
-service .up.> selectionSpi : use
+service .left.> selectionSpi : use
 service ..> cardSpi : use
 
 extension ..> cardApi : use

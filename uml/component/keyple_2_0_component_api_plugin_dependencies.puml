@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Plugin APIs dependencies - 29/01/2021
+    Keyple 2.0 - Plugin APIs dependencies - 26/04/2021
 end title
 
 ' == THEME ==
@@ -86,7 +86,6 @@ package "keyple-java-plugin-api" as packPluginApi {
 ' == ASSOCIATIONS ==
 
 application -- serviceSpi #COLOR_BLUE
-application .. selectionSpi #COLOR_BLUE
 
 plugin -up- specificPluginApi #COLOR_RED
 plugin -- pluginSpi #COLOR_RED

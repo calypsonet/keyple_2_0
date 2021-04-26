@@ -1,34 +1,33 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1370px" preserveAspectRatio="none" style="width:1567px;height:1370px;" version="1.1" viewBox="0 0 1567 1370" width="1567.5px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="1010" x="262.5" y="46.7139">Keyple 2.0 - Card APIs dependencies - 29/01/2021</text><!--MD5=[ac52b3fd37c28f4d54976d8525cbd016]
-cluster packExtension--><polygon fill="#F8F9F9" points="40,406.6016,675,406.6016,692.5,465.625,700,465.625,700,949.1016,40,949.1016,40,406.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="40" x2="692.5" y1="465.625" y2="465.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="620" x="50" y="447.9346">Specific Card Extension (Calypso...)</text><!--MD5=[c9b12d7b2c4b1fc61915ee9f9b21580e]
-cluster packService--><polygon fill="#F8F9F9" points="760,354.1016,1120,354.1016,1137.5,413.125,1525,413.125,1525,949.1016,760,949.1016,760,354.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="760" x2="1137.5" y1="413.125" y2="413.125"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="345" x="770" y="395.4346">keyple-java-service</text><!--MD5=[6c2c8b6ab22a2002edbb9a37cc194759]
-cluster packCardApi--><polygon fill="#F8F9F9" points="492.5,1074.1016,862.5,1074.1016,880,1133.125,1020,1133.125,1020,1354.1016,492.5,1354.1016,492.5,1074.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="492.5" x2="880" y1="1133.125" y2="1133.125"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="355" x="502.5" y="1115.4346">keyple-java-card-api</text><!--MD5=[f402d5c63cff53329f3c218bbd0560cc]
-entity specificCardExtensionApi--><ellipse cx="637.5" cy="519.1016" fill="#E9F7EF" rx="20" ry="20" style="stroke:#27AE60;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="122.5" x="486.25" y="597.9346">Specific</text><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="302.5" x="486.25" y="641.958">Card Extension API</text><!--MD5=[535f43d417660373b2263710d106a2e4]
-entity extension--><rect fill="#E9F7EF" height="119.0234" style="stroke:#27AE60;stroke-width:3.75;" width="225" x="435" y="789.1016"/><rect fill="#E9F7EF" height="25" style="stroke:#27AE60;stroke-width:3.75;" width="37.5" x="610" y="801.6016"/><rect fill="#E9F7EF" height="5" style="stroke:#27AE60;stroke-width:3.75;" width="10" x="605" y="806.6016"/><rect fill="#E9F7EF" height="5" style="stroke:#27AE60;stroke-width:3.75;" width="10" x="605" y="816.6016"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="125" x="472.5" y="875.4346">Adapter</text><!--MD5=[7dffe31cf74252a1bd377ad28c4a004f]
-entity serviceApi--><ellipse cx="822.5" cy="519.1016" fill="#FEFECE" rx="20" ry="20" style="stroke:#D4AC0D;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="180" x="732.5" y="597.9346">Service API</text><!--MD5=[bb0bcd5ee468e266c25459ed647254d7]
-entity serviceSpi--><ellipse cx="1375" cy="519.1016" fill="#EBF5FB" rx="20" ry="20" style="stroke:#3498DB;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="180" x="1285" y="597.9346">Service SPI</text><!--MD5=[1b875c2263d3bc01d1d54d814852db4c]
-entity selectionSpi--><ellipse cx="1055" cy="519.1016" fill="#E9F7EF" rx="20" ry="20" style="stroke:#27AE60;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="207.5" x="951.25" y="597.9346">Selection SPI</text><!--MD5=[38bfa9dc6018363cafe15f923a4b8db9]
-entity service--><rect fill="#FEFECE" height="119.0234" style="stroke:#D4AC0D;stroke-width:3.75;" width="225" x="852.5" y="789.1016"/><rect fill="#FEFECE" height="25" style="stroke:#D4AC0D;stroke-width:3.75;" width="37.5" x="1027.5" y="801.6016"/><rect fill="#FEFECE" height="5" style="stroke:#D4AC0D;stroke-width:3.75;" width="10" x="1022.5" y="806.6016"/><rect fill="#FEFECE" height="5" style="stroke:#D4AC0D;stroke-width:3.75;" width="10" x="1022.5" y="816.6016"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="125" x="890" y="875.4346">Adapter</text><!--MD5=[9c7f5ad1afce88c433e504bd5753a996]
-entity cardSpi--><ellipse cx="622.5" cy="1239.1016" fill="#E9F7EF" rx="20" ry="20" style="stroke:#27AE60;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="140" x="552.5" y="1317.9346">Card SPI</text><!--MD5=[f74f7ef7641fa41957945dcfb119390e]
-entity cardApi--><ellipse cx="890" cy="1239.1016" fill="#FEFECE" rx="20" ry="20" style="stroke:#D4AC0D;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="140" x="820" y="1317.9346">Card API</text><!--MD5=[37c33c71ce9550fe283f62c54b59719b]
-entity application--><rect fill="#EBF5FB" height="119.0234" style="stroke:#3498DB;stroke-width:3.75;" width="405" x="735" y="74.1016"/><rect fill="#EBF5FB" height="25" style="stroke:#3498DB;stroke-width:3.75;" width="37.5" x="1090" y="86.6016"/><rect fill="#EBF5FB" height="5" style="stroke:#3498DB;stroke-width:3.75;" width="10" x="1085" y="91.6016"/><rect fill="#EBF5FB" height="5" style="stroke:#3498DB;stroke-width:3.75;" width="10" x="1085" y="101.6016"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="305" x="772.5" y="160.4346">Specific Application</text><!--MD5=[dd975a42fa90ddc569c4dfcb8e62438a]
-link application to serviceSpi--><path d="M1034.0125,194.2516 C1091.5775,230.8216 1164.505,281.1091 1222.5,334.1016 C1279.805,386.4641 1335.1875,460.3416 1360.565,495.8966 " fill="none" id="application-serviceSpi" style="stroke:#3498DB;stroke-width:2.5;"/><!--MD5=[e1915561728177c50fc7ab13a7caef2d]
-link application to selectionSpi--><path d="M955.345,194.3166 C982.0525,280.6866 1031.1475,439.4641 1048.62,495.9691 " fill="none" id="application-selectionSpi" style="stroke:#3498DB;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><!--MD5=[af500f273bfd406437f3fb97b5209ad9]
-link specificCardExtensionApi to extension--><path d="M629.68,542.3916 C619.1875,570.7541 600.3875,623.2916 587.5,669.1016 C576.38,708.6316 566.2375,753.7866 558.95,788.6616 " fill="none" id="specificCardExtensionApi-extension" style="stroke:#27AE60;stroke-width:2.5;"/><!--MD5=[a8851ad37ac5d7495f09bb79969e487f]
-link selectionSpi to extension--><path d="M1031.9075,538.1016 C984.145,572.0591 870.735,651.8016 772.5,714.1016 C732.685,739.3516 688.0875,765.9541 649.1625,788.6416 " fill="none" id="selectionSpi-extension" style="stroke:#27AE60;stroke-width:2.5;"/><!--MD5=[c972e42a57bbdf1c0b9ca638d5b3e053]
-link extension to cardSpi--><path d="M558.7275,909.2391 C575.81,996.9241 607.505,1159.6291 618.5675,1216.4171 " fill="none" id="extension-cardSpi" style="stroke:#27AE60;stroke-width:2.5;"/><!--MD5=[d28946eb54196e7507811bcb95f3b5ce]
-link serviceApi to service--><path d="M831.415,541.9316 C852.74,590.5691 907.335,715.0841 939.7475,789.0066 " fill="none" id="serviceApi-service" style="stroke:#D4AC0D;stroke-width:2.5;"/><!--MD5=[2523936cee4f99c1b1f73b34e1a6b0f7]
-link service to cardApi--><path d="M953.7725,909.2391 C936.69,996.9241 904.995,1159.6291 893.9325,1216.4171 " fill="none" id="service-cardApi" style="stroke:#D4AC0D;stroke-width:2.5;"/><!--MD5=[70fe944fe17b6948044b7ea691eb942e]
-link application to specificCardExtensionApi--><path d="M878.9425,194.6591 C856.77,217.3591 831.665,243.9441 810,269.1016 C747.615,341.5441 686.4975,436.5066 656.5525,485.0466 " fill="none" id="application-to-specificCardExtensionApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="649.63,496.3466,669.9119,482.3861,656.1607,485.6882,652.8586,471.937,649.63,496.3466" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="812.5" y="305.3394">use</text><!--MD5=[879ca4a963ad0fc65afcfcf02bc7792f]
-link application to serviceApi--><path d="M920.035,194.3166 C895.63,274.9516 852.13,418.6966 832.545,483.4091 " fill="none" id="application-to-serviceApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="828.745,495.9691,844.8345,477.331,832.3663,484.0051,825.6922,471.5369,828.745,495.9691" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="900" y="305.3394">use</text><!--MD5=[fcea5848e7739e307edf83637a530580]
-reverse link serviceSpi to service--><path d="M1341.97,547.7841 C1276.27,599.8641 1127.8075,717.5466 1038.045,788.6991 " fill="none" id="serviceSpi-backto-service" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1351.7825,540.0066,1327.9392,546.1504,1341.9879,547.7729,1340.3654,561.8217,1351.7825,540.0066" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1182.5" y="705.3394">use</text><!--MD5=[d0f8ba07fd6d43c7abb2d473cf28eaef]
-reverse link selectionSpi to service--><path d="M1045.845,554.6591 C1030.6,609.7166 999.8225,720.8591 980.95,789.0066 " fill="none" id="selectionSpi-backto-service" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1049.37,541.9316,1033.7282,560.947,1046.0342,553.9782,1053.0029,566.2842,1049.37,541.9316" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1017.5" y="705.3394">use</text><!--MD5=[d6c7ae0c444d3684621ccf0a039b4c14]
-link service to cardSpi--><path d="M899.625,909.1091 C856.6425,948.2241 800.2,1002.1266 755,1054.1016 C711.225,1104.4391 667.03,1168.6086 642.3625,1205.9033 " fill="none" id="service-to-cardSpi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="635.355,1216.5696,656.0668,1203.2553,642.2184,1206.1224,639.3513,1192.2739,635.355,1216.5696" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="820" y="1025.3394">use</text><!--MD5=[b84145f68a9638efe3b1cde23adb3c4f]
-link extension to cardApi--><path d="M583.91,909.6091 C611.505,949.4366 652.6775,1000.9041 700,1034.1016 C721.2925,1049.0391 734.1575,1038.5416 755,1054.1016 C809.9475,1095.1266 852.5675,1164.6943 874.2325,1205.0511 " fill="none" id="extension-to-cardApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="880.275,1216.5741,878.6839,1192.0034,874.4707,1205.5034,860.9708,1201.2902,880.275,1216.5741" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="702.5" y="1025.3394">use</text><!--MD5=[98f117a66b83d337155f78462ef2dd61]
-reverse link serviceApi to extension--><path d="M796.855,551.9091 C751.14,605.9366 654.875,719.7041 596.235,789.0066 " fill="none" id="serviceApi-backto-extension" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="805.2975,541.9316,783.1321,552.6528,797.2251,551.4755,798.4024,565.5686,805.2975,541.9316" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="697.5" y="705.3394">use</text><!--MD5=[b332b9160b9daade3a2b16cefad2bcdc]
-link specificCardExtensionApi to serviceApi--><path d="M660.185,519.1016 C691.8075,519.1016 749.4575,519.1016 786.855,519.1016 " fill="none" id="specificCardExtensionApi-to-serviceApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="799.63,519.1016,777.13,509.1016,787.13,519.1016,777.13,529.1016,799.63,519.1016" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="35" x="712.5" y="502.8394">ref</text><!--MD5=[24756471b5f8ebb85dd8e89837e52648]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1370px" preserveAspectRatio="none" style="width:1095px;height:1370px;" version="1.1" viewBox="0 0 1095 1370" width="1095px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="1010" x="26.25" y="46.7139">Keyple 2.0 - Card APIs dependencies - 26/04/2021</text><!--MD5=[ac52b3fd37c28f4d54976d8525cbd016]
+cluster packExtension--><polygon fill="#F8F9F9" points="40,361.6016,472.5,361.6016,490,464.6484,497.5,464.6484,497.5,949.1016,40,949.1016,40,361.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="40" x2="490" y1="464.6484" y2="464.6484"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="417.5" x="50" y="402.9346">Specific Card Extension</text><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="192.5" x="162.5" y="446.958">(Calypso...)</text><!--MD5=[c9b12d7b2c4b1fc61915ee9f9b21580e]
+cluster packService--><polygon fill="#F8F9F9" points="557.5,354.1016,917.5,354.1016,935,413.125,1052.5,413.125,1052.5,949.1016,557.5,949.1016,557.5,354.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="557.5" x2="935" y1="413.125" y2="413.125"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="345" x="567.5" y="395.4346">keyple-java-service</text><!--MD5=[6c2c8b6ab22a2002edbb9a37cc194759]
+cluster packCardApi--><polygon fill="#F8F9F9" points="297.5,1074.1016,667.5,1074.1016,685,1133.125,825,1133.125,825,1354.1016,297.5,1354.1016,297.5,1074.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="297.5" x2="685" y1="1133.125" y2="1133.125"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="355" x="307.5" y="1115.4346">keyple-java-card-api</text><!--MD5=[f402d5c63cff53329f3c218bbd0560cc]
+entity specificCardExtensionApi--><ellipse cx="435" cy="519.1016" fill="#E9F7EF" rx="20" ry="20" style="stroke:#27AE60;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="122.5" x="358.75" y="597.9346">Specific</text><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="77.5" x="358.75" y="641.958">Card</text><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="152.5" x="358.75" y="685.9814">Extension</text><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="52.5" x="358.75" y="730.0049">API</text><!--MD5=[535f43d417660373b2263710d106a2e4]
+entity extension--><rect fill="#E9F7EF" height="119.0234" style="stroke:#27AE60;stroke-width:3.75;" width="225" x="232.5" y="789.1016"/><rect fill="#E9F7EF" height="25" style="stroke:#27AE60;stroke-width:3.75;" width="37.5" x="407.5" y="801.6016"/><rect fill="#E9F7EF" height="5" style="stroke:#27AE60;stroke-width:3.75;" width="10" x="402.5" y="806.6016"/><rect fill="#E9F7EF" height="5" style="stroke:#27AE60;stroke-width:3.75;" width="10" x="402.5" y="816.6016"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="125" x="270" y="875.4346">Adapter</text><!--MD5=[7dffe31cf74252a1bd377ad28c4a004f]
+entity serviceApi--><ellipse cx="620" cy="519.1016" fill="#FEFECE" rx="20" ry="20" style="stroke:#D4AC0D;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="180" x="530" y="597.9346">Service API</text><!--MD5=[bb0bcd5ee468e266c25459ed647254d7]
+entity serviceSpi--><ellipse cx="870" cy="519.1016" fill="#EBF5FB" rx="20" ry="20" style="stroke:#3498DB;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="180" x="780" y="597.9346">Service SPI</text><!--MD5=[1b875c2263d3bc01d1d54d814852db4c]
+entity selectionSpi--><ellipse cx="620" cy="849.1016" fill="#E9F7EF" rx="20" ry="20" style="stroke:#27AE60;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="207.5" x="516.25" y="927.9346">Selection SPI</text><!--MD5=[38bfa9dc6018363cafe15f923a4b8db9]
+entity service--><rect fill="#FEFECE" height="119.0234" style="stroke:#D4AC0D;stroke-width:3.75;" width="225" x="787.5" y="789.1016"/><rect fill="#FEFECE" height="25" style="stroke:#D4AC0D;stroke-width:3.75;" width="37.5" x="962.5" y="801.6016"/><rect fill="#FEFECE" height="5" style="stroke:#D4AC0D;stroke-width:3.75;" width="10" x="957.5" y="806.6016"/><rect fill="#FEFECE" height="5" style="stroke:#D4AC0D;stroke-width:3.75;" width="10" x="957.5" y="816.6016"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="125" x="825" y="875.4346">Adapter</text><!--MD5=[9c7f5ad1afce88c433e504bd5753a996]
+entity cardSpi--><ellipse cx="427.5" cy="1239.1016" fill="#E9F7EF" rx="20" ry="20" style="stroke:#27AE60;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="140" x="357.5" y="1317.9346">Card SPI</text><!--MD5=[f74f7ef7641fa41957945dcfb119390e]
+entity cardApi--><ellipse cx="695" cy="1239.1016" fill="#FEFECE" rx="20" ry="20" style="stroke:#D4AC0D;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="140" x="625" y="1317.9346">Card API</text><!--MD5=[37c33c71ce9550fe283f62c54b59719b]
+entity application--><rect fill="#EBF5FB" height="119.0234" style="stroke:#3498DB;stroke-width:3.75;" width="405" x="417.5" y="74.1016"/><rect fill="#EBF5FB" height="25" style="stroke:#3498DB;stroke-width:3.75;" width="37.5" x="772.5" y="86.6016"/><rect fill="#EBF5FB" height="5" style="stroke:#3498DB;stroke-width:3.75;" width="10" x="767.5" y="91.6016"/><rect fill="#EBF5FB" height="5" style="stroke:#3498DB;stroke-width:3.75;" width="10" x="767.5" y="101.6016"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="305" x="455" y="160.4346">Specific Application</text><!--MD5=[dd975a42fa90ddc569c4dfcb8e62438a]
+link application to serviceSpi--><path d="M657.97,194.3166 C714.7925,280.6866 819.2525,439.4641 856.425,495.9691 " fill="none" id="application-serviceSpi" style="stroke:#3498DB;stroke-width:2.5;"/><!--MD5=[af500f273bfd406437f3fb97b5209ad9]
+link specificCardExtensionApi to extension--><path d="M429.37,541.9316 C415.9,590.5691 381.42,715.0841 360.95,789.0066 " fill="none" id="specificCardExtensionApi-extension" style="stroke:#27AE60;stroke-width:2.5;"/><!--MD5=[973cd257e6ec8ef27cd1822e6414e4db]
+link extension to selectionSpi--><path d="M457.7925,849.1016 C504.2575,849.1016 550.725,849.1016 597.19,849.1016 " fill="none" id="extension-selectionSpi" style="stroke:#27AE60;stroke-width:2.5;"/><!--MD5=[c972e42a57bbdf1c0b9ca638d5b3e053]
+link extension to cardSpi--><path d="M357.35,909.2391 C376.14,996.9241 411.005,1159.6291 423.175,1216.4171 " fill="none" id="extension-cardSpi" style="stroke:#27AE60;stroke-width:2.5;"/><!--MD5=[d28946eb54196e7507811bcb95f3b5ce]
+link serviceApi to service--><path d="M637.515,541.9316 C679.42,590.5691 786.6925,715.0841 850.38,789.0066 " fill="none" id="serviceApi-service" style="stroke:#D4AC0D;stroke-width:2.5;"/><!--MD5=[2523936cee4f99c1b1f73b34e1a6b0f7]
+link service to cardApi--><path d="M883.7875,909.1116 C872.3975,945.8691 855.5525,993.9916 835,1034.1016 C798.3575,1105.6116 740.03,1181.3008 711.63,1216.4653 " fill="none" id="service-cardApi" style="stroke:#D4AC0D;stroke-width:2.5;"/><!--MD5=[70fe944fe17b6948044b7ea691eb942e]
+link application to specificCardExtensionApi--><path d="M584.1325,194.4691 C570.4725,217.3741 555.16,244.1466 542.5,269.1016 C504.3325,344.3316 466.6725,436.1841 447.6875,484.0516 " fill="none" id="application-to-specificCardExtensionApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="442.845,496.3366,460.402,479.0738,447.4307,484.7081,441.7964,471.7368,442.845,496.3366" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="545" y="305.3394">use</text><!--MD5=[879ca4a963ad0fc65afcfcf02bc7792f]
+link application to serviceApi--><path d="M620,194.3166 C620,274.9516 620,418.6966 620,483.4091 " fill="none" id="application-to-serviceApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="620,495.9691,630,473.4691,620,483.4691,610,473.4691,620,495.9691" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="622.5" y="305.3394">use</text><!--MD5=[fcea5848e7739e307edf83637a530580]
+reverse link serviceSpi to service--><path d="M873.0525,554.6591 C878.1325,609.7166 888.3925,720.8591 894.6825,789.0066 " fill="none" id="serviceSpi-backto-service" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="871.8775,541.9316,863.99,565.2562,873.0276,554.3785,883.9052,563.4161,871.8775,541.9316" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="890" y="705.3394">use</text><!--MD5=[d0f8ba07fd6d43c7abb2d473cf28eaef]
+reverse link selectionSpi to service--><path d="M655.9925,849.1016 C689.225,849.1016 740.385,849.1016 787.2925,849.1016 " fill="none" id="selectionSpi-backto-service" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="642.9125,849.1016,665.4125,859.1016,655.4125,849.1016,665.4125,839.1016,642.9125,849.1016" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="688.75" y="832.8394">use</text><!--MD5=[d6c7ae0c444d3684621ccf0a039b4c14]
+link service to cardSpi--><path d="M821.4225,909.6491 C766.3425,948.4816 689.91,998.7516 617.5,1034.1016 C593.185,1045.9716 581.7225,1037.9691 560,1054.1016 C505.305,1094.7216 463.75,1164.4336 442.74,1204.9258 " fill="none" id="service-to-cardSpi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="436.8875,1216.4898,455.9699,1200.9298,442.5319,1205.3367,438.1249,1191.8988,436.8875,1216.4898" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="702.5" y="1025.3394">use</text><!--MD5=[b84145f68a9638efe3b1cde23adb3c4f]
+link extension to cardApi--><path d="M412.8875,909.8616 C456.7625,948.8566 514.0375,1002.3391 560,1054.1016 C604.5825,1104.3116 649.6175,1168.5228 674.7575,1205.8603 " fill="none" id="extension-to-cardApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="681.8975,1216.5396,677.7061,1192.2768,674.9504,1206.1478,661.0793,1203.3921,681.8975,1216.5396" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="542.5" y="1025.3394">use</text><!--MD5=[98f117a66b83d337155f78462ef2dd61]
+reverse link serviceApi to extension--><path d="M594.355,551.9091 C548.64,605.9366 452.375,719.7041 393.735,789.0066 " fill="none" id="serviceApi-backto-extension" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="602.7975,541.9316,580.6321,552.6528,594.7251,551.4755,595.9024,565.5686,602.7975,541.9316" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="495" y="705.3394">use</text><!--MD5=[b332b9160b9daade3a2b16cefad2bcdc]
+link specificCardExtensionApi to serviceApi--><path d="M457.685,519.1016 C489.3075,519.1016 546.9575,519.1016 584.355,519.1016 " fill="none" id="specificCardExtensionApi-to-serviceApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="597.13,519.1016,574.63,509.1016,584.63,519.1016,574.63,529.1016,597.13,519.1016" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="35" x="510" y="502.8394">ref</text><!--MD5=[ec4d84984bf1ccf08919320fb964ffba]
 @startuml
 title
-    Keyple 2.0 - Card APIs dependencies - 29/01/2021
+    Keyple 2.0 - Card APIs dependencies - 26/04/2021
 end title
 
 ' == THEME ==
@@ -96,8 +95,8 @@ hide <<grey>> stereotype
 ' == COMPONENTS ==
 
 [Specific Application] as application <<blue>>
-package "Specific Card Extension (Calypso...)" as packExtension {
-    interface "Specific\nCard Extension API" as specificCardExtensionApi <<green>>
+package "Specific Card Extension\n(Calypso...)" as packExtension {
+    interface "Specific\nCard\nExtension\nAPI" as specificCardExtensionApi <<green>>
     [Adapter] as extension <<green>>
 }
 package "keyple-java-service" as packService {
@@ -114,10 +113,9 @@ package "keyple-java-card-api" as packCardApi {
 ' == ASSOCIATIONS ==
 
 application - - serviceSpi #COLOR_BLUE
-application .. selectionSpi #COLOR_BLUE
 
 extension -up- specificCardExtensionApi #COLOR_GREEN
-extension -up- selectionSpi #COLOR_GREEN
+extension -right- selectionSpi #COLOR_GREEN
 extension - - cardSpi #COLOR_GREEN
 
 service -up- serviceApi #COLOR_YELLOW
@@ -129,7 +127,7 @@ application ..> specificCardExtensionApi : use
 application ..> serviceApi : use
 
 service .up.> serviceSpi : use
-service .up.> selectionSpi : use
+service .left.> selectionSpi : use
 service ..> cardSpi : use
 
 extension ..> cardApi : use
@@ -150,7 +148,7 @@ package packCardApi #C_GREY1 {
 
 @startuml
 title
-    Keyple 2.0 - Card APIs dependencies - 29/01/2021
+    Keyple 2.0 - Card APIs dependencies - 26/04/2021
 end title
 
 
@@ -191,8 +189,8 @@ hide <<grey>> stereotype
 
 
 [Specific Application] as application <<blue>>
-package "Specific Card Extension (Calypso...)" as packExtension {
-    interface "Specific\nCard Extension API" as specificCardExtensionApi <<green>>
+package "Specific Card Extension\n(Calypso...)" as packExtension {
+    interface "Specific\nCard\nExtension\nAPI" as specificCardExtensionApi <<green>>
     [Adapter] as extension <<green>>
 }
 package "keyple-java-service" as packService {
@@ -208,10 +206,9 @@ package "keyple-java-card-api" as packCardApi {
 
 
 application - - serviceSpi #3498DB
-application .. selectionSpi #3498DB
 
 extension -up- specificCardExtensionApi #27AE60
-extension -up- selectionSpi #27AE60
+extension -right- selectionSpi #27AE60
 extension - - cardSpi #27AE60
 
 service -up- serviceApi #D4AC0D
@@ -222,7 +219,7 @@ application ..> specificCardExtensionApi : use
 application ..> serviceApi : use
 
 service .up.> serviceSpi : use
-service .up.> selectionSpi : use
+service .left.> selectionSpi : use
 service ..> cardSpi : use
 
 extension ..> cardApi : use
@@ -240,10 +237,10 @@ package packCardApi #F8F9F9 {
 
 @enduml
 
-PlantUML version 1.2021.01(Tue Feb 02 08:55:08 CET 2021)
+PlantUML version 1.2021.4(Sun Apr 04 10:49:39 CEST 2021)
 (GPL source distribution)
 Java Runtime: OpenJDK Runtime Environment
-JVM: OpenJDK 64-Bit Server VM
+JVM: Dynamic Code Evolution 64-Bit Server VM
 Default Encoding: Cp1252
 Language: fr
 Country: FR

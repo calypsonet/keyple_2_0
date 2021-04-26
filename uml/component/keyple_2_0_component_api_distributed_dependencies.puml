@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Distributed APIs dependencies - 05/02/2021
+    Keyple 2.0 - Distributed APIs dependencies - 26/04/2021
 end title
 
 ' == THEME ==
@@ -100,7 +100,6 @@ package "keyple-java-distributed-local-api" as packDistributedLocalApi {
 ' == ASSOCIATIONS ==
 
 application -- serviceSpi #COLOR_BLUE
-application .. selectionSpi #COLOR_BLUE
 application -- localSpi #COLOR_BLUE
 application -- networkSpi #COLOR_BLUE
 
