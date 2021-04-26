@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (23/04/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (26/04/2021)
 end title
 
 ' == THEME ==
@@ -564,7 +564,7 @@ package "org.eclipse.keyple.core.service" as service {
         }
         ~class "**final** ReaderManagerAdapter" as ReaderManagerAdapter {
             --
-            ~ReaderManagerAdapter (Reader reader, Plugin plugin)
+            ~ReaderManagerAdapter (Reader reader, Plugin plugin, ReaderConfiguratorSpi readerConfiguratorSpi)
             ..
             ~Reader getReader ()
             ~Plugin getPlugin ()
@@ -587,7 +587,7 @@ package "org.eclipse.keyple.core.service" as service {
             ~void onCardInserted (ReaderManagerAdapter readerManager)
             ~CardResource getCardResource ()
         }
-        ~class "<<CardResourceServiceConfigurator>>\n<<AllocationStrategyStep>>\n<<PluginStep>>\n<<PoolAllocationStrategyStep>>\n<<PoolPluginStep>>\n<<AllocationTimingParameterStep>>\n<<ProfileStep>>\n<<ProfileParameterStep>>\n<<ConfigurationStep>>\n**final** CardResourceServiceConfiguratorAdapter" as CardResourceServiceConfiguratorAdapter {
+        ~class "<<CardResourceServiceConfigurator>>\n<<AllocationStrategyStep>>\n<<PluginStep>>\n<<PluginMonitoringStep>>\n<<PoolAllocationStrategyStep>>\n<<PoolPluginStep>>\n<<AllocationTimingParameterStep>>\n<<ProfileStep>>\n<<ProfileParameterStep>>\n<<ConfigurationStep>>\n**final** CardResourceServiceConfiguratorAdapter" as CardResourceServiceConfiguratorAdapter {
             --
             ~CardResourceServiceConfiguratorAdapter ()
             -- **CardResourceServiceConfigurator** --

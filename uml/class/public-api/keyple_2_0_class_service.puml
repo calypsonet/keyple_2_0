@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (23/04/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (26/04/2021)
 end title
 
 ' == THEME ==
@@ -101,10 +101,18 @@ package "org.eclipse.keyple.core.service" as service {
         }
         +interface PluginStep {
             --
-            +PluginStep addPlugin (Plugin plugin,
-                \tboolean withReaderMonitoring,
-                \tboolean withCardMonitoring)
+            +PluginStep addPlugin (Plugin plugin)
+            +PluginMonitoringStep addPluginWithMonitoring (Plugin plugin)
             +CardResourceServiceConfigurator addNoMorePlugins ()
+        }
+        +interface PluginMonitoringStep {
+            --
+            +PluginMonitoringStep withReaderMonitoring (
+                \tPluginObservationExceptionHandlerSpi exceptionHandlerSpi,
+                \tReaderConfiguratorSpi readerConfiguratorSpi)
+            +PluginMonitoringStep withCardMonitoring (
+                \tReaderObservationExceptionHandlerSpi exceptionHandlerSpi)
+            +PluginStep endMonitoringConfiguration ()
         }
 
         +interface PoolAllocationStrategyStep {
@@ -147,6 +155,12 @@ package "org.eclipse.keyple.core.service" as service {
             ..
             +**final** Reader getReader ()
             +**final** SmartCard getSmartCard ()
+        }
+
+        package "spi" as resourceSpi {
+            +interface ReaderConfiguratorSpi {
+                +void setupReader (Reader reader)
+            }
         }
     }
 
@@ -440,7 +454,14 @@ CardResourceServiceConfigurator ..> AllocationModeStep #C_USE
 AllocationStrategyStep ..> PluginStep #C_USE
 
 PluginStep ..> PluginStep #C_USE
+PluginStep ..> PluginMonitoringStep #C_USE
 PluginStep .up.> CardResourceServiceConfigurator #C_USE
+
+PluginMonitoringStep ..> PluginMonitoringStep #C_USE
+PluginMonitoringStep .up.> PluginStep #C_USE
+PluginMonitoringStep .left.> PluginObservationExceptionHandlerSpi #C_USE : use >
+PluginMonitoringStep .left.> ReaderObservationExceptionHandlerSpi #C_USE : use >
+PluginMonitoringStep ..> ReaderConfiguratorSpi #C_USE : use >
 
 PoolAllocationStrategyStep ..> PoolPluginStep #C_USE
 
@@ -474,7 +495,8 @@ CardSelection ..> CardSelector #C_USE : provide >
 
 ' == LAYOUT ==
 
-FileOccurrence -[hidden]right- KeyplePluginException
+FileOccurrence -[hidden]- KeyplePluginException
+KeypleReaderCommunicationException -[hidden]right- KeypleCardCommunicationException
 
 ' == STYLE ==
 
@@ -483,5 +505,6 @@ package spi #C_GREY2 {}
 package selection #C_GREY2 {}
 package selectionSpi #C_GREY3 {}
 package resource #C_GREY2 {}
+package resourceSpi #C_GREY3 {}
 
 @enduml
