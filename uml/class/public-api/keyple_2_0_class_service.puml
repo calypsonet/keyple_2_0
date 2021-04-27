@@ -95,13 +95,13 @@ package "org.eclipse.keyple.core.service" as service {
         }
 
         +interface AllocationStrategyStep {
-            +MaxUsageDurationStep usingFirstAllocationStrategy ()
-            +MaxUsageDurationStep usingCyclicAllocationStrategy ()
-            +MaxUsageDurationStep usingRandomAllocationStrategy ()
+            +UsageTimeoutStep usingFirstAllocationStrategy ()
+            +UsageTimeoutStep usingCyclicAllocationStrategy ()
+            +UsageTimeoutStep usingRandomAllocationStrategy ()
         }
-        +interface MaxUsageDurationStep {
-            +PluginStep usingDefaultMaxUsageDuration ()
-            +PluginStep usingMaxUsageDuration (int maxUsageDurationMillis)
+        +interface UsageTimeoutStep {
+            +PluginStep usingDefaultUsageTimeout ()
+            +PluginStep usingUsageTimeout (int usageTimeoutMillis)
         }
         +interface PluginStep {
             --
@@ -458,9 +458,9 @@ CardResourceServiceConfigurator ..> AllocationStrategyStep #C_USE
 CardResourceServiceConfigurator ..> PoolAllocationStrategyStep #C_USE
 CardResourceServiceConfigurator ..> AllocationModeStep #C_USE
 
-AllocationStrategyStep ..> MaxUsageDurationStep #C_USE
+AllocationStrategyStep ..> UsageTimeoutStep #C_USE
 
-MaxUsageDurationStep ..> PluginStep #C_USE
+UsageTimeoutStep ..> PluginStep #C_USE
 
 PluginStep ..> PluginStep #C_USE
 PluginStep ..> PluginMonitoringStep #C_USE
