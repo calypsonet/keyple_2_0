@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (26/04/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (27/04/2021)
 end title
 
 ' == THEME ==
@@ -95,24 +95,31 @@ package "org.eclipse.keyple.core.service" as service {
         }
 
         +interface AllocationStrategyStep {
-            +PluginStep usingFirstAllocationStrategy ()
-            +PluginStep usingCyclicAllocationStrategy ()
-            +PluginStep usingRandomAllocationStrategy ()
+            +MaxUsageDurationStep usingFirstAllocationStrategy ()
+            +MaxUsageDurationStep usingCyclicAllocationStrategy ()
+            +MaxUsageDurationStep usingRandomAllocationStrategy ()
+        }
+        +interface MaxUsageDurationStep {
+            +PluginStep usingDefaultMaxUsageDuration ()
+            +PluginStep usingMaxUsageDuration (int maxUsageDurationMillis)
         }
         +interface PluginStep {
             --
-            +PluginStep addPlugin (Plugin plugin)
-            +PluginMonitoringStep addPluginWithMonitoring (Plugin plugin)
+            +PluginStep addPlugin (Plugin plugin,
+                \tReaderConfiguratorSpi readerConfiguratorSpi)
+            +PluginMonitoringStep addPluginWithMonitoring (Plugin plugin,
+                \tReaderConfiguratorSpi readerConfiguratorSpi)
             +CardResourceServiceConfigurator addNoMorePlugins ()
         }
         +interface PluginMonitoringStep {
             --
-            +PluginMonitoringStep withReaderMonitoring (
-                \tPluginObservationExceptionHandlerSpi exceptionHandlerSpi,
-                \tReaderConfiguratorSpi readerConfiguratorSpi)
-            +PluginMonitoringStep withCardMonitoring (
-                \tReaderObservationExceptionHandlerSpi exceptionHandlerSpi)
-            +PluginStep endMonitoringConfiguration ()
+            +PluginStep withPluginMonitoring (
+                \tPluginObservationExceptionHandlerSpi pluginObservationExceptionHandlerSpi)
+            +PluginStep withReaderMonitoring (
+                \tReaderObservationExceptionHandlerSpi readerObservationExceptionHandlerSpi)
+            +PluginStep withPluginAndReaderMonitoring (
+                \tPluginObservationExceptionHandlerSpi pluginObservationExceptionHandlerSpi,
+                \tReaderObservationExceptionHandlerSpi readerObservationExceptionHandlerSpi)
         }
 
         +interface PoolAllocationStrategyStep {
@@ -451,17 +458,18 @@ CardResourceServiceConfigurator ..> AllocationStrategyStep #C_USE
 CardResourceServiceConfigurator ..> PoolAllocationStrategyStep #C_USE
 CardResourceServiceConfigurator ..> AllocationModeStep #C_USE
 
-AllocationStrategyStep ..> PluginStep #C_USE
+AllocationStrategyStep ..> MaxUsageDurationStep #C_USE
+
+MaxUsageDurationStep ..> PluginStep #C_USE
 
 PluginStep ..> PluginStep #C_USE
 PluginStep ..> PluginMonitoringStep #C_USE
 PluginStep .up.> CardResourceServiceConfigurator #C_USE
+PluginStep ..> ReaderConfiguratorSpi #C_USE : use >
 
-PluginMonitoringStep ..> PluginMonitoringStep #C_USE
 PluginMonitoringStep .up.> PluginStep #C_USE
-PluginMonitoringStep .left.> PluginObservationExceptionHandlerSpi #C_USE : use >
-PluginMonitoringStep .left.> ReaderObservationExceptionHandlerSpi #C_USE : use >
-PluginMonitoringStep ..> ReaderConfiguratorSpi #C_USE : use >
+PluginMonitoringStep .up.> PluginObservationExceptionHandlerSpi #C_USE : use >
+PluginMonitoringStep .up.> ReaderObservationExceptionHandlerSpi #C_USE : use >
 
 PoolAllocationStrategyStep ..> PoolPluginStep #C_USE
 
