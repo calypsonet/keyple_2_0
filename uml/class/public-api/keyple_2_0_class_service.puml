@@ -81,11 +81,24 @@ package "org.eclipse.keyple.core.service" as service {
 
         +interface CardResourceService {
             +CardResourceServiceConfigurator getConfigurator()
+            +MinimalCardResourceServiceConfigurator getMinimalConfigurator()
             +void start ()
             +void stop ()
             +CardResource getCardResource (String cardResourceProfileName)
+            +CardResource getCardResource ()
             +void releaseCardResource (CardResource cardResource)
             +void removeCardResource (CardResource cardResource)
+        }
+
+        +interface MinimalCardResourceServiceConfigurator {
+            --
+            +ConfigurationStep withPlugin (Plugin plugin,
+                \tReaderConfiguratorSpi readerConfiguratorSpi,
+                \t<back:cyan>KeypleCardResourceProfileExtension</back> cardResourceProfileExtension,
+                \tString readerNameRegex)
+            +ConfigurationStep withPoolPlugin (PoolPlugin poolPlugin,
+                \t<back:cyan>KeypleCardResourceProfileExtension</back> cardResourceProfileExtension,
+                \tString readerGroupReference)
         }
 
         +interface CardResourceServiceConfigurator {
@@ -449,10 +462,13 @@ CardSelectorBuilder .up.> CardSelector #C_USE : create >
 CardResourceServiceProvider ..> CardResourceService #C_USE : provide >
 
 CardResourceService ..> CardResource #C_USE : provide >
+CardResourceService ..> MinimalCardResourceServiceConfigurator #C_USE : provide >
 CardResourceService ..> CardResourceServiceConfigurator #C_USE : provide >
 
 CardResource *-- "1" Reader #C_LINK
 CardResource *-- "1" SmartCard #C_LINK
+
+MinimalCardResourceServiceConfigurator ..> ConfigurationStep #C_USE
 
 CardResourceServiceConfigurator ..> AllocationStrategyStep #C_USE
 CardResourceServiceConfigurator ..> PoolAllocationStrategyStep #C_USE

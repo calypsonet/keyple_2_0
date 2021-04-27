@@ -552,9 +552,11 @@ package "org.eclipse.keyple.core.service" as service {
             ~void configure (CardResourceServiceConfiguratorAdapter configurator)
             -- **CardResourceService** --
             +CardResourceServiceConfigurator getConfigurator()
+            +MinimalCardResourceServiceConfigurator getMinimalConfigurator()
             +void start ()
             +void stop ()
-            +List<CardResource> getCardResources (String cardResourceProfileName)
+            +CardResource getCardResource (String cardResourceProfileName)
+            +CardResource getCardResource ()
             +void releaseCardResource (CardResource cardResource)
             +void removeCardResource (CardResource cardResource)
             -- **PluginObserverSpi** --
@@ -587,10 +589,12 @@ package "org.eclipse.keyple.core.service" as service {
             ~void onCardInserted (ReaderManagerAdapter readerManager)
             ~CardResource getCardResource ()
         }
-        ~class "<<CardResourceServiceConfigurator>>\n<<AllocationStrategyStep>>\n<<UsageTimeoutStep>>\n<<PluginStep>>\n<<PluginMonitoringStep>>\n<<PoolAllocationStrategyStep>>\n<<PoolPluginStep>>\n<<AllocationTimingParameterStep>>\n<<ProfileStep>>\n<<ProfileParameterStep>>\n<<ConfigurationStep>>\n**final** CardResourceServiceConfiguratorAdapter" as CardResourceServiceConfiguratorAdapter {
+        ~class "<<CardResourceServiceConfigurator>>\n<<MinimalCardResourceServiceConfigurator>>\n<<AllocationStrategyStep>>\n<<UsageTimeoutStep>>\n<<PluginStep>>\n<<PluginMonitoringStep>>\n<<PoolAllocationStrategyStep>>\n<<PoolPluginStep>>\n<<AllocationTimingParameterStep>>\n<<ProfileStep>>\n<<ProfileParameterStep>>\n<<ConfigurationStep>>\n**final** CardResourceServiceConfiguratorAdapter" as CardResourceServiceConfiguratorAdapter {
             --
             ~CardResourceServiceConfiguratorAdapter ()
             -- **CardResourceServiceConfigurator** --
+            ...
+            -- **MinimalCardResourceServiceConfigurator** --
             ...
         }
     }
