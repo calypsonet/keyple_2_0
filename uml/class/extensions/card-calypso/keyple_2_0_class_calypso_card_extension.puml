@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Calypso Card Extension - 2.0.0 (27/04/2021)
+    Keyple 2.0 - Calypso Card Extension - 2.0.0 (28/04/2021)
 end title
 
 ' == THEME ==
@@ -53,20 +53,20 @@ legend top
 end legend
 
 package "org.eclipse.keyple.card.calypso" as calypso {
-    +class "**final** CalypsoCardExtensionProvider" as CalypsoCardExtensionProvider {
-        +{static} CalypsoCardExtension getService ()
+    +class "**final** CalypsoExtensionServiceProvider" as CalypsoExtensionServiceProvider {
+        +{static} CalypsoExtensionService getService ()
     }
-    +interface "<<<back:cyan>KeypleCardExtension</back>>>\nCalypsoCardExtension" as CalypsoCardExtension {
+    +interface "<<<back:cyan>KeypleCardExtension</back>>>\nCalypsoExtensionService" as CalypsoExtensionService {
         --
-        +PoCardSelection createPoCardSelection (<back:yellow>CardSelector</back> poCardSelector, boolean acceptInvalidatedPo)
+        +CalypsoCardSelection createCardSelection (<back:yellow>CardSelector</back> cardSelector, boolean acceptInvalidatedCard)
         ..
-        +SamCardResourceProfileExtension createSamCardResourceProfileExtension ()
-        +PoTransactionService createPoSecuredTransaction (<back:yellow>Reader</back> reader, PoSmartCard poSmartCard, PoSecuritySetting poSecuritySetting)
+        +CalypsoSamResourceProfileExtension createSamResourceProfileExtension ()
+        +CardTransactionService createCardTransaction (<back:yellow>Reader</back> reader, CalypsoCard calypsoCard, CardSecuritySetting cardSecuritySetting)
         ..
-        +PoTransactionService createPoUnsecuredTransaction (<back:yellow>Reader</back> reader, PoSmartCard poSmartCard)
+        +CardTransactionService createCardTransactionWithoutSecurity (<back:yellow>Reader</back> reader, CalypsoCard calypsoCard)
     }
-    package po {
-        +interface "<<<back:yellow>CardSelection</back>>>\nPoCardSelection" as PoCardSelection {
+    package card {
+        +interface "<<<back:yellow>CardSelection</back>>>\nCalypsoCardSelection" as CalypsoCardSelection {
             --
             ...
         }
@@ -74,7 +74,7 @@ package "org.eclipse.keyple.card.calypso" as calypso {
             --
             ...
         }
-        +interface "<<<back:yellow>SmartCard</back>>>\nPoSmartCard" as PoSmartCard {
+        +interface "<<<back:yellow>SmartCard</back>>>\nCalypsoCard" as CalypsoCard {
             --
             ...
         }
@@ -94,7 +94,7 @@ package "org.eclipse.keyple.card.calypso" as calypso {
             --
             ...
         }
-        +enum PoRevision {
+        +enum CardRevision {
             --
             ...
         }
@@ -108,12 +108,12 @@ package "org.eclipse.keyple.card.calypso" as calypso {
         }
     }
     package sam {
-        +interface "<<<back:cyan>KeypleCardResourceProfileExtension</back>>>\nSamCardResourceProfileExtension" as SamCardResourceProfileExtension {
-            +SamCardResourceProfileExtension setSamRevision (SamRevision samRevision)
-            +SamCardResourceProfileExtension setSamSerialNumberRegex (String samSerialNumberRegex)
-            +SamCardResourceProfileExtension setSamUnlockData (String samUnlockData)
+        +interface "<<<back:cyan>KeypleCardResourceProfileExtension</back>>>\nCalypsoSamResourceProfileExtension" as CalypsoSamResourceProfileExtension {
+            +CalypsoSamResourceProfileExtension setSamRevision (SamRevision samRevision)
+            +CalypsoSamResourceProfileExtension setSamSerialNumberRegex (String samSerialNumberRegex)
+            +CalypsoSamResourceProfileExtension setSamUnlockData (String samUnlockData)
         }
-        +interface "<<<back:yellow>SmartCard</back>>>\nSamSmartCard" as SamSmartCard {
+        +interface "<<<back:yellow>SmartCard</back>>>\nCalypsoSam" as CalypsoSam {
             --
             ...
         }
@@ -123,63 +123,63 @@ package "org.eclipse.keyple.card.calypso" as calypso {
         }
     }
     package transaction {
-        +interface PoTransactionService {
+        +interface CardTransactionService {
             --
             ...
         }
-        +class "**final** PoSecuritySetting" as PoSecuritySetting {
+        +class "**final** CardSecuritySetting" as CardSecuritySetting {
             --
             +{static} Builder builder ()
             ..
             ...
         }
-        +class "**final** Builder" as PoSecuritySettingBuilder {
+        +class "**final** Builder" as CardSecuritySettingBuilder {
             --
             ...
-            +PoSecuritySetting build ()
+            +CardSecuritySetting build ()
         }
     }
 }
 
 ' Associations
 
-CalypsoCardExtensionProvider ..> CalypsoCardExtension #C_USE : provide >
+CalypsoExtensionServiceProvider ..> CalypsoExtensionService #C_USE : provide >
 
-CalypsoCardExtension .up.> SamCardResourceProfileExtension #C_USE : create >
-CalypsoCardExtension ..> PoSecuritySetting #C_USE : use >
-CalypsoCardExtension ..> PoCardSelection #C_USE : create >
-CalypsoCardExtension ..> PoSmartCard #C_USE : use >
-CalypsoCardExtension ..> PoTransactionService #C_USE : create >
+CalypsoExtensionService .up.> CalypsoSamResourceProfileExtension #C_USE : create >
+CalypsoExtensionService ..> CardSecuritySetting #C_USE : use >
+CalypsoExtensionService ..> CalypsoCardSelection #C_USE : create >
+CalypsoExtensionService ..> CalypsoCard #C_USE : use >
+CalypsoExtensionService ..> CardTransactionService #C_USE : create >
 
-PoTransactionService ..> PoSecuritySetting #C_USE : use >
-PoTransactionService ..> SelectFileControl #C_USE : use >
+CardTransactionService ..> CardSecuritySetting #C_USE : use >
+CardTransactionService ..> SelectFileControl #C_USE : use >
 
-PoSecuritySetting ..> PoSecuritySettingBuilder #C_USE : provide >
+CardSecuritySetting ..> CardSecuritySettingBuilder #C_USE : provide >
 
-PoSecuritySettingBuilder .up.> PoSecuritySetting #C_USE : create >
+CardSecuritySettingBuilder .up.> CardSecuritySetting #C_USE : create >
 
-SamCardResourceProfileExtension ..> SamRevision #C_USE : use >
+CalypsoSamResourceProfileExtension ..> SamRevision #C_USE : use >
 
-SamSmartCard ..> SamRevision #C_USE : provide >
+CalypsoSam ..> SamRevision #C_USE : provide >
 
-PoCardSelection ..> SelectFileControl #C_USE : use >
+CalypsoCardSelection ..> SelectFileControl #C_USE : use >
 
-PoSmartCard ..> DirectoryHeader #C_USE : provide >
-PoSmartCard ..> ElementaryFile #C_USE : provide >
-PoSmartCard ..> FileHeader #C_USE : provide >
-PoSmartCard ..> FileData #C_USE : provide >
-PoSmartCard ..> PoRevision #C_USE : provide >
-PoSmartCard ..> SvLoadLogRecord #C_USE : provide >
-PoSmartCard ..> SvDebitLogRecord #C_USE : provide >
+CalypsoCard ..> DirectoryHeader #C_USE : provide >
+CalypsoCard ..> ElementaryFile #C_USE : provide >
+CalypsoCard ..> FileHeader #C_USE : provide >
+CalypsoCard ..> FileData #C_USE : provide >
+CalypsoCard ..> CardRevision #C_USE : provide >
+CalypsoCard ..> SvLoadLogRecord #C_USE : provide >
+CalypsoCard ..> SvDebitLogRecord #C_USE : provide >
 
 ' == LAYOUT ==
 
-'PoRevision -[hidden]- SamCardResourceServiceBuilder
+'CardRevision -[hidden]- SamCardResourceServiceBuilder
 
 ' == STYLE ==
 
 package calypso #C_GREY1 {}
-package po #C_GREY2 {}
+package card #C_GREY2 {}
 package sam #C_GREY2 {}
 package transaction #C_GREY2 {}
 

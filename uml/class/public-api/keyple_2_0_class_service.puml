@@ -113,7 +113,7 @@ package "org.eclipse.keyple.core.service" as service {
             +UsageTimeoutStep usingRandomAllocationStrategy ()
         }
         +interface UsageTimeoutStep {
-            +PluginStep usingDefaultUsageTimeout ()
+            +PluginStep notUsingUsageTimeout ()
             +PluginStep usingUsageTimeout (int usageTimeoutMillis)
         }
         +interface PluginStep {
@@ -446,7 +446,7 @@ ReaderEvent .up.> ScheduledCardSelectionsResponse #C_USE : provide >
 
 CardSelectionServiceFactory ..> CardSelectionService #C_USE : create >
 
-CardSelectionService *-- "1" MultiSelectionProcessing #C_LINK
+CardSelectionService *-left- "1" MultiSelectionProcessing #C_LINK
 CardSelectionService *-- "1..N" CardSelection #C_LINK
 
 CardSelectionResult *-- "1..N" SmartCard #C_LINK
@@ -462,7 +462,7 @@ CardSelectorBuilder .up.> CardSelector #C_USE : create >
 
 CardResourceServiceProvider ..> CardResourceService #C_USE : provide >
 
-CardResourceService ..> CardResource #C_USE : provide >
+CardResourceService .left.> CardResource #C_USE : provide >
 CardResourceService ..> MinimalCardResourceServiceConfigurator #C_USE : provide >
 CardResourceService ..> CardResourceServiceConfigurator #C_USE : provide >
 
