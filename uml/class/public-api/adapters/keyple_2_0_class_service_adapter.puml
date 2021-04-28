@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (27/04/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (28/04/2021)
 end title
 
 ' == THEME ==
@@ -248,7 +248,7 @@ package "org.eclipse.keyple.core.service" as service {
         ~AbstractReaderAdapter (String readerName, Object readerExtension, String pluginName)
         ..
         ~**final** String getPluginName ()
-        ~**final** List<<back:cyan>KeypleCardSelectionResponse</back>> transmitCardSelectionRequests (List<<back:lightGreen>CardSelectionRequest</back>> cardSelectionRequests,
+        ~**final** ScheduledCardSelectionsResponseAdapter transmitCardSelectionRequests (List<<back:lightGreen>CardSelectionRequest</back>> cardSelectionRequests,
             \t<back:lightGreen>MultiSelectionProcessing</back> multiSelectionProcessing, <back:lightGreen>ChannelControl</back> channelControl)
         ..
         ~**final** void checkStatus ()
@@ -311,6 +311,17 @@ package "org.eclipse.keyple.core.service" as service {
         -- **ProxyReader** --
         +**final** void releaseChannel ()
     }
+    ~class "**final** CardSelectionScenarioAdapter" as CardSelectionScenarioAdapter {
+        --
+        ~CardSelectionScenarioAdapter (
+            \tList<<back:lightGreen>CardSelectionRequest</back>> cardSelectionRequests,
+            \tMultiSelectionProcessing multiSelectionProcessing,
+            \t<back:lightGreen>ChannelControl</back> channelControl)
+        ..
+        ~MultiSelectionProcessing getMultiSelectionProcessing ()
+        ~<back:lightGreen>ChannelControl</back> getChannelControl ()
+        ~List<<back:lightGreen>CardSelectionRequest</back>> getCardSelectionRequests ()
+    }
     ~class "<<ObservableReader>>\n<<<back:pink>WaitForCardInsertionAutonomousReaderApi</back>>>\n<<<back:pink>WaitForCardRemovalAutonomousReaderApi</back>>>\n**final** ObservableLocalReaderAdapter" as ObservableLocalReaderAdapter extends LocalReaderAdapter {
         --
         ~ObservableLocalReaderAdapter (<back:pink>ObservableReaderSpi</back> observableReaderSpi, String pluginName)
@@ -327,7 +338,7 @@ package "org.eclipse.keyple.core.service" as service {
         ~void notifyObservers (ReaderEvent event)
         ..
         ~void scheduleCardSelectionScenario (
-            \t<back:lightGreen>CardSelectionScenario</back> cardSelectionScenario, NotificationMode notificationMode, PollingMode pollingMode)
+            \tCardSelectionScenarioAdapter cardSelectionScenario, NotificationMode notificationMode, PollingMode pollingMode)
         -- **AbstractReaderAdapter** --
         ~void unregister ()
         -- **Reader** --
@@ -364,7 +375,7 @@ package "org.eclipse.keyple.core.service" as service {
         ..
         ~void notifyObservers (ReaderEvent event)
         ..
-        ~void scheduleCardSelectionScenario (<back:lightGreen>CardSelectionScenario</back> cardSelectionScenario,
+        ~void scheduleCardSelectionScenario (CardSelectionScenarioAdapter cardSelectionScenario,
             \tNotificationMode notificationMode, PollingMode pollingMode)
         -- **AbstractReaderAdapter** --
         ~void unregister ()
@@ -519,9 +530,15 @@ package "org.eclipse.keyple.core.service" as service {
         +int prepareSelection (CardSelection cardSelection)
         +void prepareReleaseChannel ()
         +CardSelectionResult processCardSelectionScenario (Reader reader)
-        +void scheduleCardSelectionScenario (ObservableReader observableReader, NotificationMode notificationMode)
         +void scheduleCardSelectionScenario (ObservableReader observableReader, NotificationMode notificationMode, PollingMode pollingMode)
-        +CardSelectionResult parseCardSelectionResponses (List<<back:cyan>KeypleCardSelectionResponse</back>> cardSelectionResponses)
+        +CardSelectionResult parseScheduledCardSelectionsResponse (ScheduledCardSelectionsResponseAdapter scheduledCardSelectionsResponse)
+    }
+    ~class "<<ScheduledCardSelectionsResponse>>\n**final** ScheduledCardSelectionsResponseAdapter" as ScheduledCardSelectionsResponseAdapter {
+        --
+        ~ScheduledCardSelectionsResponseAdapter (
+            \tList<<back:lightGreen>CardSelectionResponse</back>> cardSelectionResponses)
+        ..
+        ~List<<back:lightGreen>CardSelectionResponse</back>> getCardSelectionResponses ()
     }
     ~class "<<CardSelectionResult>>\n**final** CardSelectionResultAdapter" as CardSelectionResultAdapter {
         --
@@ -614,6 +631,7 @@ ObservableRemotePluginAdapter *-- "1" ObservationManagerAdapter #C_LINK
 ObservableLocalReaderAdapter +-- InternalEvent
 ObservableLocalReaderAdapter *-- "1" ObservationManagerAdapter #C_LINK
 ObservableLocalReaderAdapter "1" *--* "1" ObservableReaderStateServiceAdapter #C_LINK
+ObservableLocalReaderAdapter ..> CardSelectionScenarioAdapter #C_USE : use >
 
 ObservableReaderStateServiceAdapter *-- "1..N" AbstractObservableStateAdapter #C_LINK
 
@@ -628,10 +646,12 @@ AbstractPluginAdapter *-- "0..N" AbstractReaderAdapter #C_LINK
 
 ObservableRemoteReaderAdapter *-- "0..1" ObservableRemoteReaderAdapter #C_LINK : masterReader >
 ObservableRemoteReaderAdapter *-- "1" ObservationManagerAdapter #C_LINK
+ObservableRemoteReaderAdapter ..> CardSelectionScenarioAdapter #C_USE : use >
 
 CardSelectionServiceFactory ..> CardSelectionServiceAdapter #C_USE : create >
 
 CardSelectionServiceAdapter ..> CardSelectionResultAdapter #C_USE : create >
+CardSelectionServiceAdapter ..> ScheduledCardSelectionsResponseAdapter #C_USE : use >
 
 CardResourceServiceProvider ..> CardResourceServiceAdapter #C_USE : provide >
 
@@ -659,6 +679,7 @@ class LocalReaderAdapter <<blue>>
 class RemoteReaderAdapter <<blue>>
 class ObservableLocalReaderAdapter <<blue>>
 class ObservableRemoteReaderAdapter <<blue>>
+class CardSelectionScenarioAdapter <<blue>>
 enum InternalEvent <<blue>>
 abstract class AbstractObservableStateAdapter <<blue>>
 enum MonitoringState <<blue>>
@@ -690,6 +711,7 @@ class DistributedUtilAdapter <<blue>>
 
 class CardSelectionServiceAdapter <<blue>>
 class CardSelectionResultAdapter <<blue>>
+class ScheduledCardSelectionsResponseAdapter <<blue>>
 
 class CardResourceServiceAdapter <<blue>>
 class CardResourceServiceConfiguratorAdapter <<blue>>

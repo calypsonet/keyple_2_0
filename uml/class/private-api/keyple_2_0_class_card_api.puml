@@ -1,6 +1,6 @@
 @startuml
 title
-        Keyple 2.0 - keyple-java-card-api - 2.0 (07/04/2021)
+        Keyple 2.0 - keyple-java-card-api - 2.0 (28/04/2021)
 end title
 
 ' == THEME ==
@@ -65,10 +65,6 @@ package "org.eclipse.keyple.core.card" as api {
     }
     ' REQUEST
     together {
-        +enum MultiSelectionProcessing {
-            FIRST_MATCH
-            PROCESS_ALL
-        }
         +enum ChannelControl {
             KEEP_OPEN
             CLOSE_AFTER
@@ -104,21 +100,10 @@ package "org.eclipse.keyple.core.card" as api {
             ..
             +boolean isCase4 ()
         }
-        +class "**final** CardSelectionScenario" as CardSelectionScenario {
-            --
-            +CardSelectionScenario (
-                \tList<CardSelectionRequest> cardSelectionRequests,
-                \tMultiSelectionProcessing multiSelectionProcessing,
-                \tChannelControl channelControl)
-            ..
-            +MultiSelectionProcessing getMultiSelectionProcessing ()
-            +ChannelControl getChannelControl ()
-            +List<CardSelectionRequest> getCardSelectionRequests ()
-        }
     }
     ' RESPONSE
     together {
-        +class "<<<back:cyan>KeypleCardSelectionResponse</back>>>\n**final** CardSelectionResponse" as CardSelectionResponse {
+        +class "**final** CardSelectionResponse" as CardSelectionResponse {
             --
             +CardSelectionResponse (SelectionStatus selectionStatus, CardResponse cardResponse)
             ..
@@ -218,10 +203,6 @@ CardSelectionSpi ..> CardSelectionResponse #C_USE : use >
 CardResourceProfileExtensionSpi .left.> SmartCardSpi #C_USE : provide >
 CardResourceProfileExtensionSpi ..> ProxyReader #C_USE : use >
 
-CardSelectionScenario *-- "1..N" CardSelectionRequest #C_LINK
-CardSelectionScenario *-- "1" MultiSelectionProcessing #C_LINK
-CardSelectionScenario *-- "1" ChannelControl #C_LINK
-
 CardSelectionRequest *-- "0..1" CardRequest #C_LINK
 
 CardRequest *-- "1..N" ApduRequest #C_LINK
@@ -238,7 +219,6 @@ AbstractApduException *-up- "0..1" CardResponse #C_LINK
 
 ProxyReader .left.> CardSelectionRequest #C_USE : use >
 ProxyReader ..> CardRequest #C_USE : use >
-ProxyReader .up.> MultiSelectionProcessing #C_USE : use >
 ProxyReader .up.> ChannelControl #C_USE : use >
 
 ProxyReader .up.> CardSelectionResponse #C_USE : provide >
@@ -248,7 +228,7 @@ ProxyReader ..> AbstractApduException #C_USE : throw >
 ' == LAYOUT ==
 
 SmartCardSpi -[hidden]right- CardResourceProfileExtensionSpi
-spi -[hidden]- CardSelectionScenario
+spi -[hidden]- CardSelectionRequest
 spi -[hidden]- CardSelectionResponse
 
 ' == STYLE ==
@@ -256,9 +236,7 @@ spi -[hidden]- CardSelectionResponse
 package api #C_GREY1 {}
 package spi #C_GREY2 {}
 
-class CardSelectionScenario <<green>>
 class CardSelectionRequest <<green>>
-enum MultiSelectionProcessing <<green>>
 enum ChannelControl <<green>>
 class CardRequest <<green>>
 class ApduRequest <<green>>
