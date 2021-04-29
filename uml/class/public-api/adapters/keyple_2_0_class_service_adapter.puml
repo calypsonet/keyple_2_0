@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (28/04/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (29/04/2021)
 end title
 
 ' == THEME ==
@@ -248,7 +248,7 @@ package "org.eclipse.keyple.core.service" as service {
         ~AbstractReaderAdapter (String readerName, Object readerExtension, String pluginName)
         ..
         ~**final** String getPluginName ()
-        ~**final** ScheduledCardSelectionsResponseAdapter transmitCardSelectionRequests (List<<back:lightGreen>CardSelectionRequest</back>> cardSelectionRequests,
+        ~**final** List<<back:lightGreen>CardSelectionResponse</back>> transmitCardSelectionRequests (List<<back:lightGreen>CardSelectionRequest</back>> cardSelectionRequests,
             \t<back:lightGreen>MultiSelectionProcessing</back> multiSelectionProcessing, <back:lightGreen>ChannelControl</back> channelControl)
         ..
         ~**final** void checkStatus ()
