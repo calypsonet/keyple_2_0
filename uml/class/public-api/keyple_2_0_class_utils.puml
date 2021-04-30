@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-utils - 2.0.0 (22/04/2021)
+    Keyple 2.0 - keyple-java-utils - 2.0.0 (29/04/2021)
 end title
 
 ' == THEME ==
@@ -73,6 +73,10 @@ package "org.eclipse.keyple.core.util" as util {
         +{static} int threeBytesToInt (byte[] bytes, int offset)
         +{static} int threeBytesSignedToInt (byte[] bytes, int offset)
         +{static} int fourBytesToInt (byte[] bytes, int offset)
+    }
+    +class "**final** ApduUtil" as ApduUtil {
+        +{static} byte[] build (byte cla, byte ins, byte p1, byte p2, byte[] dataIn, Byte le)
+        +{static} boolean isCase4 (byte[] apduCommand)
     }
     package bertlv {
         +class TLV {
@@ -182,6 +186,7 @@ JsonUtil -[hidden]- BodyError
 BodyError -[hidden]- protocol
 BodyError -[hidden]- ByteArrayUtil
 ByteArrayUtil -[hidden]- Assert
+Assert -[hidden]- ApduUtil
 
 protocol -[hidden]- bertlv
 

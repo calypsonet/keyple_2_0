@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (28/04/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (30/04/2021)
 end title
 
 ' == THEME ==
@@ -81,92 +81,58 @@ package "org.eclipse.keyple.core.service" as service {
 
         +interface CardResourceService {
             +CardResourceServiceConfigurator getConfigurator()
-            +MinimalCardResourceServiceConfigurator getMinimalConfigurator()
             +void start ()
             +void stop ()
             +CardResource getCardResource (String cardResourceProfileName)
-            +CardResource getCardResource ()
             +void releaseCardResource (CardResource cardResource)
             +void removeCardResource (CardResource cardResource)
         }
 
-        +interface MinimalCardResourceServiceConfigurator {
-            --
-            +ConfigurationStep withPlugin (Plugin plugin,
-                \tReaderConfiguratorSpi readerConfiguratorSpi,
-                \t<back:cyan>KeypleCardResourceProfileExtension</back> cardResourceProfileExtension,
-                \tString readerNameRegex)
-            +ConfigurationStep withPoolPlugin (PoolPlugin poolPlugin,
-                \t<back:cyan>KeypleCardResourceProfileExtension</back> cardResourceProfileExtension,
-                \tString readerGroupReference)
-        }
-
         +interface CardResourceServiceConfigurator {
-            +AllocationStrategyStep withPlugins ()
-            +PoolAllocationStrategyStep withPoolPlugins ()
-            +AllocationModeStep endPluginsConfiguration ()
+            +CardResourceServiceConfigurator withPlugins (PluginsConfigurator pluginsConfigurator)
+            +CardResourceServiceConfigurator withPoolPlugins (PoolPluginsConfigurator poolPluginsConfigurator)
+            +CardResourceServiceConfigurator withCardResourceProfiles (CardResourceProfileConfigurator... cardResourceProfileConfigurators)
+            +CardResourceServiceConfigurator withBlockingAllocationMode (int cycleDurationMillis, int timeoutMillis)
+            +void configure ()
         }
 
-        +interface AllocationStrategyStep {
-            +UsageTimeoutStep usingFirstAllocationStrategy ()
-            +UsageTimeoutStep usingCyclicAllocationStrategy ()
-            +UsageTimeoutStep usingRandomAllocationStrategy ()
+        +class "**final** PluginsConfigurator" as PluginsConfigurator {
+            +{static} Builder builder ()
         }
-        +interface UsageTimeoutStep {
-            +PluginStep notUsingUsageTimeout ()
-            +PluginStep usingUsageTimeout (int usageTimeoutMillis)
-        }
-        +interface PluginStep {
+        +class "**final** Builder" as PluginsConfiguratorBuilder {
             --
-            +PluginStep addPlugin (Plugin plugin,
-                \tReaderConfiguratorSpi readerConfiguratorSpi)
-            +PluginMonitoringStep addPluginWithMonitoring (Plugin plugin,
-                \tReaderConfiguratorSpi readerConfiguratorSpi)
-            +CardResourceServiceConfigurator addNoMorePlugins ()
-        }
-        +interface PluginMonitoringStep {
-            --
-            +PluginStep withPluginMonitoring (
-                \tPluginObservationExceptionHandlerSpi pluginObservationExceptionHandlerSpi)
-            +PluginStep withReaderMonitoring (
-                \tReaderObservationExceptionHandlerSpi readerObservationExceptionHandlerSpi)
-            +PluginStep withPluginAndReaderMonitoring (
+            +Builder withAllocationStrategy (AllocationStrategy allocationStrategy)
+            +Builder withUsageTimeout (int usageTimeoutMillis)
+            +Builder addPlugin (Plugin plugin, ReaderConfiguratorSpi readerConfiguratorSpi)
+            +Builder addPluginWithMonitoring (Plugin plugin, ReaderConfiguratorSpi readerConfiguratorSpi
                 \tPluginObservationExceptionHandlerSpi pluginObservationExceptionHandlerSpi,
                 \tReaderObservationExceptionHandlerSpi readerObservationExceptionHandlerSpi)
+            +PluginsConfigurator build ()
+        }
+        +enum AllocationStrategy {
+            FIRST
+            CYCLIC
+            RANDOM
         }
 
-        +interface PoolAllocationStrategyStep {
-            +PoolPluginStep usingPoolPluginFirstAllocationStrategy ()
-            +PoolPluginStep usingPoolPluginLastAllocationStrategy ()
+        +class "**final** PoolPluginsConfigurator" as PoolPluginsConfigurator {
+            +{static} Builder builder ()
         }
-        +interface PoolPluginStep {
+        +class "**final** Builder" as PoolPluginsConfiguratorBuilder {
+            +Builder usePoolFirst ()
+            +Builder addPoolPlugin (PoolPlugin poolPlugin)
+            +PoolPluginsConfigurator build ()
+        }
+
+        +class "**final** CardResourceProfileConfigurator" as CardResourceProfileConfigurator {
             --
-            +PoolPluginStep addPoolPlugin (PoolPlugin poolPlugin)
-            +CardResourceServiceConfigurator addNoMorePoolPlugins ()
+            +{static} Builder builder (String profileName, <back:cyan>KeypleCardResourceProfileExtension</back> cardResourceProfileExtension)
         }
-
-        +interface AllocationModeStep {
-            --
-            +ProfileStep usingBlockingAllocationMode ()
-            +ProfileStep usingBlockingAllocationMode (
-                \tint cycleDurationMillis, int timeoutMillis)
-            +ProfileStep usingNonBlockingAllocationMode ()
-        }
-
-        +interface ProfileStep {
-            +ProfileParameterStep addCardResourceProfile (String name,
-                \t<back:cyan>KeypleCardResourceProfileExtension</back> cardResourceProfileExtension)
-            +ConfigurationStep addNoMoreCardResourceProfiles ()
-        }
-        +interface ProfileParameterStep {
-            +ProfileParameterStep setPlugins (Plugin... plugins)
-            +ProfileParameterStep setReaderNameRegex (String readerNameRegex)
-            +ProfileParameterStep setReaderGroupReference (String readerGroupReference)
-            +ProfileStep addNoMoreParameters ()
-        }
-
-        +interface ConfigurationStep {
-            +void configure ()
+        +class "**final** Builder" as CardResourceProfileConfiguratorBuilder {
+            +Builder withPlugins (Plugin... plugins)
+            +Builder withReaderNameRegex (String readerNameRegex)
+            +Builder withReaderGroupReference (String readerGroupReference)
+            +CardResourceProfileConfigurator build ()
         }
 
         +class "**final** CardResource" as CardResource {
@@ -463,43 +429,34 @@ CardSelectorBuilder .up.> CardSelector #C_USE : create >
 CardResourceServiceProvider ..> CardResourceService #C_USE : provide >
 
 CardResourceService .left.> CardResource #C_USE : provide >
-CardResourceService ..> MinimalCardResourceServiceConfigurator #C_USE : provide >
 CardResourceService ..> CardResourceServiceConfigurator #C_USE : provide >
 
 CardResource *-- "1" Reader #C_LINK
 CardResource *-- "1" SmartCard #C_LINK
 
-MinimalCardResourceServiceConfigurator ..> ConfigurationStep #C_USE
+CardResourceServiceConfigurator ..> CardResourceServiceConfigurator #C_USE
+CardResourceServiceConfigurator ..> PluginsConfigurator #C_USE : use >
+CardResourceServiceConfigurator ..> PoolPluginsConfigurator #C_USE : use >
+CardResourceServiceConfigurator ..> CardResourceProfileConfigurator #C_USE : use >
 
-CardResourceServiceConfigurator ..> AllocationStrategyStep #C_USE
-CardResourceServiceConfigurator ..> PoolAllocationStrategyStep #C_USE
-CardResourceServiceConfigurator ..> AllocationModeStep #C_USE
+PluginsConfigurator ..> PluginsConfiguratorBuilder #C_USE : provide >
+PluginsConfigurator +-right- AllocationStrategy
+PluginsConfigurator *-right- "1" AllocationStrategy #C_LINK
 
-AllocationStrategyStep ..> UsageTimeoutStep #C_USE
+PluginsConfiguratorBuilder ..> PluginsConfiguratorBuilder #C_USE
+PluginsConfiguratorBuilder .up.> AllocationStrategy #C_USE : use >
+PluginsConfiguratorBuilder ..> ReaderConfiguratorSpi #C_USE : use >
+PluginsConfiguratorBuilder .up.> PluginsConfigurator #C_USE : create >
 
-UsageTimeoutStep ..> PluginStep #C_USE
+PoolPluginsConfigurator ..> PoolPluginsConfiguratorBuilder #C_USE : provide >
 
-PluginStep ..> PluginStep #C_USE
-PluginStep ..> PluginMonitoringStep #C_USE
-PluginStep .up.> CardResourceServiceConfigurator #C_USE
-PluginStep ..> ReaderConfiguratorSpi #C_USE : use >
+PoolPluginsConfiguratorBuilder ..> PoolPluginsConfiguratorBuilder #C_USE
+PoolPluginsConfiguratorBuilder .up.> PoolPluginsConfigurator #C_USE : create >
 
-PluginMonitoringStep .up.> PluginStep #C_USE
-PluginMonitoringStep .up.> PluginObservationExceptionHandlerSpi #C_USE : use >
-PluginMonitoringStep .up.> ReaderObservationExceptionHandlerSpi #C_USE : use >
+CardResourceProfileConfigurator ..> CardResourceProfileConfiguratorBuilder #C_USE : provide >
 
-PoolAllocationStrategyStep ..> PoolPluginStep #C_USE
-
-PoolPluginStep ..> PoolPluginStep #C_USE
-PoolPluginStep .up.> CardResourceServiceConfigurator #C_USE
-
-AllocationModeStep ..> ProfileStep #C_USE
-
-ProfileStep ..> ProfileParameterStep #C_USE
-ProfileStep ..> ConfigurationStep #C_USE
-
-ProfileParameterStep ..> ProfileParameterStep #C_USE
-ProfileParameterStep .up.> ProfileStep #C_USE
+CardResourceProfileConfiguratorBuilder ..> CardResourceProfileConfiguratorBuilder #C_USE
+CardResourceProfileConfiguratorBuilder .up.> CardResourceProfileConfigurator #C_USE : create >
 
 Plugin ..> Reader #C_USE : provide >
 

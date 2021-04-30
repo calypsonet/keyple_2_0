@@ -87,7 +87,7 @@ package "org.eclipse.keyple.core.card" as api {
         }
         +class "**final** ApduRequest" as ApduRequest {
             --
-            +ApduRequest (byte[] bytes, boolean isCase4)
+            +ApduRequest (byte[] bytes)
             +ApduRequest (byte cla, byte instruction, byte p1, byte p2, byte[] dataIn, Byte le)
             ..
             +ApduRequest addSuccessfulStatusCode (int successfulStatusCode)
@@ -97,8 +97,6 @@ package "org.eclipse.keyple.core.card" as api {
             +String getName ()
             ..
             +byte[] getBytes ()
-            ..
-            +boolean isCase4 ()
         }
     }
     ' RESPONSE
