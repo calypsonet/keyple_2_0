@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (30/04/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (05/05/2021)
 end title
 
 ' == THEME ==
@@ -161,25 +161,24 @@ package "org.eclipse.keyple.core.service" as service {
             --
             +Plugin registerPlugin (<back:cyan>KeyplePluginExtensionFactory</back> pluginFactory)
             +void unregisterPlugin (String pluginName)
-            +boolean isPluginRegistered (String pluginName)
+            +Set<String> getPluginNames ()
+            +Set<Plugin> getPlugins ()
             +Plugin getPlugin (String pluginName)
-            +Map<String, Plugin> getPlugins ()
             ..
             +void checkCardExtension (<back:cyan>KeypleCardExtension</back> cardExtension)
             ..
             +DistributedLocalService registerDistributedLocalService (
                 \t<back:cyan>KeypleDistributedLocalServiceExtensionFactory</back> distributedLocalServiceFactory)
             +void unregisterDistributedLocalService (String distributedLocalServiceName)
-            +boolean isDistributedLocalServiceRegistered (String distributedLocalServiceName)
-            +void getDistributedLocalService (String distributedLocalServiceName)
+            +DistributedLocalService getDistributedLocalService (String distributedLocalServiceName)
         }
         +interface Plugin {
             --
             +String getName ()
             +<T extends <back:cyan>KeyplePluginExtension</back>> T getExtension (Class<T> pluginType)
             ..
-            +Set<String> getReadersNames ()
-            +Map<String, Reader> getReaders ()
+            +Set<String> getReaderNames ()
+            +Set<Reader> getReaders ()
             +Reader getReader (String readerName)
         }
         +interface DistributedLocalService {
@@ -260,10 +259,10 @@ package "org.eclipse.keyple.core.service" as service {
     +class "<<<back:cyan>KeyplePluginEvent</back>>>\n**final** PluginEvent" as PluginEvent {
         --
         +PluginEvent (String pluginName, String readerName, EventType eventType)
-        +PluginEvent (String pluginName, Set<String> readersNames, EventType eventType)
+        +PluginEvent (String pluginName, Set<String> readerNames, EventType eventType)
         ..
         +String getPluginName ()
-        +SortedSet<String> getReadersNames ()
+        +SortedSet<String> getReaderNames ()
         +EventType getEventType ()
     }
     +enum "EventType" as PluginEventType {
