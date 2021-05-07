@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-network - 2.0.0 (15/03/2021)
+    Keyple 2.0 - keyple-java-distributed-network - 2.0.0 (07/05/2021)
 end title
 
 ' == THEME ==
@@ -59,6 +59,7 @@ package "org.eclipse.keyple.distributed" as root {
     }
     +interface AsyncNodeServer {
         +void onMessage (MessageDto msg)
+        +void onClose (String sessionId)
         +void onError (String sessionId, Throwable error)
     }
     +interface SyncNodeClient {

@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-local - 2.0.0 (02/04/2021)
+    Keyple 2.0 - keyple-java-distributed-local - 2.0.0 (07/05/2021)
 end title
 
 ' == THEME ==
@@ -64,14 +64,14 @@ package "org.eclipse.keyple.distributed" as root {
         ..
         +<T> T executeRemoteService (
             \tRemoteServiceParameters parameters,
-            \tClass<T> classOfT)
+            \tClass<T> classOfUserOutputData)
     }
     +class "**final** RemoteServiceParameters" as RemoteServiceParameters {
         +{static} Builder builder (String serviceId, String localReaderName)
     }
     +class "**final** Builder" as RemoteServiceParametersBuilder {
         +Builder withUserInputData (Object userInputData)
-        +Builder withInitialCardContent (<back:cyan>KeypleSmartCard</back> smartCard)
+        +Builder withInitialCardContent (<back:cyan>KeypleSmartCard</back> initialCardContent)
         +RemoteServiceParameters build ()
     }
 
@@ -98,22 +98,14 @@ package "org.eclipse.keyple.distributed" as root {
     ' Factories builders
     together {
         +class "**final** LocalServiceClientFactoryBuilder" as LocalServiceClientFactoryBuilder {
-            + {static} NameStep builder ()
-        }
-        +interface "NameStep" as LocalServiceClientFactoryNameStep {
-            + NodeStep withDefaultServiceName ()
-            + NodeStep withServiceName (String localServiceName)
+            + {static} NodeStep builder (String localServiceName)
         }
         +interface "NodeStep" as LocalServiceClientFactoryNodeStep {
             + ReaderStep withSyncNode (<back:yellow>SyncEndpointClientSpi</back> endpoint)
-            + TimeoutStep withAsyncNode (<back:yellow>AsyncEndpointClientSpi</back> endpoint)
-        }
-        +interface "TimeoutStep" as LocalServiceClientFactoryTimeoutStep {
-            + ReaderStep usingDefaultTimeout ()
-            + ReaderStep usingTimeout (int timeoutSeconds)
+            + ReaderStep withAsyncNode (<back:yellow>AsyncEndpointClientSpi</back> endpoint, int timeoutSeconds)
         }
         +interface "ReaderStep" as LocalServiceClientFactoryReaderStep {
-                + BuilderStep withReaderObservation (ObservableReaderEventFilter filter)
+                + BuilderStep withReaderObservation (ReaderEventFilterSpi filter)
             + BuilderStep withoutReaderObservation ()
         }
         +interface "BuilderStep" as LocalServiceClientFactoryBuilderStep {
@@ -121,22 +113,19 @@ package "org.eclipse.keyple.distributed" as root {
         }
 
         package spi {
-            +interface ObservableReaderEventFilter {
-                +Object beforePropagation (<back:cyan>KeypleReaderEvent</back> event)
-                +Class<? extends Object> getUserOutputDataClass ()
-                +void afterPropagation (Object userOutputData)
+            +interface ReaderEventFilterSpi {
+                +Object beforeEventBroadcast (<back:cyan>KeypleReaderEvent</back> event)
+                +Class<?> getUserOutputDataClass ()
+                +void afterEventBroadcast (Object userOutputData)
+                +boolean onEventBroadcastError (RuntimeException exception)
             }
         }
-        +class "<<Exception>>\nDoNotPropagateEventException" as DoNotPropagateEventException {
-            +DoNotPropagateEventException (String message)
+        +class "<<Exception>>\n**final** CancelEventBroadcastException" as CancelEventBroadcastException {
+            +CancelEventBroadcastException (String message)
         }
 
         +class "**final** LocalServiceServerFactoryBuilder" as LocalServiceServerFactoryBuilder {
-            + {static} NameStep builder ()
-        }
-        +interface "NameStep" as LocalServiceServerFactoryNameStep {
-            + NodeStep withDefaultServiceName ()
-            + NodeStep withServiceName (String localServiceName)
+            + {static} NodeStep builder (String localServiceName)
         }
         +interface "NodeStep" as LocalServiceServerFactoryNodeStep {
             + BuilderStep withSyncNode ()
@@ -147,11 +136,7 @@ package "org.eclipse.keyple.distributed" as root {
         }
 
         +class "**final** PoolLocalServiceServerFactoryBuilder" as PoolLocalServiceServerFactoryBuilder {
-            + {static} NameStep builder ()
-        }
-        +interface "NameStep" as PoolLocalServiceServerFactoryNameStep {
-            + NodeStep withDefaultServiceName ()
-            + NodeStep withServiceName (String localServiceName)
+            + {static} NodeStep builder (String localServiceName)
         }
         +interface "NodeStep" as PoolLocalServiceServerFactoryNodeStep {
             + PluginStep withSyncNode ()
@@ -171,25 +156,20 @@ LocalServiceClient ..> RemoteServiceParameters #C_USE : use >
 RemoteServiceParameters ..> RemoteServiceParametersBuilder #C_USE : provide >
 RemoteServiceParametersBuilder .up.> RemoteServiceParameters #C_USE : create >
 
-LocalServiceClientFactoryBuilder ..> LocalServiceClientFactoryNameStep #C_USE : provide >
-LocalServiceClientFactoryNameStep ..> LocalServiceClientFactoryNodeStep #C_USE
-LocalServiceClientFactoryNodeStep ..> LocalServiceClientFactoryTimeoutStep #C_USE
+LocalServiceClientFactoryBuilder ..> LocalServiceClientFactoryNodeStep #C_USE : provide >
 LocalServiceClientFactoryNodeStep ..> LocalServiceClientFactoryReaderStep #C_USE
-LocalServiceClientFactoryTimeoutStep ..> LocalServiceClientFactoryReaderStep #C_USE
 LocalServiceClientFactoryReaderStep ..> LocalServiceClientFactoryBuilderStep #C_USE
-LocalServiceClientFactoryReaderStep ..> ObservableReaderEventFilter #C_USE : use >
-ObservableReaderEventFilter ..> DoNotPropagateEventException #C_USE : throw >
+LocalServiceClientFactoryReaderStep ..> ReaderEventFilterSpi #C_USE : use >
+ReaderEventFilterSpi ..> CancelEventBroadcastException #C_USE : throw >
 LocalServiceClientFactoryBuilderStep ..> LocalServiceClientFactory #C_USE : create >
 LocalServiceClientFactory ..> LocalServiceClient #C_USE : create >
 
-LocalServiceServerFactoryBuilder ..> LocalServiceServerFactoryNameStep #C_USE : provide >
-LocalServiceServerFactoryNameStep ..> LocalServiceServerFactoryNodeStep #C_USE
+LocalServiceServerFactoryBuilder ..> LocalServiceServerFactoryNodeStep #C_USE : provide >
 LocalServiceServerFactoryNodeStep ..> LocalServiceServerFactoryBuilderStep #C_USE
 LocalServiceServerFactoryBuilderStep ..> LocalServiceServerFactory #C_USE : create >
 LocalServiceServerFactory ..> LocalServiceServer #C_USE : create >
 
-PoolLocalServiceServerFactoryBuilder ..> PoolLocalServiceServerFactoryNameStep #C_USE : provide >
-PoolLocalServiceServerFactoryNameStep ..> PoolLocalServiceServerFactoryNodeStep #C_USE
+PoolLocalServiceServerFactoryBuilder ..> PoolLocalServiceServerFactoryNodeStep #C_USE : provide >
 PoolLocalServiceServerFactoryNodeStep ..> PoolLocalServiceServerFactoryPluginStep #C_USE
 PoolLocalServiceServerFactoryPluginStep ..> PoolLocalServiceServerFactoryBuilderStep #C_USE
 PoolLocalServiceServerFactoryBuilderStep ..> PoolLocalServiceServerFactory #C_USE : create >
@@ -197,7 +177,7 @@ PoolLocalServiceServerFactory ..> PoolLocalServiceServer #C_USE : create >
 
 ' == LAYOUT ==
 
-DoNotPropagateEventException -[hidden]- LocalServiceClientFactory
+CancelEventBroadcastException -[hidden]- LocalServiceClientFactory
 
 ' == STYLE ==
 
@@ -207,27 +187,23 @@ package spi #C_GREY2 {}
 interface LocalServiceClient <<green>>
 interface LocalServiceClientFactory <<green>>
 class LocalServiceClientFactoryBuilder <<green>>
-interface LocalServiceClientFactoryNameStep <<green>>
 interface LocalServiceClientFactoryNodeStep <<green>>
-interface LocalServiceClientFactoryTimeoutStep <<green>>
 interface LocalServiceClientFactoryReaderStep <<green>>
 interface LocalServiceClientFactoryBuilderStep <<green>>
 class RemoteServiceParameters <<green>>
 class RemoteServiceParametersBuilder <<green>>
-interface ObservableReaderEventFilter <<green>>
-class DoNotPropagateEventException <<green>>
+interface ReaderEventFilterSpi <<green>>
+class CancelEventBroadcastException <<green>>
 
 interface LocalServiceServer <<purple>>
 interface LocalServiceServerFactory <<purple>>
 class LocalServiceServerFactoryBuilder <<purple>>
-interface LocalServiceServerFactoryNameStep <<purple>>
 interface LocalServiceServerFactoryNodeStep <<purple>>
 interface LocalServiceServerFactoryBuilderStep <<purple>>
 
 interface PoolLocalServiceServer <<blue>>
 interface PoolLocalServiceServerFactory <<blue>>
 class PoolLocalServiceServerFactoryBuilder <<blue>>
-interface PoolLocalServiceServerFactoryNameStep <<blue>>
 interface PoolLocalServiceServerFactoryNodeStep <<blue>>
 interface PoolLocalServiceServerFactoryPluginStep <<blue>>
 interface PoolLocalServiceServerFactoryBuilderStep <<blue>>

@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of Keyple Distributed Solution - 2.0.0 (26/03/2021)
+    Keyple 2.0 - Adapter of Keyple Distributed Solution - 2.0.0 (07/05/2021)
 end title
 
 ' == THEME ==
@@ -72,11 +72,10 @@ package "org.eclipse.keyple.distributed" as packAdapter {
         ~**final** void bindSyncNodeServer ()
         ~**final** void bindAsyncNodeClient (
             \tAsyncEndpointClientSpi endpoint,
-            \tint timeoutInSecond)
+            \tint timeoutSeconds)
         ~**final** void bindAsyncNodeServer (
             \tAsyncEndpointServerSpi endpoint)
         ~**final** AbstractNodeAdapter getNode ()
-        ~**final** void checkError (MessageDto message)
         ~**final** String generateSessionId ()
         ..
         ~{abstract} **abstract** void onMessage (MessageDto msg)
@@ -87,7 +86,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
         __
         ~AbstractNodeAdapter (
             \tAbstractMessageHandlerAdapter handler,
-            \tint timeoutInSecond)
+            \tint timeoutSeconds)
         ..
         ~{abstract} **abstract** void openSession (String sessionId)
         ~{abstract} **abstract** MessageDto sendRequest (MessageDto msg)
@@ -102,6 +101,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
         ~**final** void closeSessionSilently (String sessionId)
         ..
         ~**final** String getNodeId ()
+        ~**final** AbstractMessageHandlerAdapter getHandler ()
     }
     ' Async Node
     ~class "<<AsyncNodeClient>>\n**final** AsyncNodeClientAdapter" as AsyncNodeClientAdapter extends AbstractNodeAdapter {
@@ -109,7 +109,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
         ~AsyncNodeClientAdapter (
             \tAbstractMessageHandlerAdapter handler,
             \tAsyncEndpointClientSpi endpoint,
-            \tint timeoutInSecond)
+            \tint timeoutSeconds)
         -- **AsyncNodeClient** --
         +void onOpen (String sessionId)
         +void onMessage (MessageDto msg)
@@ -130,7 +130,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
         ~AsyncNodeServerAdapter (
             \tAbstractMessageHandlerAdapter handler,
             \tAsyncEndpointServerSpi endpoint,
-            \tint timeoutInSecond)
+            \tint timeoutSeconds)
         -- **AsyncNodeServer** --
         +void onMessage (MessageDto msg)
         +void onError (String sessionId, Throwable error)
@@ -166,7 +166,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
         --
         ~SyncNodeServerAdapter (
             \tAbstractMessageHandlerAdapter handler,
-            \tint timeoutInSecond)
+            \tint timeoutSeconds)
         -- **SyncNodeServer** --
         +List<MessageDto> onRequest (MessageDto msg)
         -- **AbstractNodeAdapter** --
@@ -183,11 +183,10 @@ package "org.eclipse.keyple.distributed" as packAdapter {
     ' Server Push Event Strategy
     ~class "**final** ServerPushEventStrategyAdapter" as ServerPushEventStrategyAdapter {
         --
-        ~ServerPushEventStrategyAdapter (Type type)
+        ~ServerPushEventStrategyAdapter (Type type, int durationMillis)
         ..
-        ~ServerPushEventStrategyAdapter setDuration (int durationSeconds)
         ~Type getType ()
-        ~int getDuration ()
+        ~int getDurationMillis ()
     }
     ~enum Type {
         POLLING
@@ -332,7 +331,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
                 \tString initialCardContentClassName)
             -- **RemoteReaderServer** --
             +String getServiceId ()
-            +<T> T getUserInputData (Class<T> classOfT)
+            +<T> T getUserInputData (Class<T> classOfUserInputData)
             +<back:cyan>KeypleSmartCard</back> getInitialCardContent ()
         }
     }
@@ -355,23 +354,15 @@ package "org.eclipse.keyple.distributed" as packAdapter {
                 \tString localServiceName,
                 \tSyncEndpointClientSpi syncEndpointClientSpi,
                 \tAsyncEndpointClientSpi asyncEndpointClientSpi,
-                \tInteger asyncNodeClientTimeoutSeconds,
+                \tint asyncNodeClientTimeoutSeconds,
                 \tboolean withReaderObservation,
-                \tObservableReaderEventFilter eventFilter)
+                \tReaderEventFilterSpi eventFilter)
             -- **LocalServiceFactorySpi** --
             +<back:yellow>LocalServiceSpi</back> getLocalService ()
         }
-        ~class "<<LocalServiceServerFactory>>\n**final** LocalServiceServerFactoryAdapter" as LocalServiceServerFactoryAdapter extends AbstractLocalServiceFactoryAdapter {
+        ~class "<<LocalServiceServerFactory>>\n<<PoolLocalServiceServerFactory>>\n**final** LocalServiceServerFactoryAdapter" as LocalServiceServerFactoryAdapter extends AbstractLocalServiceFactoryAdapter {
             --
             ~LocalServiceServerFactoryAdapter (
-                \tString localServiceName,
-                \tAsyncEndpointServerSpi asyncEndpointServerSpi)
-            -- **LocalServiceFactorySpi** --
-            +<back:yellow>LocalServiceSpi</back> getLocalService ()
-        }
-        ~class "<<PoolLocalServiceServerFactory>>\n**final** PoolLocalServiceServerFactoryAdapter" as PoolLocalServiceServerFactoryAdapter extends AbstractLocalServiceFactoryAdapter {
-            --
-            ~PoolLocalServiceServerFactoryAdapter (
                 \tString localServiceName,
                 \tAsyncEndpointServerSpi asyncEndpointServerSpi,
                 \tString... poolPluginNames)
@@ -398,11 +389,14 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             --
             ~LocalServiceClientAdapter (
                 \tString localServiceName,
+                \tSyncEndpointClientSpi syncEndpointClientSpi,
+                \tAsyncEndpointClientSpi asyncEndpointClientSpi,
+                \tint asyncNodeClientTimeoutSeconds,
                 \tboolean withReaderObservation,
-                \tObservableReaderEventFilter eventFilter)
+                \tReaderEventFilterSpi eventFilter)
             -- **LocalServiceClient** --
             +AsyncNodeClient getAsyncNode ()
-            +<T> T executeRemoteService (RemoteServiceParameters parameters, Class<T> classOfT)
+            +<T> T executeRemoteService (RemoteServiceParameters parameters, Class<T> classOfUserOutputData)
             -- **LocalServiceSpi** --
             +void onReaderEvent (String readerName, String jsonData, <back:cyan>KeypleReaderEvent</back> readerEvent)
             -- **AbstractMessageHandlerAdapter** --
@@ -411,7 +405,8 @@ package "org.eclipse.keyple.distributed" as packAdapter {
         ~class "<<LocalServiceServer>>\n<<PoolLocalServiceServer>>\n**final** LocalServiceServerAdapter" as LocalServiceServerAdapter extends AbstractLocalServiceAdapter {
             --
             ~LocalServiceServerAdapter (
-                \tString localServiceName
+                \tString localServiceName,
+                \tAsyncEndpointServerSpi asyncEndpointServerSpi,
                 \tString... poolPluginNames)
             -- **LocalServiceServer**,\n**PoolLocalServiceServer** --
             +SyncNodeServer getSyncNode ()
@@ -437,8 +432,6 @@ LocalServiceClientFactoryAdapter ..> LocalServiceClientAdapter #C_USE : create >
 
 LocalServiceServerFactoryAdapter ..> LocalServiceServerAdapter #C_USE : create >
 
-PoolLocalServiceServerFactoryAdapter ..> LocalServiceServerAdapter #C_USE : create >
-
 RemotePluginServerFactoryAdapter ..> RemotePluginServerAdapter #C_USE : create >
 
 RemotePluginClientFactoryAdapter ..> RemotePluginClientAdapter #C_USE : create >
@@ -451,11 +444,13 @@ RemotePluginClientAdapter ..> RemoteReaderClientAdapter #C_USE : create >
 
 AbstractRemoteReaderAdapter *-- "1" AbstractNodeAdapter #C_LINK
 
+SyncNodeClientAdapter ..> ServerPushEventStrategyAdapter #C_USE : use >
+
+SyncNodeServerAdapter ..> ServerPushEventStrategyAdapter #C_USE : use >
+
 ' == LAYOUT ==
 
-ServerPushEventStrategyAdapter -[hidden]- AbstractMessageHandlerAdapter
-
-PoolLocalServiceServerFactoryAdapter -[hidden]- AbstractLocalServiceAdapter
+LocalServiceClientFactoryAdapter -[hidden]- AbstractLocalServiceAdapter
 
 RemotePluginServerFactoryAdapter -[hidden]- AbstractRemotePluginAdapter
 
@@ -477,7 +472,6 @@ enum Type <<blue>>
 abstract AbstractLocalServiceFactoryAdapter <<green>>
 class LocalServiceClientFactoryAdapter <<green>>
 class LocalServiceServerFactoryAdapter <<green>>
-class PoolLocalServiceServerFactoryAdapter <<green>>
 abstract AbstractLocalServiceAdapter <<green>>
 class LocalServiceClientAdapter <<green>>
 class LocalServiceServerAdapter <<green>>
