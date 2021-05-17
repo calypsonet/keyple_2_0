@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of Keyple Distributed Solution - 2.0.0 (07/05/2021)
+    Keyple 2.0 - Adapter of Keyple Distributed Solution - 2.0.0 (17/05/2021)
 end title
 
 ' == THEME ==
@@ -65,6 +65,9 @@ package "org.eclipse.keyple.distributed" as packAdapter {
         __
         ~AbstractMessageHandlerAdapter ()
         ..
+        ~{static} String generateSessionId ()
+        ~{static} void checkError (MessageDto message)
+        ..
         ~**final** void bindSyncNodeClient (
             \tSyncEndpointClientSpi endpoint,
             \tServerPushEventStrategyAdapter pluginObservationStrategy,
@@ -76,9 +79,8 @@ package "org.eclipse.keyple.distributed" as packAdapter {
         ~**final** void bindAsyncNodeServer (
             \tAsyncEndpointServerSpi endpoint)
         ~**final** AbstractNodeAdapter getNode ()
-        ~**final** String generateSessionId ()
         ..
-        ~{abstract} **abstract** void onMessage (MessageDto msg)
+        ~{abstract} **abstract** void onMessage (MessageDto message)
     }
 
     ' Node
@@ -89,8 +91,8 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             \tint timeoutSeconds)
         ..
         ~{abstract} **abstract** void openSession (String sessionId)
-        ~{abstract} **abstract** MessageDto sendRequest (MessageDto msg)
-        ~{abstract} **abstract** void sendMessage (MessageDto msg)
+        ~{abstract} **abstract** MessageDto sendRequest (MessageDto message)
+        ~{abstract} **abstract** void sendMessage (MessageDto message)
         ~{abstract} **abstract** void closeSession (String sessionId)
         ..
         ~{abstract} **abstract** void startPluginsObservation ()
@@ -112,13 +114,13 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             \tint timeoutSeconds)
         -- **AsyncNodeClient** --
         +void onOpen (String sessionId)
-        +void onMessage (MessageDto msg)
+        +void onMessage (MessageDto message)
         +void onClose (String sessionId)
         +void onError (String sessionId, Throwable error)
         -- **AbstractNodeAdapter** --
         ~void openSession (String sessionId)
-        ~MessageDto sendRequest (MessageDto msg)
-        ~void sendMessage (MessageDto msg)
+        ~MessageDto sendRequest (MessageDto message)
+        ~void sendMessage (MessageDto message)
         ~void closeSession (String sessionId)
         ~void startPluginsObservation ()
         ~void stopPluginsObservation ()
@@ -132,12 +134,12 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             \tAsyncEndpointServerSpi endpoint,
             \tint timeoutSeconds)
         -- **AsyncNodeServer** --
-        +void onMessage (MessageDto msg)
+        +void onMessage (MessageDto message)
         +void onError (String sessionId, Throwable error)
         -- **AbstractNodeAdapter** --
         ~void openSession (String sessionId)
-        ~MessageDto sendRequest (MessageDto msg)
-        ~void sendMessage (MessageDto msg)
+        ~MessageDto sendRequest (MessageDto message)
+        ~void sendMessage (MessageDto message)
         ~void closeSession (String sessionId)
         ~void startPluginsObservation ()
         ~void stopPluginsObservation ()
@@ -154,8 +156,8 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             \tServerPushEventStrategyAdapter readerObservationStrategy)
         -- **AbstractNodeAdapter** --
         ~void openSession (String sessionId)
-        ~MessageDto sendRequest (MessageDto msg)
-        ~void sendMessage (MessageDto msg)
+        ~MessageDto sendRequest (MessageDto message)
+        ~void sendMessage (MessageDto message)
         ~void closeSession (String sessionId)
         ~void startPluginsObservation ()
         ~void stopPluginsObservation ()
@@ -168,11 +170,11 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             \tAbstractMessageHandlerAdapter handler,
             \tint timeoutSeconds)
         -- **SyncNodeServer** --
-        +List<MessageDto> onRequest (MessageDto msg)
+        +List<MessageDto> onRequest (MessageDto message)
         -- **AbstractNodeAdapter** --
         ~void openSession (String sessionId)
-        ~MessageDto sendRequest (MessageDto msg)
-        ~void sendMessage (MessageDto msg)
+        ~MessageDto sendRequest (MessageDto message)
+        ~void sendMessage (MessageDto message)
         ~void closeSession (String sessionId)
         ~void startPluginsObservation ()
         ~void stopPluginsObservation ()
@@ -218,19 +220,14 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             --
             ~RemotePluginClientFactoryAdapter (
                 \tString remotePluginName,
-                \tAsyncEndpointClientSpi asyncEndpointClientSpi,
+                \tboolean isPoolPlugin,
+                \tboolean isPluginObservationEnabled,
+                \tboolean isReaderObservationEnabled,
                 \tSyncEndpointClientSpi syncEndpointClientSpi,
                 \tServerPushEventStrategyAdapter syncPluginObservationStrategy,
-                \tServerPushEventStrategyAdapter syncReaderObservationStrategy)
-            -- **RemotePluginFactorySpi** --
-            +<back:plum>RemotePluginSpi</back> getRemotePlugin ()
-        }
-        ~class "<<PoolRemotePluginClientFactory>>\n**final** PoolRemotePluginClientFactoryAdapter" as PoolRemotePluginClientFactoryAdapter extends AbstractRemotePluginFactoryAdapter {
-            --
-            ~PoolRemotePluginClientFactoryAdapter (
-                \tString remotePluginName,
+                \tServerPushEventStrategyAdapter syncReaderObservationStrategy,
                 \tAsyncEndpointClientSpi asyncEndpointClientSpi,
-                \tSyncEndpointClientSpi syncEndpointClientSpi)
+                \tint asyncNodeClientTimeoutSeconds)
             -- **RemotePluginFactorySpi** --
             +<back:plum>RemotePluginSpi</back> getRemotePlugin ()
         }
@@ -249,32 +246,43 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             +**final** String getName ()
             +**final** String executeRemotely (String jsonData)
             +**final** boolean isObservable ()
-            +**final** void startPluginsObservation ()
-            +**final** void stopPluginsObservation ()
         }
 
         ~class "<<RemotePluginServer>>\n**final** RemotePluginServerAdapter" as RemotePluginServerAdapter extends AbstractRemotePluginAdapter {
             --
-            ~RemotePluginServerAdapter (String remotePluginName)
+            ~RemotePluginServerAdapter (
+                \tString remotePluginName,
+                \tAsyncEndpointServerSpi asyncEndpointServerSpi)
             -- **RemotePluginServer** --
             +SyncNodeServer getSyncNode ()
             +AsyncNodeServer getAsyncNode ()
-            +RemoteReaderServer getReader (String name)
-            +void terminateService (String remoteReaderName, Object userOutputData)
+            +void endRemoteService (String remoteReaderName, Object userOutputData)
             -- **RemotePluginSpi** --
             +<back:plum>RemoteReaderSpi</back> createRemoteReader (String localReaderName, boolean isObservable)
+            +void startPluginsObservation ()
+            +void stopPluginsObservation ()
             -- **AbstractMessageHandlerAdapter** --
-            ~void onMessage (MessageDto msg)
+            ~void onMessage (MessageDto message)
         }
-        ~class "<<RemotePluginClient>>\n<<PoolRemotePluginClient>>\n**final** RemotePluginClientAdapter" as RemotePluginClientAdapter extends AbstractRemotePluginAdapter {
+        ~class "<<RemotePluginClient>>\n**final** RemotePluginClientAdapter" as RemotePluginClientAdapter extends AbstractRemotePluginAdapter {
             --
-            ~RemotePluginClientAdapter (String remotePluginName, boolean isObservable)
-            -- **RemotePluginClient**,\n**PoolRemotePluginClient** --
+            ~RemotePluginClientAdapter (
+                \tString remotePluginName,
+                \tboolean isPluginObservationEnabled,
+                \tboolean isReaderObservationEnabled,
+                \tSyncEndpointClientSpi syncEndpointClientSpi,
+                \tServerPushEventStrategyAdapter syncPluginObservationStrategy,
+                \tServerPushEventStrategyAdapter syncReaderObservationStrategy,
+                \tAsyncEndpointClientSpi asyncEndpointClientSpi,
+                \tint asyncNodeClientTimeoutSeconds)
+            -- **RemotePluginClient** --
             +AsyncNodeClient getAsyncNode ()
             -- **RemotePluginSpi** --
             +<back:plum>RemoteReaderSpi</back> createRemoteReader (String localReaderName, boolean isObservable)
+            +void startPluginsObservation ()
+            +void stopPluginsObservation ()
             -- **AbstractMessageHandlerAdapter** --
-            ~void onMessage (MessageDto msg)
+            ~void onMessage (MessageDto message)
         }
 
     }
@@ -286,7 +294,6 @@ package "org.eclipse.keyple.distributed" as packAdapter {
         ~abstract class "<<<back:plum>RemoteReaderSpi</back>>>\nAbstractRemoteReaderAdapter" as AbstractRemoteReaderAdapter {
             __
             ~AbstractRemoteReaderAdapter (
-                \tString remotePluginName,
                 \tString remoteReaderName,
                 \tString localReaderName,
                 \tString sessionId,
@@ -304,10 +311,9 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             +**final** void startReaderObservation ()
             +**final** void stopReaderObservation ()
         }
-        ~class "<<RemoteReaderClient>>\n<<PoolRemoteReaderClient>>\n**final** RemoteReaderClientAdapter" as RemoteReaderClientAdapter extends AbstractRemoteReaderAdapter {
+        ~class "<<RemoteReaderClient>>\n**final** RemoteReaderClientAdapter" as RemoteReaderClientAdapter extends AbstractRemoteReaderAdapter {
             __
             ~RemoteReaderClientAdapter (
-                \tString remotePluginName,
                 \tString remoteReaderName,
                 \tString localReaderName,
                 \tString sessionId,
@@ -318,7 +324,6 @@ package "org.eclipse.keyple.distributed" as packAdapter {
         ~class "<<RemoteReaderServer>>\n**final** RemoteReaderServerAdapter" as RemoteReaderServerAdapter extends AbstractRemoteReaderAdapter {
             __
             ~RemoteReaderServerAdapter (
-                \tString remotePluginName,
                 \tString remoteReaderName,
                 \tString localReaderName,
                 \tString sessionId,
@@ -360,7 +365,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             -- **LocalServiceFactorySpi** --
             +<back:yellow>LocalServiceSpi</back> getLocalService ()
         }
-        ~class "<<LocalServiceServerFactory>>\n<<PoolLocalServiceServerFactory>>\n**final** LocalServiceServerFactoryAdapter" as LocalServiceServerFactoryAdapter extends AbstractLocalServiceFactoryAdapter {
+        ~class "<<LocalServiceServerFactory>>\n**final** LocalServiceServerFactoryAdapter" as LocalServiceServerFactoryAdapter extends AbstractLocalServiceFactoryAdapter {
             --
             ~LocalServiceServerFactoryAdapter (
                 \tString localServiceName,
@@ -400,21 +405,21 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             -- **LocalServiceSpi** --
             +void onReaderEvent (String readerName, String jsonData, <back:cyan>KeypleReaderEvent</back> readerEvent)
             -- **AbstractMessageHandlerAdapter** --
-            ~void onMessage (MessageDto msg)
+            ~void onMessage (MessageDto message)
         }
-        ~class "<<LocalServiceServer>>\n<<PoolLocalServiceServer>>\n**final** LocalServiceServerAdapter" as LocalServiceServerAdapter extends AbstractLocalServiceAdapter {
+        ~class "<<LocalServiceServer>>\n**final** LocalServiceServerAdapter" as LocalServiceServerAdapter extends AbstractLocalServiceAdapter {
             --
             ~LocalServiceServerAdapter (
                 \tString localServiceName,
                 \tAsyncEndpointServerSpi asyncEndpointServerSpi,
                 \tString... poolPluginNames)
-            -- **LocalServiceServer**,\n**PoolLocalServiceServer** --
+            -- **LocalServiceServer** --
             +SyncNodeServer getSyncNode ()
             +AsyncNodeServer getAsyncNode ()
             -- **LocalServiceSpi** --
             +void connect (<back:yellow>LocalServiceApi</back> localServiceApi)
             -- **AbstractMessageHandlerAdapter** --
-            ~void onMessage (MessageDto msg)
+            ~void onMessage (MessageDto message)
         }
 
     }
@@ -435,8 +440,6 @@ LocalServiceServerFactoryAdapter ..> LocalServiceServerAdapter #C_USE : create >
 RemotePluginServerFactoryAdapter ..> RemotePluginServerAdapter #C_USE : create >
 
 RemotePluginClientFactoryAdapter ..> RemotePluginClientAdapter #C_USE : create >
-
-PoolRemotePluginClientFactoryAdapter ..> RemotePluginClientAdapter #C_USE : create >
 
 RemotePluginServerAdapter ..> RemoteReaderServerAdapter #C_USE : create >
 
@@ -479,7 +482,6 @@ class LocalServiceServerAdapter <<green>>
 abstract AbstractRemotePluginFactoryAdapter <<red>>
 class RemotePluginClientFactoryAdapter <<red>>
 class RemotePluginServerFactoryAdapter <<red>>
-class PoolRemotePluginClientFactoryAdapter <<red>>
 abstract AbstractRemotePluginAdapter <<red>>
 class RemotePluginClientAdapter <<red>>
 class RemotePluginServerAdapter <<red>>

@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-remote - 2.0.0 (07/05/2021)
+    Keyple 2.0 - keyple-java-distributed-remote - 2.0.0 (17/05/2021)
 end title
 
 ' == THEME ==
@@ -64,7 +64,6 @@ package "org.eclipse.keyple.distributed" as root {
         +<back:yellow>SyncNodeServer</back> getSyncNode ()
         +<back:yellow>AsyncNodeServer</back> getAsyncNode ()
         ..
-        +RemoteReaderServer getReader (String name)
         +void endRemoteService (String remoteReaderName,
             \tObject userOutputData)
     }
@@ -78,19 +77,12 @@ package "org.eclipse.keyple.distributed" as root {
     }
     +interface "<<<back:cyan>KeypleReaderExtension</back>>>\nRemoteReaderClient" as RemoteReaderClient {
     }
-    +interface "<<<back:cyan>KeyplePluginExtension</back>>>\nPoolRemotePluginClient" as PoolRemotePluginClient {
-        +<back:yellow>AsyncNodeClient</back> getAsyncNode ()
-    }
-    +interface "<<<back:cyan>KeypleReaderExtension</back>>>\nPoolRemoteReaderClient" as PoolRemoteReaderClient {
-    }
 
     ' Factories
     together {
-        +interface "<<<back:cyan>KeyplePluginExtensionFactory</back>>>\nRemotePluginServerFactory" as RemotePluginServerFactory {
-        }
         +interface "<<<back:cyan>KeyplePluginExtensionFactory</back>>>\nRemotePluginClientFactory" as RemotePluginClientFactory {
         }
-        +interface "<<<back:cyan>KeyplePluginExtensionFactory</back>>>\nPoolRemotePluginClientFactory" as PoolRemotePluginClientFactory {
+        +interface "<<<back:cyan>KeyplePluginExtensionFactory</back>>>\nRemotePluginServerFactory" as RemotePluginServerFactory {
         }
     }
 
@@ -120,9 +112,9 @@ package "org.eclipse.keyple.distributed" as root {
         }
         +interface "ServerPushPluginEventStrategyStep" as RemotePluginClientFactoryServerPushPluginEventStrategyStep {
             + SyncNodeReaderStep withPluginPollingStrategy (
-                \tint requestFrequencySeconds)
+                \tint requestFrequencyMillis)
             + SyncNodeReaderStep withPluginLongPollingStrategy (
-                \tint requestTimeoutSeconds)
+                \tint requestTimeoutMillis)
         }
         +interface "SyncNodeReaderStep" as RemotePluginClientFactorySyncNodeReaderStep {
             + ServerPushReaderEventStrategyStep withReaderObservation ()
@@ -130,23 +122,23 @@ package "org.eclipse.keyple.distributed" as root {
         }
         +interface "ServerPushReaderEventStrategyStep" as RemotePluginClientFactoryServerPushReaderEventStrategyStep {
             + BuilderStep withReaderPollingStrategy (
-                \tint requestFrequencySeconds)
+                \tint requestFrequencyMillis)
             + BuilderStep withReaderLongPollingStrategy (
-                \tint requestTimeoutSeconds)
+                \tint requestTimeoutMillis)
         }
         +interface "BuilderStep" as RemotePluginClientFactoryBuilderStep {
             + RemotePluginClientFactory build ()
         }
 
-        +class "**final** PoolRemotePluginClientFactoryBuilder" as PoolRemotePluginClientFactoryBuilder {
+        +class "**final** RemotePoolPluginClientFactoryBuilder" as RemotePoolPluginClientFactoryBuilder {
             + {static} NodeStep builder (String remotePluginName)
         }
-        +class "NodeStep" as PoolRemotePluginClientFactoryNodeStep {
+        +class "NodeStep" as RemotePoolPluginClientFactoryNodeStep {
             + BuilderStep withSyncNode (<back:yellow>SyncEndpointClientSpi</back> endpoint)
             + BuilderStep withAsyncNode (<back:yellow>AsyncEndpointClientSpi</back> endpoint, int timeoutSeconds)
         }
-        +interface "BuilderStep" as PoolRemotePluginClientFactoryBuilderStep {
-            + PoolRemotePluginClientFactory build ()
+        +interface "BuilderStep" as RemotePoolPluginClientFactoryBuilderStep {
+            + RemotePluginClientFactory build ()
         }
     }
 }
@@ -171,11 +163,9 @@ RemotePluginClientFactoryBuilderStep ..> RemotePluginClientFactory #C_USE : crea
 RemotePluginClientFactory ..> RemotePluginClient #C_USE : create >
 RemotePluginClient *--> "1..N" RemoteReaderClient #C_LINK : provide >
 
-PoolRemotePluginClientFactoryBuilder ..> PoolRemotePluginClientFactoryNodeStep #C_USE : provide >
-PoolRemotePluginClientFactoryNodeStep ..> PoolRemotePluginClientFactoryBuilderStep #C_USE
-PoolRemotePluginClientFactoryBuilderStep ..> PoolRemotePluginClientFactory #C_USE : create >
-PoolRemotePluginClientFactory ..> PoolRemotePluginClient #C_USE : create >
-PoolRemotePluginClient *--> "1..N" PoolRemoteReaderClient #C_LINK : provide >
+RemotePoolPluginClientFactoryBuilder ..> RemotePoolPluginClientFactoryNodeStep #C_USE : provide >
+RemotePoolPluginClientFactoryNodeStep ..> RemotePoolPluginClientFactoryBuilderStep #C_USE
+RemotePoolPluginClientFactoryBuilderStep ..> RemotePluginClientFactory #C_USE : create >
 
 ' == LAYOUT ==
 
@@ -201,11 +191,8 @@ interface RemotePluginClientFactorySyncNodeReaderStep <<purple>>
 interface RemotePluginClientFactoryServerPushReaderEventStrategyStep <<purple>>
 interface RemotePluginClientFactoryBuilderStep <<purple>>
 
-interface PoolRemotePluginClientFactory <<blue>>
-interface PoolRemotePluginClient <<blue>>
-interface PoolRemoteReaderClient <<blue>>
-class PoolRemotePluginClientFactoryBuilder <<blue>>
-interface PoolRemotePluginClientFactoryNodeStep <<blue>>
-interface PoolRemotePluginClientFactoryBuilderStep <<blue>>
+class RemotePoolPluginClientFactoryBuilder <<blue>>
+interface RemotePoolPluginClientFactoryNodeStep <<blue>>
+interface RemotePoolPluginClientFactoryBuilderStep <<blue>>
 
 @enduml
