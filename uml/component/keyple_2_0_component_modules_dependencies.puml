@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Modules dependencies - 19/02/2021
+    Keyple 2.0 - Modules dependencies - 20/05/2021
 end title
 
 ' == THEME ==
@@ -28,6 +28,9 @@ skinparam component {
     ' Green
     BackgroundColor<<green>> #E9F7EF
     BorderColor<<green>> #27AE60
+    ' Orange
+    BackgroundColor<<orange>> #FDF2E9
+    BorderColor<<orange>> #E67E22
     ' Grey
     BackgroundColor<<grey>> #EAECEE
     BorderColor<<grey>> #2C3E50
@@ -46,6 +49,9 @@ skinparam interface {
     ' Green
     BackgroundColor<<green>> #E9F7EF
     BorderColor<<green>> #27AE60
+    ' Orange
+    BackgroundColor<<orange>> #FDF2E9
+    BorderColor<<orange>> #E67E22
     ' Grey
     BackgroundColor<<grey>> #EAECEE
     BorderColor<<grey>> #2C3E50
@@ -54,24 +60,29 @@ hide <<red>> stereotype
 hide <<purple>> stereotype
 hide <<blue>> stereotype
 hide <<green>> stereotype
+hide <<orange>> stereotype
 hide <<grey>> stereotype
 
 ' == COMPONENTS ==
 
 package "Components having adapters" as packMain #C_GREY1 {
     [Specific Application] as application <<blue>>
-    [**keyple-java-service**\nuse <back:cyan>**keyple-java-commons-api**</back>] as service
     [Specific Plugin (PCSC...)\nuse <back:cyan>**keyple-java-commons-api**</back>] as plugin <<red>>
-    [Specific Card Extension (Calypso...)\nuse <back:cyan>**keyple-java-commons-api**</back>] as extension <<green>>
+    together {
+        [Specific Card Extension (Calypso...)\nuse <back:cyan>**keyple-java-commons-api**</back>] as extension <<green>>
+        [**calypsonet-java-reader-api**] as readerApi <<orange>>
+        [**keyple-java-service**\nuse <back:cyan>**keyple-java-commons-api**</back>] as service
+        [**keyple-java-service-resource**] as serviceResource <<grey>>
+    }
     together {
         [**keyple-java-distributed-local**\nuse <back:cyan>**keyple-java-commons-api**</back>] as local <<purple>>
         [**keyple-java-distributed-network**] as network <<purple>>
         [**keyple-java-distributed-remote**\nuse <back:cyan>**keyple-java-commons-api**</back>] as remote <<purple>>
     }
 }
-package "Keyple Internal APIs/SPIs (hidden for the specific application)" as packApi #C_GREY1 {
+package "Internal APIs/SPIs (hidden for the specific application)" as packApi #C_GREY1 {
     [**keyple-java-plugin-api**] as pluginApi
-    [**keyple-java-card-api**\nuse <back:cyan>**keyple-java-commons-api**</back>] as cardApi
+    [**calypsonet-java-card-api**] as cardApi <<orange>>
     [**keyple-java-distributed-local-api**\nuse <back:cyan>**keyple-java-commons-api**</back>] as distributedLocalApi
     [**keyple-java-distributed-remote-api**] as distributedRemoteApi
 }
@@ -81,20 +92,27 @@ package "Keyple Internal APIs/SPIs (hidden for the specific application)" as pac
 
 application --> plugin #COLOR_BLUE
 application --> service #COLOR_BLUE
+application -left-> serviceResource #COLOR_BLUE
+application --> readerApi #COLOR_BLUE
 application --> extension #COLOR_BLUE
 application --> local #COLOR_BLUE
 application -left-> network #COLOR_BLUE
 application --> remote #COLOR_BLUE
 
 extension --> cardApi #COLOR_GREEN
-extension -right-> service #COLOR_GREEN
+extension -up-> readerApi #COLOR_GREEN
+extension -up-> serviceResource #COLOR_GREEN
 
 plugin --> pluginApi #COLOR_RED
 
+service -up-> readerApi #COLOR_YELLOW
 service --> pluginApi #COLOR_YELLOW
 service --> cardApi #COLOR_YELLOW
 service --> distributedRemoteApi #COLOR_YELLOW
 service --> distributedLocalApi #COLOR_YELLOW
+
+serviceResource -right-> readerApi #COLOR_GREY
+serviceResource --> service #COLOR_GREY
 
 local -up-> network #COLOR_PURPLE
 local --> distributedLocalApi #COLOR_PURPLE

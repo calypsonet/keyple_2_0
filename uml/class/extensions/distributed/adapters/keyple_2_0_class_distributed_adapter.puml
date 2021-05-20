@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of Keyple Distributed Solution - 2.0.0 (17/05/2021)
+    Keyple 2.0 - Adapter of Keyple Distributed Solution - 2.0.0 (20/05/2021)
 end title
 
 ' == THEME ==
@@ -256,7 +256,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             -- **RemotePluginServer** --
             +SyncNodeServer getSyncNode ()
             +AsyncNodeServer getAsyncNode ()
-            +void endRemoteService (String remoteReaderName, Object userOutputData)
+            +void endRemoteService (String remoteReaderName, Object outputData)
             -- **RemotePluginSpi** --
             +<back:plum>RemoteReaderSpi</back> createRemoteReader (String localReaderName, boolean isObservable)
             +void startPluginsObservation ()
@@ -331,13 +331,12 @@ package "org.eclipse.keyple.distributed" as packAdapter {
                 \tboolean isObservable,
                 \tAbstractNodeAdapter node,
                 \tString serviceId,
-                \tString userInputDataJson,
+                \tString inputDataJson,
                 \tString initialCardContentJson,
                 \tString initialCardContentClassName)
             -- **RemoteReaderServer** --
             +String getServiceId ()
-            +<T> T getUserInputData (Class<T> classOfUserInputData)
-            +<back:cyan>KeypleSmartCard</back> getInitialCardContent ()
+            +<T> T getInputData (Class<T> classOfInputData)
         }
     }
 
@@ -401,7 +400,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
                 \tReaderEventFilterSpi eventFilter)
             -- **LocalServiceClient** --
             +AsyncNodeClient getAsyncNode ()
-            +<T> T executeRemoteService (RemoteServiceParameters parameters, Class<T> classOfUserOutputData)
+            +<T> T executeRemoteService (RemoteServiceParameters parameters, Class<T> classOfOutputData)
             -- **LocalServiceSpi** --
             +void onReaderEvent (String readerName, String jsonData, <back:cyan>KeypleReaderEvent</back> readerEvent)
             -- **AbstractMessageHandlerAdapter** --

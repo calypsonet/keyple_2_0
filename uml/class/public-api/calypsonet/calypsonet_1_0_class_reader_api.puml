@@ -1,0 +1,247 @@
+@startuml
+title
+    Calypsonet - calypsonet-java-reader-api - 1.0 (20/05/2021)
+end title
+
+' == THEME ==
+
+'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define C_GREY1 F8F9F9
+!define C_GREY2 F2F3F4
+!define C_GREY3 E5E7E9
+!define C_GREY4 D7DBDD
+!define C_GREY5 CACFD2
+!define C_GREY6 BDC3C7
+!define C_LINK 3498DB
+!define C_USE 27AE60
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+' Red
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+' Purple
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+' blue
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+' Green
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+' Grey
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+' == CONTENT ==
+
+package "org.calypsonet.terminal.reader" as readerApi {
+    ' SERVICE
+    together {
+        +class "**final** ReaderApiProperties" as ApiProperties {
+            +{static} **final** String VERSION
+        }
+        +interface CardReader {
+            --
+            +String getName ()
+            ..
+            +boolean isContactless ()
+            +boolean isCardPresent ()
+            ..
+            +void activateProtocol (String readerProtocol, String cardProtocol)
+            +void deactivateProtocol (String readerProtocol)
+        }
+        +interface ObservableCardReader extends CardReader {
+            --
+            +void setEventNotificationExecutorService (
+                \tExecutorService eventNotificationExecutorService)
+            +void setReaderObservationExceptionHandler (
+                \tCardReaderObservationExceptionHandlerSpi exceptionHandler)
+            ..
+            +void addObserver (CardReaderObserverSpi observer)
+            +void removeObserver (CardReaderObserverSpi observer)
+            +void clearObservers ()
+            +int countObservers ()
+            ..
+            +void startCardDetection (PollingMode pollingMode)
+            +void stopCardDetection ()
+            +void finalizeCardProcessing ()
+        }
+        +enum PollingMode {
+            REPEATING
+            SINGLESHOT
+        }
+        +enum NotificationMode {
+            ALWAYS
+            MATCHED_ONLY
+        }
+        +interface CardReaderEvent {
+            --
+            +String getReaderName ()
+            +EventType getEventType ()
+            +ScheduledCardSelectionsResponse getScheduledCardSelectionsResponse ()
+        }
+        +enum "EventType" as CardReaderEventType {
+            CARD_INSERTED
+            CARD_MATCHED
+            CARD_REMOVED
+            UNREGISTERED
+        }
+        ' SPI
+        package "spi" as readerSpi {
+            +interface CardReaderObserverSpi {
+                +void onReaderEvent (
+                    \tCardReaderEvent cardReaderEvent)
+            }
+            +interface CardReaderObservationExceptionHandlerSpi {
+                +void onReaderObservationError (String contextInfo,
+                    \tString readerName, Throwable e)
+            }
+        }
+    }
+
+    ' SELECTION
+    package "selection" as selectionApi {
+        ' Selection
+        +interface CardSelectionService {
+            --
+            +void setMultipleSelectionMode ()
+            ..
+            +int prepareSelection (CardSelection cardSelection)
+            +void prepareReleaseChannel ()
+            ..
+            +CardSelectionResult processCardSelectionScenario (CardReader cardReader)
+            ..
+            +void scheduleCardSelectionScenario (ObservableCardReader observableCardReader,
+                \tNotificationMode notificationMode, PollingMode pollingMode)
+            +CardSelectionResult parseScheduledCardSelectionsResponse (
+                \tScheduledCardSelectionsResponse scheduledCardSelectionsResponse)
+        }
+
+        ' Card Extension SPI
+        package "spi" as selectionSpi {
+            +interface CardSelection {
+                +CardSelector getCardSelector ()
+            }
+            +interface "SmartCard" as SmartCard {
+                --
+                +boolean hasFci ()
+                +byte[] getFciBytes ()
+                ..
+                +boolean hasAtr ()
+                +byte[] getAtrBytes ()
+            }
+            +interface CardSelector {
+                --
+                +String getCardProtocol ()
+                ..
+                +String getAtrRegex ()
+                ..
+                +byte[] getAid ()
+                +FileOccurrence getFileOccurrence ()
+                +FileControlInformation getFileControlInformation ()
+                +Set<Integer> getSuccessfulSelectionStatusCodes ()
+                ..
+                +CardSelector addSuccessfulStatusCode (int statusCode)
+                ..
+                +boolean atrMatches (byte[] atr)
+            }
+            +enum FileOccurrence {
+                FIRST
+                LAST
+                NEXT
+                PREVIOUS
+                +byte getIsoBitMask ()
+            }
+            +enum FileControlInformation {
+                FCI
+                FCP
+                FMD
+                NO_RESPONSE
+                +byte getIsoBitMask ()
+            }
+        }
+        +interface CardSelectionResult {
+            --
+            +boolean hasActiveSelection ()
+            +int getActiveSelectionIndex ()
+            +boolean hasSelectionMatched (int selectionIndex)
+            ..
+            +Map<Integer, SmartCard> getSmartCards ()
+            +SmartCard getSmartCard (int selectionIndex)
+            +SmartCard getActiveSmartCard ()
+        }
+        +interface ScheduledCardSelectionsResponse {
+        }
+    }
+    ' EXCEPTIONS
+    together {
+        +class "<<RuntimeException>>\nReaderCommunicationException" as ReaderCommunicationException {
+            +ReaderCommunicationException (String message)
+            +ReaderCommunicationException (String message, Throwable cause)
+        }
+        +class "<<RuntimeException>>\nReaderProtocolNotSupportedException" as ReaderProtocolNotSupportedException {
+            +ReaderProtocolNotSupportedException (String cardProtocol)
+        }
+        +class "<<RuntimeException>>\nCardCommunicationException" as CardCommunicationException {
+            +CardCommunicationException (String message)
+            +CardCommunicationException (String message, Throwable cause)
+        }
+    }
+}
+
+' Associations
+
+ObservableCardReader +-- NotificationMode
+ObservableCardReader +-left- PollingMode
+ObservableCardReader .left.> PollingMode #C_USE : use >
+ObservableCardReader ..> CardReaderObservationExceptionHandlerSpi #C_USE : use >
+
+CardReaderEvent +-- CardReaderEventType
+CardReaderEvent *-- "1" CardReaderEventType #C_LINK
+CardReaderEvent .up.> ScheduledCardSelectionsResponse #C_USE : provide >
+
+CardSelectionService *-- "1..N" CardSelection #C_LINK
+
+CardSelectionResult *-- "1..N" SmartCard #C_LINK
+
+CardSelector +-- FileOccurrence
+CardSelector *-- "0..1" FileOccurrence #C_LINK
+CardSelector +-- FileControlInformation
+CardSelector *-- "0..1" FileControlInformation #C_LINK
+
+CardSelectionService ..> ScheduledCardSelectionsResponse #C_USE : use >
+CardSelectionService ..> CardSelectionResult #C_USE : provide >
+CardSelectionService .right.> CardReader #C_USE : use >
+CardSelectionService ..> NotificationMode #C_USE : use >
+CardSelectionService ..> PollingMode #C_USE : use >
+
+ObservableCardReader ..> CardReaderObserverSpi #C_USE : use >
+
+CardReaderObserverSpi ..> CardReaderEvent #C_USE : use >
+
+CardSelection ..> CardSelector #C_USE : provide >
+
+' == LAYOUT ==
+
+FileOccurrence -[hidden]- ReaderProtocolNotSupportedException
+ReaderCommunicationException -[hidden]right- CardCommunicationException
+
+' == STYLE ==
+
+package readerApi #C_GREY1 {}
+package readerSpi #C_GREY2 {}
+package selectionApi #C_GREY2 {}
+package selectionSpi #C_GREY3 {}
+
+@enduml

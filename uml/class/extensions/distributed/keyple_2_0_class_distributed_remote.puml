@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-remote - 2.0.0 (17/05/2021)
+    Keyple 2.0 - keyple-java-distributed-remote - 2.0.0 (20/05/2021)
 end title
 
 ' == THEME ==
@@ -64,13 +64,12 @@ package "org.eclipse.keyple.distributed" as root {
         +<back:yellow>SyncNodeServer</back> getSyncNode ()
         +<back:yellow>AsyncNodeServer</back> getAsyncNode ()
         ..
-        +void endRemoteService (String remoteReaderName,
-            \tObject userOutputData)
+        +void endRemoteService (String remoteReaderName, Object outputData)
     }
     +interface "<<<back:cyan>KeypleReaderExtension</back>>>\nRemoteReaderServer" as RemoteReaderServer {
         +String getServiceId ()
-        +<T> T getUserInputData (Class<T> classOfUserInputData)
-        +<back:cyan>KeypleSmartCard</back> getInitialCardContent ()
+        +Object getInitialCardContent ()
+        +<T> T getInputData (Class<T> classOfInputData)
     }
     +interface "<<<back:cyan>KeyplePluginExtension</back>>>\nRemotePluginClient" as RemotePluginClient {
         +<back:yellow>AsyncNodeClient</back> getAsyncNode ()

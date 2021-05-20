@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-local - 2.0.0 (17/05/2021)
+    Keyple 2.0 - keyple-java-distributed-local - 2.0.0 (20/05/2021)
 end title
 
 ' == THEME ==
@@ -63,16 +63,11 @@ package "org.eclipse.keyple.distributed" as root {
         +<back:yellow>AsyncNodeClient</back> getAsyncNode ()
         ..
         +<T> T executeRemoteService (
-            \tRemoteServiceParameters parameters,
-            \tClass<T> classOfUserOutputData)
-    }
-    +class "**final** RemoteServiceParameters" as RemoteServiceParameters {
-        +{static} Builder builder (String serviceId, String localReaderName)
-    }
-    +class "**final** Builder" as RemoteServiceParametersBuilder {
-        +Builder withUserInputData (Object userInputData)
-        +Builder withInitialCardContent (<back:cyan>KeypleSmartCard</back> initialCardContent)
-        +RemoteServiceParameters build ()
+            \tString serviceId,
+            \tString localReaderName,
+            \tObject initialCardContent,
+            \tObject inputData,
+            \tClass<T> classOfOutputData)
     }
 
     +interface "<<<back:cyan>KeypleDistributedLocalServiceExtension</back>>>\nLocalServiceServer" as LocalServiceServer {
@@ -108,8 +103,8 @@ package "org.eclipse.keyple.distributed" as root {
         package spi {
             +interface ReaderEventFilterSpi {
                 +Object beforeEventBroadcast (<back:cyan>KeypleReaderEvent</back> event)
-                +Class<?> getUserOutputDataClass ()
-                +void afterEventBroadcast (Object userOutputData)
+                +Class<?> getOutputDataClass ()
+                +void afterEventBroadcast (Object outputData)
                 +boolean onEventBroadcastError (RuntimeException exception)
             }
         }
@@ -132,9 +127,6 @@ package "org.eclipse.keyple.distributed" as root {
 }
 
 ' Associations
-LocalServiceClient ..> RemoteServiceParameters #C_USE : use >
-RemoteServiceParameters ..> RemoteServiceParametersBuilder #C_USE : provide >
-RemoteServiceParametersBuilder .up.> RemoteServiceParameters #C_USE : create >
 
 LocalServiceClientFactoryBuilder ..> LocalServiceClientFactoryNodeStep #C_USE : provide >
 LocalServiceClientFactoryNodeStep ..> LocalServiceClientFactoryReaderStep #C_USE
@@ -165,8 +157,6 @@ class LocalServiceClientFactoryBuilder <<green>>
 interface LocalServiceClientFactoryNodeStep <<green>>
 interface LocalServiceClientFactoryReaderStep <<green>>
 interface LocalServiceClientFactoryBuilderStep <<green>>
-class RemoteServiceParameters <<green>>
-class RemoteServiceParametersBuilder <<green>>
 interface ReaderEventFilterSpi <<green>>
 class CancelEventBroadcastException <<green>>
 

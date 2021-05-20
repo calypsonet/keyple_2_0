@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Specific Card Extension - 2.0.0 (02/04/2021)
+    Keyple 2.0 - Specific Card Extension - 2.0.0 (20/05/2021)
 end title
 
 ' == THEME ==
@@ -47,82 +47,81 @@ hide <<grey>> stereotype
 
 package "org.eclipse.keyple.core.common" as commonsApi {
     +interface KeypleCardExtension {
-    }
-    +interface KeypleSmartCard {
-    }
-    +interface KeypleCardResourceProfileExtension {
+        ...
     }
 }
-package "org.eclipse.keyple.core.service.selection.spi" as serviceSelectionSpi {
+package "org.calypsonet.terminal.reader.selection.spi" as readerSelectionSpi {
     +interface CardSelection {
         ...
     }
-    +interface SmartCard extends KeypleSmartCard {
+    +interface CardSelector {
+        ...
+    }
+    +interface SmartCard {
         ...
     }
 }
-package "org.eclipse.keyple.core.card.spi" as cardSpi {
-    +interface CardExtensionSpi {
-        ...
-    }
+package "org.calypsonet.terminal.card.spi" as cardSpi {
     +interface CardSelectionSpi {
         ...
     }
+    +interface CardSelectorSpi {
+    }
     +interface SmartCardSpi {
     }
+}
+package "org.eclipse.keyple.core.service.resource.spi" as cardResourceSpi {
     +interface CardResourceProfileExtensionSpi {
         ...
     }
 }
 
 package "org.eclipse.keyple.card.xxx (specific extension)" as specificExtension {
-    +class "**final** xxxCardExtensionProvider" as xxxCardExtensionProvider {
-        +{static} xxxCardExtension getService ()
-    }
-    +interface xxxSmartCard extends SmartCard {
-        ...
-    }
-    +interface xxxCardResourceProfileExtension extends KeypleCardResourceProfileExtension {
+    +class "**final** xxxCardExtension" as xxxCardExtension implements KeypleCardExtension {
+        --
+        +{static} xxxCardExtension getInstance ()
+        ..
+        +xxxCardSelection createXxxCardSelection ()
+        +xxxCardSelector createXxxCardSelector ()
         ...
     }
     +interface xxxCardSelection extends CardSelection {
         ...
     }
-    +interface "**final** xxxCardExtension" as xxxCardExtension extends KeypleCardExtension {
+    +interface "**final** xxxCardSelector" as xxxCardSelector implements CardSelector {
         --
-        +xxxCardSelection createXxxCardSelection ()
-        +xxxCardSelection createXxxCardResourceProfileExtension ()
+        +xxxCardSelector set... ()
+        +xxxCardSelector set... ()
+        ...
+    }
+    +interface xxxSmartCard extends SmartCard {
+        ...
+    }
+    ~class "**final** xxxCardResourceProfileExtension" as xxxCardResourceProfileExtension implements CardResourceProfileExtensionSpi {
         ...
     }
     ' Adapters
-    ~class "**final** xxxCardExtensionAdapter" as xxxCardExtensionAdapter implements xxxCardExtension, CardExtensionSpi {
-        ...
-    }
     ~class "**final** xxxCardSelectionAdapter" as xxxCardSelectionAdapter implements xxxCardSelection, CardSelectionSpi {
         ...
     }
-    ~class "**final** xxxSmartCardAdapter" as xxxSmartCardAdapter implements xxxSmartCard, SmartCardSpi {
+    ~class "**final** xxxCardSelectorAdapter" as xxxCardSelectorAdapter implements xxxCardSelector, CardSelectorSpi {
         ...
     }
-    ~class "**final** xxxCardResourceProfileExtensionAdapter" as xxxCardResourceProfileExtensionAdapter implements xxxCardResourceProfileExtension, CardResourceProfileExtensionSpi {
+    ~class "**final** xxxSmartCardAdapter" as xxxSmartCardAdapter implements xxxSmartCard, SmartCardSpi {
         ...
     }
 }
 
 ' Associations
 
-xxxCardExtensionProvider .right.> xxxCardExtension #C_USE : provide >
-
 xxxCardExtension .right.> xxxCardSelection #C_USE : provide >
-xxxCardExtension .right.> xxxCardResourceProfileExtension #C_USE : provide >
+xxxCardExtension .right.> xxxCardSelector #C_USE : provide >
 
 ' == LAYOUT ==
 
-xxxCardSelection -[hidden]- xxxCardExtensionAdapter
 xxxCardSelection -[hidden]- xxxSmartCardAdapter
-xxxCardExtensionAdapter -[hidden]- CardExtensionSpi
+xxxCardSelectorAdapter -[hidden]- CardSelectorSpi
 xxxSmartCardAdapter -[hidden]- SmartCardSpi
-xxxCardResourceProfileExtensionAdapter -[hidden]- CardResourceProfileExtensionSpi
 xxxCardSelectionAdapter -[hidden]- CardSelectionSpi
 
 ' == STYLE ==
@@ -130,15 +129,14 @@ xxxCardSelectionAdapter -[hidden]- CardSelectionSpi
 package commonsApi #C_GREY1 {}
 package specificExtension #C_GREY1 {}
 package cardSpi #C_GREY1 {}
-package serviceSelectionSpi #C_GREY2 {}
+package readerSelectionSpi #C_GREY1 {}
+package cardResourceSpi #C_GREY1 {}
 
-class xxxCardExtensionAdapter <<blue>>
 class xxxCardSelectionAdapter <<blue>>
+class xxxCardSelectorAdapter <<blue>>
 class xxxSmartCardAdapter <<blue>>
-class xxxCardResourceProfileExtensionAdapter <<blue>>
-interface CardExtensionSpi <<blue>>
 interface CardSelectionSpi <<blue>>
+interface CardSelectorSpi <<blue>>
 interface SmartCardSpi <<blue>>
-interface CardResourceProfileExtensionSpi <<blue>>
 
 @enduml

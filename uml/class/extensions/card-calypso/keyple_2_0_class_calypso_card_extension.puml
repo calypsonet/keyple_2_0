@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Calypso Card Extension - 2.0.0 (28/04/2021)
+    Keyple 2.0 - Calypso Card Extension - 2.0.0 (20/05/2021)
 end title
 
 ' == THEME ==
@@ -48,23 +48,45 @@ hide <<grey>> stereotype
 legend top
     __Colors legend__ :
     * __External API references__ :
-    ** <back:yellow>**Service API**</back>
-    ** <back:cyan>**Commons API**</back>
+    ** <back:yellow>**calypsonet-java-reader-api**</back>
+    ** <back:cyan>**keyple-java-commons-api**</back>
 end legend
 
 package "org.eclipse.keyple.card.calypso" as calypso {
-    +class "**final** CalypsoExtensionServiceProvider" as CalypsoExtensionServiceProvider {
-        +{static} CalypsoExtensionService getService ()
-    }
     +interface "<<<back:cyan>KeypleCardExtension</back>>>\nCalypsoExtensionService" as CalypsoExtensionService {
         --
-        +CalypsoCardSelection createCardSelection (<back:yellow>CardSelector</back> cardSelector, boolean acceptInvalidatedCard)
+        +{static} CalypsoExtensionService getInstance ()
+        ..
+        +CalypsoSelector createCardSelector ()
+        +CalypsoCardSelection createCardSelection (CalypsoSelector cardSelector, boolean acceptInvalidatedCard)
         ..
         +CalypsoSamResourceProfileExtension createSamResourceProfileExtension ()
-        +CardTransactionService createCardTransaction (<back:yellow>Reader</back> reader, CalypsoCard calypsoCard, CardSecuritySetting cardSecuritySetting)
+        +CardTransactionService createCardTransaction (<back:yellow>CardReader</back> reader, CalypsoCard calypsoCard, CardSecuritySetting cardSecuritySetting)
         ..
-        +CardTransactionService createCardTransactionWithoutSecurity (<back:yellow>Reader</back> reader, CalypsoCard calypsoCard)
+        +CardTransactionService createCardTransactionWithoutSecurity (<back:yellow>CardReader</back> reader, CalypsoCard calypsoCard)
     }
+
+
+    +interface "<<<back:yellow>CardSelector</back>>>\nCalypsoSelector" as CalypsoSelector {
+        --
+        +CalypsoSelector filterByCardProtocol (String cardProtocol)
+        +CalypsoSelector filterByAtr (String atrRegex)
+        +CalypsoSelector filterByDfName (byte[] aid)
+        +CalypsoSelector filterByDfName (String aid)
+        +CalypsoSelector setFileOccurrence (<back:yellow>FileOccurrence</back> fileOccurrence)
+        +CalypsoSelector setFileControlInformation (<back:yellow>FileControlInformation</back> fileControlInformation)
+        +CalypsoSelector addSuccessfulStatusCode (int statusCode)
+        .. **CardSelector** ..
+        +String getCardProtocol ()
+        +String getAtrRegex ()
+        +byte[] getAid ()
+        +<back:yellow>FileOccurrence</back> getFileOccurrence ()
+        +<back:yellow>FileControlInformation</back> getFileControlInformation ()
+        +Set<Integer> getSuccessfulSelectionStatusCodes ()
+        +CalypsoSelector addSuccessfulStatusCode (int statusCode)
+        +boolean atrMatches (byte[] atr)
+    }
+
     package card {
         +interface "<<<back:yellow>CardSelection</back>>>\nCalypsoCardSelection" as CalypsoCardSelection {
             --
@@ -143,11 +165,10 @@ package "org.eclipse.keyple.card.calypso" as calypso {
 
 ' Associations
 
-CalypsoExtensionServiceProvider ..> CalypsoExtensionService #C_USE : provide >
-
 CalypsoExtensionService .up.> CalypsoSamResourceProfileExtension #C_USE : create >
 CalypsoExtensionService ..> CardSecuritySetting #C_USE : use >
 CalypsoExtensionService ..> CalypsoCardSelection #C_USE : create >
+CalypsoExtensionService .up.> CalypsoSelector #C_USE : create >
 CalypsoExtensionService ..> CalypsoCard #C_USE : use >
 CalypsoExtensionService ..> CardTransactionService #C_USE : create >
 

@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (05/05/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (20/05/2021)
 end title
 
 ' == THEME ==
@@ -48,29 +48,11 @@ hide <<grey>> stereotype
 legend top
     __Colors legend__ :
     * __External public API references__ :
+    ** <back:yellow>**calypsonet-java-reader-api**</back>
     ** <back:cyan>**keyple-java-commons-api**</back>
 end legend
 
 package "org.eclipse.keyple.core.service" as service {
-    ' SPI
-    package spi {
-        +interface PluginObserverSpi {
-            +void onPluginEvent (
-                \tPluginEvent pluginEvent)
-        }
-        +interface PluginObservationExceptionHandlerSpi {
-            +void onPluginObservationError (String pluginName,
-                \tThrowable e)
-        }
-        +interface ReaderObserverSpi {
-            +void onReaderEvent (
-                \tReaderEvent readerEvent)
-        }
-        +interface ReaderObservationExceptionHandlerSpi {
-            +void onReaderObservationError (String pluginName,
-                \tString readerName, Throwable e)
-        }
-    }
     ' SERVICE
 
     ' Card Resource Service
@@ -106,7 +88,7 @@ package "org.eclipse.keyple.core.service" as service {
             +Builder addPlugin (Plugin plugin, ReaderConfiguratorSpi readerConfiguratorSpi)
             +Builder addPluginWithMonitoring (Plugin plugin, ReaderConfiguratorSpi readerConfiguratorSpi
                 \tPluginObservationExceptionHandlerSpi pluginObservationExceptionHandlerSpi,
-                \tReaderObservationExceptionHandlerSpi readerObservationExceptionHandlerSpi)
+                \t<back:yellow>CardReaderObservationExceptionHandlerSpi</back> readerObservationExceptionHandlerSpi)
             +PluginsConfigurator build ()
         }
         +enum AllocationStrategy {
@@ -137,10 +119,10 @@ package "org.eclipse.keyple.core.service" as service {
 
         +class "**final** CardResource" as CardResource {
             --
-            +CardResource (Reader reader, SmartCard smartCard)
+            +CardResource (Reader reader, <back:yellow>SmartCard</back> smartCard)
             ..
             +Reader getReader ()
-            +SmartCard getSmartCard ()
+            +<back:yellow>SmartCard</back> getSmartCard ()
         }
 
         package "spi" as resourceSpi {
@@ -151,9 +133,14 @@ package "org.eclipse.keyple.core.service" as service {
     }
 
     together {
-        +class "**final** ServiceApiProperties" as ApiProperties {
+        +class "**final** ServiceProperties" as ApiProperties {
             +{static} **final** String VERSION
         }
+        ' SELECTION
+        +class "**final** CardSelectionServiceFactory" as CardSelectionServiceFactory {
+            +{static} <back:yellow>CardSelectionService</back> getService ()
+        }
+        ' SERVICE
         +class "**final** SmartCardServiceProvider" as SmartCardServiceProvider {
             +{static} SmartCardService getService ()
         }
@@ -206,55 +193,32 @@ package "org.eclipse.keyple.core.service" as service {
             +Reader allocateReader (String readerGroupReference)
             +void releaseReader (Reader reader)
         }
-        +interface Reader {
-            --
-            +String getName ()
+        +interface "<<<back:yellow>CardReader</back>>>\nReader" as Reader {
             +<T extends <back:cyan>KeypleReaderExtension</back>> T getExtension (Class<T> readerType)
-            ..
-            +boolean isContactless ()
-            +boolean isCardPresent ()
-            ..
-            +void activateProtocol (String readerProtocol, String cardProtocol)
-            +void deactivateProtocol (String readerProtocol)
         }
-        +interface ObservableReader extends Reader {
-            --
-            +void setEventNotificationExecutorService (ExecutorService eventNotificationExecutorService)
-            +void setReaderObservationExceptionHandler (ReaderObservationExceptionHandlerSpi exceptionHandler)
-            ..
-            +void addObserver (ReaderObserverSpi observer)
-            +void removeObserver (ReaderObserverSpi observer)
-            +void clearObservers ()
-            +int countObservers ()
-            ..
-            +void startCardDetection (PollingMode pollingMode)
-            +void stopCardDetection ()
-            +void finalizeCardProcessing ()
+        +interface "<<<back:yellow>ObservableCardReader</back>>>\nObservableReader" as ObservableReader extends Reader {
+        }
+        ' SPI
+        package spi {
+            +interface PluginObserverSpi {
+                +void onPluginEvent (PluginEvent pluginEvent)
+            }
+            +interface PluginObservationExceptionHandlerSpi {
+                +void onPluginObservationError (String pluginName,
+                    \tThrowable e)
+            }
         }
     }
-    +enum NotificationMode {
-        ALWAYS
-        MATCHED_ONLY
-    }
-    +enum PollingMode {
-        REPEATING
-        SINGLESHOT
-    }
-    +class "<<<back:cyan>KeypleReaderEvent</back>>>\n**final** ReaderEvent" as ReaderEvent {
+    +class "<<<back:yellow>CardReaderEvent</back>>>\n<<<back:cyan>KeypleReaderEvent</back>>>\n**final** ReaderEvent" as ReaderEvent {
         --
-        +ReaderEvent (String pluginName, String readerName, EventType eventType,
-            \tScheduledCardSelectionsResponse scheduledCardSelectionsResponse)
+        +ReaderEvent (String pluginName, String readerName, <back:yellow>EventType</back> eventType,
+            \t<back:yellow>ScheduledCardSelectionsResponse</back> scheduledCardSelectionsResponse)
         ..
         +String getPluginName ()
+        .. **CardReaderEvent** ..
         +String getReaderName ()
-        +EventType getEventType ()
-        +ScheduledCardSelectionsResponse getScheduledCardSelectionsResponse ()
-    }
-    +enum "EventType" as ReaderEventType {
-        CARD_INSERTED
-        CARD_MATCHED
-        CARD_REMOVED
-        UNREGISTERED
+        +<back:yellow>EventType</back> getEventType ()
+        +<back:yellow>ScheduledCardSelectionsResponse</back> getScheduledCardSelectionsResponse ()
     }
     +class "<<<back:cyan>KeyplePluginEvent</back>>>\n**final** PluginEvent" as PluginEvent {
         --
@@ -270,122 +234,10 @@ package "org.eclipse.keyple.core.service" as service {
         READER_DISCONNECTED
         UNREGISTERED
     }
-    ' SELECTION
-    +class "**final** CardSelectionServiceFactory" as CardSelectionServiceFactory {
-        +{static} CardSelectionService getService ()
-        +{static} CardSelectionService getService (MultiSelectionProcessing multiSelectionProcessing)
-    }
-    package selection {
-        ' Selection
-        +interface CardSelectionService {
-            --
-            +int prepareSelection (CardSelection cardSelection)
-            +void prepareReleaseChannel ()
-            ..
-            +CardSelectionResult processCardSelectionScenario (Reader reader)
-            ..
-            +void scheduleCardSelectionScenario (ObservableReader observableReader,
-                \tNotificationMode notificationMode, PollingMode pollingMode)
-            +CardSelectionResult parseScheduledCardSelectionsResponse (
-                \tScheduledCardSelectionsResponse scheduledCardSelectionsResponse)
-        }
-        +enum MultiSelectionProcessing {
-            FIRST_MATCH
-            PROCESS_ALL
-        }
-
-        ' Card Extension SPI
-        package "spi" as selectionSpi {
-            +interface CardSelection {
-                +CardSelector getCardSelector ()
-            }
-            +interface "<<<back:cyan>KeypleSmartCard</back>>>\nSmartCard" as SmartCard {
-                --
-                +boolean hasFci ()
-                +byte[] getFciBytes ()
-                ..
-                +boolean hasAtr ()
-                +byte[] getAtrBytes ()
-            }
-        }
-        +class "<<<back:cyan>KeypleCardSelector</back>>>\n**final** CardSelector" as CardSelector {
-            --
-            +{static} Builder builder ()
-            ..
-            +String getCardProtocol ()
-            ..
-            +String getAtrRegex ()
-            ..
-            +byte[] getAid ()
-            +FileOccurrence getFileOccurrence ()
-            +FileControlInformation getFileControlInformation ()
-            +Set<Integer> getSuccessfulSelectionStatusCodes ()
-            ..
-            +CardSelector addSuccessfulStatusCode (int statusCode)
-            ..
-            +boolean atrMatches (byte[] atr)
-        }
-        +class "**final** Builder" as CardSelectorBuilder {
-            +Builder filterByCardProtocol (String cardProtocol)
-            +Builder filterByAtr (String atrRegex)
-            +Builder filterByDfName (byte[] aid)
-            +Builder filterByDfName (String aid)
-            +Builder setFileOccurrence (FileOccurrence fileOccurrence)
-            +Builder setFileControlInformation (FileControlInformation fileControlInformation)
-            +Builder addSuccessfulStatusCode (int statusCode)
-            +CardSelector build ()
-        }
-        +enum FileOccurrence {
-            FIRST
-            LAST
-            NEXT
-            PREVIOUS
-            +byte getIsoBitMask ()
-        }
-        +enum FileControlInformation {
-            FCI
-            FCP
-            FMD
-            NO_RESPONSE
-            +byte getIsoBitMask ()
-        }
-        +interface CardSelectionResult {
-            --
-            +boolean hasActiveSelection ()
-            +int getActiveSelectionIndex ()
-            +boolean hasSelectionMatched (int selectionIndex)
-            ..
-            +Map<Integer, SmartCard> getSmartCards ()
-            +SmartCard getSmartCard (int selectionIndex)
-            +SmartCard getActiveSmartCard ()
-        }
-        +interface ScheduledCardSelectionsResponse {
-        }
-    }
     ' EXCEPTIONS
-    together {
-        +class "<<RuntimeException>>\nKeyplePluginException" as KeyplePluginException {
-            +KeyplePluginException (
-                \tString message)
-            +KeyplePluginException (
-                \tString message, Throwable cause)
-        }
-        +class "<<RuntimeException>>\nKeypleReaderCommunicationException" as KeypleReaderCommunicationException {
-            +KeypleReaderCommunicationException (
-                \tString message)
-            +KeypleReaderCommunicationException (
-                \tString message, Throwable cause)
-        }
-        +class "<<RuntimeException>>\nKeypleReaderProtocolNotSupportedException" as KeypleReaderProtocolNotSupportedException {
-            +KeypleReaderProtocolNotSupportedException (
-                \tString cardProtocol)
-        }
-        +class "<<RuntimeException>>\nKeypleCardCommunicationException" as KeypleCardCommunicationException {
-            +KeypleCardCommunicationException (
-                \tString message)
-            +KeypleCardCommunicationException (
-                \tString message, Throwable cause)
-        }
+    +class "<<RuntimeException>>\nKeyplePluginException" as KeyplePluginException {
+        +KeyplePluginException (String message)
+        +KeyplePluginException (String message, Throwable cause)
     }
 }
 
@@ -400,38 +252,12 @@ SmartCardService *-- "0..N" DistributedLocalService #C_LINK
 PluginEvent +-- PluginEventType
 PluginEvent *-- "1" PluginEventType #C_LINK
 
-ObservableReader +-- NotificationMode
-ObservableReader ..> NotificationMode #C_USE : use >
-ObservableReader +-- PollingMode
-ObservableReader ..> PollingMode #C_USE : use >
-
-ReaderEvent +-- ReaderEventType
-ReaderEvent *-- "1" ReaderEventType #C_LINK
-ReaderEvent .up.> ScheduledCardSelectionsResponse #C_USE : provide >
-
-CardSelectionServiceFactory ..> CardSelectionService #C_USE : create >
-
-CardSelectionService *-left- "1" MultiSelectionProcessing #C_LINK
-CardSelectionService *-- "1..N" CardSelection #C_LINK
-
-CardSelectionResult *-- "1..N" SmartCard #C_LINK
-
-CardSelector ..> CardSelectorBuilder #C_USE : provide >
-CardSelector +-- FileOccurrence
-CardSelector *-- "0..1" FileOccurrence #C_LINK
-CardSelector +-- FileControlInformation
-CardSelector *-- "0..1" FileControlInformation #C_LINK
-
-CardSelectorBuilder ..> CardSelectorBuilder #C_USE
-CardSelectorBuilder .up.> CardSelector #C_USE : create >
-
 CardResourceServiceProvider ..> CardResourceService #C_USE : provide >
 
 CardResourceService .left.> CardResource #C_USE : provide >
 CardResourceService ..> CardResourceServiceConfigurator #C_USE : provide >
 
 CardResource *-- "1" Reader #C_LINK
-CardResource *-- "1" SmartCard #C_LINK
 
 CardResourceServiceConfigurator ..> CardResourceServiceConfigurator #C_USE
 CardResourceServiceConfigurator ..> PluginsConfigurator #C_USE : use >
@@ -459,33 +285,21 @@ CardResourceProfileConfiguratorBuilder .up.> CardResourceProfileConfigurator #C_
 
 Plugin ..> Reader #C_USE : provide >
 
-CardSelectionService ..> ScheduledCardSelectionsResponse #C_USE : use >
-CardSelectionService ..> Reader #C_USE : use >
-CardSelectionService ..> CardSelectionResult #C_USE : provide >
-
 ObservablePlugin ..> PluginObserverSpi #C_USE : use >
 ObservablePlugin ..> PluginObservationExceptionHandlerSpi #C_USE : use >
 
 PluginObserverSpi ..> PluginEvent #C_USE : use >
 
-ObservableReader ..> ReaderObserverSpi #C_USE : use >
-ObservableReader ..> ReaderObservationExceptionHandlerSpi #C_USE : use >
-
-ReaderObserverSpi ..> ReaderEvent #C_USE : use >
-
-CardSelection ..> CardSelector #C_USE : provide >
-
 ' == LAYOUT ==
 
-FileOccurrence -[hidden]- KeyplePluginException
-KeypleReaderCommunicationException -[hidden]right- KeypleCardCommunicationException
+ObservableReader -[hidden]- ReaderEvent
+SmartCardServiceProvider -[hidden]right- CardSelectionServiceFactory
+ReaderEvent -[hidden]- KeyplePluginException
 
 ' == STYLE ==
 
 package service #C_GREY1 {}
 package spi #C_GREY2 {}
-package selection #C_GREY2 {}
-package selectionSpi #C_GREY3 {}
 package resource #C_GREY2 {}
 package resourceSpi #C_GREY3 {}
 

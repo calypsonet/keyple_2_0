@@ -1,6 +1,6 @@
 @startuml
 title
-        Keyple 2.0 - keyple-java-card-api - 2.0 (28/04/2021)
+        Calypsonet - calypsonet-java-card-api - 1.0 (20/05/2021)
 end title
 
 ' == THEME ==
@@ -45,13 +45,7 @@ hide <<grey>> stereotype
 
 ' == CONTENT ==
 
-legend top
-    __Colors legend__ :
-    * __External public API references__ :
-    ** <back:cyan>**keyple-java-commons-api**</back>
-end legend
-
-package "org.eclipse.keyple.core.card" as api {
+package "org.calypsonet.terminal.card" as api {
     +class "**final** CardApiProperties" as ApiProperties {
         +{static} **final** String VERSION
     }
@@ -71,11 +65,10 @@ package "org.eclipse.keyple.core.card" as api {
         }
         +class "**final** CardSelectionRequest" as CardSelectionRequest {
             --
-            +CardSelectionRequest (<back:cyan>KeypleCardSelector</back> cardSelector)
-            +CardSelectionRequest (<back:cyan>KeypleCardSelector</back> cardSelector,
-                \tCardRequest cardRequest)
+            +CardSelectionRequest (CardSelectorSpi cardSelector)
+            +CardSelectionRequest (CardSelectorSpi cardSelector, CardRequest cardRequest)
             ..
-            +<back:cyan>KeypleCardSelector</back> getCardSelector ()
+            +CardSelectorSpi getCardSelector ()
             +CardRequest getCardRequest ()
         }
         +class "**final** CardRequest" as CardRequest {
@@ -88,7 +81,6 @@ package "org.eclipse.keyple.core.card" as api {
         +class "**final** ApduRequest" as ApduRequest {
             --
             +ApduRequest (byte[] bytes)
-            +ApduRequest (byte cla, byte instruction, byte p1, byte p2, byte[] dataIn, Byte le)
             ..
             +ApduRequest addSuccessfulStatusCode (int successfulStatusCode)
             +Set<Integer> getSuccessfulStatusCodes ()
@@ -147,19 +139,13 @@ package "org.eclipse.keyple.core.card" as api {
     }
     ' SPI
     package spi {
-        +interface CardExtensionSpi {
-            +String getCardApiVersion ()
-            +String getServiceApiVersion ()
-            +String getCommonsApiVersion ()
-        }
         +interface CardSelectionSpi {
             +CardSelectionRequest getCardSelectionRequest ()
             +SmartCardSpi parse (CardSelectionResponse cardSelectionResponse)
         }
-        +interface SmartCardSpi {
+        +interface CardSelectorSpi {
         }
-        +interface CardResourceProfileExtensionSpi {
-            +SmartCardSpi matches (ProxyReader reader)
+        +interface SmartCardSpi {
         }
     }
     +abstract class "<<Exception>>\nAbstractApduException" as AbstractApduException {
@@ -173,34 +159,33 @@ package "org.eclipse.keyple.core.card" as api {
         ..
         +CardResponse getCardResponse ()
     }
-    +class "**final** ReaderCommunicationException" as ReaderCommunicationException extends AbstractApduException {
+    +class ReaderBrokenCommunicationException extends AbstractApduException {
         --
-        +ReaderCommunicationException (CardResponse cardResponse, String message)
-        +ReaderCommunicationException (CardResponse cardResponse, String message, Throwable cause)
+        +ReaderBrokenCommunicationException (CardResponse cardResponse, String message)
+        +ReaderBrokenCommunicationException (CardResponse cardResponse, String message,
+            \tThrowable cause)
     }
-    +class "**final** CardCommunicationException" as CardCommunicationException extends AbstractApduException {
+    +class CardBrokenCommunicationException extends AbstractApduException {
         --
-        +CardCommunicationException (CardResponse cardResponse, String message)
-        +CardCommunicationException (CardResponse cardResponse, String message, Throwable cause)
+        +CardBrokenCommunicationException (CardResponse cardResponse, String message)
+        +CardBrokenCommunicationException (CardResponse cardResponse, String message,
+            \tThrowable cause)
     }
-    +class "**final** UnexpectedStatusCodeException" as UnexpectedStatusCodeException extends AbstractApduException {
+    +class UnexpectedStatusCodeException extends AbstractApduException {
         --
         +UnexpectedStatusCodeException (CardResponse cardResponse, String message)
-        +UnexpectedStatusCodeException (CardResponse cardResponse, String message, Throwable cause)
+        +UnexpectedStatusCodeException (CardResponse cardResponse, String message,
+            \tThrowable cause)
     }
 }
 
 ' Associations
 
-CardExtensionSpi ..> ApiProperties #C_USE : provide\nAPI version >
-
 CardSelectionSpi .right.> SmartCardSpi #C_USE : provide >
 CardSelectionSpi ..> CardSelectionRequest #C_USE : provide >
 CardSelectionSpi ..> CardSelectionResponse #C_USE : use >
 
-CardResourceProfileExtensionSpi .left.> SmartCardSpi #C_USE : provide >
-CardResourceProfileExtensionSpi ..> ProxyReader #C_USE : use >
-
+CardSelectionRequest *-up- "1" CardSelectorSpi #C_LINK
 CardSelectionRequest *-- "0..1" CardRequest #C_LINK
 
 CardRequest *-- "1..N" ApduRequest #C_LINK
@@ -225,7 +210,6 @@ ProxyReader ..> AbstractApduException #C_USE : throw >
 
 ' == LAYOUT ==
 
-SmartCardSpi -[hidden]right- CardResourceProfileExtensionSpi
 spi -[hidden]- CardSelectionRequest
 spi -[hidden]- CardSelectionResponse
 
@@ -245,8 +229,8 @@ class ApduResponse <<purple>>
 class SelectionStatus <<purple>>
 class AnswerToReset <<purple>>
 abstract class AbstractApduException <<purple>>
-class ReaderCommunicationException <<purple>>
-class CardCommunicationException <<purple>>
+class ReaderBrokenCommunicationException <<purple>>
+class CardBrokenCommunicationException <<purple>>
 class UnexpectedStatusCodeException <<purple>>
 
 @enduml
