@@ -69,6 +69,15 @@ package "org.calypsonet.terminal.card.spi" as cardSpi {
     }
     +interface SmartCardSpi {
     }
+    +interface CardSelectionRequestSpi {
+        ...
+    }
+    +interface CardRequestSpi {
+        ...
+    }
+    +interface ApduRequestSpi {
+        ...
+    }
 }
 package "org.eclipse.keyple.core.service.resource.spi" as cardResourceSpi {
     +interface CardResourceProfileExtensionSpi {
@@ -101,6 +110,7 @@ package "org.eclipse.keyple.card.xxx (specific extension)" as specificExtension 
         ...
     }
     ' Adapters
+    together {
     ~class "**final** xxxCardSelectionAdapter" as xxxCardSelectionAdapter implements xxxCardSelection, CardSelectionSpi {
         ...
     }
@@ -109,6 +119,18 @@ package "org.eclipse.keyple.card.xxx (specific extension)" as specificExtension 
     }
     ~class "**final** xxxSmartCardAdapter" as xxxSmartCardAdapter implements xxxSmartCard, SmartCardSpi {
         ...
+    }
+    }
+    together {
+    ~class "**final** CardSelectionRequestAdapter" as CardSelectionRequestAdapter implements CardSelectionRequestSpi {
+        ...
+    }
+    ~class "**final** CardRequestAdapter" as CardRequestAdapter implements CardRequestSpi {
+        ...
+    }
+    ~class "**final** ApduRequestAdapter" as ApduRequestAdapter implements ApduRequestSpi {
+        ...
+    }
     }
 }
 
@@ -124,6 +146,12 @@ xxxCardSelectorAdapter -[hidden]- CardSelectorSpi
 xxxSmartCardAdapter -[hidden]- SmartCardSpi
 xxxCardSelectionAdapter -[hidden]- CardSelectionSpi
 
+xxxSmartCardAdapter -[hidden]right- CardSelectionRequestAdapter
+
+CardSelectionRequestAdapter -[hidden]- CardSelectionRequestSpi
+CardRequestAdapter -[hidden]- CardRequestSpi
+ApduRequestAdapter -[hidden]- ApduRequestSpi
+
 ' == STYLE ==
 
 package commonsApi #C_GREY1 {}
@@ -135,8 +163,14 @@ package cardResourceSpi #C_GREY1 {}
 class xxxCardSelectionAdapter <<blue>>
 class xxxCardSelectorAdapter <<blue>>
 class xxxSmartCardAdapter <<blue>>
+class CardSelectionRequestAdapter <<blue>>
+class CardRequestAdapter <<blue>>
+class ApduRequestAdapter <<blue>>
 interface CardSelectionSpi <<blue>>
 interface CardSelectorSpi <<blue>>
 interface SmartCardSpi <<blue>>
+interface CardSelectionRequestSpi <<blue>>
+interface CardRequestSpi <<blue>>
+interface ApduRequestSpi <<blue>>
 
 @enduml

@@ -46,106 +46,68 @@ hide <<grey>> stereotype
 ' == CONTENT ==
 
 package "org.calypsonet.terminal.card" as api {
-    +class "**final** CardApiProperties" as ApiProperties {
-        +{static} **final** String VERSION
-    }
-    +interface ProxyReader {
-        --
-        +CardResponse transmitCardRequest (
-        \tCardRequest cardRequest,
-        \tChannelControl channelControl)
-        ..
-        +void releaseChannel ()
-    }
-    ' REQUEST
-    together {
-        +enum ChannelControl {
-            KEEP_OPEN
-            CLOSE_AFTER
-        }
-        +class "**final** CardSelectionRequest" as CardSelectionRequest {
-            --
-            +CardSelectionRequest (CardSelectorSpi cardSelector)
-            +CardSelectionRequest (CardSelectorSpi cardSelector, CardRequest cardRequest)
-            ..
-            +CardSelectorSpi getCardSelector ()
-            +CardRequest getCardRequest ()
-        }
-        +class "**final** CardRequest" as CardRequest {
-            --
-            +CardRequest (List<ApduRequest> apduRequests, boolean isStatusCodesVerificationEnabled)
-            ..
-            +List<ApduRequest> getApduRequests ()
-            +boolean isStatusCodesVerificationEnabled ()
-        }
-        +class "**final** ApduRequest" as ApduRequest {
-            --
-            +ApduRequest (byte[] bytes)
-            ..
-            +ApduRequest addSuccessfulStatusCode (int successfulStatusCode)
-            +Set<Integer> getSuccessfulStatusCodes ()
-            ..
-            +ApduRequest setName (String name)
-            +String getName ()
-            ..
-            +byte[] getBytes ()
-        }
-    }
-    ' RESPONSE
-    together {
-        +class "**final** CardSelectionResponse" as CardSelectionResponse {
-            --
-            +CardSelectionResponse (SelectionStatus selectionStatus, CardResponse cardResponse)
-            ..
-            +SelectionStatus getSelectionStatus ()
-            +CardResponse getCardResponse ()
-        }
-        +class "<<Serializable>>\n**final** CardResponse" as CardResponse {
-            --
-            +CardResponse (List<ApduResponse> apduResponses,
-                \tboolean isLogicalChannelOpen,
-                \tboolean isComplete)
-            ..
-            +List<ApduResponse> getApduResponses ()
-            ..
-            +boolean isLogicalChannelOpen ()
-            +boolean isComplete ()
-        }
-        +class "<<Serializable>>\n**final** ApduResponse" as ApduResponse {
-            --
-            +ApduResponse (byte[] bytes)
-            ..
-            +byte[] getBytes ()
-            +byte[] getDataOut ()
-            +int getStatusCode ()
-        }
-        +class SelectionStatus {
-            --
-            +SelectionStatus (
-                \tAnswerToReset atr,
-                \tApduResponse fci,
-                \tboolean isMatching)
-            ..
-            +AnswerToReset getAtr ()
-            +ApduResponse getFci ()
-            +boolean hasMatched ()
-        }
-        +class AnswerToReset {
-            --
-            +AnswerToReset (byte[] atrBytes)
-            ..
-            +byte[] getBytes ()
-        }
-    }
     ' SPI
     package spi {
         +interface CardSelectionSpi {
-            +CardSelectionRequest getCardSelectionRequest ()
+            +CardSelectionRequestSpi getCardSelectionRequest ()
             +SmartCardSpi parse (CardSelectionResponse cardSelectionResponse)
         }
         +interface CardSelectorSpi {
         }
         +interface SmartCardSpi {
+        }
+        ' REQUEST
+        together {
+            +interface CardSelectionRequestSpi {
+                +CardSelectorSpi getCardSelector ()
+                +CardRequestSpi getCardRequest ()
+            }
+            +interface CardRequestSpi {
+                +List<ApduRequestSpi> getApduRequests ()
+                +boolean isStatusCodeVerificationEnabled ()
+            }
+            +interface ApduRequestSpi {
+                +String getName ()
+                +byte[] getBytes ()
+                +Set<Integer> getSuccessfulStatusCodes ()
+            }
+        }
+    }
+    +interface ProxyReader {
+        --
+        +CardResponse transmitCardRequest (
+        \tCardRequestSpi cardRequest,
+        \tChannelControl channelControl)
+        ..
+        +void releaseChannel ()
+    }
+    +enum ChannelControl {
+        KEEP_OPEN
+        CLOSE_AFTER
+    }
+    ' RESPONSE
+    together {
+        +class "**final** CardApiProperties" as ApiProperties {
+            +{static} **final** String VERSION
+        }
+        +interface CardSelectionResponse {
+            +SelectionStatus getSelectionStatus ()
+            +CardResponse getCardResponse ()
+        }
+        +interface "<<Serializable>>\nCardResponse" as CardResponse {
+            +List<ApduResponse> getApduResponses ()
+            +boolean isLogicalChannelOpen ()
+            +boolean isComplete ()
+        }
+        +interface "<<Serializable>>\nApduResponse" as ApduResponse {
+            +byte[] getBytes ()
+            +byte[] getDataOut ()
+            +int getStatusCode ()
+        }
+        +interface SelectionStatus {
+            +byte[] getPowerOnDataBytes ()
+            +ApduResponse getFci ()
+            +boolean hasMatched ()
         }
     }
     +abstract class "<<Exception>>\nAbstractApduException" as AbstractApduException {
@@ -181,27 +143,26 @@ package "org.calypsonet.terminal.card" as api {
 
 ' Associations
 
-CardSelectionSpi .right.> SmartCardSpi #C_USE : provide >
-CardSelectionSpi ..> CardSelectionRequest #C_USE : provide >
+CardSelectionSpi .left.> SmartCardSpi #C_USE : provide >
+CardSelectionSpi ..> CardSelectionRequestSpi #C_USE : provide >
 CardSelectionSpi ..> CardSelectionResponse #C_USE : use >
 
-CardSelectionRequest *-up- "1" CardSelectorSpi #C_LINK
-CardSelectionRequest *-- "0..1" CardRequest #C_LINK
+CardSelectionRequestSpi .left.> CardSelectorSpi #C_USE : provide >
+CardSelectionRequestSpi ..> CardRequestSpi #C_USE : provide >
 
-CardRequest *-- "1..N" ApduRequest #C_LINK
+CardRequestSpi ..> ApduRequestSpi #C_USE : provide >
 
-CardSelectionResponse *-- "1" CardResponse #C_LINK
-CardSelectionResponse *-- "1" SelectionStatus #C_LINK
+CardSelectionResponse ..> CardResponse #C_USE : provide >
+CardSelectionResponse ..> SelectionStatus #C_USE : provide >
 
-CardResponse *-- "1..N" ApduResponse #C_LINK
+CardResponse ..> ApduResponse #C_USE : provide >
 
-SelectionStatus *-- "0..1" ApduResponse  #C_LINK
-SelectionStatus *-- "0..1" AnswerToReset  #C_LINK
+SelectionStatus ..> ApduResponse #C_USE : provide >
 
 AbstractApduException *-up- "0..1" CardResponse #C_LINK
 
-ProxyReader .left.> CardSelectionRequest #C_USE : use >
-ProxyReader ..> CardRequest #C_USE : use >
+ProxyReader .left.> CardSelectionRequestSpi #C_USE : use >
+ProxyReader ..> CardRequestSpi #C_USE : use >
 ProxyReader .up.> ChannelControl #C_USE : use >
 
 ProxyReader .up.> CardSelectionResponse #C_USE : provide >
@@ -210,7 +171,7 @@ ProxyReader ..> AbstractApduException #C_USE : throw >
 
 ' == LAYOUT ==
 
-spi -[hidden]- CardSelectionRequest
+ApiProperties -[hidden]left- CardSelectionResponse
 spi -[hidden]- CardSelectionResponse
 
 ' == STYLE ==
@@ -218,16 +179,10 @@ spi -[hidden]- CardSelectionResponse
 package api #C_GREY1 {}
 package spi #C_GREY2 {}
 
-class CardSelectionRequest <<green>>
-enum ChannelControl <<green>>
-class CardRequest <<green>>
-class ApduRequest <<green>>
-
-class CardSelectionResponse <<purple>>
-class CardResponse <<purple>>
-class ApduResponse <<purple>>
-class SelectionStatus <<purple>>
-class AnswerToReset <<purple>>
+interface CardSelectionResponse <<purple>>
+interface CardResponse <<purple>>
+interface ApduResponse <<purple>>
+interface SelectionStatus <<purple>>
 abstract class AbstractApduException <<purple>>
 class ReaderBrokenCommunicationException <<purple>>
 class CardBrokenCommunicationException <<purple>>

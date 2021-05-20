@@ -254,21 +254,21 @@ package "org.eclipse.keyple.core.service" as service {
         ~AbstractReaderAdapter (String readerName, Object readerExtension, String pluginName)
         ..
         ~**final** String getPluginName ()
-        ~**final** List<<back:lightGreen>CardSelectionResponse</back>> transmitCardSelectionRequests (List<<back:lightGreen>CardSelectionRequest</back>> cardSelectionRequests,
+        ~**final** List<<back:lightGreen>CardSelectionResponse</back>> transmitCardSelectionRequests (List<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,
             \tMultiSelectionProcessing multiSelectionProcessing, <back:lightGreen>ChannelControl</back> channelControl)
         ..
         ~**final** void checkStatus ()
         ~**final** void register ()
         ~void unregister ()
         ..
-        ~{abstract} **abstract** List<<back:lightGreen>CardSelectionResponse</back>> processCardSelectionRequests (List<<back:lightGreen>CardSelectionRequest</back>> cardSelectionRequests,
+        ~{abstract} **abstract** List<<back:lightGreen>CardSelectionResponse</back>> processCardSelectionRequests (List<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,
             \tMultiSelectionProcessing multiSelectionProcessing, <back:lightGreen>ChannelControl</back> channelControl)
-        ~{abstract} **abstract** <back:lightGreen>CardResponse</back> processCardRequest (<back:lightGreen>CardRequest</back> cardRequest, <back:lightGreen>ChannelControl</back> channelControl)
+        ~{abstract} **abstract** <back:lightGreen>CardResponse</back> processCardRequest (<back:lightGreen>CardRequestSpi</back> cardRequest, <back:lightGreen>ChannelControl</back> channelControl)
         -- **Reader** --
         +**final** String getName ()
         +**final** <T extends <back:cyan>KeypleReaderExtension</back>> T getExtension (Class<T> readerExtensionType)
         -- **ProxyReader** --
-        +**final** <back:lightGreen>CardResponse</back> transmitCardRequest (<back:lightGreen>CardRequest</back> cardRequest, <back:lightGreen>ChannelControl</back> channelControl)
+        +**final** <back:lightGreen>CardResponse</back> transmitCardRequest (<back:lightGreen>CardRequestSpi</back> cardRequest, <back:lightGreen>ChannelControl</back> channelControl)
     }
     ~class LocalReaderAdapter extends AbstractReaderAdapter {
         --
@@ -280,11 +280,11 @@ package "org.eclipse.keyple.core.service" as service {
         -- **AbstractReaderAdapter** --
         ~void unregister ()
         ~**final** List<<back:lightGreen>CardSelectionResponse</back>> processCardSelectionRequests (
-            \tList<<back:lightGreen>CardSelectionRequest</back>> cardSelectionRequests,
+            \tList<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,
             \tMultiSelectionProcessing multiSelectionProcessing,
             \t<back:lightGreen>ChannelControl</back> channelControl)
         ~**final** <back:lightGreen>CardResponse</back> processCardRequest (
-            \t<back:lightGreen>CardRequest</back> cardRequest,
+            \t<back:lightGreen>CardRequestSpi</back> cardRequest,
             \t<back:lightGreen>ChannelControl</back> channelControl)
         -- **Reader** --
         +**final** boolean isContactless ()
@@ -302,11 +302,11 @@ package "org.eclipse.keyple.core.service" as service {
         ~**final** <back:plum>RemoteReaderSpi</back> getRemoteReaderSpi ()
         -- **AbstractReaderAdapter** --
         ~**final** List<<back:lightGreen>CardSelectionResponse</back>> processCardSelectionRequests (
-            \tList<<back:lightGreen>CardSelectionRequest</back>> cardSelectionRequests,
+            \tList<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,
             \tMultiSelectionProcessing multiSelectionProcessing,
             \t<back:lightGreen>ChannelControl</back> channelControl)
         ~**final** <back:lightGreen>CardResponse</back> processCardRequest (
-            \t<back:lightGreen>CardRequest</back> cardRequest,
+            \t<back:lightGreen>CardRequestSpi</back> cardRequest,
             \t<back:lightGreen>ChannelControl</back> channelControl)
         -- **Reader** --
         +**final** boolean isContactless ()
@@ -320,13 +320,13 @@ package "org.eclipse.keyple.core.service" as service {
     ~class "**final** CardSelectionScenarioAdapter" as CardSelectionScenarioAdapter {
         --
         ~CardSelectionScenarioAdapter (
-            \tList<<back:lightGreen>CardSelectionRequest</back>> cardSelectionRequests,
+            \tList<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,
             \tMultiSelectionProcessing multiSelectionProcessing,
             \t<back:lightGreen>ChannelControl</back> channelControl)
         ..
         ~MultiSelectionProcessing getMultiSelectionProcessing ()
         ~<back:lightGreen>ChannelControl</back> getChannelControl ()
-        ~List<<back:lightGreen>CardSelectionRequest</back>> getCardSelectionRequests ()
+        ~List<<back:lightGreen>CardSelectionRequestSpi</back>> getCardSelectionRequests ()
     }
     ~class "<<ObservableReader>>\n<<<back:pink>WaitForCardInsertionAutonomousReaderApi</back>>>\n<<<back:pink>WaitForCardRemovalAutonomousReaderApi</back>>>\n**final** ObservableLocalReaderAdapter" as ObservableLocalReaderAdapter extends LocalReaderAdapter {
         --
