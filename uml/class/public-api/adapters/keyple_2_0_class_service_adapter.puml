@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (20/05/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (21/05/2021)
 end title
 
 ' == THEME ==
@@ -254,16 +254,16 @@ package "org.eclipse.keyple.core.service" as service {
         ~AbstractReaderAdapter (String readerName, Object readerExtension, String pluginName)
         ..
         ~**final** String getPluginName ()
-        ~**final** List<<back:lightGreen>CardSelectionResponse</back>> transmitCardSelectionRequests (List<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,
+        ~**final** List<CardSelectionResponseAdapter> transmitCardSelectionRequests (List<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,
             \tMultiSelectionProcessing multiSelectionProcessing, <back:lightGreen>ChannelControl</back> channelControl)
         ..
         ~**final** void checkStatus ()
         ~**final** void register ()
         ~void unregister ()
         ..
-        ~{abstract} **abstract** List<<back:lightGreen>CardSelectionResponse</back>> processCardSelectionRequests (List<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,
+        ~{abstract} **abstract** List<CardSelectionResponseAdapter> processCardSelectionRequests (List<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,
             \tMultiSelectionProcessing multiSelectionProcessing, <back:lightGreen>ChannelControl</back> channelControl)
-        ~{abstract} **abstract** <back:lightGreen>CardResponse</back> processCardRequest (<back:lightGreen>CardRequestSpi</back> cardRequest, <back:lightGreen>ChannelControl</back> channelControl)
+        ~{abstract} **abstract** CardResponseAdapter processCardRequest (<back:lightGreen>CardRequestSpi</back> cardRequest, <back:lightGreen>ChannelControl</back> channelControl)
         -- **Reader** --
         +**final** String getName ()
         +**final** <T extends <back:cyan>KeypleReaderExtension</back>> T getExtension (Class<T> readerExtensionType)
@@ -279,11 +279,11 @@ package "org.eclipse.keyple.core.service" as service {
         ~**final** void closeLogicalAndPhysicalChannelsSilently ()
         -- **AbstractReaderAdapter** --
         ~void unregister ()
-        ~**final** List<<back:lightGreen>CardSelectionResponse</back>> processCardSelectionRequests (
+        ~**final** List<CardSelectionResponseAdapter> processCardSelectionRequests (
             \tList<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,
             \tMultiSelectionProcessing multiSelectionProcessing,
             \t<back:lightGreen>ChannelControl</back> channelControl)
-        ~**final** <back:lightGreen>CardResponse</back> processCardRequest (
+        ~**final** CardResponseAdapter processCardRequest (
             \t<back:lightGreen>CardRequestSpi</back> cardRequest,
             \t<back:lightGreen>ChannelControl</back> channelControl)
         -- **Reader** --
@@ -301,11 +301,11 @@ package "org.eclipse.keyple.core.service" as service {
         ..
         ~**final** <back:plum>RemoteReaderSpi</back> getRemoteReaderSpi ()
         -- **AbstractReaderAdapter** --
-        ~**final** List<<back:lightGreen>CardSelectionResponse</back>> processCardSelectionRequests (
+        ~**final** List<CardSelectionResponseAdapter> processCardSelectionRequests (
             \tList<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,
             \tMultiSelectionProcessing multiSelectionProcessing,
             \t<back:lightGreen>ChannelControl</back> channelControl)
-        ~**final** <back:lightGreen>CardResponse</back> processCardRequest (
+        ~**final** CardResponseAdapter processCardRequest (
             \t<back:lightGreen>CardRequestSpi</back> cardRequest,
             \t<back:lightGreen>ChannelControl</back> channelControl)
         -- **Reader** --
@@ -543,9 +543,9 @@ package "org.eclipse.keyple.core.service" as service {
     ~class "<<<back:yellow>ScheduledCardSelectionsResponse</back>>>\n**final** ScheduledCardSelectionsResponseAdapter" as ScheduledCardSelectionsResponseAdapter {
         --
         ~ScheduledCardSelectionsResponseAdapter (
-            \tList<<back:lightGreen>CardSelectionResponse</back>> cardSelectionResponses)
+            \tList<CardSelectionResponseAdapter> cardSelectionResponses)
         ..
-        ~List<<back:lightGreen>CardSelectionResponse</back>> getCardSelectionResponses ()
+        ~List<CardSelectionResponseAdapter> getCardSelectionResponses ()
     }
     ~class "<<<back:yellow>CardSelectionResult</back>>>\n**final** CardSelectionResultAdapter" as CardSelectionResultAdapter {
         --
@@ -559,6 +559,46 @@ package "org.eclipse.keyple.core.service" as service {
         +Map<Integer, <back:yellow>SmartCard</back>> getSmartCards ()
         +<back:yellow>SmartCard</back> getSmartCard (int selectionIndex)
         +<back:yellow>SmartCard</back> getActiveSmartCard ()
+    }
+
+    ' RESPONSE
+    together {
+        +class "<<<back:lightGreen>CardSelectionResponse</back>>>\n**final** CardSelectionResponseAdapter" as CardSelectionResponseAdapter {
+            --
+            ~CardSelectionResponseAdapter (SelectionStatusAdapter selectionStatus, CardResponseAdapter cardResponse)
+            .. **CardSelectionResponse** ..
+            +<back:lightGreen>SelectionStatus</back> getSelectionStatus ()
+            +<back:lightGreen>CardResponse</back> getCardResponse ()
+        }
+        +class "<<<back:lightGreen>CardResponse</back>>>\n**final** CardResponseAdapter" as CardResponseAdapter {
+            --
+            ~CardResponseAdapter (List<ApduResponseAdapter> apduResponses,
+                \tboolean isLogicalChannelOpen,
+                \tboolean isComplete)
+            .. **CardResponse** ..
+            +List<<back:lightGreen>ApduResponse</back>> getApduResponses ()
+            +boolean isLogicalChannelOpen ()
+            +boolean isComplete ()
+        }
+        +class "<<<back:lightGreen>ApduResponse</back>>>\n**final** ApduResponseAdapter" as ApduResponseAdapter {
+            --
+            ~ApduResponseAdapter (byte[] bytes)
+            .. **ApduResponse** ..
+            +byte[] getBytes ()
+            +byte[] getDataOut ()
+            +int getStatusWord ()
+        }
+        +class "<<<back:lightGreen>SelectionStatus</back>>>\n**final** SelectionStatusAdapter" as SelectionStatusAdapter {
+            --
+            ~SelectionStatusAdapter (
+                \tbyte[] powerOnData,
+                \tApduResponseAdapter fci,
+                \tboolean isMatching)
+            .. **SelectionStatus** ..
+            +byte[] getPowerOnData ()
+            +<back:lightGreen>ApduResponse</back> getFci ()
+            +boolean hasMatched ()
+        }
     }
 }
 
@@ -598,9 +638,17 @@ CardSelectionServiceFactory ..> CardSelectionServiceAdapter #C_USE : create >
 CardSelectionServiceAdapter ..> CardSelectionResultAdapter #C_USE : create >
 CardSelectionServiceAdapter ..> ScheduledCardSelectionsResponseAdapter #C_USE : use >
 
+CardSelectionResponseAdapter *-- "1" CardResponseAdapter #C_LINK
+CardSelectionResponseAdapter *-- "1" SelectionStatusAdapter #C_LINK
+
+CardResponseAdapter *-- "1..N" ApduResponseAdapter #C_LINK
+
+SelectionStatusAdapter *-- "0..1" ApduResponseAdapter  #C_LINK
+
 ' == LAYOUT ==
 
 WaitForStartDetectStateAdapter -[hidden]- AbstractMonitoringJobAdapter
+ObservationManagerAdapter -[hidden]- CardSelectionResponseAdapter
 
 ' == STYLE ==
 
@@ -648,5 +696,10 @@ class DistributedUtilAdapter <<blue>>
 class CardSelectionServiceAdapter <<blue>>
 class CardSelectionResultAdapter <<blue>>
 class ScheduledCardSelectionsResponseAdapter <<blue>>
+
+class CardSelectionResponseAdapter <<blue>>
+class CardResponseAdapter <<blue>>
+class SelectionStatusAdapter <<blue>>
+class ApduResponseAdapter <<blue>>
 
 @enduml

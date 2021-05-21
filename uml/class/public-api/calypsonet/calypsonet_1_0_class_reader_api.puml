@@ -1,6 +1,6 @@
 @startuml
 title
-    Calypsonet - calypsonet-java-reader-api - 1.0 (20/05/2021)
+    Calypsonet - calypsonet-java-reader-api - 1.0 (21/05/2021)
 end title
 
 ' == THEME ==
@@ -138,23 +138,23 @@ package "org.calypsonet.terminal.reader" as readerApi {
                 +boolean hasFci ()
                 +byte[] getFciBytes ()
                 ..
-                +boolean hasAtr ()
-                +byte[] getAtrBytes ()
+                +boolean hasPowerOnData ()
+                +byte[] getPowerOnData ()
             }
             +interface CardSelector {
                 --
                 +String getCardProtocol ()
                 ..
-                +String getAtrRegex ()
+                +String getPowerOnDataRegex ()
                 ..
                 +byte[] getAid ()
                 +FileOccurrence getFileOccurrence ()
                 +FileControlInformation getFileControlInformation ()
-                +Set<Integer> getSuccessfulSelectionStatusCodes ()
+                +Set<Integer> getSuccessfulSelectionStatusWords ()
                 ..
-                +CardSelector addSuccessfulStatusCode (int statusCode)
+                +CardSelector addSuccessfulStatusWord (int statusWord)
                 ..
-                +boolean atrMatches (byte[] atr)
+                +boolean powerOnDataMatches (byte[] powerOnData)
             }
             +enum FileOccurrence {
                 FIRST

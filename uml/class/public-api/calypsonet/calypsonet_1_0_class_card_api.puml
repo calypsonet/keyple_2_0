@@ -1,6 +1,6 @@
 @startuml
 title
-        Calypsonet - calypsonet-java-card-api - 1.0 (20/05/2021)
+        Calypsonet - calypsonet-java-card-api - 1.0 (21/05/2021)
 end title
 
 ' == THEME ==
@@ -64,12 +64,12 @@ package "org.calypsonet.terminal.card" as api {
             }
             +interface CardRequestSpi {
                 +List<ApduRequestSpi> getApduRequests ()
-                +boolean isStatusCodeVerificationEnabled ()
+                +boolean isStatusWordVerificationEnabled ()
             }
             +interface ApduRequestSpi {
                 +String getName ()
                 +byte[] getBytes ()
-                +Set<Integer> getSuccessfulStatusCodes ()
+                +Set<Integer> getSuccessfulStatusWords ()
             }
         }
     }
@@ -102,10 +102,10 @@ package "org.calypsonet.terminal.card" as api {
         +interface "<<Serializable>>\nApduResponse" as ApduResponse {
             +byte[] getBytes ()
             +byte[] getDataOut ()
-            +int getStatusCode ()
+            +int getStatusWord ()
         }
         +interface SelectionStatus {
-            +byte[] getPowerOnDataBytes ()
+            +byte[] getPowerOnData ()
             +ApduResponse getFci ()
             +boolean hasMatched ()
         }
@@ -133,10 +133,10 @@ package "org.calypsonet.terminal.card" as api {
         +CardBrokenCommunicationException (CardResponse cardResponse, String message,
             \tThrowable cause)
     }
-    +class UnexpectedStatusCodeException extends AbstractApduException {
+    +class UnexpectedStatusWordException extends AbstractApduException {
         --
-        +UnexpectedStatusCodeException (CardResponse cardResponse, String message)
-        +UnexpectedStatusCodeException (CardResponse cardResponse, String message,
+        +UnexpectedStatusWordException (CardResponse cardResponse, String message)
+        +UnexpectedStatusWordException (CardResponse cardResponse, String message,
             \tThrowable cause)
     }
 }
@@ -161,12 +161,10 @@ SelectionStatus ..> ApduResponse #C_USE : provide >
 
 AbstractApduException *-up- "0..1" CardResponse #C_LINK
 
-ProxyReader .left.> CardSelectionRequestSpi #C_USE : use >
-ProxyReader ..> CardRequestSpi #C_USE : use >
+ProxyReader .left.> CardRequestSpi #C_USE : use >
 ProxyReader .up.> ChannelControl #C_USE : use >
 
-ProxyReader .up.> CardSelectionResponse #C_USE : provide >
-ProxyReader .> CardResponse #C_USE : provide >
+ProxyReader .right.> CardResponse #C_USE : provide >
 ProxyReader ..> AbstractApduException #C_USE : throw >
 
 ' == LAYOUT ==
@@ -186,6 +184,6 @@ interface SelectionStatus <<purple>>
 abstract class AbstractApduException <<purple>>
 class ReaderBrokenCommunicationException <<purple>>
 class CardBrokenCommunicationException <<purple>>
-class UnexpectedStatusCodeException <<purple>>
+class UnexpectedStatusWordException <<purple>>
 
 @enduml

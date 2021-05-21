@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Calypso Card Extension - 2.0.0 (20/05/2021)
+    Keyple 2.0 - Calypso Card Extension - 2.0.0 (21/05/2021)
 end title
 
 ' == THEME ==
@@ -70,21 +70,21 @@ package "org.eclipse.keyple.card.calypso" as calypso {
     +interface "<<<back:yellow>CardSelector</back>>>\nCalypsoSelector" as CalypsoSelector {
         --
         +CalypsoSelector filterByCardProtocol (String cardProtocol)
-        +CalypsoSelector filterByAtr (String atrRegex)
+        +CalypsoSelector filterByPowerOnData (String powerOnDataRegex)
         +CalypsoSelector filterByDfName (byte[] aid)
         +CalypsoSelector filterByDfName (String aid)
         +CalypsoSelector setFileOccurrence (<back:yellow>FileOccurrence</back> fileOccurrence)
         +CalypsoSelector setFileControlInformation (<back:yellow>FileControlInformation</back> fileControlInformation)
-        +CalypsoSelector addSuccessfulStatusCode (int statusCode)
+        +CalypsoSelector addSuccessfulStatusWord (int statusWord)
         .. **CardSelector** ..
         +String getCardProtocol ()
-        +String getAtrRegex ()
+        +String getPowerOnDataRegex ()
         +byte[] getAid ()
         +<back:yellow>FileOccurrence</back> getFileOccurrence ()
         +<back:yellow>FileControlInformation</back> getFileControlInformation ()
-        +Set<Integer> getSuccessfulSelectionStatusCodes ()
-        +CalypsoSelector addSuccessfulStatusCode (int statusCode)
-        +boolean atrMatches (byte[] atr)
+        +Set<Integer> getSuccessfulSelectionStatusWords ()
+        +CalypsoSelector addSuccessfulStatusWord (int statusWord)
+        +boolean powerOnDataMatches (byte[] powerOnData)
     }
 
     package card {
