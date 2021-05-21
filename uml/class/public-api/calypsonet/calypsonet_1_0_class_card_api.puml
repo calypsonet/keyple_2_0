@@ -64,7 +64,7 @@ package "org.calypsonet.terminal.card" as api {
             }
             +interface CardRequestSpi {
                 +List<ApduRequestSpi> getApduRequests ()
-                +boolean isStatusWordVerificationEnabled ()
+                +boolean stopOnUnsuccessfulStatusWord ()
             }
             +interface ApduRequestSpi {
                 +String getName ()
