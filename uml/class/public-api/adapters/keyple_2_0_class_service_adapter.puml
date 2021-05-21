@@ -49,8 +49,8 @@ legend top
     __Colors legend__ :
     * __External public API references__ :
     ** <back:cyan>**keyple-java-commons-api**</back>
-    ** <back:yellow>**calypsonet-java-reader-api**</back>
-    ** <back:lightGreen>**calypsonet-java-card-api**</back>
+    ** <back:yellow>**calypsonet-terminal-reader-java-api**</back>
+    ** <back:lightGreen>**calypsonet-terminal-card-java-api**</back>
     ** <back:gold>**com.google.code.gson**</back>
     * __External private API references__ :
     ** <back:pink>**keyple-java-plugin-api**</back>

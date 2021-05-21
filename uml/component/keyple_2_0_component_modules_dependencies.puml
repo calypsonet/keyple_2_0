@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Modules dependencies - 20/05/2021
+    Keyple 2.0 - Modules dependencies - 21/05/2021
 end title
 
 ' == THEME ==
@@ -70,7 +70,7 @@ package "Components having adapters" as packMain #C_GREY1 {
     [Specific Plugin (PCSC...)\nuse <back:cyan>**keyple-java-commons-api**</back>] as plugin <<red>>
     together {
         [Specific Card Extension (Calypso...)\nuse <back:cyan>**keyple-java-commons-api**</back>] as extension <<green>>
-        [**calypsonet-java-reader-api**] as readerApi <<orange>>
+        [**calypsonet-terminal-reader-java-api**] as readerApi <<orange>>
         [**keyple-java-service**\nuse <back:cyan>**keyple-java-commons-api**</back>] as service
         [**keyple-java-service-resource**] as serviceResource <<grey>>
     }
@@ -82,7 +82,7 @@ package "Components having adapters" as packMain #C_GREY1 {
 }
 package "Internal APIs/SPIs (hidden for the specific application)" as packApi #C_GREY1 {
     [**keyple-java-plugin-api**] as pluginApi
-    [**calypsonet-java-card-api**] as cardApi <<orange>>
+    [**calypsonet-terminal-card-java-api**] as cardApi <<orange>>
     [**keyple-java-distributed-local-api**\nuse <back:cyan>**keyple-java-commons-api**</back>] as distributedLocalApi
     [**keyple-java-distributed-remote-api**] as distributedRemoteApi
 }

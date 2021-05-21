@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1637.5px" preserveAspectRatio="none" style="width:2540px;height:1637px;" version="1.1" viewBox="0 0 2540 1637" width="2540px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="1010" x="748.75" y="46.7139">Keyple 2.0 - Card APIs dependencies - 20/05/2021</text><!--MD5=[ac52b3fd37c28f4d54976d8525cbd016]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1637.5px" preserveAspectRatio="none" style="width:2540px;height:1637px;" version="1.1" viewBox="0 0 2540 1637" width="2540px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="1010" x="748.75" y="46.7139">Keyple 2.0 - Card APIs dependencies - 21/05/2021</text><!--MD5=[ac52b3fd37c28f4d54976d8525cbd016]
 cluster packExtension--><polygon fill="#F8F9F9" points="40,354.1016,472.5,354.1016,490,457.1484,497.5,457.1484,497.5,1216.6016,40,1216.6016,40,354.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="40" x2="490" y1="457.1484" y2="457.1484"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="417.5" x="50" y="395.4346">Specific Card Extension</text><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="192.5" x="162.5" y="439.458">(Calypso...)</text><!--MD5=[e8a1417bd47fac7d568c195a69f51aa8]
-cluster packReaderApi--><polygon fill="#F8F9F9" points="557.5,531.6016,1042.5,531.6016,1060,590.625,1830,590.625,1830,811.6016,557.5,811.6016,557.5,531.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="557.5" x2="1060" y1="590.625" y2="590.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="470" x="567.5" y="572.9346">calypsonet-java-reader-api</text><!--MD5=[c9b12d7b2c4b1fc61915ee9f9b21580e]
+cluster packReaderApi--><polygon fill="#F8F9F9" points="557.5,531.6016,1197.5,531.6016,1215,590.625,1830,590.625,1830,811.6016,557.5,811.6016,557.5,531.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="557.5" x2="1215" y1="590.625" y2="590.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="625" x="567.5" y="572.9346">calypsonet-terminal-reader-java-api</text><!--MD5=[c9b12d7b2c4b1fc61915ee9f9b21580e]
 cluster packService--><polygon fill="#F8F9F9" points="1890,531.6016,2250,531.6016,2267.5,590.625,2497.5,590.625,2497.5,1216.6016,1890,1216.6016,1890,531.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="1890" x2="2267.5" y1="590.625" y2="590.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="345" x="1900" y="572.9346">keyple-java-service</text><!--MD5=[6c2c8b6ab22a2002edbb9a37cc194759]
-cluster packCardApi--><polygon fill="#F8F9F9" points="437.5,1341.6016,882.5,1341.6016,900,1400.625,965,1400.625,965,1621.6016,437.5,1621.6016,437.5,1341.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="437.5" x2="900" y1="1400.625" y2="1400.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="430" x="447.5" y="1382.9346">calypsonet-java-card-api</text><!--MD5=[f402d5c63cff53329f3c218bbd0560cc]
+cluster packCardApi--><polygon fill="#F8F9F9" points="390,1341.6016,990,1341.6016,1007.5,1400.625,1015,1400.625,1015,1621.6016,390,1621.6016,390,1341.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="390" x2="1007.5" y1="1400.625" y2="1400.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="585" x="400" y="1382.9346">calypsonet-terminal-card-java-api</text><!--MD5=[f402d5c63cff53329f3c218bbd0560cc]
 entity specificCardExtensionApi--><ellipse cx="355" cy="696.6016" fill="#E9F7EF" rx="20" ry="20" style="stroke:#27AE60;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="122.5" x="278.75" y="775.4346">Specific</text><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="77.5" x="278.75" y="819.458">Card</text><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="152.5" x="278.75" y="863.4814">Extension</text><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="52.5" x="278.75" y="907.5049">API</text><!--MD5=[535f43d417660373b2263710d106a2e4]
 entity extension--><rect fill="#E9F7EF" height="119.0234" style="stroke:#27AE60;stroke-width:3.75;" width="225" x="232.5" y="1056.6016"/><rect fill="#E9F7EF" height="25" style="stroke:#27AE60;stroke-width:3.75;" width="37.5" x="407.5" y="1069.1016"/><rect fill="#E9F7EF" height="5" style="stroke:#27AE60;stroke-width:3.75;" width="10" x="402.5" y="1074.1016"/><rect fill="#E9F7EF" height="5" style="stroke:#27AE60;stroke-width:3.75;" width="10" x="402.5" y="1084.1016"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="125" x="270" y="1142.9346">Adapter</text><!--MD5=[0fda63aba32982abbdb07b83db27d91d]
 entity readerApi--><ellipse cx="1040" cy="696.6016" fill="#FEFECE" rx="20" ry="20" style="stroke:#D4AC0D;stroke-width:3.75;"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="180" x="950" y="775.4346">Reader API</text><!--MD5=[e271058e200d62901eae273542a32118]
@@ -29,10 +29,10 @@ link application to readerApi--><path d="M1377.1025,194.4716 C1314.725,227.9341 
 link application to selectionApi--><path d="M1521.7775,194.1641 C1555.63,310.3066 1631.1575,569.4216 1657.895,661.1441 " fill="none" id="application-to-selectionApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1661.4725,673.4266,1664.7725,649.0266,1657.9725,661.4266,1645.5725,654.6266,1661.4725,673.4266" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1557.5" y="305.3394">use</text><!--MD5=[879ca4a963ad0fc65afcfcf02bc7792f]
 link application to serviceApi--><path d="M1630.9375,194.2191 C1695.845,228.3066 1773.095,276.1641 1830,334.1016 C1929.82,435.7316 2000.3075,593.9591 2027.5425,661.6266 " fill="none" id="application-to-serviceApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="2032.41,673.9091,2033.4207,649.3077,2027.8064,662.2877,2014.8265,656.6734,2032.41,673.9091" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1812.5" y="305.3394">use</text><!--MD5=[d6c7ae0c444d3684621ccf0a039b4c14]
 link service to cardSpi--><path d="M1929.81,1133.6891 C1616.185,1174.6116 752.68,1289.5741 700,1321.6016 C641.7875,1356.9941 601.495,1428.5853 581.6575,1470.8171 " fill="none" id="service-to-cardSpi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="576.16,1482.9086,594.5764,1466.5658,581.3341,1471.5297,576.3702,1458.2873,576.16,1482.9086" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="1022.5" y="1292.8394">use</text><!--MD5=[b84145f68a9638efe3b1cde23adb3c4f]
-link extension to cardApi--><path d="M457.505,1168.2416 C531.46,1203.9916 627.58,1257.2916 700,1321.6016 C750.7425,1366.6591 794.3,1433.6683 817.38,1472.7148 " fill="none" id="extension-to-cardApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="823.8725,1483.8796,821.2092,1459.4019,817.59,1473.0731,803.9188,1469.4539,823.8725,1483.8796" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="677.5" y="1292.8394">use</text><!--MD5=[224429b54b94e700172679a20700e524]
+link extension to cardApi--><path d="M457.505,1168.2416 C531.46,1203.9916 627.58,1257.2916 700,1321.6016 C750.7425,1366.6591 794.3,1433.6683 817.38,1472.7148 " fill="none" id="extension-to-cardApi" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="823.8725,1483.8796,821.2092,1459.4019,817.59,1473.0731,803.9188,1469.4539,823.8725,1483.8796" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="52.5" x="677.5" y="1292.8394">use</text><!--MD5=[a104e2d33739d19f53c891b2ace1b0f8]
 @startuml
 title
-    Keyple 2.0 - Card APIs dependencies - 20/05/2021
+    Keyple 2.0 - Card APIs dependencies - 21/05/2021
 end title
 
 ' == THEME ==
@@ -104,7 +104,7 @@ package "Specific Card Extension\n(Calypso...)" as packExtension {
     interface "Specific\nCard\nExtension\nAPI" as specificCardExtensionApi <<green>>
     [Adapter] as extension <<green>>
 }
-package "calypsonet-java-reader-api" as packReaderApi {
+package "calypsonet-terminal-reader-java-api" as packReaderApi {
     interface "Reader API" as readerApi
     interface "Reader SPI" as readerSpi <<blue>>
     interface "Selection API" as selectionApi
@@ -115,7 +115,7 @@ package "keyple-java-service" as packService {
     interface "Service SPI" as serviceSpi <<blue>>
     [Adapter] as service
 }
-package "calypsonet-java-card-api" as packCardApi {
+package "calypsonet-terminal-card-java-api" as packCardApi {
     interface "Card SPI" as cardSpi <<green>>
     interface "Card API" as cardApi
 }
@@ -165,7 +165,7 @@ package packCardApi #C_GREY1 {
 
 @startuml
 title
-    Keyple 2.0 - Card APIs dependencies - 20/05/2021
+    Keyple 2.0 - Card APIs dependencies - 21/05/2021
 end title
 
 
@@ -210,7 +210,7 @@ package "Specific Card Extension\n(Calypso...)" as packExtension {
     interface "Specific\nCard\nExtension\nAPI" as specificCardExtensionApi <<green>>
     [Adapter] as extension <<green>>
 }
-package "calypsonet-java-reader-api" as packReaderApi {
+package "calypsonet-terminal-reader-java-api" as packReaderApi {
     interface "Reader API" as readerApi
     interface "Reader SPI" as readerSpi <<blue>>
     interface "Selection API" as selectionApi
@@ -221,7 +221,7 @@ package "keyple-java-service" as packService {
     interface "Service SPI" as serviceSpi <<blue>>
     [Adapter] as service
 }
-package "calypsonet-java-card-api" as packCardApi {
+package "calypsonet-terminal-card-java-api" as packCardApi {
     interface "Card SPI" as cardSpi <<green>>
     interface "Card API" as cardApi
 }

@@ -48,7 +48,7 @@ hide <<grey>> stereotype
 legend top
     __Colors legend__ :
     * __External API references__ :
-    ** <back:yellow>**calypsonet-java-reader-api**</back>
+    ** <back:yellow>**calypsonet-terminal-reader-java-api**</back>
     ** <back:cyan>**keyple-java-commons-api**</back>
 end legend
 

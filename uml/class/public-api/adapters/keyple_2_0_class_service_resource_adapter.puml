@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service-resource - 2.0.0 (20/05/2021)
+    Keyple 2.0 - Adapter of keyple-java-service-resource - 2.0.0 (21/05/2021)
 end title
 
 ' == THEME ==
@@ -48,7 +48,7 @@ hide <<grey>> stereotype
 legend top
     __Colors legend__ :
     * __External public API references__ :
-    ** <back:yellow>**calypsonet-java-reader-api**</back>
+    ** <back:yellow>**calypsonet-terminal-reader-java-api**</back>
     ** <back:pink>**keyple-java-service**</back>
 end legend
 
