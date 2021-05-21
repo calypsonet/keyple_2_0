@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-remote-api - 2.0 (26/03/2021)
+    Keyple 2.0 - keyple-java-distributed-remote-api - 2.0 (21/05/2021)
 end title
 
 ' == THEME ==
@@ -55,12 +55,10 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
     }
     +interface ObservableRemotePluginApi extends RemotePluginApi {
         --
-        +void registerMasterReader (RemoteReaderSpi masterReaderSpi)
-        +void registerSlaveReader (RemoteReaderSpi slaveReaderSpi,
-            \tString masterReaderName, String readerEventJsonData)
-        +boolean unregisterReader (Sting readerName)
-        ..
         +void onPluginEvent (String jsonData)
+        ..
+        +void addRemoteReader (RemoteReaderSpi remoteReaderSpi)
+        +boolean removeRemoteReader (Sting remoteReaderName)
     }
     package spi {
         +interface RemotePluginFactorySpi {
@@ -69,16 +67,15 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
             +String getRemotePluginName ()
             +RemotePluginSpi getRemotePlugin ()
             +boolean isPoolPlugin ()
+            +boolean isObservablePlugin ()
         }
         +interface RemotePluginSpi {
             --
             +void connect (RemotePluginApi remotePluginApi)
             +String getName ()
             +String executeRemotely (String jsonData)
-            +RemoteReaderSpi createRemoteReader (
-                \tString localReaderName, boolean isObservable)
+            +RemoteReaderSpi createRemoteReader (String localReaderName)
             ..
-            +boolean isObservable ()
             +void startPluginsObservation ()
             +void stopPluginsObservation ()
         }
@@ -87,7 +84,6 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
             +String getName ()
             +String executeRemotely (String jsonData)
             ..
-            +boolean isObservable ()
             +void startReaderObservation ()
             +void stopReaderObservation ()
         }

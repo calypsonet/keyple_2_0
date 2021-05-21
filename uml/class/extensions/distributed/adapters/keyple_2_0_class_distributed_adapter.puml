@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of Keyple Distributed Solution - 2.0.0 (20/05/2021)
+    Keyple 2.0 - Adapter of Keyple Distributed Solution - 2.0.0 (21/05/2021)
 end title
 
 ' == THEME ==
@@ -51,8 +51,6 @@ legend top
     ** <back:lightBlue>**keyple-java-distributed-network**</back>
     ** <back:pink>**keyple-java-distributed-remote**</back>
     ** <back:lightGreen>**keyple-java-distributed-local**</back>
-    * __External public API references__ :
-    ** <back:cyan>**keyple-java-commons-api**</back>
     * __External private API references__ :
     ** <back:plum>**keyple-java-distributed-remote-api**</back>
     ** <back:yellow>**keyple-java-distributed-local-api**</back>
@@ -201,12 +199,13 @@ package "org.eclipse.keyple.distributed" as packAdapter {
 
         ~abstract class "<<<back:plum>RemotePluginFactorySpi</back>>>\nAbstractRemotePluginFactoryAdapter" as AbstractRemotePluginFactoryAdapter {
             --
-            ~AbstractRemotePluginFactoryAdapter (String remotePluginName, boolean isPoolPlugin)
+            ~AbstractRemotePluginFactoryAdapter (String remotePluginName, boolean isPoolPlugin, boolean isObservablePlugin)
             -- **RemotePluginFactorySpi** --
             +**final** String getDistributedRemoteApiVersion ()
             +**final** String getCommonsApiVersion ()
             +**final** String getRemotePluginName ()
             +**final** boolean isPoolPlugin ()
+            +**final** boolean isObservablePlugin ()
         }
         ~class "<<RemotePluginServerFactory>>\n**final** RemotePluginServerFactoryAdapter" as RemotePluginServerFactoryAdapter extends AbstractRemotePluginFactoryAdapter {
             --
@@ -238,14 +237,13 @@ package "org.eclipse.keyple.distributed" as packAdapter {
         ' Remote Plugins
         ~abstract "<<<back:plum>RemotePluginSpi</back>>>\nAbstractRemotePluginAdapter" as AbstractRemotePluginAdapter extends AbstractMessageHandlerAdapter {
             --
-            ~AbstractRemotePluginAdapter (String remotePluginName, boolean isObservable)
+            ~AbstractRemotePluginAdapter (String remotePluginName)
             ..
             ~**final** <back:plum>RemotePluginApi</back> getRemotePluginApi ()
             -- **RemotePluginSpi** --
             +**final** void connect (<back:plum>RemotePluginApi</back> remotePluginApi)
             +**final** String getName ()
             +**final** String executeRemotely (String jsonData)
-            +**final** boolean isObservable ()
         }
 
         ~class "<<RemotePluginServer>>\n**final** RemotePluginServerAdapter" as RemotePluginServerAdapter extends AbstractRemotePluginAdapter {
@@ -258,7 +256,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             +AsyncNodeServer getAsyncNode ()
             +void endRemoteService (String remoteReaderName, Object outputData)
             -- **RemotePluginSpi** --
-            +<back:plum>RemoteReaderSpi</back> createRemoteReader (String localReaderName, boolean isObservable)
+            +<back:plum>RemoteReaderSpi</back> createRemoteReader (String localReaderName)
             +void startPluginsObservation ()
             +void stopPluginsObservation ()
             -- **AbstractMessageHandlerAdapter** --
@@ -278,7 +276,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             -- **RemotePluginClient** --
             +AsyncNodeClient getAsyncNode ()
             -- **RemotePluginSpi** --
-            +<back:plum>RemoteReaderSpi</back> createRemoteReader (String localReaderName, boolean isObservable)
+            +<back:plum>RemoteReaderSpi</back> createRemoteReader (String localReaderName)
             +void startPluginsObservation ()
             +void stopPluginsObservation ()
             -- **AbstractMessageHandlerAdapter** --
@@ -298,7 +296,6 @@ package "org.eclipse.keyple.distributed" as packAdapter {
                 \tString localReaderName,
                 \tString sessionId,
                 \tString clientNodeId,
-                \tboolean isObservable,
                 \tAbstractNodeAdapter node)
             ..
             ~**final** String getLocalReaderName()
@@ -307,7 +304,6 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             -- **RemoteReaderSpi** --
             +**final** String getName ()
             +**final** String executeRemotely (String jsonData)
-            +**final** boolean isObservable ()
             +**final** void startReaderObservation ()
             +**final** void stopReaderObservation ()
         }
@@ -318,7 +314,6 @@ package "org.eclipse.keyple.distributed" as packAdapter {
                 \tString localReaderName,
                 \tString sessionId,
                 \tString clientNodeId,
-                \tboolean isObservable,
                 \tAbstractNodeAdapter node)
         }
         ~class "<<RemoteReaderServer>>\n**final** RemoteReaderServerAdapter" as RemoteReaderServerAdapter extends AbstractRemoteReaderAdapter {
@@ -328,7 +323,6 @@ package "org.eclipse.keyple.distributed" as packAdapter {
                 \tString localReaderName,
                 \tString sessionId,
                 \tString clientNodeId,
-                \tboolean isObservable,
                 \tAbstractNodeAdapter node,
                 \tString serviceId,
                 \tString inputDataJson,
@@ -336,7 +330,8 @@ package "org.eclipse.keyple.distributed" as packAdapter {
                 \tString initialCardContentClassName)
             -- **RemoteReaderServer** --
             +String getServiceId ()
-            +<T> T getInputData (Class<T> classOfInputData)
+            +Object getInitialCardContent ()
+            +<T> T getInputData (Class<T> inputDataClass)
         }
     }
 
@@ -386,8 +381,6 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             -- **LocalServiceSpi** --
             +void connect (<back:yellow>LocalServiceApi</back> localServiceApi)
             +**final** String getName ()
-            +**final** void onPluginEvent (String readerName, String jsonData, <back:cyan>KeyplePluginEvent</back> pluginEvent)
-            +void onReaderEvent (String readerName, String jsonData, <back:cyan>KeypleReaderEvent</back> readerEvent)
         }
         ~class "<<LocalServiceClient>>\n**final** LocalServiceClientAdapter" as LocalServiceClientAdapter extends AbstractLocalServiceAdapter {
             --
@@ -400,9 +393,15 @@ package "org.eclipse.keyple.distributed" as packAdapter {
                 \tReaderEventFilterSpi eventFilter)
             -- **LocalServiceClient** --
             +AsyncNodeClient getAsyncNode ()
-            +<T> T executeRemoteService (RemoteServiceParameters parameters, Class<T> classOfOutputData)
+            +<T> T executeRemoteService (
+                \tString serviceId,
+                \tString localReaderName,
+                \tObject initialCardContent,
+                \tObject inputData,
+                \tClass<T> outputDataClass)
             -- **LocalServiceSpi** --
-            +void onReaderEvent (String readerName, String jsonData, <back:cyan>KeypleReaderEvent</back> readerEvent)
+            +void onPluginEvent (String readerName, String jsonData)
+            +void onReaderEvent (String readerName, String jsonData)
             -- **AbstractMessageHandlerAdapter** --
             ~void onMessage (MessageDto message)
         }
@@ -417,6 +416,8 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             +AsyncNodeServer getAsyncNode ()
             -- **LocalServiceSpi** --
             +void connect (<back:yellow>LocalServiceApi</back> localServiceApi)
+            +void onPluginEvent (String readerName, String jsonData)
+            +void onReaderEvent (String readerName, String jsonData)
             -- **AbstractMessageHandlerAdapter** --
             ~void onMessage (MessageDto message)
         }

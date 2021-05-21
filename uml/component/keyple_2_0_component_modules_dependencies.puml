@@ -83,7 +83,7 @@ package "Components having adapters" as packMain #C_GREY1 {
 package "Internal APIs/SPIs (hidden for the specific application)" as packApi #C_GREY1 {
     [**keyple-java-plugin-api**] as pluginApi
     [**calypsonet-terminal-card-java-api**] as cardApi <<orange>>
-    [**keyple-java-distributed-local-api**\nuse <back:cyan>**keyple-java-commons-api**</back>] as distributedLocalApi
+    [**keyple-java-distributed-local-api**] as distributedLocalApi
     [**keyple-java-distributed-remote-api**] as distributedRemoteApi
 }
 [**keyple-java-utils**] as util

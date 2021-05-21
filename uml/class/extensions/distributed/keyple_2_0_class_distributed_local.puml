@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-local - 2.0.0 (20/05/2021)
+    Keyple 2.0 - keyple-java-distributed-local - 2.0.0 (21/05/2021)
 end title
 
 ' == THEME ==
@@ -50,10 +50,10 @@ legend top
     * __Configuration modes__ :
     ** <back:lightGreen>**Reader Client Side**</back>
     ** <back:plum>**Reader Server Side**</back>
-    ** <back:lightBlue>**Pool Reader Server Side**</back>
+    ** <back:plum>**Pool Reader Server Side**</back>
     * __External API references__ :
-    ** <back:yellow>**Network API**</back>
-    ** <back:cyan>**Commons API**</back>
+    ** <back:yellow>**keyple-java-distributed-network**</back>
+    ** <back:cyan>**keyple-java-commons-api**</back>
 end legend
 
 package "org.eclipse.keyple.distributed" as root {
@@ -67,7 +67,7 @@ package "org.eclipse.keyple.distributed" as root {
             \tString localReaderName,
             \tObject initialCardContent,
             \tObject inputData,
-            \tClass<T> classOfOutputData)
+            \tClass<T> outputDataClass)
     }
 
     +interface "<<<back:cyan>KeypleDistributedLocalServiceExtension</back>>>\nLocalServiceServer" as LocalServiceServer {
@@ -89,27 +89,11 @@ package "org.eclipse.keyple.distributed" as root {
             + {static} NodeStep builder (String localServiceName)
         }
         +interface "NodeStep" as LocalServiceClientFactoryNodeStep {
-            + ReaderStep withSyncNode (<back:yellow>SyncEndpointClientSpi</back> endpoint)
-            + ReaderStep withAsyncNode (<back:yellow>AsyncEndpointClientSpi</back> endpoint, int timeoutSeconds)
-        }
-        +interface "ReaderStep" as LocalServiceClientFactoryReaderStep {
-                + BuilderStep withReaderObservation (ReaderEventFilterSpi filter)
-            + BuilderStep withoutReaderObservation ()
+            + BuilderStep withSyncNode (<back:yellow>SyncEndpointClientSpi</back> endpoint)
+            + BuilderStep withAsyncNode (<back:yellow>AsyncEndpointClientSpi</back> endpoint, int timeoutSeconds)
         }
         +interface "BuilderStep" as LocalServiceClientFactoryBuilderStep {
             + LocalServiceClientFactory build ()
-        }
-
-        package spi {
-            +interface ReaderEventFilterSpi {
-                +Object beforeEventBroadcast (<back:cyan>KeypleReaderEvent</back> event)
-                +Class<?> getOutputDataClass ()
-                +void afterEventBroadcast (Object outputData)
-                +boolean onEventBroadcastError (RuntimeException exception)
-            }
-        }
-        +class "<<Exception>>\n**final** CancelEventBroadcastException" as CancelEventBroadcastException {
-            +CancelEventBroadcastException (String message)
         }
 
         +class "**final** LocalServiceServerFactoryBuilder" as LocalServiceServerFactoryBuilder {
@@ -129,10 +113,7 @@ package "org.eclipse.keyple.distributed" as root {
 ' Associations
 
 LocalServiceClientFactoryBuilder ..> LocalServiceClientFactoryNodeStep #C_USE : provide >
-LocalServiceClientFactoryNodeStep ..> LocalServiceClientFactoryReaderStep #C_USE
-LocalServiceClientFactoryReaderStep ..> LocalServiceClientFactoryBuilderStep #C_USE
-LocalServiceClientFactoryReaderStep ..> ReaderEventFilterSpi #C_USE : use >
-ReaderEventFilterSpi ..> CancelEventBroadcastException #C_USE : throw >
+LocalServiceClientFactoryNodeStep ..> LocalServiceClientFactoryBuilderStep #C_USE
 LocalServiceClientFactoryBuilderStep ..> LocalServiceClientFactory #C_USE : create >
 LocalServiceClientFactory ..> LocalServiceClient #C_USE : create >
 
@@ -144,21 +125,15 @@ LocalServiceServerFactory ..> LocalServiceServer #C_USE : create >
 
 ' == LAYOUT ==
 
-CancelEventBroadcastException -[hidden]- LocalServiceClientFactory
-
 ' == STYLE ==
 
 package root #C_GREY1 {}
-package spi #C_GREY2 {}
 
 interface LocalServiceClient <<green>>
 interface LocalServiceClientFactory <<green>>
 class LocalServiceClientFactoryBuilder <<green>>
 interface LocalServiceClientFactoryNodeStep <<green>>
-interface LocalServiceClientFactoryReaderStep <<green>>
 interface LocalServiceClientFactoryBuilderStep <<green>>
-interface ReaderEventFilterSpi <<green>>
-class CancelEventBroadcastException <<green>>
 
 interface LocalServiceServer <<purple>>
 interface LocalServiceServerFactory <<purple>>

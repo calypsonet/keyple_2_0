@@ -210,10 +210,9 @@ package "org.eclipse.keyple.core.service" as service {
         +void clearObservers ()
         +int countObservers ()
         -- **ObservableRemotePluginApi** --
-        +void registerMasterReader (<back:plum>RemoteReaderSpi</back> masterReaderSpi)
-        +void registerSlaveReader (<back:plum>RemoteReaderSpi</back> slaveReaderSpi, String masterReaderName, String readerEventJsonData)
-        +boolean unregisterReader (readerName)
         +void onPluginEvent (String jsonData)
+        +void addRemoteReader (<back:plum>RemoteReaderSpi</back> remoteReaderSpi)
+        +boolean removeRemoteReader (remoteReaderName)
     }
     ' DISTRIBUTED LOCAL SERVICE
     ~class "<<DistributedLocalService>>\n<<PluginObserverSpi>>\n<<<back:yellow>CardReaderObserverSpi</back>>>\n<<<back:orange>LocalServiceApi</back>>>\n**final** DistributedLocalServiceAdapter" as DistributedLocalServiceAdapter {
@@ -249,7 +248,7 @@ package "org.eclipse.keyple.core.service" as service {
         ~{static} void throwRuntimeException (Exception e)
     }
     ' READERS
-    ~abstract class "<<Reader>>\n<<<back:lightGreen>ProxyReader</back>>>\nAbstractReaderAdapter" as AbstractReaderAdapter {
+    ~abstract class "<<Reader>>\n<<<back:lightGreen>ProxyReaderApi</back>>>\nAbstractReaderAdapter" as AbstractReaderAdapter {
         --
         ~AbstractReaderAdapter (String readerName, Object readerExtension, String pluginName)
         ..
@@ -267,8 +266,8 @@ package "org.eclipse.keyple.core.service" as service {
         -- **Reader** --
         +**final** String getName ()
         +**final** <T extends <back:cyan>KeypleReaderExtension</back>> T getExtension (Class<T> readerExtensionType)
-        -- **ProxyReader** --
-        +**final** <back:lightGreen>CardResponse</back> transmitCardRequest (<back:lightGreen>CardRequestSpi</back> cardRequest, <back:lightGreen>ChannelControl</back> channelControl)
+        -- **ProxyReaderApi** --
+        +**final** <back:lightGreen>CardResponseApi</back> transmitCardRequest (<back:lightGreen>CardRequestSpi</back> cardRequest, <back:lightGreen>ChannelControl</back> channelControl)
     }
     ~class LocalReaderAdapter extends AbstractReaderAdapter {
         --
@@ -292,7 +291,7 @@ package "org.eclipse.keyple.core.service" as service {
         +**final** void activateProtocol (
             \tString readerProtocol, String cardProtocol)
         +**final** void deactivateProtocol (String readerProtocol)
-        -- **ProxyReader** --
+        -- **ProxyReaderApi** --
         +**final** void releaseChannel ()
     }
     ~class RemoteReaderAdapter extends AbstractReaderAdapter {
@@ -314,7 +313,7 @@ package "org.eclipse.keyple.core.service" as service {
         +**final** void activateProtocol (
             \tString readerProtocol, String cardProtocol)
         +**final** void deactivateProtocol (String readerProtocol)
-        -- **ProxyReader** --
+        -- **ProxyReaderApi** --
         +**final** void releaseChannel ()
     }
     ~class "**final** CardSelectionScenarioAdapter" as CardSelectionScenarioAdapter {
@@ -374,10 +373,7 @@ package "org.eclipse.keyple.core.service" as service {
     }
     ~class "<<ObservableReader>>\n**final** ObservableRemoteReaderAdapter" as ObservableRemoteReaderAdapter extends RemoteReaderAdapter {
         --
-        ~ObservableRemoteReaderAdapter (<back:plum>RemoteReaderSpi</back> remoteReaderSpi,
-            \tObservableRemoteReaderAdapter masterReader, String pluginName)
-        ..
-        ~ObservableRemoteReaderAdapter getMasterReader ()
+        ~ObservableRemoteReaderAdapter (<back:plum>RemoteReaderSpi</back> remoteReaderSpi, String pluginName)
         ..
         ~void notifyObservers (ReaderEvent event)
         ..
@@ -563,40 +559,40 @@ package "org.eclipse.keyple.core.service" as service {
 
     ' RESPONSE
     together {
-        +class "<<<back:lightGreen>CardSelectionResponse</back>>>\n**final** CardSelectionResponseAdapter" as CardSelectionResponseAdapter {
+        +class "<<<back:lightGreen>CardSelectionResponseApi</back>>>\n**final** CardSelectionResponseAdapter" as CardSelectionResponseAdapter {
             --
-            ~CardSelectionResponseAdapter (SelectionStatusAdapter selectionStatus, CardResponseAdapter cardResponse)
-            .. **CardSelectionResponse** ..
-            +<back:lightGreen>SelectionStatus</back> getSelectionStatus ()
-            +<back:lightGreen>CardResponse</back> getCardResponse ()
+            ~CardSelectionResponseAdapter (SelectionStatusAdapter selectionStatusApi, CardResponseAdapter cardResponseApi)
+            .. **CardSelectionResponseApi** ..
+            +<back:lightGreen>SelectionStatusApi</back> getSelectionStatus ()
+            +<back:lightGreen>CardResponseApi</back> getCardResponse ()
         }
-        +class "<<<back:lightGreen>CardResponse</back>>>\n**final** CardResponseAdapter" as CardResponseAdapter {
+        +class "<<<back:lightGreen>CardResponseApi</back>>>\n**final** CardResponseAdapter" as CardResponseAdapter {
             --
             ~CardResponseAdapter (List<ApduResponseAdapter> apduResponses,
                 \tboolean isLogicalChannelOpen,
                 \tboolean isComplete)
-            .. **CardResponse** ..
-            +List<<back:lightGreen>ApduResponse</back>> getApduResponses ()
+            .. **CardResponseApi** ..
+            +List<<back:lightGreen>ApduResponseApi</back>> getApduResponses ()
             +boolean isLogicalChannelOpen ()
             +boolean isComplete ()
         }
-        +class "<<<back:lightGreen>ApduResponse</back>>>\n**final** ApduResponseAdapter" as ApduResponseAdapter {
+        +class "<<<back:lightGreen>ApduResponseApi</back>>>\n**final** ApduResponseAdapter" as ApduResponseAdapter {
             --
             ~ApduResponseAdapter (byte[] bytes)
-            .. **ApduResponse** ..
+            .. **ApduResponseApi** ..
             +byte[] getBytes ()
             +byte[] getDataOut ()
             +int getStatusWord ()
         }
-        +class "<<<back:lightGreen>SelectionStatus</back>>>\n**final** SelectionStatusAdapter" as SelectionStatusAdapter {
+        +class "<<<back:lightGreen>SelectionStatusApi</back>>>\n**final** SelectionStatusAdapter" as SelectionStatusAdapter {
             --
             ~SelectionStatusAdapter (
                 \tbyte[] powerOnData,
                 \tApduResponseAdapter fci,
                 \tboolean isMatching)
-            .. **SelectionStatus** ..
+            .. **SelectionStatusApi** ..
             +byte[] getPowerOnData ()
-            +<back:lightGreen>ApduResponse</back> getFci ()
+            +<back:lightGreen>ApduResponseApi</back> getFci ()
             +boolean hasMatched ()
         }
     }
@@ -629,7 +625,6 @@ AbstractMonitoringJobAdapter *-- "1" ObservableLocalReaderAdapter #C_LINK
 
 AbstractPluginAdapter *-- "0..N" AbstractReaderAdapter #C_LINK
 
-ObservableRemoteReaderAdapter *-- "0..1" ObservableRemoteReaderAdapter #C_LINK : masterReader >
 ObservableRemoteReaderAdapter *-- "1" ObservationManagerAdapter #C_LINK
 ObservableRemoteReaderAdapter ..> CardSelectionScenarioAdapter #C_USE : use >
 

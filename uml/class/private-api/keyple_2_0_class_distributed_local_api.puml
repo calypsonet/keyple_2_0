@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-local-api - 2.0 (26/03/2021)
+    Keyple 2.0 - keyple-java-distributed-local-api - 2.0 (21/05/2021)
 end title
 
 ' == THEME ==
@@ -45,22 +45,12 @@ hide <<grey>> stereotype
 
 ' == CONTENT ==
 
-legend top
-    __Colors legend__ :
-    * __External public API references__ :
-    ** <back:cyan>**keyple-java-commons-api**</back>
-end legend
-
 package "org.eclipse.keyple.core.distributed.local" as api {
     +class "**final** DistributedLocalApiProperties" as ApiProperties {
         +{static} **final** String VERSION
     }
     +interface LocalServiceApi {
         +String executeLocally (String jsonData, String readerName)
-        ..
-        +boolean isReaderObservable (String readerName)
-        +void startReaderObservation (String readerName)
-        +void stopReaderObservation (String readerName)
         ..
         +void startPluginsObservation ()
         +void stopPluginsObservation ()
@@ -77,8 +67,8 @@ package "org.eclipse.keyple.core.distributed.local" as api {
         +interface LocalServiceSpi {
             +void connect (LocalServiceApi localServiceApi)
             +String getName ()
-            +void onPluginEvent (String readerName, String jsonData, <back:cyan>KeyplePluginEvent</back> pluginEvent)
-            +void onReaderEvent (String readerName, String jsonData, <back:cyan>KeypleReaderEvent</back> readerEvent)
+            +void onPluginEvent (String readerName, String jsonData)
+            +void onReaderEvent (String readerName, String jsonData)
         }
     }
 }

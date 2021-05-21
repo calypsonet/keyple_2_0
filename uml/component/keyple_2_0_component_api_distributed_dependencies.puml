@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Distributed APIs dependencies - 26/04/2021
+    Keyple 2.0 - Distributed APIs dependencies - 21/05/2021
 end title
 
 ' == THEME ==
@@ -71,12 +71,10 @@ hide <<grey>> stereotype
 package "keyple-java-service" as packService {
     interface "Service API" as serviceApi
     interface "Service SPI" as serviceSpi <<blue>>
-    interface "Selection SPI" as selectionSpi <<green>>
     [Adapter] as service
 }
 package "keyple-java-distributed-local" as packDistributedLocal {
     interface "Local API" as localApi <<purple>>
-    interface "Local SPI" as localSpi <<blue>>
     [Adapter] as distributedLocal <<purple>>
 }
 package "keyple-java-distributed-network" as packDistributedNetwork {
@@ -100,7 +98,6 @@ package "keyple-java-distributed-local-api" as packDistributedLocalApi {
 ' == ASSOCIATIONS ==
 
 application -- serviceSpi #COLOR_BLUE
-application -- localSpi #COLOR_BLUE
 application -- networkSpi #COLOR_BLUE
 
 service -up- serviceApi #COLOR_YELLOW
@@ -123,11 +120,9 @@ application ..> networkApi : use
 application ..> remoteApi : use
 
 service .up.> serviceSpi : use
-service .up.> selectionSpi : use
 service ..> distributedLocalSpi : use
 service ..> distributedRemoteSpi : use
 
-distributedLocal .up.> localSpi : use
 distributedLocal ..> distributedLocalApi : use
 distributedLocal .up.> networkApi : use
 

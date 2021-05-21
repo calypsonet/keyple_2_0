@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-remote - 2.0.0 (20/05/2021)
+    Keyple 2.0 - keyple-java-distributed-remote - 2.0.0 (21/05/2021)
 end title
 
 ' == THEME ==
@@ -52,8 +52,8 @@ legend top
     ** <back:plum>**Reader Server Side**</back>
     ** <back:lightBlue>**Pool Reader Server Side**</back>
     * __External API references__ :
-    ** <back:yellow>**Network API**</back>
-    ** <back:cyan>**Commons API**</back>
+    ** <back:yellow>**keyple-java-distributed-network**</back>
+    ** <back:cyan>**keyple-java-commons-api**</back>
 end legend
 
 package "org.eclipse.keyple.distributed" as root {
@@ -69,7 +69,7 @@ package "org.eclipse.keyple.distributed" as root {
     +interface "<<<back:cyan>KeypleReaderExtension</back>>>\nRemoteReaderServer" as RemoteReaderServer {
         +String getServiceId ()
         +Object getInitialCardContent ()
-        +<T> T getInputData (Class<T> classOfInputData)
+        +<T> T getInputData (Class<T> inputDataClass)
     }
     +interface "<<<back:cyan>KeyplePluginExtension</back>>>\nRemotePluginClient" as RemotePluginClient {
         +<back:yellow>AsyncNodeClient</back> getAsyncNode ()

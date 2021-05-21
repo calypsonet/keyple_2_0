@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Plugin APIs dependencies - 26/04/2021
+    Keyple 2.0 - Plugin APIs dependencies - 21/05/2021
 end title
 
 ' == THEME ==
@@ -71,7 +71,6 @@ hide <<grey>> stereotype
 package "keyple-java-service" as packService {
     interface "Service API" as serviceApi
     interface "Service SPI" as serviceSpi <<blue>>
-    interface "Selection SPI" as selectionSpi <<green>>
     [Adapter] as service
 }
 package "Specific Plugin (PCSC...)" as packPlugin {
@@ -99,7 +98,6 @@ application ..> specificPluginApi : use
 application ..> serviceApi : use
 
 service .up.> serviceSpi : use
-service .up.> selectionSpi : use
 service ..> pluginSpi : use
 
 plugin ..> pluginApi : use

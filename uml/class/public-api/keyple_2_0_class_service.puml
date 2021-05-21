@@ -209,7 +209,7 @@ package "org.eclipse.keyple.core.service" as service {
             }
         }
     }
-    +class "<<<back:yellow>CardReaderEvent</back>>>\n<<<back:cyan>KeypleReaderEvent</back>>>\n**final** ReaderEvent" as ReaderEvent {
+    +class "<<<back:yellow>CardReaderEvent</back>>>\n**final** ReaderEvent" as ReaderEvent {
         --
         +ReaderEvent (String pluginName, String readerName, <back:yellow>EventType</back> eventType,
             \t<back:yellow>ScheduledCardSelectionsResponse</back> scheduledCardSelectionsResponse)
@@ -220,7 +220,7 @@ package "org.eclipse.keyple.core.service" as service {
         +<back:yellow>EventType</back> getEventType ()
         +<back:yellow>ScheduledCardSelectionsResponse</back> getScheduledCardSelectionsResponse ()
     }
-    +class "<<<back:cyan>KeyplePluginEvent</back>>>\n**final** PluginEvent" as PluginEvent {
+    +class "**final** PluginEvent" as PluginEvent {
         --
         +PluginEvent (String pluginName, String readerName, EventType eventType)
         +PluginEvent (String pluginName, Set<String> readerNames, EventType eventType)
