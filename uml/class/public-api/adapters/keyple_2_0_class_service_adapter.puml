@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (21/05/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (26/05/2021)
 end title
 
 ' == THEME ==
@@ -230,9 +230,6 @@ package "org.eclipse.keyple.core.service" as service {
         +void onReaderEvent (ReaderEvent readerEvent)
         -- **LocalServiceApi** --
         +String executeLocally (String readerName, String jsonData)
-        +boolean isReaderObservable (String readerName)
-        +void startReaderObservation (String readerName)
-        +void stopReaderObservation (String readerName)
         +void startPluginsObservation ()
         +void stopPluginsObservation ()
         +void setPoolPluginNames (String... poolPluginNames)
@@ -262,7 +259,7 @@ package "org.eclipse.keyple.core.service" as service {
         ..
         ~{abstract} **abstract** List<CardSelectionResponseAdapter> processCardSelectionRequests (List<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,
             \tMultiSelectionProcessing multiSelectionProcessing, <back:lightGreen>ChannelControl</back> channelControl)
-        ~{abstract} **abstract** CardResponseAdapter processCardRequest (<back:lightGreen>CardRequestSpi</back> cardRequest, <back:lightGreen>ChannelControl</back> channelControl)
+        ~{abstract} **abstract** <back:lightGreen>CardResponseApi</back> processCardRequest (<back:lightGreen>CardRequestSpi</back> cardRequest, <back:lightGreen>ChannelControl</back> channelControl)
         -- **Reader** --
         +**final** String getName ()
         +**final** <T extends <back:cyan>KeypleReaderExtension</back>> T getExtension (Class<T> readerExtensionType)
@@ -282,7 +279,7 @@ package "org.eclipse.keyple.core.service" as service {
             \tList<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,
             \tMultiSelectionProcessing multiSelectionProcessing,
             \t<back:lightGreen>ChannelControl</back> channelControl)
-        ~**final** CardResponseAdapter processCardRequest (
+        ~**final** <back:lightGreen>CardResponseApi</back> processCardRequest (
             \t<back:lightGreen>CardRequestSpi</back> cardRequest,
             \t<back:lightGreen>ChannelControl</back> channelControl)
         -- **Reader** --
@@ -304,7 +301,7 @@ package "org.eclipse.keyple.core.service" as service {
             \tList<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,
             \tMultiSelectionProcessing multiSelectionProcessing,
             \t<back:lightGreen>ChannelControl</back> channelControl)
-        ~**final** CardResponseAdapter processCardRequest (
+        ~**final** <back:lightGreen>CardResponseApi</back> processCardRequest (
             \t<back:lightGreen>CardRequestSpi</back> cardRequest,
             \t<back:lightGreen>ChannelControl</back> channelControl)
         -- **Reader** --
@@ -561,14 +558,14 @@ package "org.eclipse.keyple.core.service" as service {
     together {
         +class "<<<back:lightGreen>CardSelectionResponseApi</back>>>\n**final** CardSelectionResponseAdapter" as CardSelectionResponseAdapter {
             --
-            ~CardSelectionResponseAdapter (SelectionStatusAdapter selectionStatusApi, CardResponseAdapter cardResponseApi)
+            ~CardSelectionResponseAdapter (<back:lightGreen>SelectionStatusApi</back> selectionStatusApi, <back:lightGreen>CardResponseApi</back> cardResponseApi)
             .. **CardSelectionResponseApi** ..
             +<back:lightGreen>SelectionStatusApi</back> getSelectionStatus ()
             +<back:lightGreen>CardResponseApi</back> getCardResponse ()
         }
         +class "<<<back:lightGreen>CardResponseApi</back>>>\n**final** CardResponseAdapter" as CardResponseAdapter {
             --
-            ~CardResponseAdapter (List<ApduResponseAdapter> apduResponses,
+            ~CardResponseAdapter (List<<back:lightGreen>ApduResponseApi</back>> apduResponses,
                 \tboolean isLogicalChannelOpen,
                 \tboolean isComplete)
             .. **CardResponseApi** ..
@@ -588,7 +585,7 @@ package "org.eclipse.keyple.core.service" as service {
             --
             ~SelectionStatusAdapter (
                 \tbyte[] powerOnData,
-                \tApduResponseAdapter fci,
+                \t<back:lightGreen>ApduResponseApi</back> fci,
                 \tboolean isMatching)
             .. **SelectionStatusApi** ..
             +byte[] getPowerOnData ()
