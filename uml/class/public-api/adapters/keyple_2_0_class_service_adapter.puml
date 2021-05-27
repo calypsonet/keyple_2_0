@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (26/05/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (27/05/2021)
 end title
 
 ' == THEME ==
@@ -138,7 +138,7 @@ package "org.eclipse.keyple.core.service" as service {
     }
     ~class "<<PoolPlugin>>\n**final** RemotePoolPluginAdapter" as RemotePoolPluginAdapter extends AbstractPluginAdapter {
         --
-        ~RemotePoolPluginAdapter (<back:plum>RemotePluginSpi</back> remotePluginSpi)
+        ~RemotePoolPluginAdapter (<back:plum>RemotePoolPluginSpi</back> remotePoolPluginSpi)
         -- **PoolPlugin** --
         +SortedSet<String> getReaderGroupReferences ()
         +Reader allocateReader (String readerGroupReference)
@@ -197,7 +197,7 @@ package "org.eclipse.keyple.core.service" as service {
     }
     ~class "<<ObservablePlugin>>\n<<<back:plum>ObservableRemotePluginApi</back>>>\n**final** ObservableRemotePluginAdapter" as ObservableRemotePluginAdapter extends RemotePluginAdapter {
         --
-        ~ObservableRemotePluginAdapter (<back:plum>RemotePluginSpi</back> remotePluginSpi)
+        ~ObservableRemotePluginAdapter (<back:plum>ObservableRemotePluginSpi</back> observableRemotePluginSpi)
         ..
         ~void notifyObservers (PluginEvent event)
         -- **AbstractPluginAdapter** --
@@ -210,9 +210,9 @@ package "org.eclipse.keyple.core.service" as service {
         +void clearObservers ()
         +int countObservers ()
         -- **ObservableRemotePluginApi** --
-        +void onPluginEvent (String jsonData)
         +void addRemoteReader (<back:plum>RemoteReaderSpi</back> remoteReaderSpi)
         +boolean removeRemoteReader (remoteReaderName)
+        +void onPluginEvent (String jsonData)
     }
     ' DISTRIBUTED LOCAL SERVICE
     ~class "<<DistributedLocalService>>\n<<PluginObserverSpi>>\n<<<back:yellow>CardReaderObserverSpi</back>>>\n<<<back:orange>LocalServiceApi</back>>>\n**final** DistributedLocalServiceAdapter" as DistributedLocalServiceAdapter {
@@ -229,10 +229,10 @@ package "org.eclipse.keyple.core.service" as service {
         -- **CardReaderObserverSpi** --
         +void onReaderEvent (ReaderEvent readerEvent)
         -- **LocalServiceApi** --
-        +String executeLocally (String readerName, String jsonData)
+        +void setPoolPluginNames (String... poolPluginNames)
+        +String executeLocally (String jsonData, String readerName)
         +void startPluginsObservation ()
         +void stopPluginsObservation ()
-        +void setPoolPluginNames (String... poolPluginNames)
     }
     ~class "**final** DistributedUtilAdapter" as DistributedUtilAdapter {
         --
@@ -244,20 +244,29 @@ package "org.eclipse.keyple.core.service" as service {
             \tString readerName, String pluginName, Logger logger)
         ~{static} void throwRuntimeException (Exception e)
     }
+    ~enum JsonProperty {
+        ...
+    }
+    ~enum PluginService {
+        ...
+    }
+    ~enum ReaderService {
+        ...
+    }
     ' READERS
     ~abstract class "<<Reader>>\n<<<back:lightGreen>ProxyReaderApi</back>>>\nAbstractReaderAdapter" as AbstractReaderAdapter {
         --
         ~AbstractReaderAdapter (String readerName, Object readerExtension, String pluginName)
         ..
         ~**final** String getPluginName ()
-        ~**final** List<CardSelectionResponseAdapter> transmitCardSelectionRequests (List<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,
+        ~**final** List<<back:lightGreen>CardSelectionResponseApi</back>> transmitCardSelectionRequests (List<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,
             \tMultiSelectionProcessing multiSelectionProcessing, <back:lightGreen>ChannelControl</back> channelControl)
         ..
         ~**final** void checkStatus ()
         ~**final** void register ()
         ~void unregister ()
         ..
-        ~{abstract} **abstract** List<CardSelectionResponseAdapter> processCardSelectionRequests (List<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,
+        ~{abstract} **abstract** List<<back:lightGreen>CardSelectionResponseApi</back>> processCardSelectionRequests (List<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,
             \tMultiSelectionProcessing multiSelectionProcessing, <back:lightGreen>ChannelControl</back> channelControl)
         ~{abstract} **abstract** <back:lightGreen>CardResponseApi</back> processCardRequest (<back:lightGreen>CardRequestSpi</back> cardRequest, <back:lightGreen>ChannelControl</back> channelControl)
         -- **Reader** --
@@ -275,7 +284,7 @@ package "org.eclipse.keyple.core.service" as service {
         ~**final** void closeLogicalAndPhysicalChannelsSilently ()
         -- **AbstractReaderAdapter** --
         ~void unregister ()
-        ~**final** List<CardSelectionResponseAdapter> processCardSelectionRequests (
+        ~**final** List<<back:lightGreen>CardSelectionResponseApi</back>> processCardSelectionRequests (
             \tList<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,
             \tMultiSelectionProcessing multiSelectionProcessing,
             \t<back:lightGreen>ChannelControl</back> channelControl)
@@ -297,7 +306,7 @@ package "org.eclipse.keyple.core.service" as service {
         ..
         ~**final** <back:plum>RemoteReaderSpi</back> getRemoteReaderSpi ()
         -- **AbstractReaderAdapter** --
-        ~**final** List<CardSelectionResponseAdapter> processCardSelectionRequests (
+        ~**final** List<<back:lightGreen>CardSelectionResponseApi</back>> processCardSelectionRequests (
             \tList<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,
             \tMultiSelectionProcessing multiSelectionProcessing,
             \t<back:lightGreen>ChannelControl</back> channelControl)
@@ -370,7 +379,7 @@ package "org.eclipse.keyple.core.service" as service {
     }
     ~class "<<ObservableReader>>\n**final** ObservableRemoteReaderAdapter" as ObservableRemoteReaderAdapter extends RemoteReaderAdapter {
         --
-        ~ObservableRemoteReaderAdapter (<back:plum>RemoteReaderSpi</back> remoteReaderSpi, String pluginName)
+        ~ObservableRemoteReaderAdapter (<back:plum>ObservableRemoteReaderSpi</back> remoteReaderSpi, String pluginName)
         ..
         ~void notifyObservers (ReaderEvent event)
         ..
@@ -536,9 +545,9 @@ package "org.eclipse.keyple.core.service" as service {
     ~class "<<<back:yellow>ScheduledCardSelectionsResponse</back>>>\n**final** ScheduledCardSelectionsResponseAdapter" as ScheduledCardSelectionsResponseAdapter {
         --
         ~ScheduledCardSelectionsResponseAdapter (
-            \tList<CardSelectionResponseAdapter> cardSelectionResponses)
+            \tList<<back:lightGreen>CardSelectionResponseApi</back>> cardSelectionResponses)
         ..
-        ~List<CardSelectionResponseAdapter> getCardSelectionResponses ()
+        ~List<<back:lightGreen>CardSelectionResponseApi</back>> getCardSelectionResponses ()
     }
     ~class "<<<back:yellow>CardSelectionResult</back>>>\n**final** CardSelectionResultAdapter" as CardSelectionResultAdapter {
         --
@@ -601,6 +610,10 @@ SmartCardServiceProvider ..> SmartCardServiceAdapter #C_USE : provide >
 
 SmartCardServiceAdapter *-- "0..N" AbstractPluginAdapter #C_LINK
 SmartCardServiceAdapter *-- "0..N" DistributedLocalServiceAdapter #C_LINK
+
+DistributedUtilAdapter +-- JsonProperty
+DistributedUtilAdapter +-- PluginService
+DistributedUtilAdapter +-- ReaderService
 
 AbstractObservableLocalPluginAdapter *-- "1" ObservationManagerAdapter #C_LINK
 
@@ -684,6 +697,9 @@ class ObservableRemotePluginAdapter <<blue>>
 
 class DistributedLocalServiceAdapter <<blue>>
 class DistributedUtilAdapter <<blue>>
+enum JsonProperty <<blue>>
+enum PluginService <<blue>>
+enum ReaderService <<blue>>
 
 class CardSelectionServiceAdapter <<blue>>
 class CardSelectionResultAdapter <<blue>>
