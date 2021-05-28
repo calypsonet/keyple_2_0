@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service-resource - 2.0.0 (21/05/2021)
+    Keyple 2.0 - Adapter of keyple-java-service-resource - 2.0.0 (28/05/2021)
 end title
 
 ' == THEME ==
@@ -81,7 +81,7 @@ package "org.eclipse.keyple.core.service.resource" as resource {
         -- **PluginObserverSpi** --
         +void onPluginEvent (<back:pink>PluginEvent</back> pluginEvent)
         -- **CardReaderObserverSpi** --
-        +void onReaderEvent (<back:pink>ReaderEvent</back> readerEvent)
+        +void onReaderEvent (<back:yellow>CardReaderEvent</back> readerEvent)
     }
     ~class "**final** ReaderManagerAdapter" as ReaderManagerAdapter {
         --

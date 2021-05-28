@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service-resource - 2.0.0 (21/05/2021)
+    Keyple 2.0 - keyple-java-service-resource - 2.0.0 (28/05/2021)
 end title
 
 ' == THEME ==
@@ -121,9 +121,9 @@ package "org.eclipse.keyple.core.service.resource" as resource {
 
     +class "**final** CardResource" as CardResource {
         --
-        +CardResource (<back:pink>Reader</back> reader, <back:yellow>SmartCard</back> smartCard)
+        +CardResource (<back:yellow>CardReader</back> reader, <back:yellow>SmartCard</back> smartCard)
         ..
-        +<back:pink>Reader</back> getReader ()
+        +<back:yellow>CardReader</back> getReader ()
         +<back:yellow>SmartCard</back> getSmartCard ()
     }
 
@@ -132,7 +132,7 @@ package "org.eclipse.keyple.core.service.resource" as resource {
             +void setupReader (<back:pink>Reader</back> reader)
         }
         +interface CardResourceProfileExtensionSpi {
-            +<back:yellow>SmartCard</back> matches (<back:pink>Reader</back> reader)
+            +<back:yellow>SmartCard</back> matches (<back:yellow>CardReader</back> reader, <back:yellow>CardSelectionService</back> cardSelectionService)
         }
     }
 }
