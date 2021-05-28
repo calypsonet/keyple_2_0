@@ -61,7 +61,7 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
         .. <back:plum>**Reader Server Side**</back> ..
         +void onReaderEvent (String jsonData)
     }
-    +interface ObservableRemotePluginApi extends RemotePluginApi {
+    +interface ObservableRemotePluginApi {
         .. <back:lightGreen>**Reader Client Side**</back> ..
         +void addRemoteReader (RemoteReaderSpi remoteReaderSpi)
         +void removeRemoteReader (Sting remoteReaderName)

@@ -248,7 +248,6 @@ package "org.eclipse.keyple.distributed" as packAdapter {
                 \tString remotePluginName,
                 \tboolean isReaderObservationEnabled)
             -- **ObservableRemotePluginSpi** --
-            +void connect (<back:plum>RemotePluginApi</back> remotePluginApi)
             +void connect (<back:plum>ObservableRemotePluginApi</back> observableRemotePluginApi)
             +void onStartObservation ()
             +void onStopObservation ()
