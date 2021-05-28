@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (27/05/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (28/05/2021)
 end title
 
 ' == THEME ==
@@ -118,8 +118,6 @@ package "org.eclipse.keyple.core.service" as service {
     ~class "<<<back:plum>RemotePluginApi</back>>>\nRemotePluginAdapter" as RemotePluginAdapter extends AbstractPluginAdapter {
         --
         ~RemotePluginAdapter (<back:plum>RemotePluginSpi</back> remotePluginSpi)
-        ..
-        ~<back:plum>RemotePluginSpi</back> getRemotePluginSpi ()
         -- **AbstractPluginAdapter** --
         ~**final** void register ()
         -- **RemotePluginApi** --
@@ -231,13 +229,11 @@ package "org.eclipse.keyple.core.service" as service {
         -- **LocalServiceApi** --
         +void setPoolPluginNames (String... poolPluginNames)
         +String executeLocally (String jsonData, String readerName)
-        +void startPluginsObservation ()
-        +void stopPluginsObservation ()
     }
     ~class "**final** DistributedUtilAdapter" as DistributedUtilAdapter {
         --
         ~{static} JsonObject executePluginServiceRemotely (
-            \tJsonObject input, <back:plum>RemotePluginSpi</back> remotePluginSpi,
+            \tJsonObject input, <back:plum>AbstractRemotePluginSpi</back> remotePluginSpi,
             \tString pluginName, Logger logger)
         ~{static} JsonObject executeReaderServiceRemotely (
             \tJsonObject input, <back:plum>RemoteReaderSpi</back> remoteReaderSpi,
@@ -303,8 +299,6 @@ package "org.eclipse.keyple.core.service" as service {
     ~class RemoteReaderAdapter extends AbstractReaderAdapter {
         --
         ~RemoteReaderAdapter (<back:plum>RemoteReaderSpi</back> remoteReaderSpi, String pluginName)
-        ..
-        ~**final** <back:plum>RemoteReaderSpi</back> getRemoteReaderSpi ()
         -- **AbstractReaderAdapter** --
         ~**final** List<<back:lightGreen>CardSelectionResponseApi</back>> processCardSelectionRequests (
             \tList<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,

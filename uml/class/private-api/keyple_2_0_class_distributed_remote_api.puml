@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-remote-api - 2.0 (21/05/2021)
+    Keyple 2.0 - keyple-java-distributed-remote-api - 2.0 (28/05/2021)
 end title
 
 ' == THEME ==
@@ -45,47 +45,68 @@ hide <<grey>> stereotype
 
 ' == CONTENT ==
 
+legend top
+    __Colors legend__ :
+    * __Keyple Distributed Solution Configuration modes__ :
+    ** <back:lightGreen>**Reader Client Side**</back>
+    ** <back:plum>**Reader Server Side**</back>
+    ** <back:lightBlue>**Pool Reader Server Side**</back>
+end legend
+
 package "org.eclipse.keyple.core.distributed.remote" as api {
     +class "**final** DistributedRemoteApiProperties" as ApiProperties {
         +{static} **final** String VERSION
     }
     +interface RemotePluginApi {
-        --
+        .. <back:plum>**Reader Server Side**</back> ..
         +void onReaderEvent (String jsonData)
     }
     +interface ObservableRemotePluginApi extends RemotePluginApi {
-        --
-        +void onPluginEvent (String jsonData)
-        ..
+        .. <back:lightGreen>**Reader Client Side**</back> ..
         +void addRemoteReader (RemoteReaderSpi remoteReaderSpi)
-        +boolean removeRemoteReader (Sting remoteReaderName)
+        +void removeRemoteReader (Sting remoteReaderName)
+        .. <back:plum>**Reader Server Side**</back> ..
+        +void onPluginEvent (String jsonData)
     }
     package spi {
+        ' Factories
         +interface RemotePluginFactorySpi {
             +String getDistributedRemoteApiVersion ()
             +String getCommonsApiVersion ()
             +String getRemotePluginName ()
-            +RemotePluginSpi getRemotePlugin ()
-            +boolean isPoolPlugin ()
-            +boolean isObservablePlugin ()
+            +AbstractRemotePluginSpi getRemotePlugin ()
         }
-        +interface RemotePluginSpi {
-            --
+        ' Plugins
+        +interface AbstractRemotePluginSpi {
+            +String getName ()
+            +String executeRemotely (String jsonData)
+        }
+        +interface RemotePluginSpi extends AbstractRemotePluginSpi {
+            .. <back:plum>**Reader Server Side**</back> ..
             +void connect (RemotePluginApi remotePluginApi)
-            +String getName ()
-            +String executeRemotely (String jsonData)
             +RemoteReaderSpi createRemoteReader (String localReaderName)
-            ..
-            +void startPluginsObservation ()
-            +void stopPluginsObservation ()
+            +ObservableRemoteReaderSpi createObservableRemoteReader (String localReaderName)
         }
+        +interface ObservableRemotePluginSpi extends RemotePluginSpi {
+            .. <back:lightGreen>**Reader Client Side**</back> & <back:plum>**Reader Server Side**</back> ..
+            +void connect (ObservableRemotePluginApi observableRemotePluginApi)
+            .. <back:plum>**Reader Server Side**</back> ..
+            +void onStartObservation ()
+            +void onStopObservation ()
+        }
+        +interface RemotePoolPluginSpi extends AbstractRemotePluginSpi {
+            .. <back:lightBlue>**Pool Reader Server Side**</back> ..
+            +RemoteReaderSpi createRemoteReader (String localReaderName)
+        }
+        ' Readers
         +interface RemoteReaderSpi {
-            --
             +String getName ()
             +String executeRemotely (String jsonData)
-            ..
-            +void startReaderObservation ()
-            +void stopReaderObservation ()
+        }
+        +interface ObservableRemoteReaderSpi extends RemoteReaderSpi {
+            .. <back:plum>**Reader Server Side**</back> ..
+            +void onStartObservation ()
+            +void onStopObservation ()
         }
     }
 }
@@ -93,14 +114,19 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
 ' Associations
 
 RemotePluginFactorySpi .left.> ApiProperties #C_USE : provide\nAPI version <
-RemotePluginFactorySpi ..> RemotePluginSpi #C_USE : provide >
+RemotePluginFactorySpi ..> AbstractRemotePluginSpi #C_USE : provide >
 
-RemotePluginSpi ..> RemoteReaderSpi #C_USE : provide >
 RemotePluginSpi .left.> RemotePluginApi #C_USE : use >
+RemotePluginSpi ..> RemoteReaderSpi #C_USE : create >
+RemotePluginSpi ..> ObservableRemoteReaderSpi #C_USE : create >
+
+ObservableRemotePluginSpi .left.> ObservableRemotePluginApi #C_USE : use >
+
+RemotePoolPluginSpi ..> RemoteReaderSpi #C_USE : create >
 
 ' == LAYOUT ==
 
-'ObservableRemotePluginSpi -[hidden]- RemoteReaderSpi
+ObservableRemotePluginSpi -[hidden]- RemoteReaderSpi
 
 ' == STYLE ==
 

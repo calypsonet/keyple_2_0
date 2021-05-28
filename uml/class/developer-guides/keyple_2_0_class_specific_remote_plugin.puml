@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Specific Remote Plugin - 2.0.0 (08/03/2021)
+    Keyple 2.0 - Specific Remote Plugin - 2.0.0 (28/05/2021)
 end title
 
 ' == THEME ==
@@ -58,7 +58,7 @@ package "org.eclipse.keyple.core.distributed.remote.spi" as pluginSpi {
     +interface RemoteReaderSpi {
         ...
     }
-    +interface RemotePluginSpi {
+    +interface AbstractRemotePluginSpi {
         ...
     }
     +interface RemotePluginFactorySpi {
@@ -83,7 +83,7 @@ package "org.eclipse.keyple.plugin.xxx (specific plugin)" as specificPluginApi {
     ~class "**final** xxxPluginFactoryAdapter" as xxxPluginFactoryAdapter implements xxxPluginFactory, RemotePluginFactorySpi {
         ...
     }
-    ~class "**final** xxxPluginAdapter" as xxxPluginAdapter implements xxxPlugin, RemotePluginSpi {
+    ~class "**final** xxxPluginAdapter" as xxxPluginAdapter implements xxxPlugin, AbstractRemotePluginSpi {
         ...
     }
     ~class "**final** xxxReaderAdapter" as xxxReaderAdapter implements xxxReader, RemoteReaderSpi {
@@ -101,7 +101,7 @@ xxxPluginAdapter *- "0..N" xxxReaderAdapter #C_LINK
 
 commonsApi -[hidden]- specificPluginApi
 xxxReaderAdapter -[hidden]- RemoteReaderSpi
-xxxPluginAdapter -[hidden]- RemotePluginSpi
+xxxPluginAdapter -[hidden]- AbstractRemotePluginSpi
 xxxPluginFactoryAdapter -[hidden]- RemotePluginFactorySpi
 
 ' == STYLE ==
@@ -114,7 +114,7 @@ class xxxReaderAdapter <<blue>>
 class xxxPluginAdapter <<blue>>
 class xxxPluginFactoryAdapter <<blue>>
 interface RemoteReaderSpi <<blue>>
-interface RemotePluginSpi <<blue>>
+interface AbstractRemotePluginSpi <<blue>>
 interface RemotePluginFactorySpi <<blue>>
 
 @enduml
