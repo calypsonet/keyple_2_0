@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (21/05/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (01/06/2021)
 end title
 
 ' == THEME ==
@@ -162,7 +162,7 @@ package "org.eclipse.keyple.core.service" as service {
         +interface Plugin {
             --
             +String getName ()
-            +<T extends <back:cyan>KeyplePluginExtension</back>> T getExtension (Class<T> pluginType)
+            +<T extends <back:cyan>KeyplePluginExtension</back>> T getExtension (Class<T> pluginExtensionClass)
             ..
             +Set<String> getReaderNames ()
             +Set<Reader> getReaders ()
@@ -172,7 +172,7 @@ package "org.eclipse.keyple.core.service" as service {
             --
             +String getName ()
             +<T extends <back:cyan>KeypleDistributedLocalServiceExtension</back>> T getExtension (
-                \tClass<T> distributedLocalServiceType)
+                \tClass<T> distributedLocalServiceExtensionClass)
         }
         +interface ObservablePlugin extends Plugin {
             --
@@ -194,7 +194,7 @@ package "org.eclipse.keyple.core.service" as service {
             +void releaseReader (Reader reader)
         }
         +interface "<<<back:yellow>CardReader</back>>>\nReader" as Reader {
-            +<T extends <back:cyan>KeypleReaderExtension</back>> T getExtension (Class<T> readerType)
+            +<T extends <back:cyan>KeypleReaderExtension</back>> T getExtension (Class<T> readerExtensionClass)
         }
         +interface "<<<back:yellow>ObservableCardReader</back>>>\nObservableReader" as ObservableReader extends Reader {
         }
@@ -232,7 +232,7 @@ package "org.eclipse.keyple.core.service" as service {
     +enum "EventType" as PluginEventType {
         READER_CONNECTED
         READER_DISCONNECTED
-        UNREGISTERED
+        UNAVAILABLE
     }
     ' EXCEPTIONS
     +class "<<RuntimeException>>\nKeyplePluginException" as KeyplePluginException {

@@ -1,6 +1,6 @@
 @startuml
 title
-    Calypsonet - calypsonet-terminal-reader-java-api - 1.0 (21/05/2021)
+    Calypsonet - calypsonet-terminal-reader-java-api - 1.0 (01/06/2021)
 end title
 
 ' == THEME ==
@@ -95,7 +95,7 @@ package "org.calypsonet.terminal.reader" as readerApi {
             CARD_INSERTED
             CARD_MATCHED
             CARD_REMOVED
-            UNREGISTERED
+            UNAVAILABLE
         }
         ' SPI
         package "spi" as readerSpi {
