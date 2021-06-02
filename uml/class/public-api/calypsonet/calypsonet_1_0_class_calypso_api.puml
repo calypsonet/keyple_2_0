@@ -47,6 +47,9 @@ hide <<grey>> stereotype
 
 package "org.calypsonet.terminal.calypso" as api {
 
+    +class "**final** CalypsoApiProperties" as ApiProperties {
+        +{static} **final** String VERSION
+    }
     +enum SessionAccessLevel {
         SESSION_LVL_PERSO
         SESSION_LVL_LOAD
