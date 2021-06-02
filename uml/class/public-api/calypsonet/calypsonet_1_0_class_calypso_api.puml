@@ -45,6 +45,12 @@ hide <<grey>> stereotype
 
 ' == CONTENT ==
 
+legend top
+    __Colors legend__ :
+    * __External public API references__ :
+    ** <back:yellow>**calypsonet-terminal-reader-java-api**</back>
+end legend
+
 package "org.calypsonet.terminal.calypso" as api {
 
     +class "**final** CalypsoApiProperties" as ApiProperties {
