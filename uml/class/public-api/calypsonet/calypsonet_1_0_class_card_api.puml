@@ -1,6 +1,6 @@
 @startuml
 title
-        Calypsonet - calypsonet-terminal-card-java-api - 1.0 (21/05/2021)
+        Calypsonet - calypsonet-terminal-card-java-api - 1.0 (02/06/2021)
 end title
 
 ' == THEME ==
@@ -105,7 +105,7 @@ package "org.calypsonet.terminal.card" as api {
             +int getStatusWord ()
         }
         +interface SelectionStatusApi {
-            +byte[] getPowerOnData ()
+            +byte[] getPowerOnDataBytes ()
             +ApduResponseApi getFci ()
             +boolean hasMatched ()
         }

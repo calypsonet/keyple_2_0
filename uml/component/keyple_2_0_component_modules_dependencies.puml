@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Modules dependencies - 21/05/2021
+    Keyple 2.0 - Modules dependencies - 02/06/2021
 end title
 
 ' == THEME ==
@@ -12,6 +12,7 @@ end title
 !define COLOR_PURPLE 8E44AD
 !define COLOR_BLUE 3498DB
 !define COLOR_GREEN 27AE60
+!define COLOR_ORANGE E67E22
 !define COLOR_GREY 2C3E50
 skinparam Shadowing false
 skinparam component {
@@ -65,42 +66,44 @@ hide <<grey>> stereotype
 
 ' == COMPONENTS ==
 
-package "Components having adapters" as packMain #C_GREY1 {
-    [Specific Application] as application <<blue>>
-    [Specific Plugin (PCSC...)\nuse <back:cyan>**keyple-java-commons-api**</back>] as plugin <<red>>
+[Specific Application] as application <<blue>>
+
+package "Calypsonet Public APIs" as packCalypsonetPublic #C_GREY1 {
+    [**calypsonet-terminal-reader-java-api**] as readerApi <<orange>>
+    [**calypsonet-terminal-calypso-java-api**] as calypsoApi <<orange>>
+}
+package "Calypsonet Private APIs/SPIs  (hidden for the application)" as packCalypsonetPrivate #C_GREY1 {
+    [**calypsonet-terminal-card-java-api**] as cardApi <<orange>>
+}
+package "Keyple Public Components having adapters" as packMain #C_GREY1 {
     together {
-        [Specific Card Extension (Calypso...)\nuse <back:cyan>**keyple-java-commons-api**</back>] as extension <<green>>
-        [**calypsonet-terminal-reader-java-api**] as readerApi <<orange>>
-        [**keyple-java-service**\nuse <back:cyan>**keyple-java-commons-api**</back>] as service
-        [**keyple-java-service-resource**] as serviceResource <<grey>>
+        [Specific Card Extension (Calypso...)\nuse <back:cyan>**keyple-java-commons-api**</back>\nuse <back:yellow>**keyple-java-utils**</back>] as extension <<green>>
+        [**keyple-java-service**\nuse <back:cyan>**keyple-java-commons-api**</back>\nuse <back:yellow>**keyple-java-utils**</back>] as service
+        [**keyple-java-service-resource**\nuse <back:yellow>**keyple-java-utils**</back>] as serviceResource <<grey>>
     }
+    [Specific Plugin (PCSC...)\nuse <back:cyan>**keyple-java-commons-api**</back>\nuse <back:yellow>**keyple-java-utils**</back>] as plugin <<red>>
     together {
-        [**keyple-java-distributed-local**\nuse <back:cyan>**keyple-java-commons-api**</back>] as local <<purple>>
-        [**keyple-java-distributed-network**] as network <<purple>>
-        [**keyple-java-distributed-remote**\nuse <back:cyan>**keyple-java-commons-api**</back>] as remote <<purple>>
+        [**keyple-java-distributed-network**\nuse <back:yellow>**keyple-java-utils**</back>] as network <<purple>>
+        [**keyple-java-distributed-local**\nuse <back:cyan>**keyple-java-commons-api**</back>\nuse <back:yellow>**keyple-java-utils**</back>] as local <<purple>>
+        [**keyple-java-distributed-remote**\nuse <back:cyan>**keyple-java-commons-api**</back>\nuse <back:yellow>**keyple-java-utils**</back>] as remote <<purple>>
     }
 }
-package "Internal APIs/SPIs (hidden for the specific application)" as packApi #C_GREY1 {
+package "Keyple Private APIs/SPIs (hidden for the application)" as packApi #C_GREY1 {
     [**keyple-java-plugin-api**] as pluginApi
-    [**calypsonet-terminal-card-java-api**] as cardApi <<orange>>
     [**keyple-java-distributed-local-api**] as distributedLocalApi
     [**keyple-java-distributed-remote-api**] as distributedRemoteApi
 }
-[**keyple-java-utils**] as util
 
 ' == ASSOCIATIONS ==
 
-application --> plugin #COLOR_BLUE
-application --> service #COLOR_BLUE
-application -left-> serviceResource #COLOR_BLUE
-application --> readerApi #COLOR_BLUE
-application --> extension #COLOR_BLUE
-application --> local #COLOR_BLUE
-application -left-> network #COLOR_BLUE
-application --> remote #COLOR_BLUE
+application -right-> packCalypsonetPublic #COLOR_BLUE
+application --> packMain #COLOR_BLUE
+
+calypsoApi -right-> readerApi #COLOR_ORANGE
 
 extension --> cardApi #COLOR_GREEN
 extension -up-> readerApi #COLOR_GREEN
+extension .up.> calypsoApi #COLOR_GREEN
 extension -up-> serviceResource #COLOR_GREEN
 
 plugin --> pluginApi #COLOR_RED
@@ -111,7 +114,7 @@ service --> cardApi #COLOR_YELLOW
 service --> distributedRemoteApi #COLOR_YELLOW
 service --> distributedLocalApi #COLOR_YELLOW
 
-serviceResource -right-> readerApi #COLOR_GREY
+serviceResource -up-> readerApi #COLOR_GREY
 serviceResource --> service #COLOR_GREY
 
 local -up-> network #COLOR_PURPLE
@@ -120,8 +123,10 @@ local --> distributedLocalApi #COLOR_PURPLE
 remote -up-> network #COLOR_PURPLE
 remote --> distributedRemoteApi #COLOR_PURPLE
 
-packMain -up-> util
-
 ' == LAYOUT ==
+
+'local -[hidden]-> cardApi
+'local -[hidden]-> pluginApi
+'packMain --> packApi
 
 @enduml

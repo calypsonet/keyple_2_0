@@ -58,77 +58,26 @@ package "org.eclipse.keyple.card.calypso" as calypso {
         --
         +{static} CalypsoExtensionService getInstance ()
         ..
-        +CalypsoSelector createCardSelector ()
+        +<back:yellow>CardSelector</back> createCardSelector ()
         +<back:pink>CalypsoCardSelection</back> createCardSelection (CalypsoSelector cardSelector, boolean acceptInvalidatedCard)
         ..
         +CalypsoSamResourceProfileExtension createSamResourceProfileExtension ()
-        +CalypsoCardSecuritySetting createCardSecuritySetting (<back:yellow>CardReader</back> samReader, <back:pink>CalypsoSam</back> calypsoSam)
+        +<back:pink>CardSecuritySetting</back> createCardSecuritySetting (<back:yellow>CardReader</back> samReader, <back:pink>CalypsoSam</back> calypsoSam)
         +<back:pink>CardTransactionService</back> createCardTransaction (<back:yellow>CardReader</back> cardReader, <back:pink>CalypsoCard</back> calypsoCard, <back:pink>CardSecuritySetting</back> cardSecuritySetting)
         ..
         +<back:pink>CardTransactionService</back> createCardTransactionWithoutSecurity (<back:yellow>CardReader</back> cardReader, <back:pink>CalypsoCard</back> calypsoCard)
     }
 
-
-    +interface "<<<back:yellow>CardSelector</back>>>\nCalypsoSelector" as CalypsoSelector {
-        --
-        +CalypsoSelector filterByCardProtocol (String cardProtocol)
-        +CalypsoSelector filterByPowerOnData (String powerOnDataRegex)
-        +CalypsoSelector filterByDfName (byte[] aid)
-        +CalypsoSelector filterByDfName (String aid)
-        +CalypsoSelector setFileOccurrence (<back:yellow>FileOccurrence</back> fileOccurrence)
-        +CalypsoSelector setFileControlInformation (<back:yellow>FileControlInformation</back> fileControlInformation)
-        +CalypsoSelector addSuccessfulStatusWord (int statusWord)
-        .. **CardSelector** ..
-        +String getCardProtocol ()
-        +String getPowerOnDataRegex ()
-        +byte[] getAid ()
-        +<back:yellow>FileOccurrence</back> getFileOccurrence ()
-        +<back:yellow>FileControlInformation</back> getFileControlInformation ()
-        +Set<Integer> getSuccessfulSelectionStatusWords ()
-        +CalypsoSelector addSuccessfulStatusWord (int statusWord)
-        +boolean powerOnDataMatches (byte[] powerOnData)
-    }
-
     +interface "<<<back:cyan>KeypleCardResourceProfileExtension</back>>>\nCalypsoSamResourceProfileExtension" as CalypsoSamResourceProfileExtension {
-        +CalypsoSamResourceProfileExtension setSamRevision (<back:pink>CalypsoSam.Revision</back> samRevision)
+        +CalypsoSamResourceProfileExtension setSamProductType (<back:pink>CalypsoSam.ProductType</back> samProductType)
         +CalypsoSamResourceProfileExtension setSamSerialNumberRegex (String samSerialNumberRegex)
         +CalypsoSamResourceProfileExtension setSamUnlockData (String samUnlockData)
-    }
-
-    +interface "<<<back:pink>CardSecuritySetting</back>>>\nCalypsoCardSecuritySetting" as CalypsoCardSecuritySetting {
-        --
-        +CalypsoCardSecuritySetting enableMultipleSession ()
-        +CalypsoCardSecuritySetting enableRatificationMechanism ()
-        +CalypsoCardSecuritySetting disablePinEncryption ()
-        +CalypsoCardSecuritySetting assignKif (<back:pink>SessionAccessLevel</back> sessionAccessLevel, byte kif)
-        +CalypsoCardSecuritySetting assignKvc (<back:pink>SessionAccessLevel</back> sessionAccessLevel, byte kvc)
-        +CalypsoCardSecuritySetting assignKeyRecordNumber (<back:pink>SessionAccessLevel</back> sessionAccessLevel, byte keyRecordNumber)
-        +CalypsoCardSecuritySetting sessionAuthorizedKvcList (List<Byte> sessionAuthorizedKvcList)
-        +CalypsoCardSecuritySetting pinCipheringKey (byte kif, byte kvc)
-        +CalypsoCardSecuritySetting isLoadAndDebitSvLogRequired (boolean isLoadAndDebitSvLogRequired)
-        +CalypsoCardSecuritySetting isSvNegativeBalanceAllowed (boolean isSvNegativeBalanceAllowed)
-        .. **CardSecuritySetting** ..
-        +<back:yellow>CardReader</back> getSamReader ()
-        +<back:pink>CalypsoSam</back> getCalypsoSam ()
-        +boolean isMultipleSessionEnabled ()
-        +boolean isRatificationMechanismEnabled ()
-        +boolean isPinTransmissionEncryptionDisabled ()
-        +Byte getKif (<back:pink>SessionAccessLevel</back> sessionAccessLevel)
-        +Byte getKvc (<back:pink>SessionAccessLevel</back> sessionAccessLevel)
-        +Byte getKeyRecordNumber (<back:pink>SessionAccessLevel</back> sessionAccessLevel)
-        +boolean isKvcAuthorized (byte kvc)
-        +byte getPinCipheringKif ()
-        +byte getPinCipheringKvc ()
-        +boolean isLoadAndDebitSvLogRequired ()
-        +boolean isSvNegativeBalanceAllowed ()
     }
 }
 
 ' Associations
 
 CalypsoExtensionService ..> CalypsoSamResourceProfileExtension #C_USE : create >
-CalypsoExtensionService ..> CalypsoCardSecuritySetting #C_USE : create >
-CalypsoExtensionService ..> CalypsoSelector #C_USE : create >
 
 ' == LAYOUT ==
 

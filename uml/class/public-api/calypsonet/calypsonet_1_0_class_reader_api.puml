@@ -139,21 +139,28 @@ package "org.calypsonet.terminal.reader" as readerApi {
                 +byte[] getFciBytes ()
                 ..
                 +boolean hasPowerOnData ()
-                +byte[] getPowerOnData ()
+                +byte[] getPowerOnDataBytes ()
             }
             +interface CardSelector {
                 --
-                +String getCardProtocol ()
+                .. setters ..
+                +CardSelector filterByCardProtocol (String cardProtocol)
+                +CardSelector filterByPowerOnData (String powerOnDataRegex)
                 ..
+                +CardSelector filterByDfName (byte[] aid)
+                +CardSelector filterByDfName (String aid)
+                +CardSelector setFileOccurrence (FileOccurrence fileOccurrence)
+                +CardSelector setFileControlInformation (FileControlInformation fileControlInformation)
+                +CardSelector addSuccessfulStatusWord (int statusWord)
+                .. getters ..
+                +String getCardProtocol ()
                 +String getPowerOnDataRegex ()
                 ..
                 +byte[] getAid ()
                 +FileOccurrence getFileOccurrence ()
                 +FileControlInformation getFileControlInformation ()
                 +Set<Integer> getSuccessfulSelectionStatusWords ()
-                ..
-                +CardSelector addSuccessfulStatusWord (int statusWord)
-                ..
+                .. features ..
                 +boolean powerOnDataMatches (byte[] powerOnData)
             }
             +enum FileOccurrence {

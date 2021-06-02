@@ -613,7 +613,7 @@ package "org.eclipse.keyple.core.service" as service {
                 \t<back:lightGreen>ApduResponseApi</back> fci,
                 \tboolean isMatching)
             .. **SelectionStatusApi** ..
-            +byte[] getPowerOnData ()
+            +byte[] getPowerOnDataBytes ()
             +<back:lightGreen>ApduResponseApi</back> getFci ()
             +boolean hasMatched ()
         }
