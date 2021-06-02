@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (01/06/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (02/06/2021)
 end title
 
 ' == THEME ==
@@ -53,183 +53,90 @@ legend top
 end legend
 
 package "org.eclipse.keyple.core.service" as service {
+    +class "**final** ServiceProperties" as ApiProperties {
+        +{static} **final** String VERSION
+    }
+    ' SELECTION
+    +class "**final** CardSelectionServiceFactory" as CardSelectionServiceFactory {
+        +{static} <back:yellow>CardSelectionService</back> getService ()
+    }
     ' SERVICE
-
-    ' Card Resource Service
-    package resource {
-        +class "**final** CardResourceServiceProvider" as CardResourceServiceProvider {
-            +{static} CardResourceService getService ()
-        }
-
-        +interface CardResourceService {
-            +CardResourceServiceConfigurator getConfigurator()
-            +void start ()
-            +void stop ()
-            +CardResource getCardResource (String cardResourceProfileName)
-            +void releaseCardResource (CardResource cardResource)
-            +void removeCardResource (CardResource cardResource)
-        }
-
-        +interface CardResourceServiceConfigurator {
-            +CardResourceServiceConfigurator withPlugins (PluginsConfigurator pluginsConfigurator)
-            +CardResourceServiceConfigurator withPoolPlugins (PoolPluginsConfigurator poolPluginsConfigurator)
-            +CardResourceServiceConfigurator withCardResourceProfiles (CardResourceProfileConfigurator... cardResourceProfileConfigurators)
-            +CardResourceServiceConfigurator withBlockingAllocationMode (int cycleDurationMillis, int timeoutMillis)
-            +void configure ()
-        }
-
-        +class "**final** PluginsConfigurator" as PluginsConfigurator {
-            +{static} Builder builder ()
-        }
-        +class "**final** Builder" as PluginsConfiguratorBuilder {
-            --
-            +Builder withAllocationStrategy (AllocationStrategy allocationStrategy)
-            +Builder withUsageTimeout (int usageTimeoutMillis)
-            +Builder addPlugin (Plugin plugin, ReaderConfiguratorSpi readerConfiguratorSpi)
-            +Builder addPluginWithMonitoring (Plugin plugin, ReaderConfiguratorSpi readerConfiguratorSpi
-                \tPluginObservationExceptionHandlerSpi pluginObservationExceptionHandlerSpi,
-                \t<back:yellow>CardReaderObservationExceptionHandlerSpi</back> readerObservationExceptionHandlerSpi)
-            +PluginsConfigurator build ()
-        }
-        +enum AllocationStrategy {
-            FIRST
-            CYCLIC
-            RANDOM
-        }
-
-        +class "**final** PoolPluginsConfigurator" as PoolPluginsConfigurator {
-            +{static} Builder builder ()
-        }
-        +class "**final** Builder" as PoolPluginsConfiguratorBuilder {
-            +Builder usePoolFirst ()
-            +Builder addPoolPlugin (PoolPlugin poolPlugin)
-            +PoolPluginsConfigurator build ()
-        }
-
-        +class "**final** CardResourceProfileConfigurator" as CardResourceProfileConfigurator {
-            --
-            +{static} Builder builder (String profileName, <back:cyan>KeypleCardResourceProfileExtension</back> cardResourceProfileExtension)
-        }
-        +class "**final** Builder" as CardResourceProfileConfiguratorBuilder {
-            +Builder withPlugins (Plugin... plugins)
-            +Builder withReaderNameRegex (String readerNameRegex)
-            +Builder withReaderGroupReference (String readerGroupReference)
-            +CardResourceProfileConfigurator build ()
-        }
-
-        +class "**final** CardResource" as CardResource {
-            --
-            +CardResource (Reader reader, <back:yellow>SmartCard</back> smartCard)
-            ..
-            +Reader getReader ()
-            +<back:yellow>SmartCard</back> getSmartCard ()
-        }
-
-        package "spi" as resourceSpi {
-            +interface ReaderConfiguratorSpi {
-                +void setupReader (Reader reader)
-            }
-        }
+    +class "**final** SmartCardServiceProvider" as SmartCardServiceProvider {
+        +{static} SmartCardService getService ()
     }
-
-    together {
-        +class "**final** ServiceProperties" as ApiProperties {
-            +{static} **final** String VERSION
-        }
-        ' SELECTION
-        +class "**final** CardSelectionServiceFactory" as CardSelectionServiceFactory {
-            +{static} <back:yellow>CardSelectionService</back> getService ()
-        }
-        ' SERVICE
-        +class "**final** SmartCardServiceProvider" as SmartCardServiceProvider {
-            +{static} SmartCardService getService ()
-        }
-        +interface SmartCardService {
-            --
-            +Plugin registerPlugin (<back:cyan>KeyplePluginExtensionFactory</back> pluginFactory)
-            +void unregisterPlugin (String pluginName)
-            +Set<String> getPluginNames ()
-            +Set<Plugin> getPlugins ()
-            +Plugin getPlugin (String pluginName)
-            ..
-            +void checkCardExtension (<back:cyan>KeypleCardExtension</back> cardExtension)
-            ..
-            +DistributedLocalService registerDistributedLocalService (
-                \t<back:cyan>KeypleDistributedLocalServiceExtensionFactory</back> distributedLocalServiceFactory)
-            +void unregisterDistributedLocalService (String distributedLocalServiceName)
-            +DistributedLocalService getDistributedLocalService (String distributedLocalServiceName)
-        }
-        +interface Plugin {
-            --
-            +String getName ()
-            +<T extends <back:cyan>KeyplePluginExtension</back>> T getExtension (Class<T> pluginExtensionClass)
-            ..
-            +Set<String> getReaderNames ()
-            +Set<Reader> getReaders ()
-            +Reader getReader (String readerName)
-        }
-        +interface DistributedLocalService {
-            --
-            +String getName ()
-            +<T extends <back:cyan>KeypleDistributedLocalServiceExtension</back>> T getExtension (
-                \tClass<T> distributedLocalServiceExtensionClass)
-        }
-        +interface ObservablePlugin extends Plugin {
-            --
-            +void setEventNotificationExecutorService (
-                \tExecutorService eventNotificationExecutorService)
-            +void setPluginObservationExceptionHandler (
-                \tPluginObservationExceptionHandlerSpi exceptionHandler)
-            ..
-            +void addObserver (PluginObserverSpi observer)
-            +void removeObserver (PluginObserverSpi observer)
-            +void clearObservers ()
-            +int countObservers ()
-        }
-        +interface PoolPlugin extends Plugin {
-            --
-            +SortedSet<String> getReaderGroupReferences ()
-            ..
-            +Reader allocateReader (String readerGroupReference)
-            +void releaseReader (Reader reader)
-        }
-        +interface "<<<back:yellow>CardReader</back>>>\nReader" as Reader {
-            +<T extends <back:cyan>KeypleReaderExtension</back>> T getExtension (Class<T> readerExtensionClass)
-        }
-        +interface "<<<back:yellow>ObservableCardReader</back>>>\nObservableReader" as ObservableReader extends Reader {
-        }
-        ' SPI
-        package spi {
-            +interface PluginObserverSpi {
-                +void onPluginEvent (PluginEvent pluginEvent)
-            }
-            +interface PluginObservationExceptionHandlerSpi {
-                +void onPluginObservationError (String pluginName,
-                    \tThrowable e)
-            }
-        }
-    }
-    +class "<<<back:yellow>CardReaderEvent</back>>>\n**final** ReaderEvent" as ReaderEvent {
+    +interface SmartCardService {
         --
-        +ReaderEvent (String pluginName, String readerName, <back:yellow>EventType</back> eventType,
-            \t<back:yellow>ScheduledCardSelectionsResponse</back> scheduledCardSelectionsResponse)
+        +Plugin registerPlugin (<back:cyan>KeyplePluginExtensionFactory</back> pluginFactory)
+        +void unregisterPlugin (String pluginName)
+        +Set<String> getPluginNames ()
+        +Set<Plugin> getPlugins ()
+        +Plugin getPlugin (String pluginName)
         ..
+        +void checkCardExtension (<back:cyan>KeypleCardExtension</back> cardExtension)
+        ..
+        +DistributedLocalService registerDistributedLocalService (
+            \t<back:cyan>KeypleDistributedLocalServiceExtensionFactory</back> distributedLocalServiceFactory)
+        +void unregisterDistributedLocalService (String distributedLocalServiceName)
+        +DistributedLocalService getDistributedLocalService (String distributedLocalServiceName)
+    }
+    +interface Plugin {
+        --
+        +String getName ()
+        +<T extends <back:cyan>KeyplePluginExtension</back>> T getExtension (Class<T> pluginExtensionClass)
+        ..
+        +Set<String> getReaderNames ()
+        +Set<Reader> getReaders ()
+        +Reader getReader (String readerName)
+    }
+    +interface DistributedLocalService {
+        --
+        +String getName ()
+        +<T extends <back:cyan>KeypleDistributedLocalServiceExtension</back>> T getExtension (
+            \tClass<T> distributedLocalServiceExtensionClass)
+    }
+    +interface ObservablePlugin extends Plugin {
+        --
+        +void setEventNotificationExecutorService (
+            \tExecutorService eventNotificationExecutorService)
+        +void setPluginObservationExceptionHandler (
+            \tPluginObservationExceptionHandlerSpi exceptionHandler)
+        ..
+        +void addObserver (PluginObserverSpi observer)
+        +void removeObserver (PluginObserverSpi observer)
+        +void clearObservers ()
+        +int countObservers ()
+    }
+    +interface PoolPlugin extends Plugin {
+        --
+        +SortedSet<String> getReaderGroupReferences ()
+        ..
+        +Reader allocateReader (String readerGroupReference)
+        +void releaseReader (Reader reader)
+    }
+    +interface "<<<back:yellow>CardReader</back>>>\nReader" as Reader {
+        +<T extends <back:cyan>KeypleReaderExtension</back>> T getExtension (Class<T> readerExtensionClass)
+    }
+    +interface "<<<back:yellow>ObservableCardReader</back>>>\nObservableReader" as ObservableReader extends Reader {
+    }
+    ' SPI
+    package spi {
+        +interface PluginObserverSpi {
+            +void onPluginEvent (PluginEvent pluginEvent)
+        }
+        +interface PluginObservationExceptionHandlerSpi {
+            +void onPluginObservationError (String pluginName, Throwable e)
+        }
+    }
+
+    +interface "<<<back:yellow>CardReaderEvent</back>>>\nReaderEvent" as ReaderEvent {
         +String getPluginName ()
-        .. **CardReaderEvent** ..
-        +String getReaderName ()
-        +<back:yellow>EventType</back> getEventType ()
-        +<back:yellow>ScheduledCardSelectionsResponse</back> getScheduledCardSelectionsResponse ()
     }
-    +class "**final** PluginEvent" as PluginEvent {
-        --
-        +PluginEvent (String pluginName, String readerName, EventType eventType)
-        +PluginEvent (String pluginName, Set<String> readerNames, EventType eventType)
-        ..
+    +interface PluginEvent {
         +String getPluginName ()
         +SortedSet<String> getReaderNames ()
-        +EventType getEventType ()
+        +Type getType ()
     }
-    +enum "EventType" as PluginEventType {
+    +enum "Type" as PluginEventType {
         READER_CONNECTED
         READER_DISCONNECTED
         UNAVAILABLE
@@ -246,42 +153,11 @@ package "org.eclipse.keyple.core.service" as service {
 
 SmartCardServiceProvider ..> SmartCardService #C_USE : provide >
 
-SmartCardService *-- "0..N" Plugin #C_LINK
-SmartCardService *-- "0..N" DistributedLocalService #C_LINK
+SmartCardService ..> Plugin #C_USE : provide >
+SmartCardService ..> DistributedLocalService #C_USE : provide >
 
 PluginEvent +-- PluginEventType
-PluginEvent *-- "1" PluginEventType #C_LINK
-
-CardResourceServiceProvider ..> CardResourceService #C_USE : provide >
-
-CardResourceService .left.> CardResource #C_USE : provide >
-CardResourceService ..> CardResourceServiceConfigurator #C_USE : provide >
-
-CardResource *-- "1" Reader #C_LINK
-
-CardResourceServiceConfigurator ..> CardResourceServiceConfigurator #C_USE
-CardResourceServiceConfigurator ..> PluginsConfigurator #C_USE : use >
-CardResourceServiceConfigurator ..> PoolPluginsConfigurator #C_USE : use >
-CardResourceServiceConfigurator ..> CardResourceProfileConfigurator #C_USE : use >
-
-PluginsConfigurator ..> PluginsConfiguratorBuilder #C_USE : provide >
-PluginsConfigurator +-right- AllocationStrategy
-PluginsConfigurator *-right- "1" AllocationStrategy #C_LINK
-
-PluginsConfiguratorBuilder ..> PluginsConfiguratorBuilder #C_USE
-PluginsConfiguratorBuilder .up.> AllocationStrategy #C_USE : use >
-PluginsConfiguratorBuilder ..> ReaderConfiguratorSpi #C_USE : use >
-PluginsConfiguratorBuilder .up.> PluginsConfigurator #C_USE : create >
-
-PoolPluginsConfigurator ..> PoolPluginsConfiguratorBuilder #C_USE : provide >
-
-PoolPluginsConfiguratorBuilder ..> PoolPluginsConfiguratorBuilder #C_USE
-PoolPluginsConfiguratorBuilder .up.> PoolPluginsConfigurator #C_USE : create >
-
-CardResourceProfileConfigurator ..> CardResourceProfileConfiguratorBuilder #C_USE : provide >
-
-CardResourceProfileConfiguratorBuilder ..> CardResourceProfileConfiguratorBuilder #C_USE
-CardResourceProfileConfiguratorBuilder .up.> CardResourceProfileConfigurator #C_USE : create >
+PluginEvent ..> PluginEventType #C_USE : provide >
 
 Plugin ..> Reader #C_USE : provide >
 
@@ -300,7 +176,5 @@ ReaderEvent -[hidden]- KeyplePluginException
 
 package service #C_GREY1 {}
 package spi #C_GREY2 {}
-package resource #C_GREY2 {}
-package resourceSpi #C_GREY3 {}
 
 @enduml

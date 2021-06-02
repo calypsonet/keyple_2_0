@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Calypso Card Extension - 2.0.0 (01/06/2021)
+    Keyple 2.0 - Calypso Card Extension - 2.0.0 (02/06/2021)
 end title
 
 ' == THEME ==
@@ -49,6 +49,7 @@ legend top
     __Colors legend__ :
     * __External API references__ :
     ** <back:yellow>**calypsonet-terminal-reader-java-api**</back>
+    ** <back:pink>**calypsonet-terminal-calypso-java-api**</back>
     ** <back:cyan>**keyple-java-commons-api**</back>
 end legend
 
@@ -58,12 +59,13 @@ package "org.eclipse.keyple.card.calypso" as calypso {
         +{static} CalypsoExtensionService getInstance ()
         ..
         +CalypsoSelector createCardSelector ()
-        +CalypsoCardSelection createCardSelection (CalypsoSelector cardSelector, boolean acceptInvalidatedCard)
+        +<back:pink>CalypsoCardSelection</back> createCardSelection (CalypsoSelector cardSelector, boolean acceptInvalidatedCard)
         ..
         +CalypsoSamResourceProfileExtension createSamResourceProfileExtension ()
-        +CardTransactionService createCardTransaction (<back:yellow>CardReader</back> reader, CalypsoCard calypsoCard, CardSecuritySetting cardSecuritySetting)
+        +CalypsoCardSecuritySetting createCardSecuritySetting (<back:yellow>CardReader</back> samReader, <back:pink>CalypsoSam</back> calypsoSam)
+        +<back:pink>CardTransactionService</back> createCardTransaction (<back:yellow>CardReader</back> cardReader, <back:pink>CalypsoCard</back> calypsoCard, <back:pink>CardSecuritySetting</back> cardSecuritySetting)
         ..
-        +CardTransactionService createCardTransactionWithoutSecurity (<back:yellow>CardReader</back> reader, CalypsoCard calypsoCard)
+        +<back:pink>CardTransactionService</back> createCardTransactionWithoutSecurity (<back:yellow>CardReader</back> cardReader, <back:pink>CalypsoCard</back> calypsoCard)
     }
 
 
@@ -87,111 +89,46 @@ package "org.eclipse.keyple.card.calypso" as calypso {
         +boolean powerOnDataMatches (byte[] powerOnData)
     }
 
-    package card {
-        +interface "<<<back:yellow>CardSelection</back>>>\nCalypsoCardSelection" as CalypsoCardSelection {
-            --
-            ...
-        }
-        +enum SelectFileControl {
-            --
-            ...
-        }
-        +interface "<<<back:yellow>SmartCard</back>>>\nCalypsoCard" as CalypsoCard {
-            --
-            ...
-        }
-        +interface DirectoryHeader {
-            --
-            ...
-        }
-        +interface ElementaryFile {
-            --
-            ...
-        }
-        +interface FileHeader {
-            --
-            ...
-        }
-        +interface FileData {
-            --
-            ...
-        }
-        +enum CardRevision {
-            --
-            ...
-        }
-        +interface SvLoadLogRecord {
-            --
-            ...
-        }
-        +interface SvDebitLogRecord {
-            --
-            ...
-        }
+    +interface "<<<back:cyan>KeypleCardResourceProfileExtension</back>>>\nCalypsoSamResourceProfileExtension" as CalypsoSamResourceProfileExtension {
+        +CalypsoSamResourceProfileExtension setSamRevision (<back:pink>CalypsoSam.Revision</back> samRevision)
+        +CalypsoSamResourceProfileExtension setSamSerialNumberRegex (String samSerialNumberRegex)
+        +CalypsoSamResourceProfileExtension setSamUnlockData (String samUnlockData)
     }
-    package sam {
-        +interface "<<<back:cyan>KeypleCardResourceProfileExtension</back>>>\nCalypsoSamResourceProfileExtension" as CalypsoSamResourceProfileExtension {
-            +CalypsoSamResourceProfileExtension setSamRevision (SamRevision samRevision)
-            +CalypsoSamResourceProfileExtension setSamSerialNumberRegex (String samSerialNumberRegex)
-            +CalypsoSamResourceProfileExtension setSamUnlockData (String samUnlockData)
-        }
-        +interface "<<<back:yellow>SmartCard</back>>>\nCalypsoSam" as CalypsoSam {
-            --
-            ...
-        }
-        +enum SamRevision {
-            --
-            ...
-        }
-    }
-    package transaction {
-        +interface CardTransactionService {
-            --
-            ...
-        }
-        +class "**final** CardSecuritySetting" as CardSecuritySetting {
-            --
-            +{static} Builder builder ()
-            ..
-            ...
-        }
-        +class "**final** Builder" as CardSecuritySettingBuilder {
-            --
-            ...
-            +CardSecuritySetting build ()
-        }
+
+    +interface "<<<back:pink>CardSecuritySetting</back>>>\nCalypsoCardSecuritySetting" as CalypsoCardSecuritySetting {
+        --
+        +CalypsoCardSecuritySetting enableMultipleSession ()
+        +CalypsoCardSecuritySetting enableRatificationMechanism ()
+        +CalypsoCardSecuritySetting disablePinEncryption ()
+        +CalypsoCardSecuritySetting assignKif (<back:pink>SessionAccessLevel</back> sessionAccessLevel, byte kif)
+        +CalypsoCardSecuritySetting assignKvc (<back:pink>SessionAccessLevel</back> sessionAccessLevel, byte kvc)
+        +CalypsoCardSecuritySetting assignKeyRecordNumber (<back:pink>SessionAccessLevel</back> sessionAccessLevel, byte keyRecordNumber)
+        +CalypsoCardSecuritySetting sessionAuthorizedKvcList (List<Byte> sessionAuthorizedKvcList)
+        +CalypsoCardSecuritySetting pinCipheringKey (byte kif, byte kvc)
+        +CalypsoCardSecuritySetting isLoadAndDebitSvLogRequired (boolean isLoadAndDebitSvLogRequired)
+        +CalypsoCardSecuritySetting isSvNegativeBalanceAllowed (boolean isSvNegativeBalanceAllowed)
+        .. **CardSecuritySetting** ..
+        +<back:yellow>CardReader</back> getSamReader ()
+        +<back:pink>CalypsoSam</back> getCalypsoSam ()
+        +boolean isMultipleSessionEnabled ()
+        +boolean isRatificationMechanismEnabled ()
+        +boolean isPinTransmissionEncryptionDisabled ()
+        +Byte getKif (<back:pink>SessionAccessLevel</back> sessionAccessLevel)
+        +Byte getKvc (<back:pink>SessionAccessLevel</back> sessionAccessLevel)
+        +Byte getKeyRecordNumber (<back:pink>SessionAccessLevel</back> sessionAccessLevel)
+        +boolean isKvcAuthorized (byte kvc)
+        +byte getPinCipheringKif ()
+        +byte getPinCipheringKvc ()
+        +boolean isLoadAndDebitSvLogRequired ()
+        +boolean isSvNegativeBalanceAllowed ()
     }
 }
 
 ' Associations
 
-CalypsoExtensionService .up.> CalypsoSamResourceProfileExtension #C_USE : create >
-CalypsoExtensionService ..> CardSecuritySetting #C_USE : use >
-CalypsoExtensionService ..> CalypsoCardSelection #C_USE : create >
-CalypsoExtensionService .up.> CalypsoSelector #C_USE : create >
-CalypsoExtensionService ..> CalypsoCard #C_USE : use >
-CalypsoExtensionService ..> CardTransactionService #C_USE : create >
-
-CardTransactionService ..> CardSecuritySetting #C_USE : use >
-CardTransactionService ..> SelectFileControl #C_USE : use >
-
-CardSecuritySetting ..> CardSecuritySettingBuilder #C_USE : provide >
-
-CardSecuritySettingBuilder .up.> CardSecuritySetting #C_USE : create >
-
-CalypsoSamResourceProfileExtension ..> SamRevision #C_USE : use >
-
-CalypsoSam ..> SamRevision #C_USE : provide >
-
-CalypsoCardSelection ..> SelectFileControl #C_USE : use >
-
-CalypsoCard ..> DirectoryHeader #C_USE : provide >
-CalypsoCard ..> ElementaryFile #C_USE : provide >
-CalypsoCard ..> FileHeader #C_USE : provide >
-CalypsoCard ..> FileData #C_USE : provide >
-CalypsoCard ..> CardRevision #C_USE : provide >
-CalypsoCard ..> SvLoadLogRecord #C_USE : provide >
-CalypsoCard ..> SvDebitLogRecord #C_USE : provide >
+CalypsoExtensionService ..> CalypsoSamResourceProfileExtension #C_USE : create >
+CalypsoExtensionService ..> CalypsoCardSecuritySetting #C_USE : create >
+CalypsoExtensionService ..> CalypsoSelector #C_USE : create >
 
 ' == LAYOUT ==
 
@@ -200,9 +137,6 @@ CalypsoCard ..> SvDebitLogRecord #C_USE : provide >
 ' == STYLE ==
 
 package calypso #C_GREY1 {}
-package card #C_GREY2 {}
-package sam #C_GREY2 {}
-package transaction #C_GREY2 {}
 
 
 @enduml

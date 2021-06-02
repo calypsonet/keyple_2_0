@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service-resource - 2.0.0 (28/05/2021)
+    Keyple 2.0 - Adapter of keyple-java-service-resource - 2.0.0 (02/06/2021)
 end title
 
 ' == THEME ==
@@ -93,8 +93,8 @@ package "org.eclipse.keyple.core.service.resource" as resource {
         ~boolean isActive ()
         ..
         ~void activate ()
-        ~CardResource matches (CardResourceProfileExtensionSpi extension)
-        ~boolean lock (CardResource cardResource, CardResourceProfileExtensionSpi extension)
+        ~CardResource matches (CardResourceProfileExtension extension)
+        ~boolean lock (CardResource cardResource, CardResourceProfileExtension extension)
         ~void unlock ()
         ~void removeCardResource (CardResource cardResource)
     }

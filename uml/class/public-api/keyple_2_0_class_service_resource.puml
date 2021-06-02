@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service-resource - 2.0.0 (28/05/2021)
+    Keyple 2.0 - keyple-java-service-resource - 2.0.0 (02/06/2021)
 end title
 
 ' == THEME ==
@@ -110,7 +110,7 @@ package "org.eclipse.keyple.core.service.resource" as resource {
 
     +class "**final** CardResourceProfileConfigurator" as CardResourceProfileConfigurator {
         --
-        +{static} Builder builder (String profileName, CardResourceProfileExtensionSpi cardResourceProfileExtensionSpi)
+        +{static} Builder builder (String profileName, CardResourceProfileExtension cardResourceProfileExtension)
     }
     +class "**final** Builder" as CardResourceProfileConfiguratorBuilder {
         +Builder withPlugins (<back:pink>Plugin</back>... plugins)
@@ -131,7 +131,7 @@ package "org.eclipse.keyple.core.service.resource" as resource {
         +interface ReaderConfiguratorSpi {
             +void setupReader (<back:pink>Reader</back> reader)
         }
-        +interface CardResourceProfileExtensionSpi {
+        +interface CardResourceProfileExtension {
             +<back:yellow>SmartCard</back> matches (<back:yellow>CardReader</back> reader, <back:yellow>CardSelectionService</back> cardSelectionService)
         }
     }
@@ -163,7 +163,7 @@ PoolPluginsConfigurator ..> PoolPluginsConfiguratorBuilder #C_USE : provide >
 PoolPluginsConfiguratorBuilder ..> PoolPluginsConfiguratorBuilder #C_USE
 PoolPluginsConfiguratorBuilder .up.> PoolPluginsConfigurator #C_USE : create >
 
-CardResourceProfileConfigurator ..> CardResourceProfileExtensionSpi #C_USE : use >
+CardResourceProfileConfigurator ..> CardResourceProfileExtension #C_USE : use >
 CardResourceProfileConfigurator ..> CardResourceProfileConfiguratorBuilder #C_USE : provide >
 
 CardResourceProfileConfiguratorBuilder ..> CardResourceProfileConfiguratorBuilder #C_USE

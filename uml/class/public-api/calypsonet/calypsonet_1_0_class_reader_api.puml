@@ -1,6 +1,6 @@
 @startuml
 title
-    Calypsonet - calypsonet-terminal-reader-java-api - 1.0 (01/06/2021)
+    Calypsonet - calypsonet-terminal-reader-java-api - 1.0 (02/06/2021)
 end title
 
 ' == THEME ==
@@ -88,10 +88,10 @@ package "org.calypsonet.terminal.reader" as readerApi {
         +interface CardReaderEvent {
             --
             +String getReaderName ()
-            +EventType getEventType ()
+            +Type getType ()
             +ScheduledCardSelectionsResponse getScheduledCardSelectionsResponse ()
         }
-        +enum "EventType" as CardReaderEventType {
+        +enum "Type" as CardReaderEventType {
             CARD_INSERTED
             CARD_MATCHED
             CARD_REMOVED
@@ -208,7 +208,7 @@ ObservableCardReader .left.> PollingMode #C_USE : use >
 ObservableCardReader ..> CardReaderObservationExceptionHandlerSpi #C_USE : use >
 
 CardReaderEvent +-- CardReaderEventType
-CardReaderEvent *-- "1" CardReaderEventType #C_LINK
+CardReaderEvent ..> CardReaderEventType #C_USE : provide >
 CardReaderEvent .up.> ScheduledCardSelectionsResponse #C_USE : provide >
 
 CardSelectionService *-- "1..N" CardSelection #C_LINK
@@ -216,9 +216,9 @@ CardSelectionService *-- "1..N" CardSelection #C_LINK
 CardSelectionResult *-- "1..N" SmartCard #C_LINK
 
 CardSelector +-- FileOccurrence
-CardSelector *-- "0..1" FileOccurrence #C_LINK
+CardSelector ..> FileOccurrence #C_USE : provide >
 CardSelector +-- FileControlInformation
-CardSelector *-- "0..1" FileControlInformation #C_LINK
+CardSelector ..> FileControlInformation #C_USE : provide >
 
 CardSelectionService ..> ScheduledCardSelectionsResponse #C_USE : use >
 CardSelectionService ..> CardSelectionResult #C_USE : provide >
