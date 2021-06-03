@@ -1,6 +1,6 @@
 @startuml
 title
-    Calypsonet - calypsonet-terminal-calypso-java-api - 1.0 (02/06/2021)
+    Calypsonet - calypsonet-terminal-calypso-java-api - 1.0 (03/06/2021)
 end title
 
 ' == THEME ==
@@ -56,12 +56,10 @@ package "org.calypsonet.terminal.calypso" as api {
     +class "**final** CalypsoApiProperties" as ApiProperties {
         +{static} **final** String VERSION
     }
-    +enum SessionAccessLevel {
-        SESSION_LVL_PERSO
-        SESSION_LVL_LOAD
-        SESSION_LVL_DEBIT
-        ..
-        +byte getSessionKey ()
+    +enum WriteAccessLevel {
+        PERSONALIZATION
+        LOAD
+        DEBIT
     }
     +enum SelectFileControl {
         FIRST_EF
@@ -82,9 +80,9 @@ package "org.calypsonet.terminal.calypso" as api {
             --
             +ProductType getProductType ()
             +String getPowerOnDataHex ()
-            +byte[] getDfNameBytes ()
+            +byte[] getDfName ()
             +String getDfNameHex ()
-            +byte[] getApplicationSerialNumberBytes ()
+            +byte[] getApplicationSerialNumber ()
             +String getApplicationSerialNumberHex ()
             ..
             +String getStartupInfoHex ()
@@ -127,11 +125,11 @@ package "org.calypsonet.terminal.calypso" as api {
             +byte[] getAccessConditions ()
             +byte[] getKeyIndexes ()
             ..
-            +boolean isKifAvailable (SessionAccessLevel level)
-            +byte getKif (SessionAccessLevel level)
+            +boolean isKifAvailable (WriteAccessLevel writeAccessLevel)
+            +byte getKif (WriteAccessLevel writeAccessLevel)
             ..
-            +boolean isKvcAvailable (SessionAccessLevel level)
-            +byte getKvc (SessionAccessLevel level)
+            +boolean isKvcAvailable (WriteAccessLevel writeAccessLevel)
+            +byte getKvc (WriteAccessLevel writeAccessLevel)
         }
         +interface ElementaryFile {
             --
@@ -241,9 +239,6 @@ package "org.calypsonet.terminal.calypso" as api {
             SAM_S1E1
             SAM_S1Dx
             CSAM_F
-            ..
-            +String getApplicationTypeMask ()
-            +byte getClassByte ()
         }
     }
     package transaction {
@@ -288,7 +283,7 @@ package "org.calypsonet.terminal.calypso" as api {
             +CardTransactionService processVerifyPin (byte[] pin)
             +CardTransactionService processVerifyPin (String pin)
             ..
-            +CardTransactionService processOpening (SessionAccessLevel sessionAccessLevel)
+            +CardTransactionService processOpening (WriteAccessLevel writeAccessLevel)
             +CardTransactionService processClosing ()
             +CardTransactionService processCancel ()
         }
@@ -310,10 +305,12 @@ package "org.calypsonet.terminal.calypso" as api {
             +CardSecuritySetting enableSvLoadAndDebitLog ()
             +CardSecuritySetting authorizeSvNegativeBalance ()
             ..
-            +CardSecuritySetting assignKif (SessionAccessLevel sessionAccessLevel, byte kif)
-            +CardSecuritySetting assignKvc (SessionAccessLevel sessionAccessLevel, byte kvc)
-            +CardSecuritySetting assignKeyRecordNumber (SessionAccessLevel sessionAccessLevel, byte keyRecordNumber)
-            +CardSecuritySetting addAuthorizedKvc (byte authorizedKvc)
+            +CardSecuritySetting assignKif (WriteAccessLevel writeAccessLevel, byte kvc, byte kif)
+            +CardSecuritySetting assignDefaultKif (WriteAccessLevel writeAccessLevel, byte kif)
+            +CardSecuritySetting assignDefaultKvc (WriteAccessLevel writeAccessLevel, byte kvc)
+            ..
+            +CardSecuritySetting addAuthorizedSessionKey (byte kif, byte kvc)
+            +CardSecuritySetting addAuthorizedSvKey (byte kif, byte kvc)
             ..
             +CardSecuritySetting setPinCipheringKey (byte kif, byte kvc)
             .. getters ..
@@ -327,10 +324,12 @@ package "org.calypsonet.terminal.calypso" as api {
             +boolean isSvLoadAndDebitLogEnabled ()
             +boolean isSvNegativeBalanceAuthorized ()
             ..
-            +Byte getKif (SessionAccessLevel sessionAccessLevel)
-            +Byte getKvc (SessionAccessLevel sessionAccessLevel)
-            +Byte getKeyRecordNumber (SessionAccessLevel sessionAccessLevel)
-            +boolean isKvcAuthorized (byte kvc)
+            +Byte getKif (WriteAccessLevel writeAccessLevel, byte kvc)
+            +Byte getDefaultKif (WriteAccessLevel writeAccessLevel)
+            +Byte getDefaultKvc (WriteAccessLevel writeAccessLevel)
+            ..
+            +boolean isSessionKeyAuthorized (byte kif, byte kvc)
+            +boolean isSvKeyAuthorized (byte kif, byte kvc)
             ..
             +byte getPinCipheringKif ()
             +byte getPinCipheringKvc ()
@@ -340,35 +339,35 @@ package "org.calypsonet.terminal.calypso" as api {
 
 ' Associations
 
-CardTransactionService .up.> SessionAccessLevel #C_USE : use >
+CardTransactionService .up.> WriteAccessLevel #C_USE : use >
 CardTransactionService ..> SvOperation #C_USE : use >
 CardTransactionService ..> SvAction #C_USE : use >
 CardTransactionService .up.> SelectFileControl #C_USE : use >
-CardTransactionService ..> CalypsoCard #C_USE : provide >
-CardTransactionService ..> CardSecuritySetting #C_USE : provide >
+CardTransactionService ..> CalypsoCard #C_LINK : provide >
+CardTransactionService ..> CardSecuritySetting #C_LINK : provide >
 
-CardSecuritySetting .up.> SessionAccessLevel #C_USE : use >
-CardSecuritySetting ..> CalypsoSam #C_USE : provide >
+CardSecuritySetting .up.> WriteAccessLevel #C_USE : use >
+CardSecuritySetting ..> CalypsoSam #C_LINK : provide >
 
 CalypsoSam +-- SamProductType
-CalypsoSam ..> SamProductType #C_USE : provide >
+CalypsoSam ..> SamProductType #C_LINK : provide >
 
 CalypsoCardSelection .up.> SelectFileControl #C_USE : use >
 
-CalypsoCard ..> DirectoryHeader #C_USE : provide >
-CalypsoCard ..> ElementaryFile #C_USE : provide >
+CalypsoCard ..> DirectoryHeader #C_LINK : provide >
+CalypsoCard ..> ElementaryFile #C_LINK : provide >
 CalypsoCard +-- CardProductType
-CalypsoCard ..> CardProductType #C_USE : provide >
-CalypsoCard ..> SvLoadLogRecord #C_USE : provide >
-CalypsoCard ..> SvDebitLogRecord #C_USE : provide >
+CalypsoCard ..> CardProductType #C_LINK : provide >
+CalypsoCard ..> SvLoadLogRecord #C_LINK : provide >
+CalypsoCard ..> SvDebitLogRecord #C_LINK : provide >
 
-DirectoryHeader ..> SessionAccessLevel #C_USE : use >
+DirectoryHeader ..> WriteAccessLevel #C_USE : use >
 
 ElementaryFile +-- FileType
-ElementaryFile ..> FileHeader #C_USE : provide >
-ElementaryFile ..> FileData #C_USE : provide >
+ElementaryFile ..> FileHeader #C_LINK : provide >
+ElementaryFile ..> FileData #C_LINK : provide >
 
-FileHeader ..> FileType #C_USE : provide >
+FileHeader ..> FileType #C_LINK : provide >
 
 ' == LAYOUT ==
 

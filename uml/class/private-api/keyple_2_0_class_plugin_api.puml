@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-plugin-api - 2.0 (02/06/2021)
+    Keyple 2.0 - keyple-java-plugin-api - 2.0 (03/06/2021)
 end title
 
 ' == THEME ==
@@ -96,12 +96,12 @@ package "org.eclipse.keyple.core.plugin" as api {
                 +SortedSet<String> getReaderGroupReferences ()
                 +ReaderSpi allocateReader (String readerGroupReference)
                 +void releaseReader (ReaderSpi readerSpi)
-                +void unregister ()
+                +void onUnregister ()
             }
             +interface PluginSpi {
                 +String getName ()
                 +Set<ReaderSpi> searchAvailableReaders ()
-                +void unregister ()
+                +void onUnregister ()
             }
         }
         +interface ObservablePluginSpi extends PluginSpi {
@@ -132,13 +132,13 @@ package "org.eclipse.keyple.core.plugin" as api {
                 ..
                 +boolean checkCardPresence ()
                 ..
-                +byte[] getPowerOnDataBytes ()
+                +byte[] getPowerOnData ()
                 ..
                 +byte[] transmitApdu (byte[] apduIn)
                 ..
                 +boolean isContactless ()
                 ..
-                +void unregister ()
+                +void onUnregister ()
             }
             +interface AutonomousSelectionReaderSpi {
                 +byte[] openChannelForAid (byte[] dfName, byte isoControlMask)
@@ -192,15 +192,15 @@ package "org.eclipse.keyple.core.plugin" as api {
 
 ' Associations
 
-PluginFactorySpi .up.> ApiProperties #C_USE : provide\nAPI version <
-PluginFactorySpi ..> PluginSpi #C_USE : provide >
+PluginFactorySpi .up.> ApiProperties #C_LINK : provide\nAPI version <
+PluginFactorySpi ..> PluginSpi #C_LINK : provide >
 
-PluginSpi ..> ReaderSpi #C_USE : provide >
+PluginSpi ..> ReaderSpi #C_LINK : provide >
 
-PoolPluginFactorySpi .up.> ApiProperties #C_USE : provide\nAPI version <
-PoolPluginFactorySpi ..> PoolPluginSpi #C_USE : provide >
+PoolPluginFactorySpi .up.> ApiProperties #C_LINK : provide\nAPI version <
+PoolPluginFactorySpi ..> PoolPluginSpi #C_LINK : provide >
 
-PoolPluginSpi ..> ReaderSpi #C_USE : provide >
+PoolPluginSpi ..> ReaderSpi #C_LINK : provide >
 
 AutonomousObservablePluginSpi .up.> AutonomousObservablePluginApi #C_USE : use >
 

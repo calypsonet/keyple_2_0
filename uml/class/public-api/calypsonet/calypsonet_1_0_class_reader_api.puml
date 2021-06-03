@@ -1,6 +1,6 @@
 @startuml
 title
-    Calypsonet - calypsonet-terminal-reader-java-api - 1.0 (02/06/2021)
+    Calypsonet - calypsonet-terminal-reader-java-api - 1.0 (03/06/2021)
 end title
 
 ' == THEME ==
@@ -73,11 +73,11 @@ package "org.calypsonet.terminal.reader" as readerApi {
             +void clearObservers ()
             +int countObservers ()
             ..
-            +void startCardDetection (PollingMode pollingMode)
+            +void startCardDetection (DetectionMode detectionMode)
             +void stopCardDetection ()
             +void finalizeCardProcessing ()
         }
-        +enum PollingMode {
+        +enum DetectionMode {
             REPEATING
             SINGLESHOT
         }
@@ -123,7 +123,7 @@ package "org.calypsonet.terminal.reader" as readerApi {
             +CardSelectionResult processCardSelectionScenario (CardReader cardReader)
             ..
             +void scheduleCardSelectionScenario (ObservableCardReader observableCardReader,
-                \tNotificationMode notificationMode, PollingMode pollingMode)
+                \tDetectionMode detectionMode, NotificationMode notificationMode)
             +CardSelectionResult parseScheduledCardSelectionsResponse (
                 \tScheduledCardSelectionsResponse scheduledCardSelectionsResponse)
         }
@@ -136,10 +136,10 @@ package "org.calypsonet.terminal.reader" as readerApi {
             +interface "SmartCard" as SmartCard {
                 --
                 +boolean hasFci ()
-                +byte[] getFciBytes ()
+                +byte[] getFci ()
                 ..
                 +boolean hasPowerOnData ()
-                +byte[] getPowerOnDataBytes ()
+                +byte[] getPowerOnData ()
             }
             +interface CardSelector {
                 --
@@ -210,34 +210,33 @@ package "org.calypsonet.terminal.reader" as readerApi {
 ' Associations
 
 ObservableCardReader +-- NotificationMode
-ObservableCardReader +-left- PollingMode
-ObservableCardReader .left.> PollingMode #C_USE : use >
+ObservableCardReader +-left- DetectionMode
+ObservableCardReader .left.> DetectionMode #C_USE : use >
 ObservableCardReader ..> CardReaderObservationExceptionHandlerSpi #C_USE : use >
 
 CardReaderEvent +-- CardReaderEventType
-CardReaderEvent ..> CardReaderEventType #C_USE : provide >
-CardReaderEvent .up.> ScheduledCardSelectionsResponse #C_USE : provide >
+CardReaderEvent ..> CardReaderEventType #C_LINK : provide >
+CardReaderEvent .up.> ScheduledCardSelectionsResponse #C_LINK : provide >
 
-CardSelectionService *-- "1..N" CardSelection #C_LINK
-
-CardSelectionResult *-- "1..N" SmartCard #C_LINK
+CardSelectionResult ..> SmartCard #C_LINK : provide >
 
 CardSelector +-- FileOccurrence
-CardSelector ..> FileOccurrence #C_USE : provide >
+CardSelector ..> FileOccurrence #C_LINK : provide >
 CardSelector +-- FileControlInformation
-CardSelector ..> FileControlInformation #C_USE : provide >
+CardSelector ..> FileControlInformation #C_LINK : provide >
 
+CardSelectionService ..> CardSelection #C_USE : use >
 CardSelectionService ..> ScheduledCardSelectionsResponse #C_USE : use >
-CardSelectionService ..> CardSelectionResult #C_USE : provide >
+CardSelectionService ..> CardSelectionResult #C_LINK : provide >
 CardSelectionService .right.> CardReader #C_USE : use >
 CardSelectionService ..> NotificationMode #C_USE : use >
-CardSelectionService ..> PollingMode #C_USE : use >
+CardSelectionService ..> DetectionMode #C_USE : use >
 
 ObservableCardReader ..> CardReaderObserverSpi #C_USE : use >
 
 CardReaderObserverSpi ..> CardReaderEvent #C_USE : use >
 
-CardSelection ..> CardSelector #C_USE : provide >
+CardSelection ..> CardSelector #C_LINK : provide >
 
 ' == LAYOUT ==
 

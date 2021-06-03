@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (02/06/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (03/06/2021)
 end title
 
 ' == THEME ==
@@ -333,7 +333,7 @@ package "org.eclipse.keyple.core.service" as service {
         ..
         ~<back:pink>ObservableReaderSpi</back> getObservableReaderSpi ()
         ~<back:yellow>CardReaderObservationExceptionHandlerSpi</back> getObservationExceptionHandler ()
-        ~<back:yellow>PollingMode</back> get<back:yellow>PollingMode</back> ()
+        ~<back:yellow>DetectionMode</back> get<back:yellow>DetectionMode</back> ()
         ~MonitoringState getCurrentMonitoringState ()
         ~boolean isCardPresentPing ()
         ..
@@ -343,7 +343,7 @@ package "org.eclipse.keyple.core.service" as service {
         ~void notifyObservers (ReaderEvent event)
         ..
         ~void scheduleCardSelectionScenario (
-            \tCardSelectionScenarioAdapter cardSelectionScenario, <back:yellow>NotificationMode</back> notificationMode, <back:yellow>PollingMode</back> pollingMode)
+            \tCardSelectionScenarioAdapter cardSelectionScenario, <back:yellow>DetectionMode</back> detectionMode, <back:yellow>NotificationMode</back> notificationMode)
         -- **AbstractReaderAdapter** --
         ~void unregister ()
         -- **Reader** --
@@ -355,7 +355,7 @@ package "org.eclipse.keyple.core.service" as service {
         +void removeObserver (<back:yellow>CardReaderObserverSpi</back> observer)
         +int countObservers ()
         +void clearObservers ()
-        +void startCardDetection (<back:yellow>PollingMode</back> pollingMode)
+        +void startCardDetection (<back:yellow>DetectionMode</back> detectionMode)
         +void stopCardDetection ()
         +void finalizeCardProcessing ()
         -- **WaitForCardInsertionAutonomousReaderApi** --
@@ -378,7 +378,7 @@ package "org.eclipse.keyple.core.service" as service {
         ~void notifyObservers (ReaderEvent event)
         ..
         ~void scheduleCardSelectionScenario (CardSelectionScenarioAdapter cardSelectionScenario,
-            \t<back:yellow>NotificationMode</back> notificationMode, <back:yellow>PollingMode</back> pollingMode)
+            \t<back:yellow>DetectionMode</back> detectionMode, <back:yellow>NotificationMode</back> notificationMode)
         -- **AbstractReaderAdapter** --
         ~void unregister ()
         -- **ObservableReader** --
@@ -388,7 +388,7 @@ package "org.eclipse.keyple.core.service" as service {
         +void removeObserver (<back:yellow>CardReaderObserverSpi</back> observer)
         +int countObservers ()
         +void clearObservers ()
-        +void startCardDetection (<back:yellow>PollingMode</back> pollingMode)
+        +void startCardDetection (<back:yellow>DetectionMode</back> detectionMode)
         +void stopCardDetection ()
         +void finalizeCardProcessing ()
     }
@@ -555,7 +555,7 @@ package "org.eclipse.keyple.core.service" as service {
         +int prepareSelection (<back:yellow>CardSelection</back> cardSelection)
         +void prepareReleaseChannel ()
         +<back:yellow>CardSelectionResult</back> processCardSelectionScenario (Reader reader)
-        +void scheduleCardSelectionScenario (ObservableReader observableReader, <back:yellow>NotificationMode</back> notificationMode, <back:yellow>PollingMode</back> pollingMode)
+        +void scheduleCardSelectionScenario (ObservableReader observableReader, <back:yellow>DetectionMode</back> detectionMode, <back:yellow>NotificationMode</back> notificationMode)
         +<back:yellow>CardSelectionResult</back> parseScheduledCardSelectionsResponse (ScheduledCardSelectionsResponseAdapter scheduledCardSelectionsResponse)
     }
     ~class "<<<back:yellow>ScheduledCardSelectionsResponse</back>>>\n**final** ScheduledCardSelectionsResponseAdapter" as ScheduledCardSelectionsResponseAdapter {
@@ -583,20 +583,24 @@ package "org.eclipse.keyple.core.service" as service {
     together {
         +class "<<<back:lightGreen>CardSelectionResponseApi</back>>>\n**final** CardSelectionResponseAdapter" as CardSelectionResponseAdapter {
             --
-            ~CardSelectionResponseAdapter (<back:lightGreen>SelectionStatusApi</back> selectionStatusApi, <back:lightGreen>CardResponseApi</back> cardResponseApi)
+            ~CardSelectionResponseAdapter (
+                \tbyte[] powerOnData,
+                \t<back:lightGreen>ApduResponseApi</back> selectApplicationResponse,
+                \tboolean hasMatched,
+                \t<back:lightGreen>CardResponseApi</back> cardResponseApi)
             .. **CardSelectionResponseApi** ..
-            +<back:lightGreen>SelectionStatusApi</back> getSelectionStatus ()
+            +byte[] getPowerOnData ()
+            +<back:lightGreen>ApduResponseApi</back> getSelectApplicationResponse ()
+            +boolean hasMatched ()
             +<back:lightGreen>CardResponseApi</back> getCardResponse ()
         }
         +class "<<<back:lightGreen>CardResponseApi</back>>>\n**final** CardResponseAdapter" as CardResponseAdapter {
             --
             ~CardResponseAdapter (List<<back:lightGreen>ApduResponseApi</back>> apduResponses,
-                \tboolean isLogicalChannelOpen,
-                \tboolean isComplete)
+                \tboolean isLogicalChannelOpen)
             .. **CardResponseApi** ..
             +List<<back:lightGreen>ApduResponseApi</back>> getApduResponses ()
             +boolean isLogicalChannelOpen ()
-            +boolean isComplete ()
         }
         +class "<<<back:lightGreen>ApduResponseApi</back>>>\n**final** ApduResponseAdapter" as ApduResponseAdapter {
             --
@@ -606,23 +610,12 @@ package "org.eclipse.keyple.core.service" as service {
             +byte[] getDataOut ()
             +int getStatusWord ()
         }
-        +class "<<<back:lightGreen>SelectionStatusApi</back>>>\n**final** SelectionStatusAdapter" as SelectionStatusAdapter {
-            --
-            ~SelectionStatusAdapter (
-                \tbyte[] powerOnData,
-                \t<back:lightGreen>ApduResponseApi</back> fci,
-                \tboolean isMatching)
-            .. **SelectionStatusApi** ..
-            +byte[] getPowerOnDataBytes ()
-            +<back:lightGreen>ApduResponseApi</back> getFci ()
-            +boolean hasMatched ()
-        }
     }
 }
 
 ' Associations
 
-SmartCardServiceProvider ..> SmartCardServiceAdapter #C_USE : provide >
+SmartCardServiceProvider ..> SmartCardServiceAdapter #C_LINK : provide >
 
 SmartCardServiceAdapter *-- "0..N" AbstractPluginAdapter #C_LINK
 SmartCardServiceAdapter *-- "0..N" DistributedLocalServiceAdapter #C_LINK
@@ -659,12 +652,10 @@ CardSelectionServiceFactory ..> CardSelectionServiceAdapter #C_USE : create >
 CardSelectionServiceAdapter ..> CardSelectionResultAdapter #C_USE : create >
 CardSelectionServiceAdapter ..> ScheduledCardSelectionsResponseAdapter #C_USE : use >
 
+CardSelectionResponseAdapter *-- "0..1" ApduResponseAdapter #C_LINK
 CardSelectionResponseAdapter *-- "1" CardResponseAdapter #C_LINK
-CardSelectionResponseAdapter *-- "1" SelectionStatusAdapter #C_LINK
 
 CardResponseAdapter *-- "1..N" ApduResponseAdapter #C_LINK
-
-SelectionStatusAdapter *-- "0..1" ApduResponseAdapter  #C_LINK
 
 ' == LAYOUT ==
 
@@ -725,7 +716,6 @@ class ScheduledCardSelectionsResponseAdapter <<blue>>
 
 class CardSelectionResponseAdapter <<blue>>
 class CardResponseAdapter <<blue>>
-class SelectionStatusAdapter <<blue>>
 class ApduResponseAdapter <<blue>>
 
 class PluginEventAdapter <<blue>>
