@@ -1,6 +1,6 @@
 @startuml
 title
-    Calypsonet - calypsonet-terminal-calypso-java-api - 1.0 (03/06/2021)
+    Calypsonet - calypsonet-terminal-calypso-java-api - 1.0 (04/06/2021)
 end title
 
 ' == THEME ==
@@ -69,23 +69,21 @@ package "org.calypsonet.terminal.calypso" as api {
 
     package card {
         +interface "<<<back:yellow>CardSelection</back>>>\nCalypsoCardSelection" as CalypsoCardSelection {
-            --
             +CalypsoCardSelection prepareSelectFile (byte[] lid)
             +CalypsoCardSelection prepareSelectFile (short lid)
             +CalypsoCardSelection prepareSelectFile (SelectFileControl selectControl)
-            ..
+
             +CalypsoCardSelection prepareReadRecordFile (byte sfi, int recordNumber)
+            -- **CardSelection** --
+            +<back:yellow>CardSelector</back> getCardSelector ()
         }
         +interface "<<<back:yellow>SmartCard</back>>>\nCalypsoCard" as CalypsoCard {
-            --
             +ProductType getProductType ()
-            +String getPowerOnDataHex ()
+
             +byte[] getDfName ()
-            +String getDfNameHex ()
             +byte[] getApplicationSerialNumber ()
-            +String getApplicationSerialNumberHex ()
-            ..
-            +String getStartupInfoHex ()
+
+            +byte[] getStartupInfoRawData ()
             +byte getPlatform ()
             +byte getApplicationType ()
             +byte getApplicationSubtype ()
@@ -93,23 +91,23 @@ package "org.calypsonet.terminal.calypso" as api {
             +byte getSoftwareVersion ()
             +byte getSoftwareRevision ()
             +byte getSessionModification ()
-            ..
+
             +boolean isConfidentialSessionModeSupported ()
             +boolean isDeselectRatificationSupported ()
             +boolean isPublicAuthenticationSupported ()
-            ..
+
             +DirectoryHeader getDirectoryHeader ()
             +ElementaryFile getFileBySfi (byte sfi)
             +ElementaryFile getFileByLid (short lid)
             +Map<Byte, ElementaryFile> getAllFiles ()
-            ..
+
             +boolean isDfInvalidated ()
             +boolean isDfRatified ()
-            ..
+
             +boolean isPinFeatureAvailable ()
             +boolean isPinBlocked ()
             +int getPinAttemptRemaining ()
-            ..
+
             +boolean isSvFeatureAvailable ()
             +int getSvBalance ()
             +int getSvLastTNum ()
@@ -118,37 +116,34 @@ package "org.calypsonet.terminal.calypso" as api {
             +List<SvDebitLogRecord> getSvDebitLogAllRecords ()
         }
         +interface DirectoryHeader {
-            --
             +short getLid ()
             +byte getDfStatus ()
-            ..
+
             +byte[] getAccessConditions ()
             +byte[] getKeyIndexes ()
-            ..
+
             +boolean isKifAvailable (WriteAccessLevel writeAccessLevel)
             +byte getKif (WriteAccessLevel writeAccessLevel)
-            ..
+
             +boolean isKvcAvailable (WriteAccessLevel writeAccessLevel)
             +byte getKvc (WriteAccessLevel writeAccessLevel)
         }
         +interface ElementaryFile {
-            --
             +byte getSfi ()
             +FileHeader getHeader ()
             +FileData getData ()
         }
         +interface FileHeader {
-            --
             +short getLid ()
             +byte getDfStatus ()
             +ElementaryFile.Type getEfType ()
-            ..
+
             +int getRecordsNumber ()
             +int getRecordSize ()
-            ..
+
             +byte[] getAccessConditions ()
             +byte[] getKeyIndexes ()
-            ..
+
             +boolean isShared ()
             +Short getSharedReference ()
         }
@@ -160,12 +155,11 @@ package "org.calypsonet.terminal.calypso" as api {
             SIMULATED_COUNTERS
         }
         +interface FileData {
-            --
             +byte[] getContent ()
             +byte[] getContent (int numRecord)
             +byte[] getContent (int numRecord, int dataOffset, int dataLength)
             +SortedMap<Integer, byte[]> getAllRecordsContent ()
-            ..
+
             +int getContentAsCounterValue (int numCounter)
             +SortedMap<Integer, Integer> getAllCountersValue ()
         }
@@ -178,54 +172,40 @@ package "org.calypsonet.terminal.calypso" as api {
             BASIC
         }
         +interface SvLoadLogRecord {
-            --
+            +byte[] getRawData ()
+
+            +byte[] getLoadDate ()
+            +byte[] getLoadTime ()
+
             +int getAmount ()
             +int getBalance ()
-            ..
-            +int getLoadTime ()
-            +byte[] getLoadTimeBytes ()
-            +int getLoadDate ()
-            +byte[] getLoadDateBytes ()
-            +String getFreeByte ()
-            +byte[] getFreeByteBytes ()
-            ..
+            +byte[] getFreeData ()
+
             +byte getKvc ()
-            ..
-            +long getSamId ()
-            +byte[] getSamIdBytes ()
-            ..
-            +int getSvTNum ()
-            +byte[] getSvTNumBytes ()
-            ..
+            +byte[] getSamId ()
             +int getSamTNum ()
-            +byte[] getSamTNumBytes ()
+            +int getSvTNum ()
         }
         +interface SvDebitLogRecord {
-            --
+            +byte[] getRawData ()
+
+            +byte[] getDebitDate ()
+            +byte[] getDebitTime ()
+
             +int getAmount ()
             +int getBalance ()
-            ..
-            +int getDebitTime ()
-            +byte[] getDebitTimeBytes ()
-            +int getDebitDate ()
-            +byte[] getDebitDateBytes ()
-            ..
+
             +byte getKvc ()
-            ..
-            +long getSamId ()
-            +byte[] getSamIdBytes ()
-            ..
-            +int getSvTNum ()
-            +byte[] getSvTNumBytes ()
-            ..
+            +byte[] getSamId ()
             +int getSamTNum ()
-            +byte[] getSamTNumBytes ()
+            +int getSvTNum ()
         }
     }
     package sam {
         +interface "<<<back:yellow>SmartCard</back>>>\nCalypsoSam" as CalypsoSam {
             +ProductType getProductType ()
             +String getProductInfo ()
+
             +byte[] getSerialNumber ()
             +byte getPlatform ()
             +byte getApplicationType ()
@@ -243,46 +223,45 @@ package "org.calypsonet.terminal.calypso" as api {
     }
     package transaction {
         +interface CardTransactionService {
-            --
             +<back:yellow>CardReader</back> getCardReader ()
             +CalypsoCard getCalypsoCard ()
             +CardSecuritySetting getCardSecuritySetting ()
             +String getTransactionAuditData ()
-            ..
+
             +CardTransactionService prepareSelectFile (byte[] lid)
             +CardTransactionService prepareSelectFile (SelectFileControl control)
-            ..
+
             +CardTransactionService prepareReadRecordFile (byte sfi, int recordNumber)
             +CardTransactionService prepareReadRecordFile (byte sfi, int firstRecordNumber, int numberOfRecords, int recordSize)
             +CardTransactionService prepareReadCounterFile (byte sfi, int countersNumber)
-            ..
+
             +CardTransactionService prepareCheckPinStatus ()
-            ..
+
             +CardTransactionService prepareAppendRecord (byte sfi, byte[] recordData)
             +CardTransactionService prepareUpdateRecord (byte sfi, int recordNumber, byte[] recordData)
             +CardTransactionService prepareWriteRecord (byte sfi, int recordNumber, byte[] recordData)
-            ..
+
             +CardTransactionService prepareIncreaseCounter (byte sfi, int counterNumber, int incValue)
             +CardTransactionService prepareDecreaseCounter (byte sfi, int counterNumber, int decValue)
             +CardTransactionService prepareSetCounter (byte sfi, int counterNumber, int newValue)
-            ..
+
             +CardTransactionService prepareSvGet (SvOperation svOperation, SvAction svAction)
             +CardTransactionService prepareSvReload (int amount, byte[] date, byte[] time, byte[] free)
             +CardTransactionService prepareSvReload (int amount)
             +CardTransactionService prepareSvDebit (int amount, byte[] date, byte[] time)
             +CardTransactionService prepareSvDebit (int amount)
             +CardTransactionService prepareSvReadAllLogs ()
-            ..
+
             +CardTransactionService prepareInvalidate ()
             +CardTransactionService prepareRehabilitate ()
-            ..
+
             +CardTransactionService prepareReleaseCardChannel ()
-            ..
+
             +CardTransactionService processCardCommands ()
-            ..
+
             +CardTransactionService processVerifyPin (byte[] pin)
             +CardTransactionService processVerifyPin (String pin)
-            ..
+
             +CardTransactionService processOpening (WriteAccessLevel writeAccessLevel)
             +CardTransactionService processClosing ()
             +CardTransactionService processCancel ()
@@ -296,41 +275,39 @@ package "org.calypsonet.terminal.calypso" as api {
             UNDO
         }
         +interface CardSecuritySetting {
-            --
-            .. setters ..
             +CardSecuritySetting enableMultipleSession ()
             +CardSecuritySetting enableRatificationMechanism ()
             +CardSecuritySetting enablePinPlainTransmission ()
             +CardSecuritySetting enableTransactionAudit ()
             +CardSecuritySetting enableSvLoadAndDebitLog ()
             +CardSecuritySetting authorizeSvNegativeBalance ()
-            ..
+
             +CardSecuritySetting assignKif (WriteAccessLevel writeAccessLevel, byte kvc, byte kif)
             +CardSecuritySetting assignDefaultKif (WriteAccessLevel writeAccessLevel, byte kif)
             +CardSecuritySetting assignDefaultKvc (WriteAccessLevel writeAccessLevel, byte kvc)
-            ..
+
             +CardSecuritySetting addAuthorizedSessionKey (byte kif, byte kvc)
             +CardSecuritySetting addAuthorizedSvKey (byte kif, byte kvc)
-            ..
+
             +CardSecuritySetting setPinCipheringKey (byte kif, byte kvc)
-            .. getters ..
+
             +<back:yellow>CardReader</back> getSamReader ()
             +CalypsoSam getCalypsoSam ()
-            ..
+
             +boolean isMultipleSessionEnabled ()
             +boolean isRatificationMechanismEnabled ()
             +boolean isPinPlainTransmissionEnabled ()
             +boolean isTransactionAuditEnabled ()
             +boolean isSvLoadAndDebitLogEnabled ()
             +boolean isSvNegativeBalanceAuthorized ()
-            ..
+
             +Byte getKif (WriteAccessLevel writeAccessLevel, byte kvc)
             +Byte getDefaultKif (WriteAccessLevel writeAccessLevel)
             +Byte getDefaultKvc (WriteAccessLevel writeAccessLevel)
-            ..
+
             +boolean isSessionKeyAuthorized (byte kif, byte kvc)
             +boolean isSvKeyAuthorized (byte kif, byte kvc)
-            ..
+
             +byte getPinCipheringKif ()
             +byte getPinCipheringKvc ()
         }

@@ -1,6 +1,6 @@
 @startuml
 title
-        Calypsonet - calypsonet-terminal-card-java-api - 1.0 (03/06/2021)
+        Calypsonet - calypsonet-terminal-card-java-api - 1.0 (04/06/2021)
 end title
 
 ' == THEME ==
@@ -67,18 +67,18 @@ package "org.calypsonet.terminal.card" as api {
                 +boolean stopOnUnsuccessfulStatusWord ()
             }
             +interface ApduRequestSpi {
-                +String getInfo ()
-                +byte[] getBytes ()
+                +byte[] getRawData ()
                 +Set<Integer> getSuccessfulStatusWords ()
+                +String getInfo ()
             }
         }
     }
     +interface ProxyReaderApi {
         --
         +CardResponseApi transmitCardRequest (
-        \tCardRequestSpi cardRequest,
-        \tChannelControl channelControl)
-        ..
+            \tCardRequestSpi cardRequest,
+            \tChannelControl channelControl)
+
         +void releaseChannel ()
     }
     +enum ChannelControl {
@@ -102,7 +102,7 @@ package "org.calypsonet.terminal.card" as api {
             +boolean isLogicalChannelOpen ()
         }
         +interface "<<Serializable>>\nApduResponseApi" as ApduResponseApi {
-            +byte[] getBytes ()
+            +byte[] getRawData ()
             +byte[] getDataOut ()
             +int getStatusWord ()
         }
@@ -118,7 +118,7 @@ package "org.calypsonet.terminal.card" as api {
             \tboolean isCardResponseComplete,
             \tString message,
             \tThrowable cause)
-        ..
+
         +CardResponseApi getCardResponse ()
         +boolean isCardResponseComplete ()
     }
