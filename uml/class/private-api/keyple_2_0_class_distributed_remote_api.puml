@@ -48,9 +48,9 @@ hide <<grey>> stereotype
 legend top
     __Colors legend__ :
     * __Keyple Distributed Solution Configuration modes__ :
-    ** <back:lightGreen>**Reader Client Side**</back>
-    ** <back:plum>**Reader Server Side**</back>
-    ** <back:lightBlue>**Pool Reader Server Side**</back>
+    ** <back:lightGreen>**Reader Client Side**</back> (Remote Plugin on **Server**)
+    ** <back:plum>**Reader Server Side**</back> (Remote Plugin on **Client** with **Plugin** or **ObservablePlugin**)
+    ** <back:lightBlue>**Reader Server Side**</back> (Remote Plugin on **Client** with **PoolPlugin**)
 end legend
 
 package "org.eclipse.keyple.core.distributed.remote" as api {
@@ -113,16 +113,16 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
 
 ' Associations
 
-RemotePluginFactorySpi .left.> ApiProperties #C_USE : provide\nAPI version <
-RemotePluginFactorySpi ..> AbstractRemotePluginSpi #C_USE : provide >
+RemotePluginFactorySpi .left.> ApiProperties #C_LINK : provide\nAPI version <
+RemotePluginFactorySpi ..> AbstractRemotePluginSpi #C_LINK : provide >
 
 RemotePluginSpi .left.> RemotePluginApi #C_USE : use >
-RemotePluginSpi ..> RemoteReaderSpi #C_USE : create >
-RemotePluginSpi ..> ObservableRemoteReaderSpi #C_USE : create >
+RemotePluginSpi ..> RemoteReaderSpi #C_LINK : create >
+RemotePluginSpi ..> ObservableRemoteReaderSpi #C_LINK : create >
 
 ObservableRemotePluginSpi .left.> ObservableRemotePluginApi #C_USE : use >
 
-RemotePoolPluginSpi ..> RemoteReaderSpi #C_USE : create >
+RemotePoolPluginSpi ..> RemoteReaderSpi #C_LINK : create >
 
 ' == LAYOUT ==
 

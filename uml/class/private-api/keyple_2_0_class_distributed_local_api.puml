@@ -48,9 +48,9 @@ hide <<grey>> stereotype
 legend top
     __Colors legend__ :
     * __Keyple Distributed Solution Configuration modes__ :
-    ** <back:lightGreen>**Reader Client Side**</back>
-    ** <back:plum>**Reader Server Side**</back>
-    ** <back:lightBlue>**Pool Reader Server Side**</back>
+    ** <back:lightGreen>**Reader Client Side**</back> (Local Service on **Client**)
+    ** <back:plum>**Reader Server Side**</back> (Local Service on **Server** with **Plugin** or **ObservablePlugin**)
+    ** <back:lightBlue>**Reader Server Side**</back> (Local Service on **Server** with **PoolPlugin**)
 end legend
 
 package "org.eclipse.keyple.core.distributed.local" as api {
@@ -58,6 +58,7 @@ package "org.eclipse.keyple.core.distributed.local" as api {
         +{static} **final** String VERSION
     }
     +interface LocalServiceApi {
+        --
         +String executeLocally (String jsonData, String readerName)
         .. <back:lightBlue>**Pool Reader Server Side**</back> ..
         +void setPoolPluginNames (String... poolPluginNames)
@@ -70,6 +71,7 @@ package "org.eclipse.keyple.core.distributed.local" as api {
             +LocalServiceSpi getLocalService ()
         }
         +interface LocalServiceSpi {
+            --
             +void connect (LocalServiceApi localServiceApi)
             +String getName ()
             .. <back:plum>**Reader Server Side**</back> ..
@@ -81,8 +83,8 @@ package "org.eclipse.keyple.core.distributed.local" as api {
 
 ' Associations
 
-LocalServiceFactorySpi .left.> ApiProperties #C_USE : provide\nAPI version <
-LocalServiceFactorySpi ..> LocalServiceSpi #C_USE : provide >
+LocalServiceFactorySpi .left.> ApiProperties #C_LINK : provide\nAPI version <
+LocalServiceFactorySpi ..> LocalServiceSpi #C_LINK : provide >
 
 LocalServiceSpi .left.> LocalServiceApi #C_USE : use >
 

@@ -101,9 +101,9 @@ package "org.eclipse.keyple.distributed" as root {
 }
 
 ' Associations
-SyncNodeClient --> SyncEndpointClientSpi #C_LINK : use >
-AsyncNodeClient --> AsyncEndpointClientSpi #C_LINK : use >
-AsyncNodeServer --> AsyncEndpointServerSpi #C_LINK : use >
+SyncNodeClient --> SyncEndpointClientSpi #C_USE : use >
+AsyncNodeClient --> AsyncEndpointClientSpi #C_USE : use >
+AsyncNodeServer --> AsyncEndpointServerSpi #C_USE : use >
 
 ' == LAYOUT ==
 

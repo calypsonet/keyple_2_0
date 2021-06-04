@@ -48,9 +48,8 @@ hide <<grey>> stereotype
 legend top
     __Colors legend__ :
     * __Configuration modes__ :
-    ** <back:lightGreen>**Reader Client Side**</back>
-    ** <back:plum>**Reader Server Side**</back>
-    ** <back:plum>**Pool Reader Server Side**</back>
+    ** <back:lightGreen>**Reader Client Side**</back> (Local Service on **Client**)
+    ** <back:plum>**Reader Server Side**</back> (Local Service on **Server**)
     * __External API references__ :
     ** <back:yellow>**keyple-java-distributed-network**</back>
     ** <back:cyan>**keyple-java-commons-api**</back>
@@ -61,7 +60,7 @@ package "org.eclipse.keyple.distributed" as root {
     +interface "<<<back:cyan>KeypleDistributedLocalServiceExtension</back>>>\nLocalServiceClient" as LocalServiceClient {
         --
         +<back:yellow>AsyncNodeClient</back> getAsyncNode ()
-        ..
+
         +<T> T executeRemoteService (
             \tString serviceId,
             \tString localReaderName,
@@ -112,16 +111,16 @@ package "org.eclipse.keyple.distributed" as root {
 
 ' Associations
 
-LocalServiceClientFactoryBuilder ..> LocalServiceClientFactoryNodeStep #C_USE : provide >
-LocalServiceClientFactoryNodeStep ..> LocalServiceClientFactoryBuilderStep #C_USE
-LocalServiceClientFactoryBuilderStep ..> LocalServiceClientFactory #C_USE : create >
-LocalServiceClientFactory ..> LocalServiceClient #C_USE : create >
+LocalServiceClientFactoryBuilder ..> LocalServiceClientFactoryNodeStep #C_LINK : provide >
+LocalServiceClientFactoryNodeStep ..> LocalServiceClientFactoryBuilderStep #C_LINK
+LocalServiceClientFactoryBuilderStep ..> LocalServiceClientFactory #C_LINK : create >
+LocalServiceClientFactory ..> LocalServiceClient #C_LINK : create >
 
-LocalServiceServerFactoryBuilder ..> LocalServiceServerFactoryNodeStep #C_USE : provide >
-LocalServiceServerFactoryNodeStep ..> LocalServiceServerFactoryBuilderStep #C_USE
-LocalServiceServerFactoryBuilderStep ..> LocalServiceServerFactoryBuilderStep #C_USE
-LocalServiceServerFactoryBuilderStep ..> LocalServiceServerFactory #C_USE : create >
-LocalServiceServerFactory ..> LocalServiceServer #C_USE : create >
+LocalServiceServerFactoryBuilder ..> LocalServiceServerFactoryNodeStep #C_LINK : provide >
+LocalServiceServerFactoryNodeStep ..> LocalServiceServerFactoryBuilderStep #C_LINK
+LocalServiceServerFactoryBuilderStep ..> LocalServiceServerFactoryBuilderStep #C_LINK
+LocalServiceServerFactoryBuilderStep ..> LocalServiceServerFactory #C_LINK : create >
+LocalServiceServerFactory ..> LocalServiceServer #C_LINK : create >
 
 ' == LAYOUT ==
 

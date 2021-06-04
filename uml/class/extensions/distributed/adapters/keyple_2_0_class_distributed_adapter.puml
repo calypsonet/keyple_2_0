@@ -62,10 +62,10 @@ package "org.eclipse.keyple.distributed" as packAdapter {
     ~abstract AbstractMessageHandlerAdapter {
         __
         ~AbstractMessageHandlerAdapter ()
-        ..
+
         ~{static} String generateSessionId ()
         ~{static} void checkError (MessageDto message)
-        ..
+
         ~**final** void bindSyncNodeClient (
             \tSyncEndpointClientSpi endpoint,
             \tServerPushEventStrategyAdapter pluginObservationStrategy,
@@ -77,7 +77,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
         ~**final** void bindAsyncNodeServer (
             \tAsyncEndpointServerSpi endpoint)
         ~**final** AbstractNodeAdapter getNode ()
-        ..
+
         ~{abstract} **abstract** void onMessage (MessageDto message)
     }
 
@@ -87,17 +87,17 @@ package "org.eclipse.keyple.distributed" as packAdapter {
         ~AbstractNodeAdapter (
             \tAbstractMessageHandlerAdapter handler,
             \tint timeoutSeconds)
-        ..
+
         ~**final** String getNodeId ()
         ~**final** AbstractMessageHandlerAdapter getHandler ()
-        ..
+
         ~void openSession (String sessionId)
         ~{abstract} **abstract** MessageDto sendRequest (MessageDto message)
         ~{abstract} **abstract** void sendMessage (MessageDto message)
         ~void closeSession (String sessionId)
-        ..
+
         ~**final** void closeSessionSilently (String sessionId)
-        ..
+
         ~void onStartPluginsObservation ()
         ~void onStopPluginsObservation ()
         ~void onStartReaderObservation ()
@@ -166,7 +166,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
     ~class "**final** ServerPushEventStrategyAdapter" as ServerPushEventStrategyAdapter {
         --
         ~ServerPushEventStrategyAdapter (Type type, int durationMillis)
-        ..
+
         ~Type getType ()
         ~int getDurationMillis ()
     }
@@ -270,10 +270,11 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             +SyncNodeServer getSyncNode ()
             +AsyncNodeServer getAsyncNode ()
             +void endRemoteService (String remoteReaderName, Object outputData)
-            -- **ObservableRemotePluginSpi** --
+            -- **RemotePluginSpi** --
             +void connect (<back:plum>RemotePluginApi</back> remotePluginApi)
             +<back:plum>RemoteReaderSpi</back> createRemoteReader (String localReaderName)
             +<back:plum>ObservableRemoteReaderSpi</back> createObservableRemoteReader (String localReaderName)
+            -- **ObservableRemotePluginSpi** --
             +void connect (<back:plum>ObservableRemotePluginApi</back> observableRemotePluginApi)
             +void onStartObservation ()
             +void onStopObservation ()
@@ -295,7 +296,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
                 \tString sessionId,
                 \tString clientNodeId,
                 \tAbstractNodeAdapter node)
-            ..
+
             ~**final** String getLocalReaderName()
             ~**final** String getSessionId ()
             ~**final** String getClientNodeId ()
@@ -383,7 +384,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
         ~abstract "<<<back:yellow>LocalServiceSpi</back>>>\nAbstractLocalServiceAdapter" as AbstractLocalServiceAdapter extends AbstractMessageHandlerAdapter {
             --
             ~AbstractLocalServiceAdapter (String localServiceName)
-            ..
+
             ~<back:yellow>LocalServiceApi</back> getLocalServiceApi ()
             -- **LocalServiceSpi** --
             +void connect (<back:yellow>LocalServiceApi</back> localServiceApi)
@@ -433,21 +434,21 @@ AbstractMessageHandlerAdapter "1" -- "1" AbstractNodeAdapter #C_LINK
 ServerPushEventStrategyAdapter +-right- Type #C_LINK
 ServerPushEventStrategyAdapter *-right-> "type" Type #C_LINK
 
-LocalServiceClientFactoryAdapter ..> LocalServiceClientAdapter #C_USE : create >
+LocalServiceClientFactoryAdapter ..> LocalServiceClientAdapter #C_LINK : create >
 
-LocalServiceServerFactoryAdapter ..> LocalServiceServerAdapter #C_USE : create >
+LocalServiceServerFactoryAdapter ..> LocalServiceServerAdapter #C_LINK : create >
 
-RemotePluginClientFactoryAdapter ..> RemotePluginClientAdapter #C_USE : create >
-RemotePluginClientFactoryAdapter ..> RemotePoolPluginClientAdapter #C_USE : create >
+RemotePluginClientFactoryAdapter ..> RemotePluginClientAdapter #C_LINK : create >
+RemotePluginClientFactoryAdapter ..> RemotePoolPluginClientAdapter #C_LINK : create >
 
-RemotePluginServerFactoryAdapter ..> ObservableRemotePluginServerAdapter #C_USE : create >
+RemotePluginServerFactoryAdapter ..> ObservableRemotePluginServerAdapter #C_LINK : create >
 
-RemotePluginClientAdapter ..> RemoteReaderClientAdapter #C_USE : create >
-RemotePluginClientAdapter ..> ObservableRemoteReaderClientAdapter #C_USE : create >
+RemotePluginClientAdapter ..> RemoteReaderClientAdapter #C_LINK : create >
+RemotePluginClientAdapter ..> ObservableRemoteReaderClientAdapter #C_LINK : create >
 
-RemotePoolPluginClientAdapter ..> RemoteReaderClientAdapter #C_USE : create >
+RemotePoolPluginClientAdapter ..> RemoteReaderClientAdapter #C_LINK : create >
 
-ObservableRemotePluginServerAdapter ..> RemoteReaderServerAdapter #C_USE : create >
+ObservableRemotePluginServerAdapter ..> RemoteReaderServerAdapter #C_LINK : create >
 
 AbstractRemoteReaderAdapter *-- "1" AbstractNodeAdapter #C_LINK
 
