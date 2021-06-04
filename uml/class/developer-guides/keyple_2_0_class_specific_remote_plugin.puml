@@ -93,7 +93,7 @@ package "org.eclipse.keyple.plugin.xxx (specific plugin)" as specificPluginApi {
 
 ' Associations
 
-xxxPluginFactoryProvider .> xxxPluginFactory #C_USE : provide >
+xxxPluginFactoryProvider .> xxxPluginFactory #C_LINK : provide >
 xxxPluginFactoryAdapter *- "1" xxxPluginAdapter #C_LINK
 xxxPluginAdapter *- "0..N" xxxReaderAdapter #C_LINK
 

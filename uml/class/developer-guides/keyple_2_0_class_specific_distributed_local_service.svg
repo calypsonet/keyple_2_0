@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1520px" preserveAspectRatio="none" style="width:2477px;height:1520px;" version="1.1" viewBox="0 0 2477 1520" width="2477.5px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="1327.5" x="558.75" y="46.7139">Keyple 2.0 - Specific Distributed Local Service - 2.0.0 (08/03/2021)</text><!--MD5=[621c849533070c5aba8aa732369aa9f8]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1520px" preserveAspectRatio="none" style="width:2477px;height:1520px;background:#FFFFFF;" version="1.1" viewBox="0 0 2477 1520" width="2477.5px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="1327.5" x="558.75" y="46.7139">Keyple 2.0 - Specific Distributed Local Service - 2.0.0 (08/03/2021)</text><!--MD5=[621c849533070c5aba8aa732369aa9f8]
 cluster commonsApi--><polygon fill="#F8F9F9" points="750,71.6016,1335,71.6016,1352.5,130.625,2435,130.625,2435,361.6016,750,361.6016,750,71.6016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="750" x2="1352.5" y1="130.625" y2="130.625"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="570" x="760" y="112.9346">org.eclipse.keyple.core.common</text><!--MD5=[4ab15a897933482ba12a6ad640dff6f8]
 cluster distributedLocalSpi--><polygon fill="#F8F9F9" points="1102.5,1219.1016,1887.5,1219.1016,1905,1278.125,2030,1278.125,2030,1504.1016,1102.5,1504.1016,1102.5,1219.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="1102.5" x2="1905" y1="1278.125" y2="1278.125"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="770" x="1112.5" y="1260.4346">org.eclipse.keyple.core.distributed.local.spi</text><!--MD5=[f58994b942058ed8b057f206ca1af27c]
 cluster specificDistributedLocalApi--><polygon fill="#F8F9F9" points="40,484.1016,1352.5,484.1016,1370,543.125,2342.5,543.125,2342.5,1116.6016,40,1116.6016,40,484.1016" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="40" x2="1370" y1="543.125" y2="543.125"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="1297.5" x="50" y="525.4346">org.eclipse.keyple.distributed.local.xxx (specific distributed local service)</text><!--MD5=[a2300e51c70a09b3b8c0440329c7d6d3]
@@ -18,10 +18,10 @@ reverse link LocalServiceFactorySpi to xxxDistributedLocalServiceFactoryAdapter-
 reverse link xxxDistributedLocalService to xxxDistributedLocalAdapter--><path d="M2026.9475,799.5516 C2022.68,833.9916 2018.18,870.2741 2014.3775,900.9641 " fill="none" id="xxxDistributedLocalService-backto-xxxDistributedLocalAdapter" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="2009.615,797.1216,2033.135,749.6541,2044.35,801.4291,2009.615,797.1216" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[f13a3444bf21b81d22d04e69d2b3a247]
 reverse link LocalServiceSpi to xxxDistributedLocalAdapter--><path d="M1879.125,1263.0741 C1909.0275,1196.2091 1945.2475,1115.2141 1971.1425,1057.3091 " fill="none" id="LocalServiceSpi-backto-xxxDistributedLocalAdapter" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1895.0925,1270.2341,1858.705,1308.7338,1863.1425,1255.9466,1895.0925,1270.2341" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[fdc022e61a4d7d2ad66d185c8db2c01b]
 link xxxDistributedLocalAdapter to LocalServiceSpi--><!--MD5=[bf7d962d3e8541c77acbacb9c75dcadc]
-link xxxDistributedLocalServiceFactoryProvider to xxxDistributedLocalServiceFactory--><path codeLine="84" d="M911.5075,671.6016 C981.7775,671.6016 1054.27,671.6016 1121.8425,671.6016 " fill="none" id="xxxDistributedLocalServiceFactoryProvider-to-xxxDistributedLocalServiceFactory" style="stroke:#27AE60;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#27AE60" points="1134.4,671.6016,1111.9,661.6016,1121.9,671.6016,1111.9,681.6016,1134.4,671.6016" style="stroke:#27AE60;stroke-width:2.5;"/><polygon fill="#000000" points="979.375,642.041,956.7623,634.6937,956.7623,649.3883,979.375,642.041" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="989.375" y="655.3394">provide</text><!--MD5=[1377ec179a79e417830e7219346090e1]
+link xxxDistributedLocalServiceFactoryProvider to xxxDistributedLocalServiceFactory--><path codeLine="84" d="M911.5075,671.6016 C981.7775,671.6016 1054.27,671.6016 1121.8425,671.6016 " fill="none" id="xxxDistributedLocalServiceFactoryProvider-to-xxxDistributedLocalServiceFactory" style="stroke:#3498DB;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#3498DB" points="1134.4,671.6016,1111.9,661.6016,1121.9,671.6016,1111.9,681.6016,1134.4,671.6016" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#000000" points="979.375,642.041,956.7623,634.6937,956.7623,649.3883,979.375,642.041" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="989.375" y="655.3394">provide</text><!--MD5=[1377ec179a79e417830e7219346090e1]
 reverse link xxxDistributedLocalServiceFactoryAdapter to xxxDistributedLocalAdapter--><path codeLine="85" d="M1673.4,979.1016 C1691.8025,979.1016 1710.205,979.1016 1728.6075,979.1016 " fill="none" id="xxxDistributedLocalServiceFactoryAdapter-backto-xxxDistributedLocalAdapter" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#3498DB" points="1640.275,979.1016,1655.275,989.1016,1670.275,979.1016,1655.275,969.1016,1640.275,979.1016" style="stroke:#3498DB;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="17.5" x="1691.0584" y="971.4784">1</text><!--MD5=[36ce7900d6ccaf56444755772fce6b34]
 link commonsApi to specificDistributedLocalApi--><!--MD5=[34f96e15e978562302b746a222ece16e]
-link xxxDistributedLocalServiceFactoryAdapter to LocalServiceSpi--><!--MD5=[601e5d856341fc5f5c2fd50354623548]
+link xxxDistributedLocalServiceFactoryAdapter to LocalServiceSpi--><!--MD5=[d480e094c7f7dbc33dd92fb37a2ecf90]
 @startuml
 title
     Keyple 2.0 - Specific Distributed Local Service - 2.0.0 (08/03/2021)
@@ -106,7 +106,7 @@ package "org.eclipse.keyple.distributed.local.xxx (specific distributed local se
 
 ' Associations
 
-xxxDistributedLocalServiceFactoryProvider .right.> xxxDistributedLocalServiceFactory #C_USE : provide >
+xxxDistributedLocalServiceFactoryProvider .right.> xxxDistributedLocalServiceFactory #C_LINK : provide >
 xxxDistributedLocalServiceFactoryAdapter *- "1" xxxDistributedLocalAdapter #C_LINK
 
 ' == LAYOUT ==
@@ -194,7 +194,7 @@ package "org.eclipse.keyple.distributed.local.xxx (specific distributed local se
 }
 
 
-xxxDistributedLocalServiceFactoryProvider .right.> xxxDistributedLocalServiceFactory #27AE60 : provide >
+xxxDistributedLocalServiceFactoryProvider .right.> xxxDistributedLocalServiceFactory #3498DB : provide >
 xxxDistributedLocalServiceFactoryAdapter *- "1" xxxDistributedLocalAdapter #3498DB
 
 
@@ -214,10 +214,10 @@ interface LocalServiceSpi <<blue>>
 
 @enduml
 
-PlantUML version 1.2021.2(Sun Mar 07 12:10:27 CET 2021)
+PlantUML version 1.2021.7(Sun May 23 14:40:07 CEST 2021)
 (GPL source distribution)
 Java Runtime: OpenJDK Runtime Environment
-JVM: OpenJDK 64-Bit Server VM
+JVM: Dynamic Code Evolution 64-Bit Server VM
 Default Encoding: Cp1252
 Language: fr
 Country: FR

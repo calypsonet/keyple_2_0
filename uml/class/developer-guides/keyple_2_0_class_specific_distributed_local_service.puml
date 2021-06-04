@@ -82,7 +82,7 @@ package "org.eclipse.keyple.distributed.local.xxx (specific distributed local se
 
 ' Associations
 
-xxxDistributedLocalServiceFactoryProvider .right.> xxxDistributedLocalServiceFactory #C_USE : provide >
+xxxDistributedLocalServiceFactoryProvider .right.> xxxDistributedLocalServiceFactory #C_LINK : provide >
 xxxDistributedLocalServiceFactoryAdapter *- "1" xxxDistributedLocalAdapter #C_LINK
 
 ' == LAYOUT ==
