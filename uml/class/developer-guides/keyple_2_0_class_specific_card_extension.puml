@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Specific Card Extension - 2.0.0 (20/05/2021)
+    Keyple 2.0 - Specific Card Extension - 2.0.0 (04/06/2021)
 end title
 
 ' == THEME ==
@@ -52,10 +52,6 @@ package "org.eclipse.keyple.core.common" as commonsApi {
 }
 package "org.calypsonet.terminal.reader.selection.spi" as readerSelectionSpi {
     +interface CardSelection {
-        ...
-    }
-    +interface CardSelector {
-        ...
     }
     +interface SmartCard {
         ...
@@ -80,7 +76,7 @@ package "org.calypsonet.terminal.card.spi" as cardSpi {
     }
 }
 package "org.eclipse.keyple.core.service.resource.spi" as cardResourceSpi {
-    +interface CardResourceProfileExtensionSpi {
+    +interface CardResourceProfileExtension {
         ...
     }
 }
@@ -91,33 +87,26 @@ package "org.eclipse.keyple.card.xxx (specific extension)" as specificExtension 
         +{static} xxxCardExtension getInstance ()
         ..
         +xxxCardSelection createXxxCardSelection ()
-        +xxxCardSelector createXxxCardSelector ()
         ...
     }
     +interface xxxCardSelection extends CardSelection {
         ...
     }
-    +interface "**final** xxxCardSelector" as xxxCardSelector implements CardSelector {
-        --
-        +xxxCardSelector set... ()
-        +xxxCardSelector set... ()
-        ...
-    }
     +interface xxxSmartCard extends SmartCard {
         ...
     }
-    ~class "**final** xxxCardResourceProfileExtension" as xxxCardResourceProfileExtension implements CardResourceProfileExtensionSpi {
+    ~class "**final** xxxCardResourceProfileExtension" as xxxCardResourceProfileExtension implements CardResourceProfileExtension {
         ...
     }
     ' Adapters
     together {
-    ~class "**final** xxxCardSelectionAdapter" as xxxCardSelectionAdapter implements xxxCardSelection, CardSelectionSpi {
+    ~class "**final** CardSelectionAdapter" as CardSelectionAdapter implements xxxCardSelection, CardSelectionSpi {
         ...
     }
-    ~class "**final** xxxCardSelectorAdapter" as xxxCardSelectorAdapter implements xxxCardSelector, CardSelectorSpi {
+    ~class "**final** CardSelectorAdapter" as CardSelectorAdapter implements CardSelectorSpi {
         ...
     }
-    ~class "**final** xxxSmartCardAdapter" as xxxSmartCardAdapter implements xxxSmartCard, SmartCardSpi {
+    ~class "**final** SmartCardAdapter" as SmartCardAdapter implements xxxSmartCard, SmartCardSpi {
         ...
     }
     }
@@ -136,17 +125,17 @@ package "org.eclipse.keyple.card.xxx (specific extension)" as specificExtension 
 
 ' Associations
 
-xxxCardExtension .right.> xxxCardSelection #C_USE : provide >
-xxxCardExtension .right.> xxxCardSelector #C_USE : provide >
+xxxCardExtension .right.> xxxCardSelection #C_LINK : provide >
 
 ' == LAYOUT ==
 
-xxxCardSelection -[hidden]- xxxSmartCardAdapter
-xxxCardSelectorAdapter -[hidden]- CardSelectorSpi
-xxxSmartCardAdapter -[hidden]- SmartCardSpi
-xxxCardSelectionAdapter -[hidden]- CardSelectionSpi
+xxxCardSelection -[hidden]- SmartCardAdapter
+CardSelectorAdapter -[hidden]- CardSelectorSpi
+SmartCardAdapter -[hidden]- SmartCardSpi
+CardSelectionAdapter -[hidden]- CardSelectionSpi
+CardSelectionAdapter .[hidden]left.> CardSelectorAdapter
 
-xxxSmartCardAdapter -[hidden]right- CardSelectionRequestAdapter
+SmartCardAdapter -[hidden]right- CardSelectionRequestAdapter
 
 CardSelectionRequestAdapter -[hidden]- CardSelectionRequestSpi
 CardRequestAdapter -[hidden]- CardRequestSpi
@@ -160,9 +149,9 @@ package cardSpi #C_GREY1 {}
 package readerSelectionSpi #C_GREY1 {}
 package cardResourceSpi #C_GREY1 {}
 
-class xxxCardSelectionAdapter <<blue>>
-class xxxCardSelectorAdapter <<blue>>
-class xxxSmartCardAdapter <<blue>>
+class CardSelectionAdapter <<blue>>
+class CardSelectorAdapter <<blue>>
+class SmartCardAdapter <<blue>>
 class CardSelectionRequestAdapter <<blue>>
 class CardRequestAdapter <<blue>>
 class ApduRequestAdapter <<blue>>
