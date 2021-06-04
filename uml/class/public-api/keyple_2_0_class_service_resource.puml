@@ -119,10 +119,7 @@ package "org.eclipse.keyple.core.service.resource" as resource {
         +CardResourceProfileConfigurator build ()
     }
 
-    +class "**final** CardResource" as CardResource {
-        --
-        +CardResource (<back:yellow>CardReader</back> reader, <back:yellow>SmartCard</back> smartCard)
-        ..
+    +interface CardResource {
         +<back:yellow>CardReader</back> getReader ()
         +<back:yellow>SmartCard</back> getSmartCard ()
     }
@@ -139,35 +136,38 @@ package "org.eclipse.keyple.core.service.resource" as resource {
 
 ' Associations
 
-CardResourceServiceProvider ..> CardResourceService #C_USE : provide >
+CardResourceServiceProvider ..> CardResourceService #C_LINK : provide >
 
-CardResourceService .left.> CardResource #C_USE : provide >
-CardResourceService ..> CardResourceServiceConfigurator #C_USE : provide >
+CardResourceService .left.> CardResource #C_LINK : provide >
+CardResourceService ..> CardResourceServiceConfigurator #C_LINK : provide >
 
-CardResourceServiceConfigurator ..> CardResourceServiceConfigurator #C_USE
+CardResourceServiceConfigurator ..> CardResourceServiceConfigurator #C_LINK
 CardResourceServiceConfigurator ..> PluginsConfigurator #C_USE : use >
 CardResourceServiceConfigurator ..> PoolPluginsConfigurator #C_USE : use >
 CardResourceServiceConfigurator ..> CardResourceProfileConfigurator #C_USE : use >
 
-PluginsConfigurator ..> PluginsConfiguratorBuilder #C_USE : provide >
+PluginsConfigurator +-- PluginsConfiguratorBuilder
+PluginsConfigurator ..> PluginsConfiguratorBuilder #C_LINK : provide >
 PluginsConfigurator +-right- AllocationStrategy
 PluginsConfigurator *-right- "1" AllocationStrategy #C_LINK
 
-PluginsConfiguratorBuilder ..> PluginsConfiguratorBuilder #C_USE
+PluginsConfiguratorBuilder ..> PluginsConfiguratorBuilder #C_LINK
 PluginsConfiguratorBuilder .up.> AllocationStrategy #C_USE : use >
 PluginsConfiguratorBuilder ..> ReaderConfiguratorSpi #C_USE : use >
-PluginsConfiguratorBuilder .up.> PluginsConfigurator #C_USE : create >
+PluginsConfiguratorBuilder .up.> PluginsConfigurator #C_LINK : create >
 
-PoolPluginsConfigurator ..> PoolPluginsConfiguratorBuilder #C_USE : provide >
+PoolPluginsConfigurator +-- PoolPluginsConfiguratorBuilder
+PoolPluginsConfigurator ..> PoolPluginsConfiguratorBuilder #C_LINK : provide >
 
-PoolPluginsConfiguratorBuilder ..> PoolPluginsConfiguratorBuilder #C_USE
-PoolPluginsConfiguratorBuilder .up.> PoolPluginsConfigurator #C_USE : create >
+PoolPluginsConfiguratorBuilder ..> PoolPluginsConfiguratorBuilder #C_LINK
+PoolPluginsConfiguratorBuilder .up.> PoolPluginsConfigurator #C_LINK : create >
 
+CardResourceProfileConfigurator +-- CardResourceProfileConfiguratorBuilder
+CardResourceProfileConfigurator ..> CardResourceProfileConfiguratorBuilder #C_LINK : provide >
 CardResourceProfileConfigurator ..> CardResourceProfileExtension #C_USE : use >
-CardResourceProfileConfigurator ..> CardResourceProfileConfiguratorBuilder #C_USE : provide >
 
-CardResourceProfileConfiguratorBuilder ..> CardResourceProfileConfiguratorBuilder #C_USE
-CardResourceProfileConfiguratorBuilder .up.> CardResourceProfileConfigurator #C_USE : create >
+CardResourceProfileConfiguratorBuilder ..> CardResourceProfileConfiguratorBuilder #C_LINK
+CardResourceProfileConfiguratorBuilder .up.> CardResourceProfileConfigurator #C_LINK : create >
 
 ' == LAYOUT ==
 

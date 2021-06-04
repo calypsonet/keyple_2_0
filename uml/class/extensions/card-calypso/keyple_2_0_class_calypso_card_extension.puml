@@ -57,14 +57,14 @@ package "org.eclipse.keyple.card.calypso" as calypso {
     +class "<<<back:cyan>KeypleCardExtension</back>>>\n**final** CalypsoExtensionService" as CalypsoExtensionService {
         --
         +{static} CalypsoExtensionService getInstance ()
-        ..
+
         +<back:yellow>CardSelector</back> createCardSelector ()
-        +<back:pink>CalypsoCardSelection</back> createCardSelection (CalypsoSelector cardSelector, boolean acceptInvalidatedCard)
-        ..
+        +<back:pink>CalypsoCardSelection</back> createCardSelection (<back:yellow>CardSelector</back> cardSelector, boolean acceptInvalidatedCard)
+
         +CalypsoSamResourceProfileExtension createSamResourceProfileExtension ()
         +<back:pink>CardSecuritySetting</back> createCardSecuritySetting (<back:yellow>CardReader</back> samReader, <back:pink>CalypsoSam</back> calypsoSam)
         +<back:pink>CardTransactionService</back> createCardTransaction (<back:yellow>CardReader</back> cardReader, <back:pink>CalypsoCard</back> calypsoCard, <back:pink>CardSecuritySetting</back> cardSecuritySetting)
-        ..
+
         +<back:pink>CardTransactionService</back> createCardTransactionWithoutSecurity (<back:yellow>CardReader</back> cardReader, <back:pink>CalypsoCard</back> calypsoCard)
     }
 
@@ -77,7 +77,7 @@ package "org.eclipse.keyple.card.calypso" as calypso {
 
 ' Associations
 
-CalypsoExtensionService ..> CalypsoSamResourceProfileExtension #C_USE : create >
+CalypsoExtensionService ..> CalypsoSamResourceProfileExtension #C_LINK : create >
 
 ' == LAYOUT ==
 

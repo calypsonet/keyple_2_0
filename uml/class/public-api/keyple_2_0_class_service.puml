@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (02/06/2021)
+    Keyple 2.0 - keyple-java-service - 2.0.0 (04/06/2021)
 end title
 
 ' == THEME ==
@@ -65,51 +65,45 @@ package "org.eclipse.keyple.core.service" as service {
         +{static} SmartCardService getService ()
     }
     +interface SmartCardService {
-        --
         +Plugin registerPlugin (<back:cyan>KeyplePluginExtensionFactory</back> pluginFactory)
         +void unregisterPlugin (String pluginName)
         +Set<String> getPluginNames ()
         +Set<Plugin> getPlugins ()
         +Plugin getPlugin (String pluginName)
-        ..
+
         +void checkCardExtension (<back:cyan>KeypleCardExtension</back> cardExtension)
-        ..
-        +DistributedLocalService registerDistributedLocalService (
-            \t<back:cyan>KeypleDistributedLocalServiceExtensionFactory</back> distributedLocalServiceFactory)
+
+        +DistributedLocalService registerDistributedLocalService (<back:cyan>KeypleDistributedLocalServiceExtensionFactory</back> distributedLocalServiceFactory)
         +void unregisterDistributedLocalService (String distributedLocalServiceName)
         +DistributedLocalService getDistributedLocalService (String distributedLocalServiceName)
     }
     +interface Plugin {
-        --
         +String getName ()
         +<T extends <back:cyan>KeyplePluginExtension</back>> T getExtension (Class<T> pluginExtensionClass)
-        ..
+
         +Set<String> getReaderNames ()
         +Set<Reader> getReaders ()
         +Reader getReader (String readerName)
     }
     +interface DistributedLocalService {
-        --
         +String getName ()
         +<T extends <back:cyan>KeypleDistributedLocalServiceExtension</back>> T getExtension (
             \tClass<T> distributedLocalServiceExtensionClass)
     }
     +interface ObservablePlugin extends Plugin {
-        --
         +void setEventNotificationExecutorService (
             \tExecutorService eventNotificationExecutorService)
         +void setPluginObservationExceptionHandler (
             \tPluginObservationExceptionHandlerSpi exceptionHandler)
-        ..
+
         +void addObserver (PluginObserverSpi observer)
         +void removeObserver (PluginObserverSpi observer)
         +void clearObservers ()
         +int countObservers ()
     }
     +interface PoolPlugin extends Plugin {
-        --
         +SortedSet<String> getReaderGroupReferences ()
-        ..
+
         +Reader allocateReader (String readerGroupReference)
         +void releaseReader (Reader reader)
     }
@@ -151,15 +145,15 @@ package "org.eclipse.keyple.core.service" as service {
 ' Associations
 'LocalServiceClient ..> RemoteServiceParameters #C_USE : use >
 
-SmartCardServiceProvider ..> SmartCardService #C_USE : provide >
+SmartCardServiceProvider ..> SmartCardService #C_LINK : provide >
 
-SmartCardService ..> Plugin #C_USE : provide >
-SmartCardService ..> DistributedLocalService #C_USE : provide >
+SmartCardService ..> Plugin #C_LINK : provide >
+SmartCardService ..> DistributedLocalService #C_LINK : provide >
 
 PluginEvent +-- PluginEventType
-PluginEvent ..> PluginEventType #C_USE : provide >
+PluginEvent ..> PluginEventType #C_LINK : provide >
 
-Plugin ..> Reader #C_USE : provide >
+Plugin ..> Reader #C_LINK : provide >
 
 ObservablePlugin ..> PluginObserverSpi #C_USE : use >
 ObservablePlugin ..> PluginObservationExceptionHandlerSpi #C_USE : use >

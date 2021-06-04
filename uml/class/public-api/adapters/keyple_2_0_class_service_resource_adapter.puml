@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service-resource - 2.0.0 (02/06/2021)
+    Keyple 2.0 - Adapter of keyple-java-service-resource - 2.0.0 (04/06/2021)
 end title
 
 ' == THEME ==
@@ -65,7 +65,7 @@ package "org.eclipse.keyple.core.service.resource" as resource {
         --
         ~{static} CardResourceServiceAdapter getInstance ()
         ~{static} String getCardResourceInfo (CardResource cardResource)
-        ..
+
         ~ReaderManagerAdapter getReaderManager (<back:pink>Reader</back> reader)
         ~void registerPoolCardResource (CardResource cardResource, <back:pink>PoolPlugin</back> poolPlugin)
         ~void configure (CardResourceServiceConfiguratorAdapter configurator)
@@ -83,15 +83,22 @@ package "org.eclipse.keyple.core.service.resource" as resource {
         -- **CardReaderObserverSpi** --
         +void onReaderEvent (<back:yellow>CardReaderEvent</back> readerEvent)
     }
+    ~class "<<CardResource>>\n**final** CardResourceAdapter" as CardResourceAdapter {
+        ~CardResource (<back:yellow>CardReader</back> reader, <back:yellow>SmartCard</back> smartCard)
+        -- **CardResource** --
+        +<back:yellow>CardReader</back> getReader ()
+        +<back:yellow>SmartCard</back> getSmartCard ()
+    }
     ~class "**final** ReaderManagerAdapter" as ReaderManagerAdapter {
         --
-        ~ReaderManagerAdapter (<back:pink>Reader</back> reader, <back:pink>Plugin</back> plugin, ReaderConfiguratorSpi readerConfiguratorSpi, int usageTimeoutMillis)
-        ..
+        ~ReaderManagerAdapter (<back:pink>Reader</back> reader, <back:pink>Plugin</back> plugin,
+            \tReaderConfiguratorSpi readerConfiguratorSpi, int usageTimeoutMillis)
+
         ~<back:pink>Reader</back> getReader ()
         ~<back:pink>Plugin</back> getPlugin ()
         ~Set<CardResource> getCardResources ()
         ~boolean isActive ()
-        ..
+
         ~void activate ()
         ~CardResource matches (CardResourceProfileExtension extension)
         ~boolean lock (CardResource cardResource, CardResourceProfileExtension extension)
@@ -102,7 +109,7 @@ package "org.eclipse.keyple.core.service.resource" as resource {
         --
         ~CardProfileManagerAdapter(CardProfile cardProfile,
             \tCardResourceServiceConfiguratorAdapter globalConfiguration)
-        ..
+
         ~void removeCardResource (CardResource cardResource)
         ~void onReaderConnected (ReaderManagerAdapter readerManager)
         ~void onCardInserted (ReaderManagerAdapter readerManager)
@@ -120,13 +127,18 @@ package "org.eclipse.keyple.core.service.resource" as resource {
 
 ' Associations
 
-CardResourceServiceProvider ..> CardResourceServiceAdapter #C_USE : provide >
+CardResourceServiceProvider ..> CardResourceServiceAdapter #C_LINK : provide >
 
 CardResourceServiceAdapter *-- "1" CardResourceServiceConfiguratorAdapter #C_LINK
 CardResourceServiceAdapter *-- "0..N" ReaderManagerAdapter #C_LINK
 CardResourceServiceAdapter *-- "1..N" CardProfileManagerAdapter #C_LINK
 
-CardProfileManagerAdapter *-right- "1" CardResourceServiceConfiguratorAdapter #C_LINK
+CardProfileManagerAdapter *-left- "1" CardResourceServiceConfiguratorAdapter #C_LINK
+CardProfileManagerAdapter ..> CardResourceAdapter #C_LINK : create for pool plugin >
+CardProfileManagerAdapter *-- "0..N" CardResourceAdapter #C_LINK
+
+ReaderManagerAdapter ..> CardResourceAdapter #C_LINK : create for regular plugin >
+ReaderManagerAdapter *-- "0..N" CardResourceAdapter #C_LINK
 
 ' == LAYOUT ==
 
@@ -136,6 +148,7 @@ CardProfileManagerAdapter *-right- "1" CardResourceServiceConfiguratorAdapter #C
 package resource #C_GREY2 {}
 
 class CardResourceServiceAdapter <<blue>>
+class CardResourceAdapter <<blue>>
 class CardResourceServiceConfiguratorAdapter <<blue>>
 class ReaderManagerAdapter <<blue>>
 class CardProfileManagerAdapter <<blue>>

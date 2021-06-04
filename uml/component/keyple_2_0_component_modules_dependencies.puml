@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Modules dependencies - 02/06/2021
+    Keyple 2.0 - Modules dependencies - 03/06/2021
 end title
 
 ' == THEME ==
@@ -77,15 +77,15 @@ package "Calypsonet Private APIs/SPIs  (hidden for the application)" as packCaly
 }
 package "Keyple Public Components having adapters" as packMain #C_GREY1 {
     together {
-        [Specific Card Extension (Calypso...)\nuse <back:cyan>**keyple-java-commons-api**</back>\nuse <back:yellow>**keyple-java-utils**</back>] as extension <<green>>
-        [**keyple-java-service**\nuse <back:cyan>**keyple-java-commons-api**</back>\nuse <back:yellow>**keyple-java-utils**</back>] as service
+        [Specific Card Extension (Calypso...)\nuse <back:yellow>**keyple-java-utils**</back>\nuse <back:cyan>**keyple-java-commons-api**</back>] as extension <<green>>
+        [**keyple-java-service**\nuse <back:yellow>**keyple-java-utils**</back>\nuse <back:cyan>**keyple-java-commons-api**</back>] as service
         [**keyple-java-service-resource**\nuse <back:yellow>**keyple-java-utils**</back>] as serviceResource <<grey>>
     }
-    [Specific Plugin (PCSC...)\nuse <back:cyan>**keyple-java-commons-api**</back>\nuse <back:yellow>**keyple-java-utils**</back>] as plugin <<red>>
+    [Specific Plugin (PCSC...)\nuse <back:yellow>**keyple-java-utils**</back>\nuse <back:cyan>**keyple-java-commons-api**</back>] as plugin <<red>>
     together {
         [**keyple-java-distributed-network**\nuse <back:yellow>**keyple-java-utils**</back>] as network <<purple>>
-        [**keyple-java-distributed-local**\nuse <back:cyan>**keyple-java-commons-api**</back>\nuse <back:yellow>**keyple-java-utils**</back>] as local <<purple>>
-        [**keyple-java-distributed-remote**\nuse <back:cyan>**keyple-java-commons-api**</back>\nuse <back:yellow>**keyple-java-utils**</back>] as remote <<purple>>
+        [**keyple-java-distributed-local**\nuse <back:yellow>**keyple-java-utils**</back>\nuse <back:cyan>**keyple-java-commons-api**</back>] as local <<purple>>
+        [**keyple-java-distributed-remote**\nuse <back:yellow>**keyple-java-utils**</back>\nuse <back:cyan>**keyple-java-commons-api**</back>] as remote <<purple>>
     }
 }
 package "Keyple Private APIs/SPIs (hidden for the application)" as packApi #C_GREY1 {
