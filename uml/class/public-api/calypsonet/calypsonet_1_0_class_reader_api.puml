@@ -126,71 +126,36 @@ package "org.calypsonet.terminal.reader" as readerApi {
         ' Card Extension SPI
         package "spi" as selectionSpi {
             +interface CardSelection {
-                +CardSelector getCardSelector ()
             }
             +interface "SmartCard" as SmartCard {
                 +byte[] getPowerOnData ()
                 +byte[] getSelectApplicationResponse ()
             }
-            +interface CardSelector {
-                +CardSelector filterByCardProtocol (String cardProtocol)
-                +CardSelector filterByPowerOnData (String powerOnDataRegex)
-
-                +CardSelector filterByDfName (byte[] aid)
-                +CardSelector filterByDfName (String aid)
-                +CardSelector setFileOccurrence (FileOccurrence fileOccurrence)
-                +CardSelector setFileControlInformation (FileControlInformation fileControlInformation)
-                +CardSelector addSuccessfulStatusWord (int statusWord)
-
-                +String getCardProtocol ()
-                +String getPowerOnDataRegex ()
-
-                +byte[] getAid ()
-                +FileOccurrence getFileOccurrence ()
-                +FileControlInformation getFileControlInformation ()
-                +Set<Integer> getSuccessfulSelectionStatusWords ()
-
-                +boolean powerOnDataMatches (byte[] powerOnData)
-            }
-            +enum FileOccurrence {
-                FIRST
-                LAST
-                NEXT
-                PREVIOUS
-            }
-            +enum FileControlInformation {
-                FCI
-                FCP
-                FMD
-                NO_RESPONSE
-            }
         }
         +interface CardSelectionResult {
-            +boolean hasActiveSelection ()
-            +int getActiveSelectionIndex ()
-            +boolean hasSelectionMatched (int selectionIndex)
-
             +Map<Integer, SmartCard> getSmartCards ()
-            +SmartCard getSmartCard (int selectionIndex)
             +SmartCard getActiveSmartCard ()
+            +int getActiveSelectionIndex ()
         }
         +interface ScheduledCardSelectionsResponse {
         }
     }
     ' EXCEPTIONS
-    together {
+    'together {
         +class "<<RuntimeException>>\nReaderCommunicationException" as ReaderCommunicationException {
             +ReaderCommunicationException (String message)
-            +ReaderCommunicationException (String message, Throwable cause)
+            +ReaderCommunicationException (String message,
+                \tThrowable cause)
         }
         +class "<<RuntimeException>>\nReaderProtocolNotSupportedException" as ReaderProtocolNotSupportedException {
             +ReaderProtocolNotSupportedException (String cardProtocol)
         }
         +class "<<RuntimeException>>\nCardCommunicationException" as CardCommunicationException {
             +CardCommunicationException (String message)
-            +CardCommunicationException (String message, Throwable cause)
+            +CardCommunicationException (String message,
+                \tThrowable cause)
         }
-    }
+    '}
 }
 
 ' Associations
@@ -206,11 +171,6 @@ CardReaderEvent .up.> ScheduledCardSelectionsResponse #C_LINK : provide >
 
 CardSelectionResult ..> SmartCard #C_LINK : provide >
 
-CardSelector +-- FileOccurrence
-CardSelector ..> FileOccurrence #C_LINK : provide >
-CardSelector +-- FileControlInformation
-CardSelector ..> FileControlInformation #C_LINK : provide >
-
 CardSelectionService ..> CardSelection #C_USE : use >
 CardSelectionService ..> ScheduledCardSelectionsResponse #C_USE : use >
 CardSelectionService ..> CardSelectionResult #C_LINK : provide >
@@ -222,11 +182,10 @@ ObservableCardReader ..> CardReaderObserverSpi #C_USE : use >
 
 CardReaderObserverSpi ..> CardReaderEvent #C_USE : use >
 
-CardSelection ..> CardSelector #C_LINK : provide >
-
 ' == LAYOUT ==
 
-FileOccurrence -[hidden]- ReaderProtocolNotSupportedException
+SmartCard -[hidden]- ReaderProtocolNotSupportedException
+ReaderProtocolNotSupportedException -[hidden]- ReaderCommunicationException
 ReaderCommunicationException -[hidden]right- CardCommunicationException
 
 ' == STYLE ==

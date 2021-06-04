@@ -53,6 +53,24 @@ package "org.calypsonet.terminal.card" as api {
             +SmartCardSpi parse (CardSelectionResponseApi cardSelectionResponseApi)
         }
         +interface CardSelectorSpi {
+            +String getCardProtocol ()
+            +String getPowerOnDataRegex ()
+            +byte[] getAid ()
+            +FileOccurrence getFileOccurrence ()
+            +FileControlInformation getFileControlInformation ()
+            +Set<Integer> getSuccessfulSelectionStatusWords ()
+        }
+        +enum FileOccurrence {
+            FIRST
+            LAST
+            NEXT
+            PREVIOUS
+        }
+        +enum FileControlInformation {
+            FCI
+            FCP
+            FMD
+            NO_RESPONSE
         }
         +interface SmartCardSpi {
         }
@@ -67,7 +85,7 @@ package "org.calypsonet.terminal.card" as api {
                 +boolean stopOnUnsuccessfulStatusWord ()
             }
             +interface ApduRequestSpi {
-                +byte[] getRawData ()
+                +byte[] getApdu ()
                 +Set<Integer> getSuccessfulStatusWords ()
                 +String getInfo ()
             }
@@ -94,7 +112,6 @@ package "org.calypsonet.terminal.card" as api {
             +byte[] getPowerOnData ()
             +ApduResponseApi getSelectApplicationResponse ()
             +boolean hasMatched ()
-
             +CardResponseApi getCardResponse ()
         }
         +interface "<<Serializable>>\nCardResponseApi" as CardResponseApi {
@@ -102,7 +119,7 @@ package "org.calypsonet.terminal.card" as api {
             +boolean isLogicalChannelOpen ()
         }
         +interface "<<Serializable>>\nApduResponseApi" as ApduResponseApi {
-            +byte[] getRawData ()
+            +byte[] getApdu ()
             +byte[] getDataOut ()
             +int getStatusWord ()
         }
@@ -153,6 +170,11 @@ CardSelectionSpi ..> CardSelectionResponseApi #C_USE : use >
 
 CardSelectionRequestSpi .left.> CardSelectorSpi #C_LINK : provide >
 CardSelectionRequestSpi ..> CardRequestSpi #C_LINK : provide >
+
+CardSelectorSpi +-- FileOccurrence
+CardSelectorSpi ..> FileOccurrence #C_LINK : provide >
+CardSelectorSpi +-- FileControlInformation
+CardSelectorSpi ..> FileControlInformation #C_LINK : provide >
 
 CardRequestSpi ..> ApduRequestSpi #C_LINK : provide >
 

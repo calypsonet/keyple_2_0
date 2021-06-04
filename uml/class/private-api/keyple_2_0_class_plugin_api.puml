@@ -105,39 +105,33 @@ package "org.eclipse.keyple.core.plugin" as api {
             }
         }
         +interface ObservablePluginSpi extends PluginSpi {
-            --
             +int getMonitoringCycleDuration ()
-            ..
             +Set<String> searchAvailableReaderNames ()
             +ReaderSpi searchReader (String readerName)
         }
         +interface AutonomousObservablePluginSpi extends PluginSpi {
             --
             +void connect (
-                \tAutonomousObservablePluginApi autonomousObservablePluginApi)
+                \tAutonomousObservablePluginApi
+                \t\tautonomousObservablePluginApi)
         }
         package reader {
             +interface ReaderSpi {
-                --
                 +String getName ()
-                ..
+
                 +boolean isProtocolSupported (String readerProtocol)
                 +void activateProtocol (String readerProtocol)
                 +void deactivateProtocol (String readerProtocol)
                 +boolean isCurrentProtocol (String readerProtocol)
-                ..
+
                 +void openPhysicalChannel ()
                 +void closePhysicalChannel ()
                 +boolean isPhysicalChannelOpen ()
-                ..
+
                 +boolean checkCardPresence ()
-                ..
                 +byte[] getPowerOnData ()
-                ..
                 +byte[] transmitApdu (byte[] apduIn)
-                ..
                 +boolean isContactless ()
-                ..
                 +void onUnregister ()
             }
             +interface AutonomousSelectionReaderSpi {

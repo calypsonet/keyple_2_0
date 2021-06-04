@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Calypso Card Extension - 2.0.0 (02/06/2021)
+    Keyple 2.0 - Calypso Card Extension - 2.0.0 (04/06/2021)
 end title
 
 ' == THEME ==
@@ -58,30 +58,20 @@ package "org.eclipse.keyple.card.calypso" as calypso {
         --
         +{static} CalypsoExtensionService getInstance ()
 
-        +<back:yellow>CardSelector</back> createCardSelector ()
-        +<back:pink>CalypsoCardSelection</back> createCardSelection (<back:yellow>CardSelector</back> cardSelector, boolean acceptInvalidatedCard)
+        +<back:pink>CalypsoCardSelection</back> createCardSelection ()
 
-        +CalypsoSamResourceProfileExtension createSamResourceProfileExtension ()
+        +<back:pink>CalypsoSamSelection</back> createSamSelection ()
+        +<back:cyan>KeypleCardResourceProfileExtension</back> createSamResourceProfileExtension (<back:pink>CalypsoSamSelection</back> calypsoSamSelection)
         +<back:pink>CardSecuritySetting</back> createCardSecuritySetting (<back:yellow>CardReader</back> samReader, <back:pink>CalypsoSam</back> calypsoSam)
         +<back:pink>CardTransactionService</back> createCardTransaction (<back:yellow>CardReader</back> cardReader, <back:pink>CalypsoCard</back> calypsoCard, <back:pink>CardSecuritySetting</back> cardSecuritySetting)
 
         +<back:pink>CardTransactionService</back> createCardTransactionWithoutSecurity (<back:yellow>CardReader</back> cardReader, <back:pink>CalypsoCard</back> calypsoCard)
     }
-
-    +interface "<<<back:cyan>KeypleCardResourceProfileExtension</back>>>\nCalypsoSamResourceProfileExtension" as CalypsoSamResourceProfileExtension {
-        +CalypsoSamResourceProfileExtension setSamProductType (<back:pink>CalypsoSam.ProductType</back> samProductType)
-        +CalypsoSamResourceProfileExtension setSamSerialNumberRegex (String samSerialNumberRegex)
-        +CalypsoSamResourceProfileExtension setSamUnlockData (String samUnlockData)
-    }
 }
 
 ' Associations
 
-CalypsoExtensionService ..> CalypsoSamResourceProfileExtension #C_LINK : create >
-
 ' == LAYOUT ==
-
-'CardRevision -[hidden]- SamCardResourceServiceBuilder
 
 ' == STYLE ==
 

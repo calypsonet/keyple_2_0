@@ -66,16 +66,35 @@ package "org.calypsonet.terminal.calypso" as api {
         NEXT_EF
         CURRENT_DF
     }
-
     package card {
         +interface "<<<back:yellow>CardSelection</back>>>\nCalypsoCardSelection" as CalypsoCardSelection {
+            +CalypsoCardSelection filterByCardProtocol (String cardProtocol)
+
+            +CalypsoCardSelection filterByPowerOnData (String powerOnDataRegex)
+
+            +CalypsoCardSelection filterByDfName (byte[] aid)
+            +CalypsoCardSelection filterByDfName (String aid)
+            +CalypsoCardSelection setFileOccurrence (FileOccurrence fileOccurrence)
+            +CalypsoCardSelection setFileControlInformation (FileControlInformation fileControlInformation)
+            +CalypsoCardSelection addSuccessfulStatusWord (int statusWord)
+
+            +CalypsoCardSelection acceptInvalidatedCard ()
+
             +CalypsoCardSelection prepareSelectFile (byte[] lid)
             +CalypsoCardSelection prepareSelectFile (short lid)
             +CalypsoCardSelection prepareSelectFile (SelectFileControl selectControl)
 
             +CalypsoCardSelection prepareReadRecordFile (byte sfi, int recordNumber)
-            -- **CardSelection** --
-            +<back:yellow>CardSelector</back> getCardSelector ()
+        }
+        +enum FileOccurrence {
+            FIRST
+            LAST
+            NEXT
+            PREVIOUS
+        }
+        +enum FileControlInformation {
+            FCI
+            NO_RESPONSE
         }
         +interface "<<<back:yellow>SmartCard</back>>>\nCalypsoCard" as CalypsoCard {
             +ProductType getProductType ()
@@ -202,6 +221,12 @@ package "org.calypsonet.terminal.calypso" as api {
         }
     }
     package sam {
+        +interface "<<<back:yellow>CardSelection</back>>>\nCalypsoSamSelection" as CalypsoSamSelection {
+            +CalypsoSamSelection filterByProductType (CalypsoSam.ProductType productType)
+            +CalypsoSamSelection filterBySerialNumber (String serialNumberRegex)
+
+            +CalypsoSamSelection setUnlockData (String unlockData)
+        }
         +interface "<<<back:yellow>SmartCard</back>>>\nCalypsoSam" as CalypsoSam {
             +ProductType getProductType ()
             +String getProductInfo ()
@@ -316,15 +341,22 @@ package "org.calypsonet.terminal.calypso" as api {
 
 ' Associations
 
-CardTransactionService .up.> WriteAccessLevel #C_USE : use >
+CalypsoCardSelection +-- FileOccurrence
+CalypsoCardSelection ..> FileOccurrence #C_LINK : provide >
+CalypsoCardSelection +-- FileControlInformation
+CalypsoCardSelection ..> FileControlInformation #C_LINK : provide >
+
+CardTransactionService ..> WriteAccessLevel #C_USE : use >
 CardTransactionService ..> SvOperation #C_USE : use >
 CardTransactionService ..> SvAction #C_USE : use >
 CardTransactionService .up.> SelectFileControl #C_USE : use >
-CardTransactionService ..> CalypsoCard #C_LINK : provide >
+CardTransactionService .right.> CalypsoCard #C_LINK : use and provide up to date content >
 CardTransactionService ..> CardSecuritySetting #C_LINK : provide >
 
-CardSecuritySetting .up.> WriteAccessLevel #C_USE : use >
+CardSecuritySetting ..> WriteAccessLevel #C_USE : use >
 CardSecuritySetting ..> CalypsoSam #C_LINK : provide >
+
+CalypsoSamSelection ..> SamProductType #C_USE : use >
 
 CalypsoSam +-- SamProductType
 CalypsoSam ..> SamProductType #C_LINK : provide >
@@ -344,7 +376,7 @@ ElementaryFile +-- FileType
 ElementaryFile ..> FileHeader #C_LINK : provide >
 ElementaryFile ..> FileData #C_LINK : provide >
 
-FileHeader ..> FileType #C_LINK : provide >
+FileHeader .right.> FileType #C_LINK : provide >
 
 ' == LAYOUT ==
 

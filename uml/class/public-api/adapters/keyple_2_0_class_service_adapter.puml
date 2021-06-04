@@ -571,7 +571,6 @@ package "org.eclipse.keyple.core.service" as service {
 
         ~void addSmartCard (int selectionIndex, <back:yellow>SmartCard</back> smartCard, boolean isSelected)
         -- **CardSelectionResult** --
-        +boolean hasActiveSelection ()
         +int getActiveSelectionIndex ()
         +boolean hasSelectionMatched (int selectionIndex)
         +Map<Integer, <back:yellow>SmartCard</back>> getSmartCards ()
@@ -606,7 +605,7 @@ package "org.eclipse.keyple.core.service" as service {
             --
             ~ApduResponseAdapter (byte[] bytes)
             -- **ApduResponseApi** --
-            +byte[] getRawData ()
+            +byte[] getApdu ()
             +byte[] getDataOut ()
             +int getStatusWord ()
         }
