@@ -130,7 +130,7 @@ package "org.calypsonet.terminal.reader" as readerApi {
             }
             +interface "SmartCard" as SmartCard {
                 +byte[] getPowerOnData ()
-                +byte[] getFci ()
+                +byte[] getSelectApplicationResponse ()
             }
             +interface CardSelector {
                 +CardSelector filterByCardProtocol (String cardProtocol)
