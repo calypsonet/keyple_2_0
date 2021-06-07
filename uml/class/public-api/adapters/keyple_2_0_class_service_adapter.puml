@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (04/06/2021)
+    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (07/06/2021)
 end title
 
 ' == THEME ==
@@ -588,7 +588,7 @@ package "org.eclipse.keyple.core.service" as service {
                 \tboolean hasMatched,
                 \t<back:lightGreen>CardResponseApi</back> cardResponseApi)
             -- **CardSelectionResponseApi** --
-            +byte[] getPowerOnData ()
+            +String getPowerOnData ()
             +<back:lightGreen>ApduResponseApi</back> getSelectApplicationResponse ()
             +boolean hasMatched ()
             +<back:lightGreen>CardResponseApi</back> getCardResponse ()

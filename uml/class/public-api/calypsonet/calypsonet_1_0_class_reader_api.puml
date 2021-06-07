@@ -1,6 +1,6 @@
 @startuml
 title
-    Calypsonet - calypsonet-terminal-reader-java-api - 1.0 (04/06/2021)
+    Calypsonet - calypsonet-terminal-reader-java-api - 1.0 (07/06/2021)
 end title
 
 ' == THEME ==
@@ -128,7 +128,7 @@ package "org.calypsonet.terminal.reader" as readerApi {
             +interface CardSelection {
             }
             +interface "SmartCard" as SmartCard {
-                +byte[] getPowerOnData ()
+                +String getPowerOnData ()
                 +byte[] getSelectApplicationResponse ()
             }
         }
