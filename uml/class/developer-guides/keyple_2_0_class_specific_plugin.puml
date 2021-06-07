@@ -45,6 +45,12 @@ hide <<grey>> stereotype
 
 ' == CONTENT ==
 
+legend top
+    __Colors legend__ :
+    * <back:yellow>Public API for end users</back>
+    * <back:lightBlue>Private API for internal use only</back>
+end legend
+
 package "org.eclipse.keyple.core.common" as commonsApi {
     +interface KeyplePluginExtensionFactory {
     }

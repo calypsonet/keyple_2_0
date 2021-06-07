@@ -1,0 +1,167 @@
+@startuml
+title
+    Calypsonet - Exceptions of calypsonet-terminal-calypso-java-api - 1.0 (07/06/2021)
+end title
+
+' == THEME ==
+
+'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define C_GREY1 F8F9F9
+!define C_GREY2 F2F3F4
+!define C_GREY3 E5E7E9
+!define C_GREY4 D7DBDD
+!define C_GREY5 CACFD2
+!define C_GREY6 BDC3C7
+!define C_LINK 3498DB
+!define C_USE 27AE60
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+' Red
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+' Purple
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+' blue
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+' Green
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+' Grey
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+' == CONTENT ==
+
+package "org.calypsonet.terminal.calypso" as api {
+
+    package transaction {
+
+        +abstract class "<<RuntimeException>>\nCalypsoCardTransactionException" as CalypsoCardTransactionException {
+            +CalypsoCardTransactionException (String message)
+            +CalypsoCardTransactionException (String message, Throwable cause)
+        }
+
+        +class "CalypsoAtomicTransactionException" as CalypsoAtomicTransactionException extends CalypsoCardTransactionException {
+            +CalypsoAtomicTransactionException (
+                \tString message)
+        }
+        note bottom of CalypsoAtomicTransactionException: Session buffer would overflow for atomic transaction
+
+        +class "CalypsoAuthenticationNotVerifiedException" as CalypsoAuthenticationNotVerifiedException extends CalypsoCardTransactionException {
+            +CalypsoAuthenticationNotVerifiedException (
+                \tString message)
+            +CalypsoAuthenticationNotVerifiedException (
+                \tString message, Throwable cause)
+        }
+        note bottom of CalypsoAuthenticationNotVerifiedException: R-APDU of CloseSecureSession eq 9000 but SAM no more available
+
+        +class "CalypsoCardAnomalyException" as CalypsoCardAnomalyException extends CalypsoCardTransactionException {
+            +CalypsoCardAnomalyException (
+                \tString message, Throwable cause)
+        }
+        note bottom of CalypsoCardAnomalyException: Unexpected Card behaviour
+
+        +class "CalypsoCardCloseSecureSessionException" as CalypsoCardCloseSecureSessionException extends CalypsoCardTransactionException {
+            +CalypsoCardCloseSecureSessionException (
+                \tString message, Throwable cause)
+        }
+        note bottom of CalypsoCardCloseSecureSessionException: R-APDU of CloseSecureSession != 9000
+
+        +class "CalypsoCardIOException" as CalypsoCardIOException extends CalypsoCardTransactionException {
+            +CalypsoCardIOException (
+                \tString message)
+            +CalypsoCardIOException (
+                \tString message, Throwable cause)
+        }
+
+        +class "CalypsoCardRevokedException" as CalypsoCardRevokedException extends CalypsoCardTransactionException {
+            +CalypsoCardRevokedException (
+                \tString message)
+        }
+
+        +class "CalypsoCardTransactionIllegalStateException" as CalypsoCardTransactionIllegalStateException extends CalypsoCardTransactionException {
+            +CalypsoCardTransactionIllegalStateException (
+                \tString message)
+            +++ A SUPPRIMER
+        }
+
+        +class "CalypsoDesynchronizedExchangesException" as CalypsoDesynchronizedExchangesException extends CalypsoCardTransactionException {
+            +CalypsoDesynchronizedExchangesException (
+                \tString message)
+        }
+        note bottom of CalypsoDesynchronizedExchangesException: R-APDU number != C-APDU number
+
+        +class "CalypsoInconsistencyDataException" as CalypsoInconsistencyDataException extends CalypsoCardTransactionException {
+            +CalypsoInconsistencyDataException (
+                \tString message)
+        }
+        note bottom of CalypsoInconsistencyDataException: Data read in session != Data read outside session
+
+        +class "CalypsoSamAnomalyException" as CalypsoSamAnomalyException extends CalypsoCardTransactionException {
+            +CalypsoSamAnomalyException (
+                \tString message, Throwable cause)
+        }
+        note bottom of CalypsoSamAnomalyException: Unexpected SAM behaviour
+
+        +class "CalypsoSamIOException" as CalypsoSamIOException extends CalypsoCardTransactionException {
+            +CalypsoSamIOException (
+                \tString message)
+            +CalypsoSamIOException (
+                \tString message, Throwable cause)
+        }
+
+        +class "CalypsoSamRevokedException" as CalypsoSamRevokedException extends CalypsoCardTransactionException {
+            +CalypsoSamRevokedException (
+                \tString message)
+        }
+
+        +class "CalypsoSessionAuthenticationException" as CalypsoSessionAuthenticationException extends CalypsoCardTransactionException {
+            +CalypsoSessionAuthenticationException (
+                \tString message)
+            +CalypsoSessionAuthenticationException (
+                \tString message, Throwable cause)
+        }
+        note bottom of CalypsoSessionAuthenticationException: R-APDU of DigestAuthenticate eq 6985
+
+        +class "CalypsoSvAuthenticationException" as CalypsoSvAuthenticationException extends CalypsoCardTransactionException {
+            +CalypsoSvAuthenticationException (
+                \tString message)
+            +CalypsoSvAuthenticationException (
+                \tString message, Throwable cause)
+        }
+        note bottom of CalypsoSvAuthenticationException: R-APDU of SvCheck eq 6985
+
+        +class "CalypsoUnauthorizedKvcException" as CalypsoUnauthorizedKvcException extends CalypsoCardTransactionException {
+            +CalypsoUnauthorizedKvcException (
+                \tString message)
+        }
+
+    }
+}
+
+' Associations
+
+' == LAYOUT ==
+
+'CalypsoCardTransactionException -[hidden]left- CalypsoAtomicTransactionException
+
+' == STYLE ==
+
+package api #C_GREY1 {}
+package transaction #C_GREY2 {}
+
+
+@enduml

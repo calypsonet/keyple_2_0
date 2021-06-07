@@ -104,7 +104,7 @@ calypsoApi -right-> readerApi #COLOR_ORANGE
 extension --> cardApi #COLOR_GREEN
 extension -up-> readerApi #COLOR_GREEN
 extension .up.> calypsoApi #COLOR_GREEN
-extension -up-> serviceResource #COLOR_GREEN
+extension .up.> serviceResource #COLOR_GREEN
 
 plugin --> pluginApi #COLOR_RED
 

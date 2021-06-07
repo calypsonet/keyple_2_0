@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="2765px" preserveAspectRatio="none" style="width:4955px;height:2765px;background:#FFFFFF;" version="1.1" viewBox="0 0 4955 2765" width="4955px" zoomAndPan="magnify"><defs><filter height="1" id="b17257b9uuj9l10" width="1" x="0" y="0"><feFlood flood-color="#FFFF00" result="flood"/><feComposite in="SourceGraphic" in2="flood" operator="over"/></filter><filter height="1" id="b17257b9uuj9l11" width="1" x="0" y="0"><feFlood flood-color="#ADD8E6" result="flood"/><feComposite in="SourceGraphic" in2="flood" operator="over"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="45" lengthAdjust="spacing" textLength="1310" x="1806.25" y="46.7139">Keyple 2.0 - Specific Calypso Card Extension - 2.0.0 (07/06/2021)</text><rect fill="#DDDDDD" height="157.0703" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:2.5;" width="557.5" x="2181.25" y="76.6016"/><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" text-decoration="underline" textLength="220" x="2196.25" y="125.4346">Colors legend</text><text fill="#000000" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="10" x="2426.25" y="125.4346">:</text><ellipse cx="2210" cy="158.3984" fill="#000000" rx="6.25" ry="6.25" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" filter="url(#b17257b9uuj9l10)" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="377.5" x="2228.75" y="169.458">Public API for end users</text><ellipse cx="2210" cy="202.4219" fill="#000000" rx="6.25" ry="6.25" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" filter="url(#b17257b9uuj9l11)" font-family="sans-serif" font-size="35" lengthAdjust="spacing" textLength="495" x="2228.75" y="213.4814">Private API for internal use only</text><!--MD5=[621c849533070c5aba8aa732369aa9f8]
+cluster commonsApi--><polygon fill="#F8F9F9" points="1275,748.6719,1860,748.6719,1877.5,807.6953,1885,807.6953,1885,1033.6719,1275,1033.6719,1275,748.6719" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="1275" x2="1877.5" y1="807.6953" y2="807.6953"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="570" x="1285" y="790.0049">org.eclipse.keyple.core.common</text><!--MD5=[00563b8f2a00a15cb90f2d0de7f0608c]
+cluster readerSelectionSpi--><polygon fill="#F8F9F9" points="3547.5,271.1719,4337.5,271.1719,4355,330.1953,4362.5,330.1953,4362.5,556.1719,3547.5,556.1719,3547.5,271.1719" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="3547.5" x2="4355" y1="330.1953" y2="330.1953"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="775" x="3557.5" y="312.5049">org.calypsonet.terminal.reader.selection.spi</text><!--MD5=[e356f1b860d3c20db8581b687f426678]
+cluster calypsoApi--><polygon fill="#F8F9F9" points="1945,638.6719,2515,638.6719,2532.5,697.6953,4912.5,697.6953,4912.5,1093.6719,1945,1093.6719,1945,638.6719" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="1945" x2="2532.5" y1="697.6953" y2="697.6953"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="555" x="1955" y="680.0049">org.calypsonet.terminal.calypso</text><!--MD5=[892788847d1b6e8d58d54cc7593514a9]
+cluster calypsoTransactionApi--><polygon fill="#F2F3F4" points="2005,748.6719,2217.5,748.6719,2235,807.6953,2992.5,807.6953,2992.5,1033.6719,2005,1033.6719,2005,748.6719" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="2005" x2="2235" y1="807.6953" y2="807.6953"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="197.5" x="2015" y="790.0049">transaction</text><!--MD5=[2989beacb5d00c6b62d7eadc78ad9711]
+cluster calypsoCardApi--><polygon fill="#F2F3F4" points="3052.5,748.6719,3145,748.6719,3162.5,807.6953,3925,807.6953,3925,1033.6719,3052.5,1033.6719,3052.5,748.6719" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="3052.5" x2="3162.5" y1="807.6953" y2="807.6953"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="77.5" x="3062.5" y="790.0049">card</text><!--MD5=[dd311cb1520b94edab7176d361230078]
+cluster calypsoSamApi--><polygon fill="#F8F9F9" points="3985,748.6719,4070,748.6719,4087.5,807.6953,4852.5,807.6953,4852.5,1033.6719,3985,1033.6719,3985,748.6719" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="3985" x2="4087.5" y1="807.6953" y2="807.6953"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="70" x="3995" y="790.0049">sam</text><!--MD5=[a17c93d7e125af4ebdd10ac0c519bd24]
+cluster cardSpi--><polygon fill="#F8F9F9" points="642.5,2463.6719,1220,2463.6719,1237.5,2522.6953,3285,2522.6953,3285,2748.6719,642.5,2748.6719,642.5,2463.6719" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="642.5" x2="1237.5" y1="2522.6953" y2="2522.6953"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="562.5" x="652.5" y="2505.0049">org.calypsonet.terminal.card.spi</text><!--MD5=[d3c8ee72d6c013b9a0ff8b73b18ac396]
+cluster specificExtension--><polygon fill="#F8F9F9" points="40,1176.1719,1107.5,1176.1719,1125,1235.1953,4777.5,1235.1953,4777.5,2381.1719,40,2381.1719,40,1176.1719" style="stroke:#000000;stroke-width:3.75;"/><line style="stroke:#000000;stroke-width:3.75;" x1="40" x2="1125" y1="1235.1953" y2="1235.1953"/><text fill="#000000" font-family="sans-serif" font-size="35" font-weight="bold" lengthAdjust="spacing" textLength="1052.5" x="50" y="1217.5049">org.eclipse.keyple.card.calypso (specific calypso extension)</text><!--MD5=[93835d7ffcf6a3787bfc7eb02bc099b1]
+class KeypleCardExtension--><rect codeLine="54" fill="#FEFECE" height="154.5898" id="KeypleCardExtension" style="stroke:#D4AC0D;stroke-width:3.75;" width="405" x="1440" y="838.6719"/><ellipse cx="1477.5" cy="878.6719" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1480,871.1719 L1480,886.1719 L1485,886.1719 L1486.2109,886.1719 L1487.5,887.7344 L1487.5,888.6719 L1487.5,889.6094 L1486.2109,891.1719 L1485,891.1719 L1470,891.1719 L1468.7891,891.1719 L1467.5,889.6094 L1467.5,888.6719 L1467.5,887.7344 L1468.7891,886.1719 L1470,886.1719 L1475,886.1719 L1475,871.1719 L1470,871.1719 L1468.7891,871.1719 L1467.5,869.6094 L1467.5,868.6719 L1467.5,867.7344 L1468.7891,866.1719 L1470,866.1719 L1485,866.1719 L1486.2109,866.1719 L1487.5,867.7344 L1487.5,868.6719 L1487.5,869.6094 L1486.2109,871.1719 L1485,871.1719 L1480,871.1719 Z " fill="#000000"/><ellipse cx="1525" cy="877.4219" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="297.5" x="1540" y="890.9473">KeypleCardExtension</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1442.5" x2="1842.5" y1="918.6719" y2="918.6719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="1455" y="957.2192">...</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1442.5" x2="1842.5" y1="973.2617" y2="973.2617"/><!--MD5=[47f0011813555fb489a606ff84d44b55]
+class CardSelection--><rect codeLine="59" fill="#FEFECE" height="120" id="CardSelection" style="stroke:#D4AC0D;stroke-width:3.75;" width="302.5" x="3631.25" y="378.6719"/><ellipse cx="3668.75" cy="418.6719" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M3671.25,411.1719 L3671.25,426.1719 L3676.25,426.1719 L3677.4609,426.1719 L3678.75,427.7344 L3678.75,428.6719 L3678.75,429.6094 L3677.4609,431.1719 L3676.25,431.1719 L3661.25,431.1719 L3660.0391,431.1719 L3658.75,429.6094 L3658.75,428.6719 L3658.75,427.7344 L3660.0391,426.1719 L3661.25,426.1719 L3666.25,426.1719 L3666.25,411.1719 L3661.25,411.1719 L3660.0391,411.1719 L3658.75,409.6094 L3658.75,408.6719 L3658.75,407.7344 L3660.0391,406.1719 L3661.25,406.1719 L3676.25,406.1719 L3677.4609,406.1719 L3678.75,407.7344 L3678.75,408.6719 L3678.75,409.6094 L3677.4609,411.1719 L3676.25,411.1719 L3671.25,411.1719 Z " fill="#000000"/><ellipse cx="3716.25" cy="417.4219" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="195" x="3731.25" y="430.9473">CardSelection</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="3633.75" x2="3931.25" y1="458.6719" y2="458.6719"/><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="3633.75" x2="3931.25" y1="478.6719" y2="478.6719"/><!--MD5=[4d4351d1dd1d596b03b4778d9849998b]
+class SmartCard--><rect codeLine="61" fill="#FEFECE" height="154.5898" id="SmartCard" style="stroke:#D4AC0D;stroke-width:3.75;" width="257.5" x="4021.25" y="361.1719"/><ellipse cx="4058.75" cy="401.1719" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M4061.25,393.6719 L4061.25,408.6719 L4066.25,408.6719 L4067.4609,408.6719 L4068.75,410.2344 L4068.75,411.1719 L4068.75,412.1094 L4067.4609,413.6719 L4066.25,413.6719 L4051.25,413.6719 L4050.0391,413.6719 L4048.75,412.1094 L4048.75,411.1719 L4048.75,410.2344 L4050.0391,408.6719 L4051.25,408.6719 L4056.25,408.6719 L4056.25,393.6719 L4051.25,393.6719 L4050.0391,393.6719 L4048.75,392.1094 L4048.75,391.1719 L4048.75,390.2344 L4050.0391,388.6719 L4051.25,388.6719 L4066.25,388.6719 L4067.4609,388.6719 L4068.75,390.2344 L4068.75,391.1719 L4068.75,392.1094 L4067.4609,393.6719 L4066.25,393.6719 L4061.25,393.6719 Z " fill="#000000"/><ellipse cx="4106.25" cy="399.9219" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="150" x="4121.25" y="413.4473">SmartCard</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="4023.75" x2="4276.25" y1="441.1719" y2="441.1719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="4036.25" y="479.7192">...</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="4023.75" x2="4276.25" y1="495.7617" y2="495.7617"/><!--MD5=[902430ab886935d86a17fe3ee56b883e]
+class CardSecuritySetting--><rect codeLine="67" fill="#FEFECE" height="154.5898" id="CardSecuritySetting" style="stroke:#D4AC0D;stroke-width:3.75;" width="380" x="2045" y="838.6719"/><ellipse cx="2082.5" cy="878.6719" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2085,871.1719 L2085,886.1719 L2090,886.1719 L2091.2109,886.1719 L2092.5,887.7344 L2092.5,888.6719 L2092.5,889.6094 L2091.2109,891.1719 L2090,891.1719 L2075,891.1719 L2073.7891,891.1719 L2072.5,889.6094 L2072.5,888.6719 L2072.5,887.7344 L2073.7891,886.1719 L2075,886.1719 L2080,886.1719 L2080,871.1719 L2075,871.1719 L2073.7891,871.1719 L2072.5,869.6094 L2072.5,868.6719 L2072.5,867.7344 L2073.7891,866.1719 L2075,866.1719 L2090,866.1719 L2091.2109,866.1719 L2092.5,867.7344 L2092.5,868.6719 L2092.5,869.6094 L2091.2109,871.1719 L2090,871.1719 L2085,871.1719 Z " fill="#000000"/><ellipse cx="2130" cy="877.4219" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="272.5" x="2145" y="890.9473">CardSecuritySetting</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2047.5" x2="2422.5" y1="918.6719" y2="918.6719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="2060" y="957.2192">...</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2047.5" x2="2422.5" y1="973.2617" y2="973.2617"/><!--MD5=[0b099b95829aa268a7bde43b43d40035]
+class CardTransactionService--><rect codeLine="70" fill="#FEFECE" height="154.5898" id="CardTransactionService" style="stroke:#D4AC0D;stroke-width:3.75;" width="437.5" x="2513.75" y="838.6719"/><ellipse cx="2551.25" cy="878.6719" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2553.75,871.1719 L2553.75,886.1719 L2558.75,886.1719 L2559.9609,886.1719 L2561.25,887.7344 L2561.25,888.6719 L2561.25,889.6094 L2559.9609,891.1719 L2558.75,891.1719 L2543.75,891.1719 L2542.5391,891.1719 L2541.25,889.6094 L2541.25,888.6719 L2541.25,887.7344 L2542.5391,886.1719 L2543.75,886.1719 L2548.75,886.1719 L2548.75,871.1719 L2543.75,871.1719 L2542.5391,871.1719 L2541.25,869.6094 L2541.25,868.6719 L2541.25,867.7344 L2542.5391,866.1719 L2543.75,866.1719 L2558.75,866.1719 L2559.9609,866.1719 L2561.25,867.7344 L2561.25,868.6719 L2561.25,869.6094 L2559.9609,871.1719 L2558.75,871.1719 L2553.75,871.1719 Z " fill="#000000"/><ellipse cx="2598.75" cy="877.4219" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="330" x="2613.75" y="890.9473">CardTransactionService</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2516.25" x2="2948.75" y1="918.6719" y2="918.6719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="2528.75" y="957.2192">...</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="2516.25" x2="2948.75" y1="973.2617" y2="973.2617"/><!--MD5=[dedf7a414a26192be9658079488df692]
+class CalypsoCardSelection--><rect codeLine="75" fill="#FEFECE" height="154.5898" id="CalypsoCardSelection" style="stroke:#D4AC0D;stroke-width:3.75;" width="415" x="3092.5" y="838.6719"/><ellipse cx="3130" cy="878.6719" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M3132.5,871.1719 L3132.5,886.1719 L3137.5,886.1719 L3138.7109,886.1719 L3140,887.7344 L3140,888.6719 L3140,889.6094 L3138.7109,891.1719 L3137.5,891.1719 L3122.5,891.1719 L3121.2891,891.1719 L3120,889.6094 L3120,888.6719 L3120,887.7344 L3121.2891,886.1719 L3122.5,886.1719 L3127.5,886.1719 L3127.5,871.1719 L3122.5,871.1719 L3121.2891,871.1719 L3120,869.6094 L3120,868.6719 L3120,867.7344 L3121.2891,866.1719 L3122.5,866.1719 L3137.5,866.1719 L3138.7109,866.1719 L3140,867.7344 L3140,868.6719 L3140,869.6094 L3138.7109,871.1719 L3137.5,871.1719 L3132.5,871.1719 Z " fill="#000000"/><ellipse cx="3177.5" cy="877.4219" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="307.5" x="3192.5" y="890.9473">CalypsoCardSelection</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="3095" x2="3505" y1="918.6719" y2="918.6719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="3107.5" y="957.2192">...</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="3095" x2="3505" y1="973.2617" y2="973.2617"/><!--MD5=[57d9060bfed72118962c04165c3e8b58]
+class CalypsoCard--><rect codeLine="78" fill="#FEFECE" height="154.5898" id="CalypsoCard" style="stroke:#D4AC0D;stroke-width:3.75;" width="287.5" x="3596.25" y="838.6719"/><ellipse cx="3633.75" cy="878.6719" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M3636.25,871.1719 L3636.25,886.1719 L3641.25,886.1719 L3642.4609,886.1719 L3643.75,887.7344 L3643.75,888.6719 L3643.75,889.6094 L3642.4609,891.1719 L3641.25,891.1719 L3626.25,891.1719 L3625.0391,891.1719 L3623.75,889.6094 L3623.75,888.6719 L3623.75,887.7344 L3625.0391,886.1719 L3626.25,886.1719 L3631.25,886.1719 L3631.25,871.1719 L3626.25,871.1719 L3625.0391,871.1719 L3623.75,869.6094 L3623.75,868.6719 L3623.75,867.7344 L3625.0391,866.1719 L3626.25,866.1719 L3641.25,866.1719 L3642.4609,866.1719 L3643.75,867.7344 L3643.75,868.6719 L3643.75,869.6094 L3642.4609,871.1719 L3641.25,871.1719 L3636.25,871.1719 Z " fill="#000000"/><ellipse cx="3681.25" cy="877.4219" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="180" x="3696.25" y="890.9473">CalypsoCard</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="3598.75" x2="3881.25" y1="918.6719" y2="918.6719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="3611.25" y="957.2192">...</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="3598.75" x2="3881.25" y1="973.2617" y2="973.2617"/><!--MD5=[c337779d2dbd9414fdf26e542ab5c644]
+class CalypsoSamSelection--><rect codeLine="83" fill="#FEFECE" height="154.5898" id="CalypsoSamSelection" style="stroke:#D4AC0D;stroke-width:3.75;" width="412.5" x="4026.25" y="838.6719"/><ellipse cx="4063.75" cy="878.6719" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M4066.25,871.1719 L4066.25,886.1719 L4071.25,886.1719 L4072.4609,886.1719 L4073.75,887.7344 L4073.75,888.6719 L4073.75,889.6094 L4072.4609,891.1719 L4071.25,891.1719 L4056.25,891.1719 L4055.0391,891.1719 L4053.75,889.6094 L4053.75,888.6719 L4053.75,887.7344 L4055.0391,886.1719 L4056.25,886.1719 L4061.25,886.1719 L4061.25,871.1719 L4056.25,871.1719 L4055.0391,871.1719 L4053.75,869.6094 L4053.75,868.6719 L4053.75,867.7344 L4055.0391,866.1719 L4056.25,866.1719 L4071.25,866.1719 L4072.4609,866.1719 L4073.75,867.7344 L4073.75,868.6719 L4073.75,869.6094 L4072.4609,871.1719 L4071.25,871.1719 L4066.25,871.1719 Z " fill="#000000"/><ellipse cx="4111.25" cy="877.4219" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="305" x="4126.25" y="890.9473">CalypsoSamSelection</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="4028.75" x2="4436.25" y1="918.6719" y2="918.6719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="4041.25" y="957.2192">...</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="4028.75" x2="4436.25" y1="973.2617" y2="973.2617"/><!--MD5=[f25ff1fa8fa59bbc0543eaadeb7d653a]
+class CalypsoSam--><rect codeLine="86" fill="#FEFECE" height="154.5898" id="CalypsoSam" style="stroke:#D4AC0D;stroke-width:3.75;" width="285" x="4527.5" y="838.6719"/><ellipse cx="4565" cy="878.6719" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M4567.5,871.1719 L4567.5,886.1719 L4572.5,886.1719 L4573.7109,886.1719 L4575,887.7344 L4575,888.6719 L4575,889.6094 L4573.7109,891.1719 L4572.5,891.1719 L4557.5,891.1719 L4556.2891,891.1719 L4555,889.6094 L4555,888.6719 L4555,887.7344 L4556.2891,886.1719 L4557.5,886.1719 L4562.5,886.1719 L4562.5,871.1719 L4557.5,871.1719 L4556.2891,871.1719 L4555,869.6094 L4555,868.6719 L4555,867.7344 L4556.2891,866.1719 L4557.5,866.1719 L4572.5,866.1719 L4573.7109,866.1719 L4575,867.7344 L4575,868.6719 L4575,869.6094 L4573.7109,871.1719 L4572.5,871.1719 L4567.5,871.1719 Z " fill="#000000"/><ellipse cx="4612.5" cy="877.4219" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="177.5" x="4627.5" y="890.9473">CalypsoSam</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="4530" x2="4810" y1="918.6719" y2="918.6719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="4542.5" y="957.2192">...</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="4530" x2="4810" y1="973.2617" y2="973.2617"/><!--MD5=[e210ee7b55cb4fcef849a017d68619f7]
+class CardSelectionSpi--><rect codeLine="204" fill="#EBF5FB" height="154.5898" id="CardSelectionSpi" style="stroke:#3498DB;stroke-width:3.75;" width="347.5" x="2506.25" y="2553.6719"/><ellipse cx="2543.75" cy="2593.6719" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2546.25,2586.1719 L2546.25,2601.1719 L2551.25,2601.1719 L2552.4609,2601.1719 L2553.75,2602.7344 L2553.75,2603.6719 L2553.75,2604.6094 L2552.4609,2606.1719 L2551.25,2606.1719 L2536.25,2606.1719 L2535.0391,2606.1719 L2533.75,2604.6094 L2533.75,2603.6719 L2533.75,2602.7344 L2535.0391,2601.1719 L2536.25,2601.1719 L2541.25,2601.1719 L2541.25,2586.1719 L2536.25,2586.1719 L2535.0391,2586.1719 L2533.75,2584.6094 L2533.75,2583.6719 L2533.75,2582.7344 L2535.0391,2581.1719 L2536.25,2581.1719 L2551.25,2581.1719 L2552.4609,2581.1719 L2553.75,2582.7344 L2553.75,2583.6719 L2553.75,2584.6094 L2552.4609,2586.1719 L2551.25,2586.1719 L2546.25,2586.1719 Z " fill="#000000"/><ellipse cx="2591.25" cy="2592.4219" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="240" x="2606.25" y="2605.9473">CardSelectionSpi</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="2508.75" x2="2851.25" y1="2633.6719" y2="2633.6719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="2521.25" y="2672.2192">...</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="2508.75" x2="2851.25" y1="2688.2617" y2="2688.2617"/><!--MD5=[c089e258773b765d812cd5d8bc232f90]
+class SmartCardSpi--><rect codeLine="206" fill="#EBF5FB" height="120" id="SmartCardSpi" style="stroke:#3498DB;stroke-width:3.75;" width="302.5" x="2941.25" y="2571.1719"/><ellipse cx="2978.75" cy="2611.1719" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2981.25,2603.6719 L2981.25,2618.6719 L2986.25,2618.6719 L2987.4609,2618.6719 L2988.75,2620.2344 L2988.75,2621.1719 L2988.75,2622.1094 L2987.4609,2623.6719 L2986.25,2623.6719 L2971.25,2623.6719 L2970.0391,2623.6719 L2968.75,2622.1094 L2968.75,2621.1719 L2968.75,2620.2344 L2970.0391,2618.6719 L2971.25,2618.6719 L2976.25,2618.6719 L2976.25,2603.6719 L2971.25,2603.6719 L2970.0391,2603.6719 L2968.75,2602.1094 L2968.75,2601.1719 L2968.75,2600.2344 L2970.0391,2598.6719 L2971.25,2598.6719 L2986.25,2598.6719 L2987.4609,2598.6719 L2988.75,2600.2344 L2988.75,2601.1719 L2988.75,2602.1094 L2987.4609,2603.6719 L2986.25,2603.6719 L2981.25,2603.6719 Z " fill="#000000"/><ellipse cx="3026.25" cy="2609.9219" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="195" x="3041.25" y="2623.4473">SmartCardSpi</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="2943.75" x2="3241.25" y1="2651.1719" y2="2651.1719"/><line style="stroke:#3498DB;stroke-width:3.75;" x1="2943.75" x2="3241.25" y1="2671.1719" y2="2671.1719"/><!--MD5=[dccdbbb850bf03879ac099cfa435f162]
+class CardSelectorSpi--><rect codeLine="205" fill="#EBF5FB" height="154.5898" id="CardSelectorSpi" style="stroke:#3498DB;stroke-width:3.75;" width="332.5" x="683.75" y="2553.6719"/><ellipse cx="721.25" cy="2593.6719" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M723.75,2586.1719 L723.75,2601.1719 L728.75,2601.1719 L729.9609,2601.1719 L731.25,2602.7344 L731.25,2603.6719 L731.25,2604.6094 L729.9609,2606.1719 L728.75,2606.1719 L713.75,2606.1719 L712.5391,2606.1719 L711.25,2604.6094 L711.25,2603.6719 L711.25,2602.7344 L712.5391,2601.1719 L713.75,2601.1719 L718.75,2601.1719 L718.75,2586.1719 L713.75,2586.1719 L712.5391,2586.1719 L711.25,2584.6094 L711.25,2583.6719 L711.25,2582.7344 L712.5391,2581.1719 L713.75,2581.1719 L728.75,2581.1719 L729.9609,2581.1719 L731.25,2582.7344 L731.25,2583.6719 L731.25,2584.6094 L729.9609,2586.1719 L728.75,2586.1719 L723.75,2586.1719 Z " fill="#000000"/><ellipse cx="768.75" cy="2592.4219" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="225" x="783.75" y="2605.9473">CardSelectorSpi</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="686.25" x2="1013.75" y1="2633.6719" y2="2633.6719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="698.75" y="2672.2192">...</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="686.25" x2="1013.75" y1="2688.2617" y2="2688.2617"/><!--MD5=[8d87e43a1a915ffb33ab992212a28e16]
+class CardSelectionRequestSpi--><rect codeLine="207" fill="#EBF5FB" height="154.5898" id="CardSelectionRequestSpi" style="stroke:#3498DB;stroke-width:3.75;" width="462.5" x="1103.75" y="2553.6719"/><ellipse cx="1141.25" cy="2593.6719" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1143.75,2586.1719 L1143.75,2601.1719 L1148.75,2601.1719 L1149.9609,2601.1719 L1151.25,2602.7344 L1151.25,2603.6719 L1151.25,2604.6094 L1149.9609,2606.1719 L1148.75,2606.1719 L1133.75,2606.1719 L1132.5391,2606.1719 L1131.25,2604.6094 L1131.25,2603.6719 L1131.25,2602.7344 L1132.5391,2601.1719 L1133.75,2601.1719 L1138.75,2601.1719 L1138.75,2586.1719 L1133.75,2586.1719 L1132.5391,2586.1719 L1131.25,2584.6094 L1131.25,2583.6719 L1131.25,2582.7344 L1132.5391,2581.1719 L1133.75,2581.1719 L1148.75,2581.1719 L1149.9609,2581.1719 L1151.25,2582.7344 L1151.25,2583.6719 L1151.25,2584.6094 L1149.9609,2586.1719 L1148.75,2586.1719 L1143.75,2586.1719 Z " fill="#000000"/><ellipse cx="1188.75" cy="2592.4219" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="355" x="1203.75" y="2605.9473">CardSelectionRequestSpi</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="1106.25" x2="1563.75" y1="2633.6719" y2="2633.6719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="1118.75" y="2672.2192">...</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="1106.25" x2="1563.75" y1="2688.2617" y2="2688.2617"/><!--MD5=[b26cc63de5889bffd0c8769786a5769b]
+class CardRequestSpi--><rect codeLine="208" fill="#EBF5FB" height="154.5898" id="CardRequestSpi" style="stroke:#3498DB;stroke-width:3.75;" width="335" x="1655" y="2553.6719"/><ellipse cx="1692.5" cy="2593.6719" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M1695,2586.1719 L1695,2601.1719 L1700,2601.1719 L1701.2109,2601.1719 L1702.5,2602.7344 L1702.5,2603.6719 L1702.5,2604.6094 L1701.2109,2606.1719 L1700,2606.1719 L1685,2606.1719 L1683.7891,2606.1719 L1682.5,2604.6094 L1682.5,2603.6719 L1682.5,2602.7344 L1683.7891,2601.1719 L1685,2601.1719 L1690,2601.1719 L1690,2586.1719 L1685,2586.1719 L1683.7891,2586.1719 L1682.5,2584.6094 L1682.5,2583.6719 L1682.5,2582.7344 L1683.7891,2581.1719 L1685,2581.1719 L1700,2581.1719 L1701.2109,2581.1719 L1702.5,2582.7344 L1702.5,2583.6719 L1702.5,2584.6094 L1701.2109,2586.1719 L1700,2586.1719 L1695,2586.1719 Z " fill="#000000"/><ellipse cx="1740" cy="2592.4219" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="227.5" x="1755" y="2605.9473">CardRequestSpi</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="1657.5" x2="1987.5" y1="2633.6719" y2="2633.6719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="1670" y="2672.2192">...</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="1657.5" x2="1987.5" y1="2688.2617" y2="2688.2617"/><!--MD5=[1499b49b6a3daea27e4b5ae092e773a3]
+class ApduRequestSpi--><rect codeLine="209" fill="#EBF5FB" height="154.5898" id="ApduRequestSpi" style="stroke:#3498DB;stroke-width:3.75;" width="340" x="2077.5" y="2553.6719"/><ellipse cx="2115" cy="2593.6719" fill="#B4A7E5" rx="27.5" ry="27.5" style="stroke:#B4A7E5;stroke-width:2.5;"/><path d="M2117.5,2586.1719 L2117.5,2601.1719 L2122.5,2601.1719 L2123.7109,2601.1719 L2125,2602.7344 L2125,2603.6719 L2125,2604.6094 L2123.7109,2606.1719 L2122.5,2606.1719 L2107.5,2606.1719 L2106.2891,2606.1719 L2105,2604.6094 L2105,2603.6719 L2105,2602.7344 L2106.2891,2601.1719 L2107.5,2601.1719 L2112.5,2601.1719 L2112.5,2586.1719 L2107.5,2586.1719 L2106.2891,2586.1719 L2105,2584.6094 L2105,2583.6719 L2105,2582.7344 L2106.2891,2581.1719 L2107.5,2581.1719 L2122.5,2581.1719 L2123.7109,2581.1719 L2125,2582.7344 L2125,2583.6719 L2125,2584.6094 L2123.7109,2586.1719 L2122.5,2586.1719 L2117.5,2586.1719 Z " fill="#000000"/><ellipse cx="2162.5" cy="2592.4219" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="232.5" x="2177.5" y="2605.9473">ApduRequestSpi</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="2080" x2="2415" y1="2633.6719" y2="2633.6719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="2092.5" y="2672.2192">...</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="2080" x2="2415" y1="2688.2617" y2="2688.2617"/><!--MD5=[6ea7a51f1d9d5e1f7b4a4fca63a9fc69]
+class CalypsoCardExtension--><rect codeLine="112" fill="#FEFECE" height="347.5391" id="CalypsoCardExtension" style="stroke:#D4AC0D;stroke-width:3.75;" width="785" x="1715" y="1266.1719"/><ellipse cx="1891.875" cy="1306.1719" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M1896.875,1297.4219 Q1897.3828,1296.1719 1897.9688,1295.5469 Q1898.5547,1294.9219 1899.2188,1294.9219 Q1900.3906,1294.9219 1901.1328,1295.625 Q1901.875,1296.3281 1901.875,1297.9688 L1901.875,1301.875 Q1901.875,1303.5156 1901.1719,1304.2188 Q1900.4688,1304.9219 1899.375,1304.9219 Q1898.3984,1304.9219 1897.7734,1304.4922 Q1897.1484,1304.0625 1896.875,1302.9297 Q1896.7578,1302.1484 1896.3281,1301.7188 Q1895.5469,1300.8984 1894.1406,1300.4297 Q1892.7344,1299.9219 1891.3281,1299.9219 Q1889.5703,1299.9219 1888.0859,1300.625 Q1886.6406,1301.3281 1885.5078,1302.8906 Q1884.375,1304.4531 1884.375,1306.6016 L1884.375,1308.9063 Q1884.375,1311.4844 1886.4844,1313.2031 Q1888.5938,1314.9219 1892.3438,1314.9219 Q1894.5703,1314.9219 1896.1328,1314.4141 Q1897.0313,1314.1406 1898.0469,1313.2422 Q1898.7109,1312.7344 1899.0625,1312.5781 Q1899.4141,1312.4219 1899.8438,1312.4219 Q1900.6641,1312.4219 1901.25,1313.0859 Q1901.875,1313.7109 1901.875,1314.6094 Q1901.875,1315.4688 1901.0156,1316.4844 Q1899.7656,1317.9688 1897.7734,1318.7891 Q1895.1563,1319.9219 1891.9531,1319.9219 Q1888.2031,1319.9219 1885.1953,1318.4375 Q1882.7734,1317.2656 1881.0547,1314.7266 Q1879.375,1312.1875 1879.375,1309.1797 L1879.375,1306.4453 Q1879.375,1303.3203 1880.8594,1300.5859 Q1882.3828,1297.8516 1885,1296.4063 Q1887.6563,1294.9219 1890.625,1294.9219 Q1892.4219,1294.9219 1893.9844,1295.5469 Q1895.5469,1296.1719 1896.875,1297.4219 Z " fill="#000000"/><ellipse cx="1955.625" cy="1304.9219" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="1970.625" y="1318.4473">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="315" x="2038.125" y="1318.4473">CalypsoCardExtension</text><line style="stroke:#D4AC0D;stroke-width:3.75;" x1="1717.5" x2="2497.5" y1="1346.1719" y2="1346.1719"/><line style="stroke:#D4AC0D;stroke-width:2.5;" x1="1717.5" x2="2497.5" y1="1366.1719" y2="1366.1719"/><ellipse cx="1742.5" cy="1393.6719" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" text-decoration="underline" textLength="447.5" x="1765" y="1404.7192">CalypsoCardExtension getInstance ()</text><line style="stroke:#D4AC0D;stroke-width:2.5;stroke-dasharray:1.0,2.0;" x1="1717.5" x2="2497.5" y1="1420.7617" y2="1420.7617"/><ellipse cx="1742.5" cy="1448.2617" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="642.5" x="1765" y="1459.3091">CalypsoCardSelection createCalypsoCardSelection ()</text><ellipse cx="1742.5" cy="1482.8516" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="632.5" x="1765" y="1493.8989">CalypsoSamSelection createCalypsoSamSelection ()</text><ellipse cx="1742.5" cy="1517.4414" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="615" x="1765" y="1528.4888">CardSecuritySetting createCardSecuritySetting (...)</text><ellipse cx="1742.5" cy="1552.0313" fill="#84BE84" rx="7.5" ry="7.5" style="stroke:#038048;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="720" x="1765" y="1563.0786">CardTransactionService createCardTransactionService (...)</text><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="1765" y="1597.6685">...</text><!--MD5=[92afcee26905011346375485e8956f10]
+class CardSecuritySettingAdapter--><rect codeLine="203" fill="#EBF5FB" height="154.5898" id="CardSecuritySettingAdapter" style="stroke:#3498DB;stroke-width:3.75;" width="555" x="1130" y="1813.6719"/><ellipse cx="1167.5" cy="1853.6719" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M1172.5,1844.9219 Q1173.0078,1843.6719 1173.5938,1843.0469 Q1174.1797,1842.4219 1174.8438,1842.4219 Q1176.0156,1842.4219 1176.7578,1843.125 Q1177.5,1843.8281 1177.5,1845.4688 L1177.5,1849.375 Q1177.5,1851.0156 1176.7969,1851.7188 Q1176.0938,1852.4219 1175,1852.4219 Q1174.0234,1852.4219 1173.3984,1851.9922 Q1172.7734,1851.5625 1172.5,1850.4297 Q1172.3828,1849.6484 1171.9531,1849.2188 Q1171.1719,1848.3984 1169.7656,1847.9297 Q1168.3594,1847.4219 1166.9531,1847.4219 Q1165.1953,1847.4219 1163.7109,1848.125 Q1162.2656,1848.8281 1161.1328,1850.3906 Q1160,1851.9531 1160,1854.1016 L1160,1856.4063 Q1160,1858.9844 1162.1094,1860.7031 Q1164.2188,1862.4219 1167.9688,1862.4219 Q1170.1953,1862.4219 1171.7578,1861.9141 Q1172.6563,1861.6406 1173.6719,1860.7422 Q1174.3359,1860.2344 1174.6875,1860.0781 Q1175.0391,1859.9219 1175.4688,1859.9219 Q1176.2891,1859.9219 1176.875,1860.5859 Q1177.5,1861.2109 1177.5,1862.1094 Q1177.5,1862.9688 1176.6406,1863.9844 Q1175.3906,1865.4688 1173.3984,1866.2891 Q1170.7813,1867.4219 1167.5781,1867.4219 Q1163.8281,1867.4219 1160.8203,1865.9375 Q1158.3984,1864.7656 1156.6797,1862.2266 Q1155,1859.6875 1155,1856.6797 L1155,1853.9453 Q1155,1850.8203 1156.4844,1848.0859 Q1158.0078,1845.3516 1160.625,1843.9063 Q1163.2813,1842.4219 1166.25,1842.4219 Q1168.0469,1842.4219 1169.6094,1843.0469 Q1171.1719,1843.6719 1172.5,1844.9219 Z " fill="#000000"/><polygon fill="#4177AF" points="1215,1842.4219,1205,1857.4219,1225,1857.4219" style="stroke:#1963A0;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="1230" y="1865.9473">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="380" x="1297.5" y="1865.9473">CardSecuritySettingAdapter</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="1132.5" x2="1682.5" y1="1893.6719" y2="1893.6719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="1145" y="1932.2192">...</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="1132.5" x2="1682.5" y1="1948.2617" y2="1948.2617"/><!--MD5=[247eb660218ee9fcea52bc0785573283]
+class CardTransactionServiceAdapter--><rect codeLine="202" fill="#EBF5FB" height="154.5898" id="CardTransactionServiceAdapter" style="stroke:#3498DB;stroke-width:3.75;" width="612.5" x="1773.75" y="1813.6719"/><ellipse cx="1811.25" cy="1853.6719" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M1816.25,1844.9219 Q1816.7578,1843.6719 1817.3438,1843.0469 Q1817.9297,1842.4219 1818.5938,1842.4219 Q1819.7656,1842.4219 1820.5078,1843.125 Q1821.25,1843.8281 1821.25,1845.4688 L1821.25,1849.375 Q1821.25,1851.0156 1820.5469,1851.7188 Q1819.8438,1852.4219 1818.75,1852.4219 Q1817.7734,1852.4219 1817.1484,1851.9922 Q1816.5234,1851.5625 1816.25,1850.4297 Q1816.1328,1849.6484 1815.7031,1849.2188 Q1814.9219,1848.3984 1813.5156,1847.9297 Q1812.1094,1847.4219 1810.7031,1847.4219 Q1808.9453,1847.4219 1807.4609,1848.125 Q1806.0156,1848.8281 1804.8828,1850.3906 Q1803.75,1851.9531 1803.75,1854.1016 L1803.75,1856.4063 Q1803.75,1858.9844 1805.8594,1860.7031 Q1807.9688,1862.4219 1811.7188,1862.4219 Q1813.9453,1862.4219 1815.5078,1861.9141 Q1816.4063,1861.6406 1817.4219,1860.7422 Q1818.0859,1860.2344 1818.4375,1860.0781 Q1818.7891,1859.9219 1819.2188,1859.9219 Q1820.0391,1859.9219 1820.625,1860.5859 Q1821.25,1861.2109 1821.25,1862.1094 Q1821.25,1862.9688 1820.3906,1863.9844 Q1819.1406,1865.4688 1817.1484,1866.2891 Q1814.5313,1867.4219 1811.3281,1867.4219 Q1807.5781,1867.4219 1804.5703,1865.9375 Q1802.1484,1864.7656 1800.4297,1862.2266 Q1798.75,1859.6875 1798.75,1856.6797 L1798.75,1853.9453 Q1798.75,1850.8203 1800.2344,1848.0859 Q1801.7578,1845.3516 1804.375,1843.9063 Q1807.0313,1842.4219 1810,1842.4219 Q1811.7969,1842.4219 1813.3594,1843.0469 Q1814.9219,1843.6719 1816.25,1844.9219 Z " fill="#000000"/><polygon fill="#4177AF" points="1858.75,1842.4219,1848.75,1857.4219,1868.75,1857.4219" style="stroke:#1963A0;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="1873.75" y="1865.9473">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="437.5" x="1941.25" y="1865.9473">CardTransactionServiceAdapter</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="1776.25" x2="2383.75" y1="1893.6719" y2="1893.6719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="1788.75" y="1932.2192">...</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="1776.25" x2="2383.75" y1="1948.2617" y2="1948.2617"/><!--MD5=[fbd938fb4bf01822b3afed4518bf6335]
+class CardSelectorAdapter--><rect codeLine="196" fill="#EBF5FB" height="154.5898" id="CardSelectorAdapter" style="stroke:#3498DB;stroke-width:3.75;" width="462.5" x="141.25" y="2126.1719"/><ellipse cx="178.75" cy="2166.1719" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M183.75,2157.4219 Q184.2578,2156.1719 184.8438,2155.5469 Q185.4297,2154.9219 186.0938,2154.9219 Q187.2656,2154.9219 188.0078,2155.625 Q188.75,2156.3281 188.75,2157.9688 L188.75,2161.875 Q188.75,2163.5156 188.0469,2164.2188 Q187.3438,2164.9219 186.25,2164.9219 Q185.2734,2164.9219 184.6484,2164.4922 Q184.0234,2164.0625 183.75,2162.9297 Q183.6328,2162.1484 183.2031,2161.7188 Q182.4219,2160.8984 181.0156,2160.4297 Q179.6094,2159.9219 178.2031,2159.9219 Q176.4453,2159.9219 174.9609,2160.625 Q173.5156,2161.3281 172.3828,2162.8906 Q171.25,2164.4531 171.25,2166.6016 L171.25,2168.9063 Q171.25,2171.4844 173.3594,2173.2031 Q175.4688,2174.9219 179.2188,2174.9219 Q181.4453,2174.9219 183.0078,2174.4141 Q183.9063,2174.1406 184.9219,2173.2422 Q185.5859,2172.7344 185.9375,2172.5781 Q186.2891,2172.4219 186.7188,2172.4219 Q187.5391,2172.4219 188.125,2173.0859 Q188.75,2173.7109 188.75,2174.6094 Q188.75,2175.4688 187.8906,2176.4844 Q186.6406,2177.9688 184.6484,2178.7891 Q182.0313,2179.9219 178.8281,2179.9219 Q175.0781,2179.9219 172.0703,2178.4375 Q169.6484,2177.2656 167.9297,2174.7266 Q166.25,2172.1875 166.25,2169.1797 L166.25,2166.4453 Q166.25,2163.3203 167.7344,2160.5859 Q169.2578,2157.8516 171.875,2156.4063 Q174.5313,2154.9219 177.5,2154.9219 Q179.2969,2154.9219 180.8594,2155.5469 Q182.4219,2156.1719 183.75,2157.4219 Z " fill="#000000"/><polygon fill="#4177AF" points="226.25,2154.9219,216.25,2169.9219,236.25,2169.9219" style="stroke:#1963A0;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="241.25" y="2178.4473">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="287.5" x="308.75" y="2178.4473">CardSelectorAdapter</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="143.75" x2="601.25" y1="2206.1719" y2="2206.1719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="156.25" y="2244.7192">...</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="143.75" x2="601.25" y1="2260.7617" y2="2260.7617"/><!--MD5=[43ade75bd6d890e787ccdbbbaa69cade]
+class CardSelectionRequestAdapter--><rect codeLine="199" fill="#EBF5FB" height="154.5898" id="CardSelectionRequestAdapter" style="stroke:#3498DB;stroke-width:3.75;" width="592.5" x="691.25" y="2126.1719"/><ellipse cx="728.75" cy="2166.1719" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M733.75,2157.4219 Q734.2578,2156.1719 734.8438,2155.5469 Q735.4297,2154.9219 736.0938,2154.9219 Q737.2656,2154.9219 738.0078,2155.625 Q738.75,2156.3281 738.75,2157.9688 L738.75,2161.875 Q738.75,2163.5156 738.0469,2164.2188 Q737.3438,2164.9219 736.25,2164.9219 Q735.2734,2164.9219 734.6484,2164.4922 Q734.0234,2164.0625 733.75,2162.9297 Q733.6328,2162.1484 733.2031,2161.7188 Q732.4219,2160.8984 731.0156,2160.4297 Q729.6094,2159.9219 728.2031,2159.9219 Q726.4453,2159.9219 724.9609,2160.625 Q723.5156,2161.3281 722.3828,2162.8906 Q721.25,2164.4531 721.25,2166.6016 L721.25,2168.9063 Q721.25,2171.4844 723.3594,2173.2031 Q725.4688,2174.9219 729.2188,2174.9219 Q731.4453,2174.9219 733.0078,2174.4141 Q733.9063,2174.1406 734.9219,2173.2422 Q735.5859,2172.7344 735.9375,2172.5781 Q736.2891,2172.4219 736.7188,2172.4219 Q737.5391,2172.4219 738.125,2173.0859 Q738.75,2173.7109 738.75,2174.6094 Q738.75,2175.4688 737.8906,2176.4844 Q736.6406,2177.9688 734.6484,2178.7891 Q732.0313,2179.9219 728.8281,2179.9219 Q725.0781,2179.9219 722.0703,2178.4375 Q719.6484,2177.2656 717.9297,2174.7266 Q716.25,2172.1875 716.25,2169.1797 L716.25,2166.4453 Q716.25,2163.3203 717.7344,2160.5859 Q719.2578,2157.8516 721.875,2156.4063 Q724.5313,2154.9219 727.5,2154.9219 Q729.2969,2154.9219 730.8594,2155.5469 Q732.4219,2156.1719 733.75,2157.4219 Z " fill="#000000"/><polygon fill="#4177AF" points="776.25,2154.9219,766.25,2169.9219,786.25,2169.9219" style="stroke:#1963A0;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="791.25" y="2178.4473">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="417.5" x="858.75" y="2178.4473">CardSelectionRequestAdapter</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="693.75" x2="1281.25" y1="2206.1719" y2="2206.1719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="706.25" y="2244.7192">...</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="693.75" x2="1281.25" y1="2260.7617" y2="2260.7617"/><!--MD5=[100e1c59935069e6272495215bd566ac]
+class CardRequestAdapter--><rect codeLine="200" fill="#EBF5FB" height="154.5898" id="CardRequestAdapter" style="stroke:#3498DB;stroke-width:3.75;" width="465" x="1372.5" y="2126.1719"/><ellipse cx="1410" cy="2166.1719" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M1415,2157.4219 Q1415.5078,2156.1719 1416.0938,2155.5469 Q1416.6797,2154.9219 1417.3438,2154.9219 Q1418.5156,2154.9219 1419.2578,2155.625 Q1420,2156.3281 1420,2157.9688 L1420,2161.875 Q1420,2163.5156 1419.2969,2164.2188 Q1418.5938,2164.9219 1417.5,2164.9219 Q1416.5234,2164.9219 1415.8984,2164.4922 Q1415.2734,2164.0625 1415,2162.9297 Q1414.8828,2162.1484 1414.4531,2161.7188 Q1413.6719,2160.8984 1412.2656,2160.4297 Q1410.8594,2159.9219 1409.4531,2159.9219 Q1407.6953,2159.9219 1406.2109,2160.625 Q1404.7656,2161.3281 1403.6328,2162.8906 Q1402.5,2164.4531 1402.5,2166.6016 L1402.5,2168.9063 Q1402.5,2171.4844 1404.6094,2173.2031 Q1406.7188,2174.9219 1410.4688,2174.9219 Q1412.6953,2174.9219 1414.2578,2174.4141 Q1415.1563,2174.1406 1416.1719,2173.2422 Q1416.8359,2172.7344 1417.1875,2172.5781 Q1417.5391,2172.4219 1417.9688,2172.4219 Q1418.7891,2172.4219 1419.375,2173.0859 Q1420,2173.7109 1420,2174.6094 Q1420,2175.4688 1419.1406,2176.4844 Q1417.8906,2177.9688 1415.8984,2178.7891 Q1413.2813,2179.9219 1410.0781,2179.9219 Q1406.3281,2179.9219 1403.3203,2178.4375 Q1400.8984,2177.2656 1399.1797,2174.7266 Q1397.5,2172.1875 1397.5,2169.1797 L1397.5,2166.4453 Q1397.5,2163.3203 1398.9844,2160.5859 Q1400.5078,2157.8516 1403.125,2156.4063 Q1405.7813,2154.9219 1408.75,2154.9219 Q1410.5469,2154.9219 1412.1094,2155.5469 Q1413.6719,2156.1719 1415,2157.4219 Z " fill="#000000"/><polygon fill="#4177AF" points="1457.5,2154.9219,1447.5,2169.9219,1467.5,2169.9219" style="stroke:#1963A0;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="1472.5" y="2178.4473">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="290" x="1540" y="2178.4473">CardRequestAdapter</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="1375" x2="1835" y1="2206.1719" y2="2206.1719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="1387.5" y="2244.7192">...</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="1375" x2="1835" y1="2260.7617" y2="2260.7617"/><!--MD5=[702c384917d520aca1ef7db480e71741]
+class ApduRequestAdapter--><rect codeLine="201" fill="#EBF5FB" height="154.5898" id="ApduRequestAdapter" style="stroke:#3498DB;stroke-width:3.75;" width="470" x="1925" y="2126.1719"/><ellipse cx="1962.5" cy="2166.1719" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M1967.5,2157.4219 Q1968.0078,2156.1719 1968.5938,2155.5469 Q1969.1797,2154.9219 1969.8438,2154.9219 Q1971.0156,2154.9219 1971.7578,2155.625 Q1972.5,2156.3281 1972.5,2157.9688 L1972.5,2161.875 Q1972.5,2163.5156 1971.7969,2164.2188 Q1971.0938,2164.9219 1970,2164.9219 Q1969.0234,2164.9219 1968.3984,2164.4922 Q1967.7734,2164.0625 1967.5,2162.9297 Q1967.3828,2162.1484 1966.9531,2161.7188 Q1966.1719,2160.8984 1964.7656,2160.4297 Q1963.3594,2159.9219 1961.9531,2159.9219 Q1960.1953,2159.9219 1958.7109,2160.625 Q1957.2656,2161.3281 1956.1328,2162.8906 Q1955,2164.4531 1955,2166.6016 L1955,2168.9063 Q1955,2171.4844 1957.1094,2173.2031 Q1959.2188,2174.9219 1962.9688,2174.9219 Q1965.1953,2174.9219 1966.7578,2174.4141 Q1967.6563,2174.1406 1968.6719,2173.2422 Q1969.3359,2172.7344 1969.6875,2172.5781 Q1970.0391,2172.4219 1970.4688,2172.4219 Q1971.2891,2172.4219 1971.875,2173.0859 Q1972.5,2173.7109 1972.5,2174.6094 Q1972.5,2175.4688 1971.6406,2176.4844 Q1970.3906,2177.9688 1968.3984,2178.7891 Q1965.7813,2179.9219 1962.5781,2179.9219 Q1958.8281,2179.9219 1955.8203,2178.4375 Q1953.3984,2177.2656 1951.6797,2174.7266 Q1950,2172.1875 1950,2169.1797 L1950,2166.4453 Q1950,2163.3203 1951.4844,2160.5859 Q1953.0078,2157.8516 1955.625,2156.4063 Q1958.2813,2154.9219 1961.25,2154.9219 Q1963.0469,2154.9219 1964.6094,2155.5469 Q1966.1719,2156.1719 1967.5,2157.4219 Z " fill="#000000"/><polygon fill="#4177AF" points="2010,2154.9219,2000,2169.9219,2020,2169.9219" style="stroke:#1963A0;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="2025" y="2178.4473">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="295" x="2092.5" y="2178.4473">ApduRequestAdapter</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="1927.5" x2="2392.5" y1="2206.1719" y2="2206.1719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="1940" y="2244.7192">...</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="1927.5" x2="2392.5" y1="2260.7617" y2="2260.7617"/><!--MD5=[882619f7d194dd02a0d8af00ce730c5c]
+class CardSelectionAdapter--><rect codeLine="194" fill="#EBF5FB" height="154.5898" id="CardSelectionAdapter" style="stroke:#3498DB;stroke-width:3.75;" width="477.5" x="2536.25" y="2126.1719"/><ellipse cx="2573.75" cy="2166.1719" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M2578.75,2157.4219 Q2579.2578,2156.1719 2579.8438,2155.5469 Q2580.4297,2154.9219 2581.0938,2154.9219 Q2582.2656,2154.9219 2583.0078,2155.625 Q2583.75,2156.3281 2583.75,2157.9688 L2583.75,2161.875 Q2583.75,2163.5156 2583.0469,2164.2188 Q2582.3438,2164.9219 2581.25,2164.9219 Q2580.2734,2164.9219 2579.6484,2164.4922 Q2579.0234,2164.0625 2578.75,2162.9297 Q2578.6328,2162.1484 2578.2031,2161.7188 Q2577.4219,2160.8984 2576.0156,2160.4297 Q2574.6094,2159.9219 2573.2031,2159.9219 Q2571.4453,2159.9219 2569.9609,2160.625 Q2568.5156,2161.3281 2567.3828,2162.8906 Q2566.25,2164.4531 2566.25,2166.6016 L2566.25,2168.9063 Q2566.25,2171.4844 2568.3594,2173.2031 Q2570.4688,2174.9219 2574.2188,2174.9219 Q2576.4453,2174.9219 2578.0078,2174.4141 Q2578.9063,2174.1406 2579.9219,2173.2422 Q2580.5859,2172.7344 2580.9375,2172.5781 Q2581.2891,2172.4219 2581.7188,2172.4219 Q2582.5391,2172.4219 2583.125,2173.0859 Q2583.75,2173.7109 2583.75,2174.6094 Q2583.75,2175.4688 2582.8906,2176.4844 Q2581.6406,2177.9688 2579.6484,2178.7891 Q2577.0313,2179.9219 2573.8281,2179.9219 Q2570.0781,2179.9219 2567.0703,2178.4375 Q2564.6484,2177.2656 2562.9297,2174.7266 Q2561.25,2172.1875 2561.25,2169.1797 L2561.25,2166.4453 Q2561.25,2163.3203 2562.7344,2160.5859 Q2564.2578,2157.8516 2566.875,2156.4063 Q2569.5313,2154.9219 2572.5,2154.9219 Q2574.2969,2154.9219 2575.8594,2155.5469 Q2577.4219,2156.1719 2578.75,2157.4219 Z " fill="#000000"/><polygon fill="#4177AF" points="2621.25,2154.9219,2611.25,2169.9219,2631.25,2169.9219" style="stroke:#1963A0;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="2636.25" y="2178.4473">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="302.5" x="2703.75" y="2178.4473">CardSelectionAdapter</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="2538.75" x2="3011.25" y1="2206.1719" y2="2206.1719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="2551.25" y="2244.7192">...</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="2538.75" x2="3011.25" y1="2260.7617" y2="2260.7617"/><!--MD5=[74be6c823d8eb896a99a3fd29ebe64fc]
+class CalypsoCardAdapter--><rect codeLine="197" fill="#EBF5FB" height="154.5898" id="CalypsoCardAdapter" style="stroke:#3498DB;stroke-width:3.75;" width="462.5" x="3666.25" y="2126.1719"/><ellipse cx="3703.75" cy="2166.1719" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M3708.75,2157.4219 Q3709.2578,2156.1719 3709.8438,2155.5469 Q3710.4297,2154.9219 3711.0938,2154.9219 Q3712.2656,2154.9219 3713.0078,2155.625 Q3713.75,2156.3281 3713.75,2157.9688 L3713.75,2161.875 Q3713.75,2163.5156 3713.0469,2164.2188 Q3712.3438,2164.9219 3711.25,2164.9219 Q3710.2734,2164.9219 3709.6484,2164.4922 Q3709.0234,2164.0625 3708.75,2162.9297 Q3708.6328,2162.1484 3708.2031,2161.7188 Q3707.4219,2160.8984 3706.0156,2160.4297 Q3704.6094,2159.9219 3703.2031,2159.9219 Q3701.4453,2159.9219 3699.9609,2160.625 Q3698.5156,2161.3281 3697.3828,2162.8906 Q3696.25,2164.4531 3696.25,2166.6016 L3696.25,2168.9063 Q3696.25,2171.4844 3698.3594,2173.2031 Q3700.4688,2174.9219 3704.2188,2174.9219 Q3706.4453,2174.9219 3708.0078,2174.4141 Q3708.9063,2174.1406 3709.9219,2173.2422 Q3710.5859,2172.7344 3710.9375,2172.5781 Q3711.2891,2172.4219 3711.7188,2172.4219 Q3712.5391,2172.4219 3713.125,2173.0859 Q3713.75,2173.7109 3713.75,2174.6094 Q3713.75,2175.4688 3712.8906,2176.4844 Q3711.6406,2177.9688 3709.6484,2178.7891 Q3707.0313,2179.9219 3703.8281,2179.9219 Q3700.0781,2179.9219 3697.0703,2178.4375 Q3694.6484,2177.2656 3692.9297,2174.7266 Q3691.25,2172.1875 3691.25,2169.1797 L3691.25,2166.4453 Q3691.25,2163.3203 3692.7344,2160.5859 Q3694.2578,2157.8516 3696.875,2156.4063 Q3699.5313,2154.9219 3702.5,2154.9219 Q3704.2969,2154.9219 3705.8594,2155.5469 Q3707.4219,2156.1719 3708.75,2157.4219 Z " fill="#000000"/><polygon fill="#4177AF" points="3751.25,2154.9219,3741.25,2169.9219,3761.25,2169.9219" style="stroke:#1963A0;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="3766.25" y="2178.4473">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="287.5" x="3833.75" y="2178.4473">CalypsoCardAdapter</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="3668.75" x2="4126.25" y1="2206.1719" y2="2206.1719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="3681.25" y="2244.7192">...</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="3668.75" x2="4126.25" y1="2260.7617" y2="2260.7617"/><!--MD5=[df46e55dcc92872ee2e93c4b6b6d3282]
+class SamSelectionAdapter--><rect codeLine="195" fill="#EBF5FB" height="154.5898" id="SamSelectionAdapter" style="stroke:#3498DB;stroke-width:3.75;" width="475" x="3102.5" y="2126.1719"/><ellipse cx="3140" cy="2166.1719" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M3145,2157.4219 Q3145.5078,2156.1719 3146.0938,2155.5469 Q3146.6797,2154.9219 3147.3438,2154.9219 Q3148.5156,2154.9219 3149.2578,2155.625 Q3150,2156.3281 3150,2157.9688 L3150,2161.875 Q3150,2163.5156 3149.2969,2164.2188 Q3148.5938,2164.9219 3147.5,2164.9219 Q3146.5234,2164.9219 3145.8984,2164.4922 Q3145.2734,2164.0625 3145,2162.9297 Q3144.8828,2162.1484 3144.4531,2161.7188 Q3143.6719,2160.8984 3142.2656,2160.4297 Q3140.8594,2159.9219 3139.4531,2159.9219 Q3137.6953,2159.9219 3136.2109,2160.625 Q3134.7656,2161.3281 3133.6328,2162.8906 Q3132.5,2164.4531 3132.5,2166.6016 L3132.5,2168.9063 Q3132.5,2171.4844 3134.6094,2173.2031 Q3136.7188,2174.9219 3140.4688,2174.9219 Q3142.6953,2174.9219 3144.2578,2174.4141 Q3145.1563,2174.1406 3146.1719,2173.2422 Q3146.8359,2172.7344 3147.1875,2172.5781 Q3147.5391,2172.4219 3147.9688,2172.4219 Q3148.7891,2172.4219 3149.375,2173.0859 Q3150,2173.7109 3150,2174.6094 Q3150,2175.4688 3149.1406,2176.4844 Q3147.8906,2177.9688 3145.8984,2178.7891 Q3143.2813,2179.9219 3140.0781,2179.9219 Q3136.3281,2179.9219 3133.3203,2178.4375 Q3130.8984,2177.2656 3129.1797,2174.7266 Q3127.5,2172.1875 3127.5,2169.1797 L3127.5,2166.4453 Q3127.5,2163.3203 3128.9844,2160.5859 Q3130.5078,2157.8516 3133.125,2156.4063 Q3135.7813,2154.9219 3138.75,2154.9219 Q3140.5469,2154.9219 3142.1094,2155.5469 Q3143.6719,2156.1719 3145,2157.4219 Z " fill="#000000"/><polygon fill="#4177AF" points="3187.5,2154.9219,3177.5,2169.9219,3197.5,2169.9219" style="stroke:#1963A0;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="3202.5" y="2178.4473">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="300" x="3270" y="2178.4473">SamSelectionAdapter</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="3105" x2="3575" y1="2206.1719" y2="2206.1719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="3117.5" y="2244.7192">...</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="3105" x2="3575" y1="2260.7617" y2="2260.7617"/><!--MD5=[d9d95aee4ef8ae82f43c1f98fc4ba718]
+class CalypsoSamAdapter--><rect codeLine="198" fill="#EBF5FB" height="154.5898" id="CalypsoSamAdapter" style="stroke:#3498DB;stroke-width:3.75;" width="460" x="4217.5" y="2126.1719"/><ellipse cx="4255" cy="2166.1719" fill="#ADD1B2" rx="27.5" ry="27.5" style="stroke:#ADD1B2;stroke-width:2.5;"/><path d="M4260,2157.4219 Q4260.5078,2156.1719 4261.0938,2155.5469 Q4261.6797,2154.9219 4262.3438,2154.9219 Q4263.5156,2154.9219 4264.2578,2155.625 Q4265,2156.3281 4265,2157.9688 L4265,2161.875 Q4265,2163.5156 4264.2969,2164.2188 Q4263.5938,2164.9219 4262.5,2164.9219 Q4261.5234,2164.9219 4260.8984,2164.4922 Q4260.2734,2164.0625 4260,2162.9297 Q4259.8828,2162.1484 4259.4531,2161.7188 Q4258.6719,2160.8984 4257.2656,2160.4297 Q4255.8594,2159.9219 4254.4531,2159.9219 Q4252.6953,2159.9219 4251.2109,2160.625 Q4249.7656,2161.3281 4248.6328,2162.8906 Q4247.5,2164.4531 4247.5,2166.6016 L4247.5,2168.9063 Q4247.5,2171.4844 4249.6094,2173.2031 Q4251.7188,2174.9219 4255.4688,2174.9219 Q4257.6953,2174.9219 4259.2578,2174.4141 Q4260.1563,2174.1406 4261.1719,2173.2422 Q4261.8359,2172.7344 4262.1875,2172.5781 Q4262.5391,2172.4219 4262.9688,2172.4219 Q4263.7891,2172.4219 4264.375,2173.0859 Q4265,2173.7109 4265,2174.6094 Q4265,2175.4688 4264.1406,2176.4844 Q4262.8906,2177.9688 4260.8984,2178.7891 Q4258.2813,2179.9219 4255.0781,2179.9219 Q4251.3281,2179.9219 4248.3203,2178.4375 Q4245.8984,2177.2656 4244.1797,2174.7266 Q4242.5,2172.1875 4242.5,2169.1797 L4242.5,2166.4453 Q4242.5,2163.3203 4243.9844,2160.5859 Q4245.5078,2157.8516 4248.125,2156.4063 Q4250.7813,2154.9219 4253.75,2154.9219 Q4255.5469,2154.9219 4257.1094,2155.5469 Q4258.6719,2156.1719 4260,2157.4219 Z " fill="#000000"/><polygon fill="#4177AF" points="4302.5,2154.9219,4292.5,2169.9219,4312.5,2169.9219" style="stroke:#1963A0;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="60" x="4317.5" y="2178.4473">final</text><text fill="#000000" font-family="sans-serif" font-size="30" font-style="italic" lengthAdjust="spacing" textLength="285" x="4385" y="2178.4473">CalypsoSamAdapter</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="4220" x2="4675" y1="2206.1719" y2="2206.1719"/><text fill="#000000" font-family="sans-serif" font-size="27.5" lengthAdjust="spacing" textLength="22.5" x="4232.5" y="2244.7192">...</text><line style="stroke:#3498DB;stroke-width:3.75;" x1="4220" x2="4675" y1="2260.7617" y2="2260.7617"/><!--MD5=[67b6c68197447519cfc4b6618433c855]
+reverse link CardSelection to CalypsoCardSelection--><path d="M3659.1,528.9719 C3623.475,556.2819 3585.35,587.4494 3552.5,618.6719 C3479.7,687.8769 3406.1,776.4569 3357.3,838.4144 " fill="none" id="CardSelection-backto-CalypsoCardSelection" style="stroke:#A80036;stroke-width:2.5;"/><polygon fill="none" points="3648.825,514.8144,3699.35,498.9169,3669.775,542.8569,3648.825,514.8144" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[55703707fc36e730131628194fb311b6]
+reverse link SmartCard to CalypsoCard--><path d="M4043.85,553.4594 C4024.075,574.9169 4003.75,597.3394 3985,618.6719 C3920.825,691.6819 3850.175,777.3669 3801.3,837.5194 " fill="none" id="SmartCard-backto-CalypsoCard" style="stroke:#A80036;stroke-width:2.5;"/><polygon fill="none" points="4031.525,541.0194,4078.4,516.3294,4057.15,564.8594,4031.525,541.0194" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[7c7915d80842cdb9318ba4bb4a9340f5]
+reverse link CardSelection to CalypsoSamSelection--><path d="M3872.325,535.4769 C3956.975,624.3744 4082.225,755.8844 4160.5,838.0844 " fill="none" id="CardSelection-backto-CalypsoSamSelection" style="stroke:#A80036;stroke-width:2.5;"/><polygon fill="none" points="3859.5,547.3844,3837.675,499.1094,3884.825,523.2469,3859.5,547.3844" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[a39c3ce9bc40c3d2770646cc9f7761fc]
+reverse link SmartCard to CalypsoSam--><path d="M4324.625,513.1419 C4379.1,540.9069 4436.8,576.3119 4482.5,618.6719 C4550.15,681.3769 4603.575,773.6194 4635.8,838.2169 " fill="none" id="SmartCard-backto-CalypsoSam" style="stroke:#A80036;stroke-width:2.5;"/><polygon fill="none" points="4316.475,528.6319,4279,491.1819,4331.65,497.0944,4316.475,528.6319" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[bcb968b89243cb240534d087caae9f39]
+reverse link KeypleCardExtension to CalypsoCardExtension--><path d="M1743.87,1031.7594 C1805.105,1100.0719 1884.3675,1188.4994 1953.2575,1265.3494 " fill="none" id="KeypleCardExtension-backto-CalypsoCardExtension" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1730.4575,1043.0144,1710.115,994.1019,1756.52,1019.6544,1730.4575,1043.0144" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[b0c3d4acce23323b7e53ba55287d629d]
+reverse link CardSecuritySetting to CardSecuritySettingAdapter--><path d="M2351.0425,1028.1394 C2387.2725,1058.5819 2428.63,1089.8019 2470,1113.6719 C2517.2,1140.9044 2553.85,1111.4594 2585,1156.1719 C2731.7,1366.7844 2764.35,1550.0719 2585,1733.6719 C2551.8,1767.6594 1776.47,1743.7719 1730,1753.6719 C1670.635,1766.3194 1608.44,1789.6869 1554.6825,1813.4669 " fill="none" id="CardSecuritySetting-backto-CardSecuritySettingAdapter" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="2338.7225,1040.6169,2312.59,994.5369,2361.755,1014.2619,2338.7225,1040.6169" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[93acfe6997c89af586817c324611cacf]
+reverse link CardTransactionService to CardTransactionServiceAdapter--><path d="M2773.4,1042.5144 C2823.8,1221.3594 2882.625,1550.5194 2705,1733.6719 C2680.975,1758.4494 2428.57,1745.6469 2395,1753.6719 C2338.29,1767.2294 2278.8375,1790.1894 2227.05,1813.3694 " fill="none" id="CardTransactionService-backto-CardTransactionServiceAdapter" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="2756.525,1047.1494,2758.95,994.2319,2790.05,1037.1194,2756.525,1047.1494" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[ab8e579a1b8e72346f5d186bc80313b4]
+reverse link CardSelectorSpi to CardSelectorAdapter--><path d="M732.4425,2518.6319 C698.065,2486.8969 660.25,2452.4119 625,2421.1719 C572,2374.2019 511.64,2322.7344 463.2275,2281.9344 " fill="none" id="CardSelectorSpi-backto-CardSelectorAdapter" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="744.7125,2506.1444,769.475,2552.9746,720.9125,2531.8069,744.7125,2506.1444" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[09ea485f7c1a06d1f3c6537f7fdbbbcb]
+link CardSelectorAdapter to CardSelectorSpi--><!--MD5=[4ee34067652aa9a1b27356309ad5cc55]
+reverse link CardSelectionRequestSpi to CardSelectionRequestAdapter--><path d="M1241.03,2514.4219 C1180.25,2440.5219 1102.83,2346.3944 1049.625,2281.7069 " fill="none" id="CardSelectionRequestSpi-backto-CardSelectionRequestAdapter" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1254.5825,2503.3469,1272.8275,2553.0801,1227.55,2525.5794,1254.5825,2503.3469" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[e0cd13c02551a52f14d3dde67c444430]
+link CardSelectionRequestAdapter to CardSelectionRequestSpi--><!--MD5=[fee7c39d2b7ca32b51cea31894a49b3e]
+reverse link CardRequestSpi to CardRequestAdapter--><path d="M1769.1075,2507.2819 C1755.9775,2478.7994 1741.625,2448.7294 1727.5,2421.1719 C1703.3975,2374.1469 1674.1775,2322.6769 1650.3225,2281.8894 " fill="none" id="CardRequestSpi-backto-CardRequestAdapter" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1785.12,2500.2219,1789.785,2552.9899,1753.23,2514.6469,1785.12,2500.2219" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[d23e39c9eba8f7513b53777eeebf059d]
+link CardRequestAdapter to CardRequestSpi--><!--MD5=[2e7b2631130bcf997502918bb0c8ace7]
+reverse link ApduRequestSpi to ApduRequestAdapter--><path d="M2221.6875,2504.0319 C2206.7425,2431.8694 2188.42,2343.3994 2175.6425,2281.7069 " fill="none" id="ApduRequestSpi-backto-ApduRequestAdapter" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="2238.84,2500.5694,2231.845,2553.0801,2204.5675,2507.6694,2238.84,2500.5694" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[e23e49f2e91f2a61b555fafbc5c430fa]
+link ApduRequestAdapter to ApduRequestSpi--><!--MD5=[66294c595dc85406c3b3a91e9c25592d]
+reverse link CalypsoCardSelection to CardSelectionAdapter--><path d="M3337.725,1042.6769 C3399.6,1273.9269 3491.55,1772.2944 3232.5,2046.1719 C3205.975,2074.2069 3097.1,2055.5469 3060,2066.1719 C3009.475,2080.6419 2956.75,2103.2444 2910.6,2125.8444 " fill="none" id="CalypsoCardSelection-backto-CardSelectionAdapter" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="3320.825,1047.2369,3324.175,994.3694,3354.525,1037.7894,3320.825,1047.2369" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[0ef400922815e7dd748cddf286752fa6]
+reverse link CardSelectionSpi to CardSelectionAdapter--><path d="M2708.025,2504.0319 C2724.25,2431.8694 2744.15,2343.3994 2758.025,2281.7069 " fill="none" id="CardSelectionSpi-backto-CardSelectionAdapter" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="2725.05,2508.1369,2697,2553.0801,2690.9,2500.4594,2725.05,2508.1369" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[2a1bb015db254be1a47ee043237b6d25]
+link CardSelectionAdapter to CardSelectionSpi--><!--MD5=[8f414a9ce77933df9ca9c9baa567803f]
+reverse link CalypsoCard to CalypsoCardAdapter--><path d="M3755.425,1044.2669 C3787.825,1308.1769 3862.175,1913.4319 3888.25,2125.8294 " fill="none" id="CalypsoCard-backto-CalypsoCardAdapter" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="3738,1045.8694,3749.275,994.1094,3772.725,1041.6044,3738,1045.8694" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[046c46f027811137f8274cf0f3daefa7]
+reverse link SmartCardSpi to CalypsoCardAdapter--><path d="M3291.025,2555.0621 C3392.6,2514.5194 3516.8,2460.4469 3622.5,2401.1719 C3685.025,2366.0994 3750.7,2319.9419 3802.15,2281.3394 " fill="none" id="SmartCardSpi-backto-CalypsoCardAdapter" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="3296.8,2571.5861,3243.875,2573.5569,3284.025,2539.0039,3296.8,2571.5861" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[ad99796e08907cb6fd9b7bae20fe966a]
+link CalypsoCardAdapter to SmartCardSpi--><!--MD5=[3a5b099fab2eb6d8d6dddfb0b4b74c8b]
+reverse link CalypsoSamSelection to SamSelectionAdapter--><path d="M4202.15,1043.1169 C4156.75,1211.5894 4059.025,1516.1344 3900,1733.6719 C3778.55,1899.8119 3585.65,2043.3994 3460.925,2126.1244 " fill="none" id="CalypsoSamSelection-backto-SamSelectionAdapter" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="4185.275,1038.4419,4214.825,994.4669,4219.15,1047.2619,4185.275,1038.4419" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[453829a12649445fc986926ed91b75aa]
+reverse link CardSelectionSpi to SamSelectionAdapter--><path d="M2785.95,2518.7269 C2819.075,2490.1194 2857.525,2462.1694 2897.5,2443.6719 C2947.575,2420.5069 2968.2,2442.6469 3020,2423.6719 C3107.35,2391.6719 3193.85,2330.6344 3254.85,2281.3469 " fill="none" id="CardSelectionSpi-backto-SamSelectionAdapter" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="2797,2532.3244,2748.4,2553.3604,2773.275,2506.5969,2797,2532.3244" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[82677d7e27accbce8cf2d3eef77b04a2]
+link SamSelectionAdapter to CardSelectionSpi--><!--MD5=[6855fd01dd32957e410a6f2d2fa5c66d]
+reverse link CalypsoSam to CalypsoSamAdapter--><path d="M4648.35,1043.4419 C4602.65,1306.9119 4497.45,1913.2094 4460.575,2125.8294 " fill="none" id="CalypsoSam-backto-CalypsoSamAdapter" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="4631.125,1040.3819,4656.9,994.1094,4665.6,1046.3644,4631.125,1040.3819" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[85be9da7f2f4097a9763cd30dd46c44e]
+reverse link SmartCardSpi to CalypsoSamAdapter--><path d="M3294.275,2610.9739 C3517.05,2585.8679 3882.475,2527.9869 4172.5,2401.1719 C4240.6,2371.3919 4308.825,2323.1694 4360.275,2282.1294 " fill="none" id="SmartCardSpi-backto-CalypsoSamAdapter" style="stroke:#A80036;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="3295.825,2628.4084,3244.25,2616.3301,3292.1,2593.6071,3295.825,2628.4084" style="stroke:#A80036;stroke-width:2.5;"/><!--MD5=[c63d439d8a31d09fcbb6938548d5bcfd]
+link CalypsoSamAdapter to SmartCardSpi--><!--MD5=[875db344e31a181c827c25443ca9b334]
+link CalypsoCardExtension to CardSelectionAdapter--><path codeLine="161" d="M2500.275,1570.6919 C2584.875,1615.8444 2665.225,1675.5394 2720,1753.6719 C2794.4,1859.7869 2795.575,2015.8244 2787.1,2112.8219 " fill="none" id="CalypsoCardExtension-to-CardSelectionAdapter" style="stroke:#3498DB;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#3498DB" points="2785.925,2125.5194,2797.9804,2104.0504,2787.0911,2113.0739,2778.0676,2102.1846,2785.925,2125.5194" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#000000" points="2808.3457,1902.6602,2804.2652,1879.2366,2791.2764,1886.1086,2808.3457,1902.6602" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="2825" y="1904.9097">provide</text><!--MD5=[7c279af6df8504021421340de23594ca]
+link CalypsoCardExtension to SamSelectionAdapter--><path codeLine="162" d="M2306.1425,1614.3819 C2350.9775,1657.6394 2396.615,1705.5244 2435,1753.6719 C2504.25,1840.5394 2471.76,1904.5744 2562.5,1968.6719 C2745.65,2098.0419 2844.675,1995.6094 3057.5,2066.1719 C3101.35,2080.7144 3147.25,2100.4844 3188.975,2120.4069 " fill="none" id="CalypsoCardExtension-to-SamSelectionAdapter" style="stroke:#3498DB;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#3498DB" points="3200.625,2126.0244,3184.6997,2107.2458,3189.3651,2120.5962,3176.0147,2125.2616,3200.625,2126.0244" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#000000" points="2585.8448,1897.8274,2569.8801,1880.208,2562.5726,1892.9568,2585.8448,1897.8274" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="2597.5" y="1904.9097">provide</text><!--MD5=[12204101cabb326678914c5d5161a5bf]
+link CalypsoCardExtension to CardSecuritySettingAdapter--><path codeLine="163" d="M1838.8625,1613.6769 C1735.1775,1679.7769 1621.4075,1752.3069 1536.75,1806.2744 " fill="none" id="CalypsoCardExtension-to-CardSecuritySettingAdapter" style="stroke:#3498DB;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#3498DB" points="1525.5275,1813.4294,1549.8765,1809.7719,1536.0693,1806.7122,1539.129,1792.905,1525.5275,1813.4294" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#000000" points="1719.4597,1718.3308,1742.4769,1712.3706,1734.5777,1699.9797,1719.4597,1718.3308" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="1752.5" y="1724.9097">provide</text><!--MD5=[11795b70d5a433335bfa3035bc4d2809]
+link CalypsoCardExtension to CardTransactionServiceAdapter--><path codeLine="164" d="M2096.9475,1613.6769 C2093.02,1677.3919 2088.725,1747.0794 2085.4425,1800.3594 " fill="none" id="CalypsoCardExtension-to-CardTransactionServiceAdapter" style="stroke:#3498DB;stroke-width:2.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#3498DB" points="2084.6725,1812.8444,2096.0421,1791.0045,2085.444,1800.3682,2076.0803,1789.7701,2084.6725,1812.8444" style="stroke:#3498DB;stroke-width:2.5;"/><polygon fill="#000000" points="2104.2311,1724.0877,2112.9555,1701.9697,2098.2887,1701.0658,2104.2311,1724.0877" style="stroke:#000000;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="32.5" lengthAdjust="spacing" textLength="100" x="2127.5" y="1724.9097">provide</text><!--MD5=[a8cee3f323526e06446d54c1bd08d44d]
+link CardSecuritySetting to CalypsoCardExtension--><!--MD5=[fc540618761c75f55671a024080c089a]
+link CardSecuritySettingAdapter to CardSelectorAdapter--><!--MD5=[05cd9b3ee91e8a3d401a5e9456f269c2]
+link CardSelectorAdapter to CardSelectionRequestAdapter--><!--MD5=[b4acbbed4eaa08e02b9684b7dc642b88]
+link CardSelectionRequestAdapter to CardRequestAdapter--><!--MD5=[0fbd6b80c42cd2e58cdd8d6c63266eed]
+link CardRequestAdapter to ApduRequestAdapter--><!--MD5=[07b0649abd81285d40efb643f7a4c502]
+link ApduRequestAdapter to CardSelectionAdapter--><!--MD5=[8d0ad13883462027a65c0bdc958f24f3]
+@startuml
+title
+    Keyple 2.0 - Specific Calypso Card Extension - 2.0.0 (07/06/2021)
+end title
+
+' == THEME ==
+
+'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define C_GREY1 F8F9F9
+!define C_GREY2 F2F3F4
+!define C_GREY3 E5E7E9
+!define C_GREY4 D7DBDD
+!define C_GREY5 CACFD2
+!define C_GREY6 BDC3C7
+!define C_LINK 3498DB
+!define C_USE 27AE60
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+' Red
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+' Purple
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+' blue
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+' Green
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+' Grey
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+' == CONTENT ==
+
+legend top
+    __Colors legend__ :
+    * <back:yellow>Public API for end users</back>
+    * <back:lightBlue>Private API for internal use only</back>
+end legend
+
+package "org.eclipse.keyple.core.common" as commonsApi {
+    +interface KeypleCardExtension {
+        ...
+    }
+}
+package "org.calypsonet.terminal.reader.selection.spi" as readerSelectionSpi {
+    +interface CardSelection {
+    }
+    +interface SmartCard {
+        ...
+    }
+}
+package "org.calypsonet.terminal.calypso" as calypsoApi {
+    package "transaction" as calypsoTransactionApi {
+        +interface CardSecuritySetting {
+            ...
+        }
+        +interface CardTransactionService {
+            ...
+        }
+    }
+    package "card" as calypsoCardApi {
+        +interface CalypsoCardSelection extends CardSelection {
+            ...
+        }
+        +interface CalypsoCard extends SmartCard {
+            ...
+        }
+    }
+    package "sam" as calypsoSamApi {
+        +interface CalypsoSamSelection extends CardSelection {
+            ...
+        }
+        +interface CalypsoSam extends SmartCard {
+            ...
+        }
+    }
+}
+package "org.calypsonet.terminal.card.spi" as cardSpi {
+    +interface CardSelectionSpi {
+        ...
+    }
+    +interface SmartCardSpi {
+    }
+    +interface CardSelectorSpi {
+        ...
+    }
+    +interface CardSelectionRequestSpi {
+        ...
+    }
+    +interface CardRequestSpi {
+        ...
+    }
+    +interface ApduRequestSpi {
+        ...
+    }
+}
+
+package "org.eclipse.keyple.card.calypso (specific calypso extension)" as specificExtension {
+    +class "**final** CalypsoCardExtension" as CalypsoCardExtension implements KeypleCardExtension {
+        - -
+        +{static} CalypsoCardExtension getInstance ()
+        ..
+        +CalypsoCardSelection createCalypsoCardSelection ()
+        +CalypsoSamSelection createCalypsoSamSelection ()
+        +CardSecuritySetting createCardSecuritySetting (...)
+        +CardTransactionService createCardTransactionService (...)
+        ...
+    }
+    ' Adapters
+    together {
+        ~class "**final** CardSecuritySettingAdapter" as CardSecuritySettingAdapter implements CardSecuritySetting {
+            ...
+        }
+        ~class "**final** CardTransactionServiceAdapter" as CardTransactionServiceAdapter implements CardTransactionService {
+            ...
+        }
+        ~class "**final** CardSelectorAdapter" as CardSelectorAdapter implements CardSelectorSpi {
+            ...
+        }
+        ~class "**final** CardSelectionRequestAdapter" as CardSelectionRequestAdapter implements CardSelectionRequestSpi {
+            ...
+        }
+        ~class "**final** CardRequestAdapter" as CardRequestAdapter implements CardRequestSpi {
+            ...
+        }
+        ~class "**final** ApduRequestAdapter" as ApduRequestAdapter implements ApduRequestSpi {
+            ...
+        }
+    }
+    together {
+        ~class "**final** CardSelectionAdapter" as CardSelectionAdapter implements CalypsoCardSelection, CardSelectionSpi {
+            ...
+        }
+        ~class "**final** CalypsoCardAdapter" as CalypsoCardAdapter implements CalypsoCard, SmartCardSpi {
+            ...
+        }
+        ~class "**final** SamSelectionAdapter" as SamSelectionAdapter implements CalypsoSamSelection, CardSelectionSpi {
+            ...
+        }
+        ~class "**final** CalypsoSamAdapter" as CalypsoSamAdapter implements CalypsoSam, SmartCardSpi {
+            ...
+        }
+    }
+}
+
+' Associations
+
+CalypsoCardExtension ..> CardSelectionAdapter #C_LINK : provide >
+CalypsoCardExtension ..> SamSelectionAdapter #C_LINK : provide >
+CalypsoCardExtension ..> CardSecuritySettingAdapter #C_LINK : provide >
+CalypsoCardExtension ..> CardTransactionServiceAdapter #C_LINK : provide >
+
+' == LAYOUT ==
+
+CalypsoCardExtension -[hidden]up- CardSecuritySetting
+CardSecuritySettingAdapter -[hidden]- CardSelectorAdapter
+CardSelectorAdapter -[hidden]right- CardSelectionRequestAdapter
+CardSelectionRequestAdapter -[hidden]right- CardRequestAdapter
+CardRequestAdapter -[hidden]right- ApduRequestAdapter
+ApduRequestAdapter -[hidden]right- CardSelectionAdapter
+
+CalypsoCardAdapter -[hidden]- SmartCardSpi
+CardSelectionAdapter -[hidden]- CardSelectionSpi
+CalypsoSamAdapter -[hidden]- SmartCardSpi
+SamSelectionAdapter -[hidden]- CardSelectionSpi
+CardSelectorAdapter -[hidden]- CardSelectorSpi
+CardSelectionRequestAdapter -[hidden]- CardSelectionRequestSpi
+CardRequestAdapter -[hidden]- CardRequestSpi
+ApduRequestAdapter -[hidden]- ApduRequestSpi
+
+' == STYLE ==
+
+package commonsApi #C_GREY1 {}
+package specificExtension #C_GREY1 {}
+package cardSpi #C_GREY1 {}
+package readerSelectionSpi #C_GREY1 {}
+package calypsoApi #C_GREY1 {}
+package calypsoTransactionApi #C_GREY2 {}
+package calypsoCardApi #C_GREY2 {}
+
+class CardSelectionAdapter <<blue>>
+class SamSelectionAdapter <<blue>>
+class CardSelectorAdapter <<blue>>
+class CalypsoCardAdapter <<blue>>
+class CalypsoSamAdapter <<blue>>
+class CardSelectionRequestAdapter <<blue>>
+class CardRequestAdapter <<blue>>
+class ApduRequestAdapter <<blue>>
+class CardTransactionServiceAdapter <<blue>>
+class CardSecuritySettingAdapter <<blue>>
+interface CardSelectionSpi <<blue>>
+interface CardSelectorSpi <<blue>>
+interface SmartCardSpi <<blue>>
+interface CardSelectionRequestSpi <<blue>>
+interface CardRequestSpi <<blue>>
+interface ApduRequestSpi <<blue>>
+
+@enduml
+
+@startuml
+title
+    Keyple 2.0 - Specific Calypso Card Extension - 2.0.0 (07/06/2021)
+end title
+
+
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+
+legend top
+    __Colors legend__ :
+    * <back:yellow>Public API for end users</back>
+    * <back:lightBlue>Private API for internal use only</back>
+end legend
+
+package "org.eclipse.keyple.core.common" as commonsApi {
+    +interface KeypleCardExtension {
+        ...
+    }
+}
+package "org.calypsonet.terminal.reader.selection.spi" as readerSelectionSpi {
+    +interface CardSelection {
+    }
+    +interface SmartCard {
+        ...
+    }
+}
+package "org.calypsonet.terminal.calypso" as calypsoApi {
+    package "transaction" as calypsoTransactionApi {
+        +interface CardSecuritySetting {
+            ...
+        }
+        +interface CardTransactionService {
+            ...
+        }
+    }
+    package "card" as calypsoCardApi {
+        +interface CalypsoCardSelection extends CardSelection {
+            ...
+        }
+        +interface CalypsoCard extends SmartCard {
+            ...
+        }
+    }
+    package "sam" as calypsoSamApi {
+        +interface CalypsoSamSelection extends CardSelection {
+            ...
+        }
+        +interface CalypsoSam extends SmartCard {
+            ...
+        }
+    }
+}
+package "org.calypsonet.terminal.card.spi" as cardSpi {
+    +interface CardSelectionSpi {
+        ...
+    }
+    +interface SmartCardSpi {
+    }
+    +interface CardSelectorSpi {
+        ...
+    }
+    +interface CardSelectionRequestSpi {
+        ...
+    }
+    +interface CardRequestSpi {
+        ...
+    }
+    +interface ApduRequestSpi {
+        ...
+    }
+}
+
+package "org.eclipse.keyple.card.calypso (specific calypso extension)" as specificExtension {
+    +class "**final** CalypsoCardExtension" as CalypsoCardExtension implements KeypleCardExtension {
+        - -
+        +{static} CalypsoCardExtension getInstance ()
+        ..
+        +CalypsoCardSelection createCalypsoCardSelection ()
+        +CalypsoSamSelection createCalypsoSamSelection ()
+        +CardSecuritySetting createCardSecuritySetting (...)
+        +CardTransactionService createCardTransactionService (...)
+        ...
+    }
+    together {
+        ~class "**final** CardSecuritySettingAdapter" as CardSecuritySettingAdapter implements CardSecuritySetting {
+            ...
+        }
+        ~class "**final** CardTransactionServiceAdapter" as CardTransactionServiceAdapter implements CardTransactionService {
+            ...
+        }
+        ~class "**final** CardSelectorAdapter" as CardSelectorAdapter implements CardSelectorSpi {
+            ...
+        }
+        ~class "**final** CardSelectionRequestAdapter" as CardSelectionRequestAdapter implements CardSelectionRequestSpi {
+            ...
+        }
+        ~class "**final** CardRequestAdapter" as CardRequestAdapter implements CardRequestSpi {
+            ...
+        }
+        ~class "**final** ApduRequestAdapter" as ApduRequestAdapter implements ApduRequestSpi {
+            ...
+        }
+    }
+    together {
+        ~class "**final** CardSelectionAdapter" as CardSelectionAdapter implements CalypsoCardSelection, CardSelectionSpi {
+            ...
+        }
+        ~class "**final** CalypsoCardAdapter" as CalypsoCardAdapter implements CalypsoCard, SmartCardSpi {
+            ...
+        }
+        ~class "**final** SamSelectionAdapter" as SamSelectionAdapter implements CalypsoSamSelection, CardSelectionSpi {
+            ...
+        }
+        ~class "**final** CalypsoSamAdapter" as CalypsoSamAdapter implements CalypsoSam, SmartCardSpi {
+            ...
+        }
+    }
+}
+
+
+CalypsoCardExtension ..> CardSelectionAdapter #3498DB : provide >
+CalypsoCardExtension ..> SamSelectionAdapter #3498DB : provide >
+CalypsoCardExtension ..> CardSecuritySettingAdapter #3498DB : provide >
+CalypsoCardExtension ..> CardTransactionServiceAdapter #3498DB : provide >
+
+
+CalypsoCardExtension -[hidden]up- CardSecuritySetting
+CardSecuritySettingAdapter -[hidden]- CardSelectorAdapter
+CardSelectorAdapter -[hidden]right- CardSelectionRequestAdapter
+CardSelectionRequestAdapter -[hidden]right- CardRequestAdapter
+CardRequestAdapter -[hidden]right- ApduRequestAdapter
+ApduRequestAdapter -[hidden]right- CardSelectionAdapter
+
+CalypsoCardAdapter -[hidden]- SmartCardSpi
+CardSelectionAdapter -[hidden]- CardSelectionSpi
+CalypsoSamAdapter -[hidden]- SmartCardSpi
+SamSelectionAdapter -[hidden]- CardSelectionSpi
+CardSelectorAdapter -[hidden]- CardSelectorSpi
+CardSelectionRequestAdapter -[hidden]- CardSelectionRequestSpi
+CardRequestAdapter -[hidden]- CardRequestSpi
+ApduRequestAdapter -[hidden]- ApduRequestSpi
+
+
+package commonsApi #F8F9F9 {}
+package specificExtension #F8F9F9 {}
+package cardSpi #F8F9F9 {}
+package readerSelectionSpi #F8F9F9 {}
+package calypsoApi #F8F9F9 {}
+package calypsoTransactionApi #F2F3F4 {}
+package calypsoCardApi #F2F3F4 {}
+
+class CardSelectionAdapter <<blue>>
+class SamSelectionAdapter <<blue>>
+class CardSelectorAdapter <<blue>>
+class CalypsoCardAdapter <<blue>>
+class CalypsoSamAdapter <<blue>>
+class CardSelectionRequestAdapter <<blue>>
+class CardRequestAdapter <<blue>>
+class ApduRequestAdapter <<blue>>
+class CardTransactionServiceAdapter <<blue>>
+class CardSecuritySettingAdapter <<blue>>
+interface CardSelectionSpi <<blue>>
+interface CardSelectorSpi <<blue>>
+interface SmartCardSpi <<blue>>
+interface CardSelectionRequestSpi <<blue>>
+interface CardRequestSpi <<blue>>
+interface ApduRequestSpi <<blue>>
+
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 14:40:07 CEST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: fr
+Country: FR
+--></g></svg>

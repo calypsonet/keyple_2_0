@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Specific Card Extension - 2.0.0 (04/06/2021)
+    Keyple 2.0 - Specific Calypso Card Extension - 2.0.0 (07/06/2021)
 end title
 
 ' == THEME ==
@@ -63,6 +63,32 @@ package "org.calypsonet.terminal.reader.selection.spi" as readerSelectionSpi {
         ...
     }
 }
+package "org.calypsonet.terminal.calypso" as calypsoApi {
+    package "transaction" as calypsoTransactionApi {
+        +interface CardSecuritySetting {
+            ...
+        }
+        +interface CardTransactionService {
+            ...
+        }
+    }
+    package "card" as calypsoCardApi {
+        +interface CalypsoCardSelection extends CardSelection {
+            ...
+        }
+        +interface CalypsoCard extends SmartCard {
+            ...
+        }
+    }
+    package "sam" as calypsoSamApi {
+        +interface CalypsoSamSelection extends CardSelection {
+            ...
+        }
+        +interface CalypsoSam extends SmartCard {
+            ...
+        }
+    }
+}
 package "org.calypsonet.terminal.card.spi" as cardSpi {
     +interface CardSelectionSpi {
         ...
@@ -83,30 +109,25 @@ package "org.calypsonet.terminal.card.spi" as cardSpi {
     }
 }
 
-package "org.eclipse.keyple.card.xxx (specific extension)" as specificExtension {
-    +class "**final** xxxCardExtension" as xxxCardExtension implements KeypleCardExtension {
+package "org.eclipse.keyple.card.calypso (specific calypso extension)" as specificExtension {
+    +class "**final** CalypsoCardExtension" as CalypsoCardExtension implements KeypleCardExtension {
         --
-        +{static} xxxCardExtension getInstance ()
+        +{static} CalypsoCardExtension getInstance ()
         ..
-        +xxxCardSelection createXxxCardSelection ()
-        ...
-    }
-    +interface xxxCardSelection extends CardSelection {
-        ...
-    }
-    +interface xxxSmartCard extends SmartCard {
+        +CalypsoCardSelection createCalypsoCardSelection ()
+        +CalypsoSamSelection createCalypsoSamSelection ()
+        +CardSecuritySetting createCardSecuritySetting (...)
+        +CardTransactionService createCardTransactionService (...)
         ...
     }
     ' Adapters
     together {
-        ~class "**final** CardSelectionAdapter" as CardSelectionAdapter implements xxxCardSelection, CardSelectionSpi {
+        ~class "**final** CardSecuritySettingAdapter" as CardSecuritySettingAdapter implements CardSecuritySetting {
             ...
         }
-        ~class "**final** SmartCardAdapter" as SmartCardAdapter implements xxxSmartCard, SmartCardSpi {
+        ~class "**final** CardTransactionServiceAdapter" as CardTransactionServiceAdapter implements CardTransactionService {
             ...
         }
-    }
-    together {
         ~class "**final** CardSelectorAdapter" as CardSelectorAdapter implements CardSelectorSpi {
             ...
         }
@@ -120,25 +141,46 @@ package "org.eclipse.keyple.card.xxx (specific extension)" as specificExtension 
             ...
         }
     }
+    together {
+        ~class "**final** CardSelectionAdapter" as CardSelectionAdapter implements CalypsoCardSelection, CardSelectionSpi {
+            ...
+        }
+        ~class "**final** CalypsoCardAdapter" as CalypsoCardAdapter implements CalypsoCard, SmartCardSpi {
+            ...
+        }
+        ~class "**final** SamSelectionAdapter" as SamSelectionAdapter implements CalypsoSamSelection, CardSelectionSpi {
+            ...
+        }
+        ~class "**final** CalypsoSamAdapter" as CalypsoSamAdapter implements CalypsoSam, SmartCardSpi {
+            ...
+        }
+    }
 }
 
 ' Associations
 
-xxxCardExtension .right.> xxxCardSelection #C_LINK : provide >
+CalypsoCardExtension ..> CardSelectionAdapter #C_LINK : provide >
+CalypsoCardExtension ..> SamSelectionAdapter #C_LINK : provide >
+CalypsoCardExtension ..> CardSecuritySettingAdapter #C_LINK : provide >
+CalypsoCardExtension ..> CardTransactionServiceAdapter #C_LINK : provide >
 
 ' == LAYOUT ==
 
+CalypsoCardExtension -[hidden]up- CardSecuritySetting
+CardSecuritySettingAdapter -[hidden]- CardSelectorAdapter
+CardSelectorAdapter -[hidden]right- CardSelectionRequestAdapter
+CardSelectionRequestAdapter -[hidden]right- CardRequestAdapter
+CardRequestAdapter -[hidden]right- ApduRequestAdapter
+ApduRequestAdapter -[hidden]right- CardSelectionAdapter
+
+CalypsoCardAdapter -[hidden]- SmartCardSpi
 CardSelectionAdapter -[hidden]- CardSelectionSpi
-SmartCardAdapter -[hidden]- SmartCardSpi
+CalypsoSamAdapter -[hidden]- SmartCardSpi
+SamSelectionAdapter -[hidden]- CardSelectionSpi
 CardSelectorAdapter -[hidden]- CardSelectorSpi
 CardSelectionRequestAdapter -[hidden]- CardSelectionRequestSpi
 CardRequestAdapter -[hidden]- CardRequestSpi
 ApduRequestAdapter -[hidden]- ApduRequestSpi
-
-xxxCardSelection -[hidden]- CardSelectionAdapter
-
-SmartCardAdapter -[hidden]right- CardSelectorAdapter
-
 
 ' == STYLE ==
 
@@ -146,13 +188,20 @@ package commonsApi #C_GREY1 {}
 package specificExtension #C_GREY1 {}
 package cardSpi #C_GREY1 {}
 package readerSelectionSpi #C_GREY1 {}
+package calypsoApi #C_GREY1 {}
+package calypsoTransactionApi #C_GREY2 {}
+package calypsoCardApi #C_GREY2 {}
 
 class CardSelectionAdapter <<blue>>
+class SamSelectionAdapter <<blue>>
 class CardSelectorAdapter <<blue>>
-class SmartCardAdapter <<blue>>
+class CalypsoCardAdapter <<blue>>
+class CalypsoSamAdapter <<blue>>
 class CardSelectionRequestAdapter <<blue>>
 class CardRequestAdapter <<blue>>
 class ApduRequestAdapter <<blue>>
+class CardTransactionServiceAdapter <<blue>>
+class CardSecuritySettingAdapter <<blue>>
 interface CardSelectionSpi <<blue>>
 interface CardSelectorSpi <<blue>>
 interface SmartCardSpi <<blue>>
