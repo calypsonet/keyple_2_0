@@ -1,6 +1,6 @@
 @startuml
 title
-    Calypsonet - calypsonet-terminal-calypso-java-api - 1.0 (04/06/2021)
+    Calypsonet - calypsonet-terminal-calypso-java-api - 1.0 (08/06/2021)
 end title
 
 ' == THEME ==
@@ -141,10 +141,7 @@ package "org.calypsonet.terminal.calypso" as api {
             +byte[] getAccessConditions ()
             +byte[] getKeyIndexes ()
 
-            +boolean isKifAvailable (WriteAccessLevel writeAccessLevel)
             +byte getKif (WriteAccessLevel writeAccessLevel)
-
-            +boolean isKvcAvailable (WriteAccessLevel writeAccessLevel)
             +byte getKvc (WriteAccessLevel writeAccessLevel)
         }
         +interface ElementaryFile {
@@ -163,7 +160,6 @@ package "org.calypsonet.terminal.calypso" as api {
             +byte[] getAccessConditions ()
             +byte[] getKeyIndexes ()
 
-            +boolean isShared ()
             +Short getSharedReference ()
         }
         +enum "Type" as FileType {
