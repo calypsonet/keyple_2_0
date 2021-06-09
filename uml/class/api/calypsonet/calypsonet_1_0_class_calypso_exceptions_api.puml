@@ -1,6 +1,6 @@
 @startuml
 title
-    Calypsonet - Exceptions of calypsonet-terminal-calypso-java-api - 1.0 (07/06/2021)
+    Calypsonet - Exceptions of calypsonet-terminal-calypso-java-api - 1.0 (09/06/2021)
 end title
 
 ' == THEME ==
@@ -50,8 +50,8 @@ package "org.calypsonet.terminal.calypso" as api {
     package transaction {
 
         +abstract class "<<RuntimeException>>\nCardTransactionException" as CardTransactionException {
-            +CardTransactionException (String message)
-            +CardTransactionException (String message, Throwable cause)
+            #CardTransactionException (String message)
+            #CardTransactionException (String message, Throwable cause)
         }
 
         +class "AtomicTransactionException" as AtomicTransactionException extends CardTransactionException {
