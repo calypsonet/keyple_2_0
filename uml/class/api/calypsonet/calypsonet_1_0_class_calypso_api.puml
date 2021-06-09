@@ -296,6 +296,8 @@ package "org.calypsonet.terminal.calypso" as api {
             UNDO
         }
         +interface CardSecuritySetting {
+            +CardSecuritySetting setSamResource (<back:yellow>CardReader</back> samReader, CalypsoSam calypsoSam)
+
             +CardSecuritySetting enableMultipleSession ()
             +CardSecuritySetting enableRatificationMechanism ()
             +CardSecuritySetting enablePinPlainTransmission ()

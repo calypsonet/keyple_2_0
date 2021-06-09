@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Calypso Card Extension - 2.0.0 (04/06/2021)
+    Keyple 2.0 - Calypso Card Extension - 2.0.0 (09/06/2021)
 end title
 
 ' == THEME ==
@@ -63,7 +63,7 @@ package "org.eclipse.keyple.card.calypso" as calypso {
 
         +<back:pink>CalypsoSamSelection</back> createSamSelection ()
         +<back:orange>CardResourceProfileExtension</back> createSamResourceProfileExtension (<back:pink>CalypsoSamSelection</back> calypsoSamSelection)
-        +<back:pink>CardSecuritySetting</back> createCardSecuritySetting (<back:yellow>CardReader</back> samReader, <back:pink>CalypsoSam</back> calypsoSam)
+        +<back:pink>CardSecuritySetting</back> createCardSecuritySetting ()
         +<back:pink>CardTransactionService</back> createCardTransaction (<back:yellow>CardReader</back> cardReader, <back:pink>CalypsoCard</back> calypsoCard, <back:pink>CardSecuritySetting</back> cardSecuritySetting)
 
         +<back:pink>CardTransactionService</back> createCardTransactionWithoutSecurity (<back:yellow>CardReader</back> cardReader, <back:pink>CalypsoCard</back> calypsoCard)
