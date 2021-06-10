@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-distributed-local - 2.0.0 (21/05/2021)
+    Keyple 2.0 - keyple-distributed-local-java-lib - 2.0.0 (10/06/2021)
 end title
 
 ' == THEME ==
@@ -51,8 +51,8 @@ legend top
     ** <back:lightGreen>**Reader Client Side**</back> (Local Service on **Client**)
     ** <back:plum>**Reader Server Side**</back> (Local Service on **Server**)
     * __External API references__ :
-    ** <back:yellow>**keyple-java-distributed-network**</back>
-    ** <back:cyan>**keyple-java-commons-api**</back>
+    ** <back:yellow>**keyple-distributed-network-java-lib**</back>
+    ** <back:cyan>**keyple-common-java-api**</back>
 end legend
 
 package "org.eclipse.keyple.distributed" as root {

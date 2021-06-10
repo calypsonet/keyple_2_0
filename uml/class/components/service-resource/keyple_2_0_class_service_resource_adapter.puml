@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service-resource - 2.0.0 (04/06/2021)
+    Keyple 2.0 - Adapter of keyple-service-java-lib-resource - 2.0.0 (10/06/2021)
 end title
 
 ' == THEME ==
@@ -49,7 +49,7 @@ legend top
     __Colors legend__ :
     * __External public API references__ :
     ** <back:yellow>**calypsonet-terminal-reader-java-api**</back>
-    ** <back:pink>**keyple-java-service**</back>
+    ** <back:pink>**keyple-service-java-lib**</back>
 end legend
 
 package "org.eclipse.keyple.core.service.resource" as resource {

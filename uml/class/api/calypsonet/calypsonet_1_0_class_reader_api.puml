@@ -1,6 +1,6 @@
 @startuml
 title
-    Calypsonet - calypsonet-terminal-reader-java-api - 1.0 (07/06/2021)
+    Calypsonet - calypsonet-terminal-reader-java-api - 1.0 (10/06/2021)
 end title
 
 ' == THEME ==
@@ -109,7 +109,7 @@ package "org.calypsonet.terminal.reader" as readerApi {
     ' SELECTION
     package "selection" as selectionApi {
         ' Selection
-        +interface CardSelectionService {
+        +interface CardSelectionManager {
             +void setMultipleSelectionMode ()
 
             +int prepareSelection (CardSelection cardSelection)
@@ -171,12 +171,12 @@ CardReaderEvent .up.> ScheduledCardSelectionsResponse #C_LINK : provide >
 
 CardSelectionResult ..> SmartCard #C_LINK : provide >
 
-CardSelectionService ..> CardSelection #C_USE : use >
-CardSelectionService ..> ScheduledCardSelectionsResponse #C_USE : use >
-CardSelectionService ..> CardSelectionResult #C_LINK : provide >
-CardSelectionService .right.> CardReader #C_USE : use >
-CardSelectionService ..> NotificationMode #C_USE : use >
-CardSelectionService ..> DetectionMode #C_USE : use >
+CardSelectionManager ..> CardSelection #C_USE : use >
+CardSelectionManager ..> ScheduledCardSelectionsResponse #C_USE : use >
+CardSelectionManager ..> CardSelectionResult #C_LINK : provide >
+CardSelectionManager .right.> CardReader #C_USE : use >
+CardSelectionManager ..> NotificationMode #C_USE : use >
+CardSelectionManager ..> DetectionMode #C_USE : use >
 
 ObservableCardReader ..> CardReaderObserverSpi #C_USE : use >
 

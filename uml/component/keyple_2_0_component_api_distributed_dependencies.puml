@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Distributed APIs dependencies - 21/05/2021
+    Keyple 2.0 - Distributed APIs dependencies - 10/06/2021
 end title
 
 ' == THEME ==
@@ -68,29 +68,29 @@ hide <<grey>> stereotype
 ' == COMPONENTS ==
 
 [Specific Application] as application <<blue>>
-package "keyple-java-service" as packService {
+package "keyple-service-java-lib" as packService {
     interface "Service API" as serviceApi
     interface "Service SPI" as serviceSpi <<blue>>
     [Adapter] as service
 }
-package "keyple-java-distributed-local" as packDistributedLocal {
+package "keyple-distributed-local-java-lib" as packDistributedLocal {
     interface "Local API" as localApi <<purple>>
     [Adapter] as distributedLocal <<purple>>
 }
-package "keyple-java-distributed-network" as packDistributedNetwork {
+package "keyple-distributed-network-java-lib" as packDistributedNetwork {
     interface "Network API" as networkApi <<purple>>
     interface "Network SPI" as networkSpi <<blue>>
     [Adapter] as distributedNetwork <<purple>>
 }
-package "keyple-java-distributed-remote" as packDistributedRemote {
+package "keyple-distributed-remote-java-lib" as packDistributedRemote {
     interface "Remote API" as remoteApi <<purple>>
     [Adapter] as distributedRemote <<purple>>
 }
-package "keyple-java-distributed-remote-api" as packDistributedRemoteApi {
+package "keyple-distributed-remote-java-api" as packDistributedRemoteApi {
     interface "Remote Plugin SPI" as distributedRemoteSpi <<purple>>
     interface "Remote Plugin API" as distributedRemoteApi
 }
-package "keyple-java-distributed-local-api" as packDistributedLocalApi {
+package "keyple-distributed-local-java-api" as packDistributedLocalApi {
     interface "Local Service SPI" as distributedLocalSpi <<purple>>
     interface "Local Service API" as distributedLocalApi
 }

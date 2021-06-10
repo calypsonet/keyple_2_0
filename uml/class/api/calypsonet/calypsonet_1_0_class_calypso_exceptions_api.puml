@@ -1,6 +1,6 @@
 @startuml
 title
-    Calypsonet - Exceptions of calypsonet-terminal-calypso-java-api - 1.0 (09/06/2021)
+    Calypsonet - Exceptions of calypsonet-terminal-calypso-java-api - 1.0 (10/06/2021)
 end title
 
 ' == THEME ==
@@ -138,8 +138,8 @@ package "org.calypsonet.terminal.calypso" as api {
         }
         note bottom of SvAuthenticationException: R-APDU of SvCheck eq 6985
 
-        +class "UnauthorizedKvcException" as UnauthorizedKvcException extends CardTransactionException {
-            +UnauthorizedKvcException (
+        +class "UnauthorizedKeyException" as UnauthorizedKeyException extends CardTransactionException {
+            +UnauthorizedKeyException (
                 \tString message)
         }
 

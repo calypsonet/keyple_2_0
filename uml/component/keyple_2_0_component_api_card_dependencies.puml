@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Card APIs dependencies - 21/05/2021
+    Keyple 2.0 - Card APIs dependencies - 10/06/2021
 end title
 
 ' == THEME ==
@@ -78,7 +78,7 @@ package "calypsonet-terminal-reader-java-api" as packReaderApi {
     interface "Selection API" as selectionApi
     interface "Selection SPI" as selectionSpi <<green>>
 }
-package "keyple-java-service" as packService {
+package "keyple-service-java-lib" as packService {
     interface "Service API" as serviceApi
     interface "Service SPI" as serviceSpi <<blue>>
     [Adapter] as service

@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-java-service - 2.0.0 (04/06/2021)
+    Keyple 2.0 - keyple-service-java-lib - 2.0.0 (10/06/2021)
 end title
 
 ' == THEME ==
@@ -49,16 +49,12 @@ legend top
     __Colors legend__ :
     * __External public API references__ :
     ** <back:yellow>**calypsonet-terminal-reader-java-api**</back>
-    ** <back:cyan>**keyple-java-commons-api**</back>
+    ** <back:cyan>**keyple-common-java-api**</back>
 end legend
 
 package "org.eclipse.keyple.core.service" as service {
     +class "**final** ServiceProperties" as ApiProperties {
         +{static} **final** String VERSION
-    }
-    ' SELECTION
-    +class "**final** CardSelectionServiceFactory" as CardSelectionServiceFactory {
-        +{static} <back:yellow>CardSelectionService</back> getService ()
     }
     ' SERVICE
     +class "**final** SmartCardServiceProvider" as SmartCardServiceProvider {
@@ -76,6 +72,8 @@ package "org.eclipse.keyple.core.service" as service {
         +DistributedLocalService registerDistributedLocalService (<back:cyan>KeypleDistributedLocalServiceExtensionFactory</back> distributedLocalServiceFactory)
         +void unregisterDistributedLocalService (String distributedLocalServiceName)
         +DistributedLocalService getDistributedLocalService (String distributedLocalServiceName)
+
+        +<back:yellow>CardSelectionManager</back> createCardSelectionManager ()
     }
     +interface Plugin {
         +String getName ()
@@ -163,7 +161,6 @@ PluginObserverSpi ..> PluginEvent #C_USE : use >
 ' == LAYOUT ==
 
 ObservableReader -[hidden]- ReaderEvent
-SmartCardServiceProvider -[hidden]right- CardSelectionServiceFactory
 ReaderEvent -[hidden]- KeyplePluginException
 
 ' == STYLE ==

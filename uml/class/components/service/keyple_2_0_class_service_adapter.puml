@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-java-service - 2.0.0 (07/06/2021)
+    Keyple 2.0 - Adapter of keyple-service-java-lib - 2.0.0 (10/06/2021)
 end title
 
 ' == THEME ==
@@ -48,14 +48,14 @@ hide <<grey>> stereotype
 legend top
     __Colors legend__ :
     * __External public API references__ :
-    ** <back:cyan>**keyple-java-commons-api**</back>
+    ** <back:cyan>**keyple-common-java-api**</back>
     ** <back:yellow>**calypsonet-terminal-reader-java-api**</back>
     ** <back:lightGreen>**calypsonet-terminal-card-java-api**</back>
     ** <back:gold>**com.google.code.gson**</back>
     * __External private API references__ :
-    ** <back:pink>**keyple-java-plugin-api**</back>
-    ** <back:plum>**keyple-java-distributed-remote-api**</back>
-    ** <back:orange>**keyple-java-distributed-local-api**</back>
+    ** <back:pink>**keyple-plugin-java-api**</back>
+    ** <back:plum>**keyple-distributed-remote-java-api**</back>
+    ** <back:orange>**keyple-distributed-local-java-api**</back>
 end legend
 
 package "org.eclipse.keyple.core.service" as service {
@@ -91,6 +91,7 @@ package "org.eclipse.keyple.core.service" as service {
         +DistributedLocalService registerDistributedLocalService (<back:cyan>KeypleDistributedLocalServiceExtensionFactory</back> distributedLocalServiceFactory)
         +void unregisterDistributedLocalService (String distributedLocalServiceName)
         +DistributedLocalService getDistributedLocalService (String distributedLocalServiceName)
+        +<back:yellow>CardSelectionManager</back> createCardSelectionManager ()
     }
     ' PLUGIN
     ~abstract class "<<Plugin>>\nAbstractPluginAdapter" as AbstractPluginAdapter {
@@ -542,15 +543,11 @@ package "org.eclipse.keyple.core.service" as service {
         ~void stop ()
     }
 
-    ' SELECTION
-    +class "**final** CardSelectionServiceFactory" as CardSelectionServiceFactory {
-        ...
-    }
     ' ADAPTERS
-    ~class "<<<back:yellow>CardSelectionService</back>>>\n**final** CardSelectionServiceAdapter" as CardSelectionServiceAdapter {
+    ~class "<<<back:yellow>CardSelectionManager</back>>>\n**final** CardSelectionManagerAdapter" as CardSelectionManagerAdapter {
         --
-        ~CardSelectionServiceAdapter (MultiSelectionProcessing multiSelectionProcessing)
-        -- **CardSelectionService** --
+        ~CardSelectionManagerAdapter (MultiSelectionProcessing multiSelectionProcessing)
+        -- **CardSelectionManager** --
         +void setMultipleSelectionMode ()
         +int prepareSelection (<back:yellow>CardSelection</back> cardSelection)
         +void prepareReleaseChannel ()
@@ -646,10 +643,10 @@ AbstractPluginAdapter *-- "0..N" AbstractReaderAdapter #C_LINK
 ObservableRemoteReaderAdapter *-- "1" ObservationManagerAdapter #C_LINK
 ObservableRemoteReaderAdapter ..> CardSelectionScenarioAdapter #C_USE : use >
 
-CardSelectionServiceFactory ..> CardSelectionServiceAdapter #C_LINK : create >
+SmartCardServiceAdapter .right.> CardSelectionManagerAdapter #C_LINK : create >
 
-CardSelectionServiceAdapter ..> CardSelectionResultAdapter #C_LINK : create >
-CardSelectionServiceAdapter ..> ScheduledCardSelectionsResponseAdapter #C_USE : use >
+CardSelectionManagerAdapter ..> CardSelectionResultAdapter #C_LINK : create >
+CardSelectionManagerAdapter ..> ScheduledCardSelectionsResponseAdapter #C_USE : use >
 
 CardSelectionResponseAdapter *-- "0..1" ApduResponseAdapter #C_LINK
 CardSelectionResponseAdapter *-- "1" CardResponseAdapter #C_LINK
@@ -709,7 +706,7 @@ enum JsonProperty <<blue>>
 enum PluginService <<blue>>
 enum ReaderService <<blue>>
 
-class CardSelectionServiceAdapter <<blue>>
+class CardSelectionManagerAdapter <<blue>>
 class CardSelectionResultAdapter <<blue>>
 class ScheduledCardSelectionsResponseAdapter <<blue>>
 

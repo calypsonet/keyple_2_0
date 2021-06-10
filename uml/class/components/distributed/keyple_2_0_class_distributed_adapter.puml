@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of Keyple Distributed Solution - 2.0.0 (28/05/2021)
+    Keyple 2.0 - Adapter of Keyple Distributed Solution - 2.0.0 (10/06/2021)
 end title
 
 ' == THEME ==
@@ -48,12 +48,12 @@ hide <<grey>> stereotype
 legend top
     __Colors legend__ :
     * __Elements location__ :
-    ** <back:lightBlue>**keyple-java-distributed-network**</back>
-    ** <back:pink>**keyple-java-distributed-remote**</back>
-    ** <back:lightGreen>**keyple-java-distributed-local**</back>
+    ** <back:lightBlue>**keyple-distributed-network-java-lib**</back>
+    ** <back:pink>**keyple-distributed-remote-java-lib**</back>
+    ** <back:lightGreen>**keyple-distributed-local-java-lib**</back>
     * __External private API references__ :
-    ** <back:plum>**keyple-java-distributed-remote-api**</back>
-    ** <back:yellow>**keyple-java-distributed-local-api**</back>
+    ** <back:plum>**keyple-distributed-remote-java-api**</back>
+    ** <back:yellow>**keyple-distributed-local-java-api**</back>
 end legend
 
 package "org.eclipse.keyple.distributed" as packAdapter {

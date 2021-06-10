@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Calypso Card Extension - 2.0.0 (09/06/2021)
+    Keyple 2.0 - Calypso Card Extension - 2.0.0 (10/06/2021)
 end title
 
 ' == THEME ==
@@ -50,8 +50,8 @@ legend top
     * __External API references__ :
     ** <back:yellow>**calypsonet-terminal-reader-java-api**</back>
     ** <back:pink>**calypsonet-terminal-calypso-java-api**</back>
-    ** <back:cyan>**keyple-java-commons-api**</back>
-    ** <back:orange>**keyple-java-service-resource**</back>
+    ** <back:cyan>**keyple-common-java-api**</back>
+    ** <back:orange>**keyple-service-java-lib-resource**</back>
 end legend
 
 package "org.eclipse.keyple.card.calypso" as calypso {
@@ -64,9 +64,9 @@ package "org.eclipse.keyple.card.calypso" as calypso {
         +<back:pink>CalypsoSamSelection</back> createSamSelection ()
         +<back:orange>CardResourceProfileExtension</back> createSamResourceProfileExtension (<back:pink>CalypsoSamSelection</back> calypsoSamSelection)
         +<back:pink>CardSecuritySetting</back> createCardSecuritySetting ()
-        +<back:pink>CardTransactionService</back> createCardTransaction (<back:yellow>CardReader</back> cardReader, <back:pink>CalypsoCard</back> calypsoCard, <back:pink>CardSecuritySetting</back> cardSecuritySetting)
+        +<back:pink>CardTransactionManager</back> createCardTransaction (<back:yellow>CardReader</back> cardReader, <back:pink>CalypsoCard</back> calypsoCard, <back:pink>CardSecuritySetting</back> cardSecuritySetting)
 
-        +<back:pink>CardTransactionService</back> createCardTransactionWithoutSecurity (<back:yellow>CardReader</back> cardReader, <back:pink>CalypsoCard</back> calypsoCard)
+        +<back:pink>CardTransactionManager</back> createCardTransactionWithoutSecurity (<back:yellow>CardReader</back> cardReader, <back:pink>CalypsoCard</back> calypsoCard)
     }
 }
 

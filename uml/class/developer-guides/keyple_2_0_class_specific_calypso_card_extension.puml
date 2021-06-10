@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Specific Calypso Card Extension - 2.0.0 (07/06/2021)
+    Keyple 2.0 - Specific Calypso Card Extension - 2.0.0 (10/06/2021)
 end title
 
 ' == THEME ==
@@ -68,7 +68,7 @@ package "org.calypsonet.terminal.calypso" as calypsoApi {
         +interface CardSecuritySetting {
             ...
         }
-        +interface CardTransactionService {
+        +interface CardTransactionManager {
             ...
         }
     }
@@ -117,7 +117,7 @@ package "org.eclipse.keyple.card.calypso (specific calypso extension)" as specif
         +CalypsoCardSelection createCalypsoCardSelection ()
         +CalypsoSamSelection createCalypsoSamSelection ()
         +CardSecuritySetting createCardSecuritySetting (...)
-        +CardTransactionService createCardTransactionService (...)
+        +CardTransactionManager createCardTransactionManager (...)
         ...
     }
     ' Adapters
@@ -125,7 +125,7 @@ package "org.eclipse.keyple.card.calypso (specific calypso extension)" as specif
         ~class "**final** CardSecuritySettingAdapter" as CardSecuritySettingAdapter implements CardSecuritySetting {
             ...
         }
-        ~class "**final** CardTransactionServiceAdapter" as CardTransactionServiceAdapter implements CardTransactionService {
+        ~class "**final** CardTransactionManagerAdapter" as CardTransactionManagerAdapter implements CardTransactionManager {
             ...
         }
         ~class "**final** CardSelectorAdapter" as CardSelectorAdapter implements CardSelectorSpi {
@@ -162,7 +162,7 @@ package "org.eclipse.keyple.card.calypso (specific calypso extension)" as specif
 CalypsoCardExtension ..> CardSelectionAdapter #C_LINK : provide >
 CalypsoCardExtension ..> SamSelectionAdapter #C_LINK : provide >
 CalypsoCardExtension ..> CardSecuritySettingAdapter #C_LINK : provide >
-CalypsoCardExtension ..> CardTransactionServiceAdapter #C_LINK : provide >
+CalypsoCardExtension ..> CardTransactionManagerAdapter #C_LINK : provide >
 
 ' == LAYOUT ==
 
@@ -200,7 +200,7 @@ class CalypsoSamAdapter <<blue>>
 class CardSelectionRequestAdapter <<blue>>
 class CardRequestAdapter <<blue>>
 class ApduRequestAdapter <<blue>>
-class CardTransactionServiceAdapter <<blue>>
+class CardTransactionManagerAdapter <<blue>>
 class CardSecuritySettingAdapter <<blue>>
 interface CardSelectionSpi <<blue>>
 interface CardSelectorSpi <<blue>>
