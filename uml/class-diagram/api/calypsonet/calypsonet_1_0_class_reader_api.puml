@@ -1,6 +1,6 @@
 @startuml
 title
-    Calypsonet - calypsonet-terminal-reader-java-api - 1.0 (10/06/2021)
+    Calypsonet - calypsonet-terminal-reader-java-api - 1.0 (15/06/2021)
 end title
 
 ' == THEME ==
@@ -139,6 +139,12 @@ package "org.calypsonet.terminal.reader" as readerApi {
         }
         +interface ScheduledCardSelectionsResponse {
         }
+
+        +class "<<RuntimeException>>\nInvalidCardResponseException" as InvalidCardResponseException {
+            +InvalidCardResponseException (String message)
+            +InvalidCardResponseException (String message,
+                \tThrowable cause)
+        }
     }
     ' EXCEPTIONS
     'together {
@@ -177,6 +183,7 @@ CardSelectionManager ..> CardSelectionResult #C_LINK : provide >
 CardSelectionManager .right.> CardReader #C_USE : use >
 CardSelectionManager ..> NotificationMode #C_USE : use >
 CardSelectionManager ..> DetectionMode #C_USE : use >
+CardSelectionManager .left.> InvalidCardResponseException #C_LINK : throw >
 
 ObservableCardReader ..> CardReaderObserverSpi #C_USE : use >
 
