@@ -79,7 +79,7 @@ package "Keyple Public Components having adapters" as packMain #C_GREY1 {
     together {
         [Specific Card Extension (Calypso...)\nuse <back:yellow>**keyple-util-java-lib**</back>\nuse <back:cyan>**keyple-common-java-api**</back>] as extension <<green>>
         [**keyple-service-java-lib**\nuse <back:yellow>**keyple-util-java-lib**</back>\nuse <back:cyan>**keyple-common-java-api**</back>] as service
-        [**keyple-service-java-lib-resource**\nuse <back:yellow>**keyple-util-java-lib**</back>] as serviceResource <<grey>>
+        [**keyple-service-resource-java-lib**\nuse <back:yellow>**keyple-util-java-lib**</back>] as serviceResource <<grey>>
     }
     [Specific Plugin (PCSC...)\nuse <back:yellow>**keyple-util-java-lib**</back>\nuse <back:cyan>**keyple-common-java-api**</back>] as plugin <<red>>
     together {
