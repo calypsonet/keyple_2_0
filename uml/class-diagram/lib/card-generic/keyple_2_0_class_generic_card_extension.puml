@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Generic Card Extension - 2.0.0 (15/06/2021)
+    Keyple 2.0 - Generic Card Extension - 2.0.0 (16/06/2021)
 end title
 
 ' == THEME ==
@@ -87,10 +87,6 @@ package "org.eclipse.keyple.card.generic" as generic {
         +GenericCardSelection setFileOccurrence (FileOccurrence fileOccurrence)
         +GenericCardSelection setFileControlInformation (FileControlInformation fileControlInformation)
         +GenericCardSelection addSuccessfulStatusWord (int statusWord)
-
-        +GenericCardSelection prepareApdu (byte[] apdu)
-        +GenericCardSelection prepareApdu (String apdu)
-        +GenericCardSelection prepareApdu (byte cla, byte ins, byte p1, byte p2, byte[] dataIn, Byte le)
     }
     +enum FileOccurrence {
         FIRST
