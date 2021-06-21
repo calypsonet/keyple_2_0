@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-service-java-lib - 2.0.0 (10/06/2021)
+    Keyple 2.0 - Adapter of keyple-service-java-lib - 2.0.0 (21/06/2021)
 end title
 
 ' == THEME ==
@@ -59,10 +59,6 @@ legend top
 end legend
 
 package "org.eclipse.keyple.core.service" as service {
-    ' SERVICE
-    +class "**final** ServiceProperties" as ApiProperties {
-        +{static} **final** String VERSION
-    }
     +class "**final** SmartCardServiceProvider" as SmartCardServiceProvider {
         ...
     }

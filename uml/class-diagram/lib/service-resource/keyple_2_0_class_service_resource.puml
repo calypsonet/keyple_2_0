@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-service-resource-java-lib - 2.0.0 (10/06/2021)
+    Keyple 2.0 - keyple-service-resource-java-lib - 2.0.0 (21/06/2021)
 end title
 
 ' == THEME ==
@@ -53,10 +53,6 @@ legend top
 end legend
 
 package "org.eclipse.keyple.core.service.resource" as resource {
-
-    +class "**final** CardResourceProperties" as ApiProperties {
-        +{static} **final** String VERSION
-    }
 
     ' Card Resource Service
     +class "**final** CardResourceServiceProvider" as CardResourceServiceProvider {
