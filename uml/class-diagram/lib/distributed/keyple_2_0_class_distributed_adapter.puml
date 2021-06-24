@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of Keyple Distributed Solution - 2.0.0 (10/06/2021)
+    Keyple 2.0 - Adapter of Keyple Distributed Solution - 2.0.0 (24/06/2021)
 end title
 
 ' == THEME ==
@@ -184,7 +184,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             ~AbstractRemotePluginFactoryAdapter (String remotePluginName)
             -- **RemotePluginFactorySpi** --
             +**final** String getDistributedRemoteApiVersion ()
-            +**final** String getCommonsApiVersion ()
+            +**final** String getCommonApiVersion ()
             +**final** String getRemotePluginName ()
         }
         ~class "<<RemotePluginClientFactory>>\n**final** RemotePluginClientFactoryAdapter" as RemotePluginClientFactoryAdapter extends AbstractRemotePluginFactoryAdapter {
@@ -354,7 +354,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             ~AbstractLocalServiceFactoryAdapter (String localServiceName)
             -- **LocalServiceFactorySpi** --
             +**final** String getDistributedLocalApiVersion ()
-            +**final** String getCommonsApiVersion ()
+            +**final** String getCommonApiVersion ()
             +**final** String getLocalServiceName ()
         }
         ~class "<<LocalServiceClientFactory>>\n**final** LocalServiceClientFactoryAdapter" as LocalServiceClientFactoryAdapter extends AbstractLocalServiceFactoryAdapter {

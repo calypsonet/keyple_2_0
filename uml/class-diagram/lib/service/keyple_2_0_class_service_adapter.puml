@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-service-java-lib - 2.0.0 (21/06/2021)
+    Keyple 2.0 - Adapter of keyple-service-java-lib - 2.0.0 (24/06/2021)
 end title
 
 ' == THEME ==
@@ -144,7 +144,6 @@ package "org.eclipse.keyple.core.service" as service {
         --
         ~ObservationManagerAdapter (String pluginName, String readerName)
 
-        ~void setEventNotificationExecutorService (ExecutorService eventNotificationExecutorService)
         ~void setObservationExceptionHandler (S exceptionHandler)
         ~void addObserver (T observer)
         ~void removeObserver (T observer)
@@ -152,7 +151,6 @@ package "org.eclipse.keyple.core.service" as service {
         ~int countObservers ()
 
         ~Set<T> getObservers ()
-        ~ExecutorService getEventNotificationExecutorService ()
         ~S getObservationExceptionHandler ()
     }
     ' OBSERVABLE PLUGINS
@@ -165,7 +163,6 @@ package "org.eclipse.keyple.core.service" as service {
         -- **AbstractPluginAdapter** --
         ~**final** void unregister ()
         -- **ObservablePlugin** --
-        +**final** void setEventNotificationExecutorService (ExecutorService eventNotificationExecutorService)
         +**final** void setPluginObservationExceptionHandler (PluginObservationExceptionHandlerSpi exceptionHandler)
         +void addObserver (PluginObserverSpi observer)
         +void removeObserver (PluginObserverSpi observer)
@@ -198,7 +195,6 @@ package "org.eclipse.keyple.core.service" as service {
         -- **AbstractPluginAdapter** --
         ~void unregister ()
         -- **ObservablePlugin** --
-        +void setEventNotificationExecutorService (ExecutorService eventNotificationExecutorService)
         +void setPluginObservationExceptionHandler (PluginObservationExceptionHandlerSpi exceptionHandler)
         +void addObserver (PluginObserverSpi observer)
         +void removeObserver (PluginObserverSpi observer)
@@ -346,7 +342,6 @@ package "org.eclipse.keyple.core.service" as service {
         -- **Reader** --
         +boolean isCardPresent ()
         -- **ObservableReader** --
-        +void setEventNotificationExecutorService (ExecutorService eventNotificationExecutorService)
         +void setReaderObservationExceptionHandler (<back:yellow>CardReaderObservationExceptionHandlerSpi</back> exceptionHandler)
         +void addObserver (<back:yellow>CardReaderObserverSpi</back> observer)
         +void removeObserver (<back:yellow>CardReaderObserverSpi</back> observer)
@@ -379,7 +374,6 @@ package "org.eclipse.keyple.core.service" as service {
         -- **AbstractReaderAdapter** --
         ~void unregister ()
         -- **ObservableReader** --
-        +void setEventNotificationExecutorService (ExecutorService eventNotificationExecutorService)
         +void setReaderObservationExceptionHandler (<back:yellow>CardReaderObservationExceptionHandlerSpi</back> exceptionHandler)
         +void addObserver (<back:yellow>CardReaderObserverSpi</back> observer)
         +void removeObserver (<back:yellow>CardReaderObserverSpi</back> observer)

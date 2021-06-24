@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Generic Card Extension - 2.0.0 (16/06/2021)
+    Keyple 2.0 - Generic Card Extension - 2.0.0 (24/06/2021)
 end title
 
 ' == THEME ==
@@ -63,9 +63,9 @@ package "org.eclipse.keyple.card.generic" as generic {
         +CardTransactionManager createCardTransaction (<back:yellow>CardReader</back> reader, <back:yellow>SmartCard</back> card)
 
         -- **KeypleCardExtension** --
-        +String getCardApiVersion ()
+        +String getCommonApiVersion ()
         +String getReaderApiVersion ()
-        +String getCommonsApiVersion ()
+        +String getCardApiVersion ()
     }
     +interface CardTransactionManager {
         +CardTransactionManager prepareApdu (String apduCommand)

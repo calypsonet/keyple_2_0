@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-plugin-java-api - 2.0 (10/06/2021)
+    Keyple 2.0 - keyple-plugin-java-api - 2.0 (24/06/2021)
 end title
 
 ' == THEME ==
@@ -81,13 +81,13 @@ package "org.eclipse.keyple.core.plugin" as api {
         together {
             +interface PoolPluginFactorySpi {
                 +String getPluginApiVersion ()
-                +String getCommonsApiVersion ()
+                +String getCommonApiVersion ()
                 +String getPoolPluginName ()
                 +PoolPluginSpi getPoolPlugin ()
             }
             +interface PluginFactorySpi {
                 +String getPluginApiVersion ()
-                +String getCommonsApiVersion ()
+                +String getCommonApiVersion ()
                 +String getPluginName ()
                 +PluginSpi getPlugin ()
             }

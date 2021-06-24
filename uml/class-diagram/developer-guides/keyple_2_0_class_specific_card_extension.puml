@@ -51,7 +51,7 @@ legend top
     * <back:lightBlue>Private API for internal use only</back>
 end legend
 
-package "org.eclipse.keyple.core.common" as commonsApi {
+package "org.eclipse.keyple.core.common" as commonApi {
     +interface KeypleCardExtension {
         ...
     }
@@ -142,7 +142,7 @@ SmartCardAdapter -[hidden]right- CardSelectorAdapter
 
 ' == STYLE ==
 
-package commonsApi #C_GREY1 {}
+package commonApi #C_GREY1 {}
 package specificExtension #C_GREY1 {}
 package cardSpi #C_GREY1 {}
 package readerSelectionSpi #C_GREY1 {}

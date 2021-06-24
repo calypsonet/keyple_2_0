@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-common-java-api - 2.0 (10/06/2021)
+    Keyple 2.0 - keyple-common-java-api - 2.0 (24/06/2021)
 end title
 
 ' == THEME ==
@@ -46,7 +46,7 @@ hide <<grey>> stereotype
 ' == CONTENT ==
 
 package "org.eclipse.keyple.core.common" as api {
-    +class "**final** CommonsApiProperties" as ApiProperties {
+    +class "**final** CommonApiProperties" as ApiProperties {
         +{static} **final** String VERSION
     }
     +interface KeyplePluginExtensionFactory {
@@ -56,9 +56,9 @@ package "org.eclipse.keyple.core.common" as api {
     +interface KeypleReaderExtension {
     }
     +interface KeypleCardExtension {
+        +String getCommonApiVersion ()
         +String getReaderApiVersion ()
         +String getCardApiVersion ()
-        +String getCommonsApiVersion ()
     }
     +interface KeypleDistributedLocalServiceExtensionFactory {
     }

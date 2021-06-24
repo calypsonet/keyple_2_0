@@ -51,7 +51,7 @@ legend top
     * <back:lightBlue>Private API for internal use only</back>
 end legend
 
-package "org.eclipse.keyple.core.common" as commonsApi {
+package "org.eclipse.keyple.core.common" as commonApi {
     +interface KeypleDistributedLocalServiceExtensionFactory {
     }
     +interface KeypleDistributedLocalServiceExtension {
@@ -93,13 +93,13 @@ xxxDistributedLocalServiceFactoryAdapter *- "1" xxxDistributedLocalAdapter #C_LI
 
 ' == LAYOUT ==
 
-commonsApi -[hidden]- specificDistributedLocalApi
+commonApi -[hidden]- specificDistributedLocalApi
 xxxDistributedLocalAdapter -[hidden]- LocalServiceSpi
 xxxDistributedLocalServiceFactoryAdapter -[hidden]- LocalServiceSpi
 
 ' == STYLE ==
 
-package commonsApi #C_GREY1 {}
+package commonApi #C_GREY1 {}
 package distributedLocalSpi #C_GREY1 {}
 package specificDistributedLocalApi #C_GREY1 {}
 

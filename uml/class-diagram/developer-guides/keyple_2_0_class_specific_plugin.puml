@@ -51,7 +51,7 @@ legend top
     * <back:lightBlue>Private API for internal use only</back>
 end legend
 
-package "org.eclipse.keyple.core.common" as commonsApi {
+package "org.eclipse.keyple.core.common" as commonApi {
     +interface KeyplePluginExtensionFactory {
     }
     +interface KeyplePluginExtension {
@@ -105,14 +105,14 @@ xxxPluginAdapter *- "0..N" xxxReaderAdapter #C_LINK
 
 ' == LAYOUT ==
 
-commonsApi -[hidden]- specificPluginApi
+commonApi -[hidden]- specificPluginApi
 xxxReaderAdapter -[hidden]- ReaderSpi
 xxxPluginAdapter -[hidden]- PluginSpi
 xxxPluginFactoryAdapter -[hidden]- PluginFactorySpi
 
 ' == STYLE ==
 
-package commonsApi #C_GREY1 {}
+package commonApi #C_GREY1 {}
 package pluginSpi #C_GREY1 {}
 package specificPluginApi #C_GREY1 {}
 

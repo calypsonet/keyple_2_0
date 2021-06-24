@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-distributed-remote-java-api - 2.0 (10/06/2021)
+    Keyple 2.0 - keyple-distributed-remote-java-api - 2.0 (24/06/2021)
 end title
 
 ' == THEME ==
@@ -72,7 +72,7 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
         ' Factories
         +interface RemotePluginFactorySpi {
             +String getDistributedRemoteApiVersion ()
-            +String getCommonsApiVersion ()
+            +String getCommonApiVersion ()
             +String getRemotePluginName ()
             +AbstractRemotePluginSpi getRemotePlugin ()
         }
