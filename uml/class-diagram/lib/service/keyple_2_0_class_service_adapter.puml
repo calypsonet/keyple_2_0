@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of keyple-service-java-lib - 2.0.0 (24/06/2021)
+    Keyple 2.0 - Adapter of keyple-service-java-lib - 2.0.0 (02/07/2021)
 end title
 
 ' == THEME ==
@@ -92,7 +92,7 @@ package "org.eclipse.keyple.core.service" as service {
     ' PLUGIN
     ~abstract class "<<Plugin>>\nAbstractPluginAdapter" as AbstractPluginAdapter {
         --
-        ~AbstractPluginAdapter (String pluginName, Object pluginExtension)
+        ~AbstractPluginAdapter (String pluginName, <back:cyan>KeyplePluginExtension</back> pluginExtension)
 
         ~**final** Map<String, Reader> getReadersMap ()
         ~**final** void checkStatus ()
@@ -117,6 +117,7 @@ package "org.eclipse.keyple.core.service" as service {
         ~RemotePluginAdapter (<back:plum>RemotePluginSpi</back> remotePluginSpi)
         -- **AbstractPluginAdapter** --
         ~**final** void register ()
+        ~void unregister ()
         -- **RemotePluginApi** --
         +**final** void onReaderEvent (String jsonData)
     }
@@ -134,6 +135,8 @@ package "org.eclipse.keyple.core.service" as service {
     ~class "<<PoolPlugin>>\n**final** RemotePoolPluginAdapter" as RemotePoolPluginAdapter extends AbstractPluginAdapter {
         --
         ~RemotePoolPluginAdapter (<back:plum>RemotePoolPluginSpi</back> remotePoolPluginSpi)
+        -- **AbstractPluginAdapter** --
+        ~void unregister ()
         -- **PoolPlugin** --
         +SortedSet<String> getReaderGroupReferences ()
         +Reader allocateReader (String readerGroupReference)
@@ -245,7 +248,7 @@ package "org.eclipse.keyple.core.service" as service {
     ' READERS
     ~abstract class "<<Reader>>\n<<<back:lightGreen>ProxyReaderApi</back>>>\nAbstractReaderAdapter" as AbstractReaderAdapter {
         --
-        ~AbstractReaderAdapter (String readerName, Object readerExtension, String pluginName)
+        ~AbstractReaderAdapter (String readerName, <back:cyan>KeypleReaderExtension</back> readerExtension, String pluginName)
 
         ~**final** String getPluginName ()
         ~**final** List<<back:lightGreen>CardSelectionResponseApi</back>> transmitCardSelectionRequests (List<<back:lightGreen>CardSelectionRequestSpi</back>> cardSelectionRequests,

@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-distributed-remote-java-api - 2.0 (24/06/2021)
+    Keyple 2.0 - keyple-distributed-remote-java-api - 2.0 (02/07/2021)
 end title
 
 ' == THEME ==
@@ -80,6 +80,7 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
         +interface AbstractRemotePluginSpi {
             +String getName ()
             +String executeRemotely (String jsonData)
+            +void onUnregister ()
         }
         +interface RemotePluginSpi extends AbstractRemotePluginSpi {
             .. <back:plum>**Reader Server Side**</back> ..

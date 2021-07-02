@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of Keyple Distributed Solution - 2.0.0 (24/06/2021)
+    Keyple 2.0 - Adapter of Keyple Distributed Solution - 2.0.0 (02/07/2021)
 end title
 
 ' == THEME ==
@@ -77,6 +77,7 @@ package "org.eclipse.keyple.distributed" as packAdapter {
         ~**final** void bindAsyncNodeServer (
             \tAsyncEndpointServerSpi endpoint)
         ~**final** AbstractNodeAdapter getNode ()
+        ~**final** Boolean isBoundToSyncNode ()
 
         ~{abstract} **abstract** void onMessage (MessageDto message)
     }
@@ -218,9 +219,10 @@ package "org.eclipse.keyple.distributed" as packAdapter {
         ~abstract "<<<back:plum>AbstractRemotePluginSpi</back>>>\nAbstractRemotePluginAdapter" as AbstractRemotePluginAdapter extends AbstractMessageHandlerAdapter {
             --
             ~AbstractRemotePluginAdapter (String remotePluginName)
+
+            ~**final** String executeRemotely (String jsonData, String sessionId)
             -- **AbstractRemotePluginSpi** --
             +**final** String getName ()
-            +**final** String executeRemotely (String jsonData)
         }
 
         ~abstract class "<<RemotePluginClient>>\nAbstractRemotePluginClientAdapter" as AbstractRemotePluginClientAdapter extends AbstractRemotePluginAdapter {
@@ -229,6 +231,9 @@ package "org.eclipse.keyple.distributed" as packAdapter {
                 \tString remotePluginName)
             -- **RemotePluginClient** --
             +**final** AsyncNodeClient getAsyncNode ()
+            -- **AbstractRemotePluginSpi** --
+            +**final** String executeRemotely (String jsonData)
+            +**final** void onUnregister ()
         }
         ~class "<<<back:plum>RemotePluginSpi</back>>>\nRemotePluginClientAdapter" as RemotePluginClientAdapter extends AbstractRemotePluginClientAdapter {
             --
@@ -270,6 +275,9 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             +SyncNodeServer getSyncNode ()
             +AsyncNodeServer getAsyncNode ()
             +void endRemoteService (String remoteReaderName, Object outputData)
+            -- **AbstractRemotePluginSpi** --
+            +String executeRemotely (String jsonData)
+            +void onUnregister ()
             -- **RemotePluginSpi** --
             +void connect (<back:plum>RemotePluginApi</back> remotePluginApi)
             +<back:plum>RemoteReaderSpi</back> createRemoteReader (String localReaderName)

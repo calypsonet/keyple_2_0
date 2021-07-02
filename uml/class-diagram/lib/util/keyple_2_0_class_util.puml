@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-util-java-lib - 2.0.0 (10/06/2021)
+    Keyple 2.0 - keyple-util-java-lib - 2.0.0 (02/07/2021)
 end title
 
 ' == THEME ==
@@ -58,7 +58,7 @@ package "org.eclipse.keyple.core.util" as util {
         ..
         +Assert notNull (Object obj, String name)
         +Assert notEmpty (String obj, String name)
-        +Assert notEmpty (List<? extends Object> obj, String name)
+        +Assert notEmpty (Collection<? extends Object> obj, String name)
         +Assert notEmpty (byte[] obj, String name)
         +Assert isTrue (Boolean condition, String name)
         +Assert greaterOrEqual (Integer number, int minValue, String name)
