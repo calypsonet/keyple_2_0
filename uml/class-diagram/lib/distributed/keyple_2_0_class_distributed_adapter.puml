@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - Adapter of Keyple Distributed Solution - 2.0.0 (02/07/2021)
+    Keyple 2.0 - Adapter of Keyple Distributed Solution - 2.0.0 (07/07/2021)
 end title
 
 ' == THEME ==
@@ -229,6 +229,8 @@ package "org.eclipse.keyple.distributed" as packAdapter {
             --
             ~AbstractRemotePluginClientAdapter (
                 \tString remotePluginName)
+
+            ~**final** String getGlobalSessionId ()
             -- **RemotePluginClient** --
             +**final** AsyncNodeClient getAsyncNode ()
             -- **AbstractRemotePluginSpi** --
